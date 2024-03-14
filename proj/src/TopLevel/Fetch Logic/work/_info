@@ -1,0 +1,497 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+Z2 !s12c _opt1
+R1
+R2
+R1
+R0
+R1
+!s11e vcom 2023.2_2 2023.06, Jun  9 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 d/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic
+T_opt
+!s110 1710439152
+Vg;YKRAlLzA[V:Y41jV>4]0
+04 13 2 work fetchlogic_tb tb 1
+=1-0050569b82d6-65f33aef-d48d5-4726
+R1
+!s12b OEM100
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2023.2_2;77
+Eaddtoend
+Z4 w1710437980
+Z5 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
+Z6 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z7 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+!i122 55
+R3
+Z8 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/addToEnd.vhd
+Z9 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/addToEnd.vhd
+l0
+Z10 L14 1
+V?;CRalUnKXhc2]SnJAAof3
+!s100 <RE<50k08[[oOzL]B?bGz0
+Z11 OL;C;2023.2_2;77
+32
+Z12 !s110 1710439142
+!i10b 1
+Z13 !s108 1710439142.000000
+Z14 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/addToEnd.vhd|
+Z15 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/addToEnd.vhd|
+!i113 0
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Abehavioral
+R5
+R6
+R7
+DEx4 work 8 addtoend 0 22 ?;CRalUnKXhc2]SnJAAof3
+!i122 55
+l20
+Z18 L19 4
+VLgPCSnH5QZ_SEXIOLIjRN3
+!s100 EaVQ3ZB?00cRcl=eIj0z>3
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 0
+R16
+R17
+Eaddtostart
+Z19 w1710437981
+R5
+R6
+R7
+!i122 56
+R3
+Z20 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/addToStart.vhd
+Z21 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/addToStart.vhd
+l0
+R10
+V:i`2neTYkgaRdc=U_e7Vm2
+!s100 YC_35ThVDKig1lXGY9B5_3
+R11
+32
+R12
+!i10b 1
+R13
+Z22 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/addToStart.vhd|
+Z23 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/addToStart.vhd|
+!i113 0
+R16
+R17
+Abehavioral
+R5
+R6
+R7
+DEx4 work 10 addtostart 0 22 :i`2neTYkgaRdc=U_e7Vm2
+!i122 56
+l21
+L20 4
+V1Ih8U^@lb;zz??b8AQHB00
+!s100 bBR<73i^FVmOTo7BSBYz63
+R11
+32
+R12
+!i10b 1
+R13
+R22
+R23
+!i113 0
+R16
+R17
+Edffg
+Z24 w1710438066
+R6
+R7
+!i122 57
+R3
+Z25 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/dffg.vhd
+Z26 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/dffg.vhd
+l0
+L23 1
+VaBn<3_7oIgIleFniVim733
+!s100 FJQDe;FGDG0KnNV;j4DaY2
+R11
+32
+R12
+!i10b 1
+R13
+Z27 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/dffg.vhd|
+Z28 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/dffg.vhd|
+!i113 0
+R16
+R17
+Amixed
+R6
+R7
+DEx4 work 4 dffg 0 22 aBn<3_7oIgIleFniVim733
+!i122 57
+l37
+L33 29
+VS_P?KDWPHzz@YT_fABo?Z0
+!s100 GR5ff]ZD1Yiz`>ZFVE>Hg1
+R11
+32
+R12
+!i10b 1
+R13
+R27
+R28
+!i113 0
+R16
+R17
+Eextendsign
+Z29 w1710437883
+R5
+R6
+R7
+!i122 58
+R3
+Z30 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/extendSign.vhd
+Z31 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/extendSign.vhd
+l0
+R10
+VM9lAl1;`OD2BSk9gYE31N0
+!s100 n:UazR8ZfkaEW_F0N>8o>3
+R11
+32
+R12
+!i10b 1
+R13
+Z32 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/extendSign.vhd|
+Z33 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/extendSign.vhd|
+!i113 0
+R16
+R17
+Abehavioral
+R5
+R6
+R7
+DEx4 work 10 extendsign 0 22 M9lAl1;`OD2BSk9gYE31N0
+!i122 58
+l20
+L19 5
+VJ9C_6X@FOa^5l2cU[7<zE2
+!s100 >m`l4MZfdmY^Qa`@RloGk0
+R11
+32
+R12
+!i10b 1
+R13
+R32
+R33
+!i113 0
+R16
+R17
+Efetchlogic
+Z34 w1710437826
+R5
+R6
+R7
+!i122 59
+R3
+Z35 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/fetchLogic.vhd
+Z36 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/fetchLogic.vhd
+l0
+L32 1
+Vo@zC9@9Eo<]2PKfEjNm9D1
+!s100 7W@P4C3mhGoS8SKDS4[TD3
+R11
+32
+R12
+!i10b 1
+R13
+Z37 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/fetchLogic.vhd|
+Z38 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/fetchLogic.vhd|
+!i113 0
+R16
+R17
+Astructure
+R5
+R6
+R7
+Z39 DEx4 work 10 fetchlogic 0 22 o@zC9@9Eo<]2PKfEjNm9D1
+!i122 59
+l109
+L46 141
+VPX3Iz>@cCf7>4G1YdzGa:0
+!s100 3g?GmGej9494hhPBYFJY02
+R11
+32
+R12
+!i10b 1
+R13
+R37
+R38
+!i113 0
+R16
+R17
+Efetchlogic_tb
+Z40 w1710439108
+R5
+R6
+R7
+!i122 65
+R3
+Z41 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/tb_fetchLogic.vhd
+Z42 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/tb_fetchLogic.vhd
+l0
+L5 1
+Vf6E5afV1Oka<>A7og^R2W3
+!s100 ?XbKNXT[nMMP;0L68QMbm0
+R11
+32
+Z43 !s110 1710439143
+!i10b 1
+Z44 !s108 1710439143.000000
+Z45 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/tb_fetchLogic.vhd|
+Z46 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/tb_fetchLogic.vhd|
+!i113 0
+R16
+R17
+Atb
+R39
+R5
+R6
+R7
+DEx4 work 13 fetchlogic_tb 0 22 f6E5afV1Oka<>A7og^R2W3
+!i122 65
+l14
+L8 90
+VNV[TmQdR41AQ4DKYAd4eU2
+!s100 EGI463a@=ORdHnm35O=ZY1
+R11
+32
+R43
+!i10b 1
+R44
+R45
+R46
+!i113 0
+R16
+R17
+Emem
+Z47 w1709217476
+R5
+R6
+R7
+!i122 60
+R3
+Z48 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mem.vhd
+Z49 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mem.vhd
+l0
+L8 1
+VnYK75YT_DT9[l?ZQ16TI^1
+!s100 GF_U?1mjKdlzTC==@Eoi@2
+R11
+32
+R12
+!i10b 1
+R13
+Z50 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mem.vhd|
+Z51 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mem.vhd|
+!i113 0
+R16
+R17
+Artl
+R5
+R6
+R7
+DEx4 work 3 mem 0 22 nYK75YT_DT9[l?ZQ16TI^1
+!i122 60
+l37
+L27 24
+V0P842]PUf?YimUc_z4@5J0
+!s100 h2oZ:n@5VDnM^B7>cA]W22
+R11
+32
+R12
+!i10b 1
+R13
+R50
+R51
+!i113 0
+R16
+R17
+Emux2t1_n
+Z52 w1709270544
+R6
+R7
+!i122 61
+R3
+Z53 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd
+Z54 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd
+l0
+L21 1
+VmY^3Z`LOeH:?DS5zXOWi]0
+!s100 Y80E^d;5=hf2cNC6Yk_Di1
+R11
+32
+R43
+!i10b 1
+R13
+Z55 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd|
+Z56 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd|
+!i113 0
+R16
+R17
+Astructural
+R6
+R7
+DEx4 work 8 mux2t1_n 0 22 mY^3Z`LOeH:?DS5zXOWi]0
+!i122 61
+l39
+L30 21
+V1:AlBo6:<I9[ZbSMR08@`3
+!s100 z@V^Da@TT<kE]=8h20CUZ3
+R11
+32
+R43
+!i10b 1
+R13
+R55
+R56
+!i113 0
+R16
+R17
+Enbitadder
+Z57 w1710437845
+R6
+R7
+!i122 62
+R3
+Z58 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/nBitAdder.vhd
+Z59 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/nBitAdder.vhd
+l0
+L20 1
+VUU=cS^NXhJUNFO[JjBNUn0
+!s100 O[n`>gYV;TW;=VdYaKFIL3
+R11
+32
+R43
+!i10b 1
+R44
+Z60 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/nBitAdder.vhd|
+Z61 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/nBitAdder.vhd|
+!i113 0
+R16
+R17
+Astructure
+R6
+R7
+DEx4 work 9 nbitadder 0 22 UU=cS^NXhJUNFO[JjBNUn0
+!i122 62
+l45
+L32 46
+V3h1Dz]D9FR7B;cgczaJdC1
+!s100 g]B09n2J:@2JbFdC=;fYY1
+R11
+32
+R43
+!i10b 1
+R44
+R60
+R61
+!i113 0
+R16
+R17
+Epcregister
+Z62 w1709272599
+R6
+R7
+!i122 63
+R3
+Z63 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/pcRegister.vhd
+Z64 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/pcRegister.vhd
+l0
+L9 1
+VZI`0WK>RH[2>TG5gJQkcz3
+!s100 cLD]ecM`_3WOdOX_n83m63
+R11
+32
+R43
+!i10b 1
+R44
+Z65 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/pcRegister.vhd|
+Z66 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/pcRegister.vhd|
+!i113 0
+R16
+R17
+Astructure
+R6
+R7
+DEx4 work 10 pcregister 0 22 ZI`0WK>RH[2>TG5gJQkcz3
+!i122 63
+l31
+L18 47
+V31IKn[33dogVm<c5I5QdM3
+!s100 9OeGoVdaiS^[bC1f`7Ba91
+R11
+32
+R43
+!i10b 1
+R44
+R65
+R66
+!i113 0
+R16
+R17
+Eshift
+Z67 w1710437897
+R5
+R6
+R7
+!i122 64
+R3
+Z68 8/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/shift.vhd
+Z69 F/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/shift.vhd
+l0
+R10
+V<AE@4K9UXfFLEKc_T2M1]3
+!s100 U7AOYLUci6=G=fYoR]91:2
+R11
+32
+R43
+!i10b 1
+R44
+Z70 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/shift.vhd|
+Z71 !s107 /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/shift.vhd|
+!i113 0
+R16
+R17
+Abehavioral
+R5
+R6
+R7
+DEx4 work 5 shift 0 22 <AE@4K9UXfFLEKc_T2M1]3
+!i122 64
+l20
+R18
+V59lKFflkLDUXLXH<E]61?2
+!s100 oeHBaRfJgFiSXF1D[>VYz3
+R11
+32
+R43
+!i10b 1
+R44
+R70
+R71
+!i113 0
+R16
+R17
