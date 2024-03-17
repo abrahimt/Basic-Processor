@@ -1,0 +1,153 @@
+-------------------------------------------------------------------------
+-- Abrahim Toutoungi
+-- 3/14/2024
+-- alu.vhd
+-- Used to perform operations based on the particular instruction
+-------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity alu is 
+   port(
+      i_RS          : in std_logic_vector(31 downto 0);     -- Source register data
+      i_RT          : in std_logic_vector(31 downto 0);     -- Target register data
+      i_Imm         : in std_logic_vector(31 downto 0);     -- Immediate data
+      i_ALUOp       : in std_logic_vector(3 downto 0);      -- ALU operation control
+      i_ALUSrc      : in std_logic;                         -- ALU source control
+      i_bne         : in std_logic;                         -- Branch not equal control
+      i_beq         : in std_logic;                         -- Branch equal control
+      i_shiftDir    : in std_logic;                         -- Shift direction control
+      i_shiftType   : in std_logic;                         -- Shift type control
+      i_shamt       : in std_logic_vector(4 downto 0);      -- Shift amount data
+      i_addSub      : in std_logic;                         -- Addition/subtraction control
+      i_signed      : in std_logic;                         -- Signed operation control
+      i_lui         : in std_logic;                         -- Load upper immediate control
+      o_result      : out std_logic_vector(31 downto 0);    -- Result of ALU operation
+      o_overflow    : out std_logic;                        -- Overflow flag
+      o_branch      : out std_logic                         -- Branch flag
+   );
+end alu;
+
+architecture structure of alu is 
+
+   component nBitAddSub is 
+      port(
+         input_A      : in std_logic_vector(31 downto 0);
+         input_B      : in std_logic_vector(31 downto 0);
+         nAdd_Sub     : in std_logic;    
+         output_S     : out std_logic_vector(31 downto 0);
+         output_C     : out std_logic;
+         o_Overflow   : out std_logic
+      );
+   end component;
+
+   -- Signal declarations...
+
+   signal s_Operand          : std_logic_vector(31 downto 0);  -- Operand for ALU operation
+   signal s_orResult         : std_logic_vector(31 downto 0);  -- OR operation result
+   signal s_andResult        : std_logic_vector(31 downto 0);  -- AND operation result
+   signal s_xorResult        : std_logic_vector(31 downto 0);  -- XOR operation result
+   signal s_norResult        : std_logic_vector(31 downto 0);  -- NOR operation result
+   signal s_addSubResult     : std_logic_vector(31 downto 0);  -- Add/Subtract operation result
+   signal s_addSubCarry      : std_logic;                      -- Add/Subtract carry flag
+   signal s_sltResult        : std_logic_vector(31 downto 0);  -- Set less than operation result
+   signal s_shiftResult      : std_logic_vector(31 downto 0);  -- Shift operation result
+   signal s_barrelShiftSign  : std_logic;                      -- Barrel shifter sign control
+   signal s_MSB              : std_logic;                      -- Most significant bit
+   signal s_overflowDetected : std_logic;                      -- Overflow detection flag
+   signal s_constShamt       : std_logic_vector(4 downto 0) := "10000";  -- Constant shift amount
+   signal s_shamt            : std_logic_vector(4 downto 0);               -- Shift amount signal
+
+begin 
+
+s_MSB <=  s_addSubResult(31);
+process(i_RT, i_shiftType) --to determined the value of the sign port in the barrel shifter
+begin
+
+ if i_RT(31) = '1' and i_shiftType = '1' then   --used to determine if which sign the barrel shifter will take on based on whether it is logical or arithmetic
+     s_barrelShiftSign <= '1';
+ else 
+     s_barrelShiftSign <= '0';
+ end if;
+
+end process;
+
+component mux2t1_N is
+  port map(i_S    => i_ALUSrc,
+	   i_D0   => i_RT,
+	   i_D1   => i_Imm,
+	   o_O    => s_Operand);
+end component;
+
+G_MUX_LUI: mux2t1_5bit   --determines if we shift by shamt (for shift instructions) or by constant 16 for lui instruction
+  port map(i_S    => i_lui,
+	   i_D0   => i_shamt,
+	   i_D1   => s_constShamt,
+	   o_O    => s_shamt);
+
+G_OR: nBitOr
+  port map (i_A   => i_RS,
+	    i_B   => s_Operand,
+	    o_F   => s_orResult);
+
+G_AND: nBitAnd
+  port map (i_A   => i_RS,
+	    i_B   => s_Operand,
+	    o_F   => s_andResult);
+
+G_XOR: nBitXor
+  port map (i_A   => i_RS,
+	    i_B   => s_Operand,
+	    o_F   => s_xorResult);
+
+G_NOR: nBitNor
+  port map (i_A   => i_RS,
+	    i_B   => s_Operand,
+	    o_F   => s_norResult);
+
+G_SLT: setLessThan
+  port map (i_A   => i_RS,
+	    i_B   => s_Operand,
+	    o_F   => s_sltResult);
+
+G_ADDSUB: nBitAddSub
+   port map (input_A  => i_RS,
+	     input_B  => s_Operand,
+	     nAdd_Sub => i_addSub,
+	     output_S => s_addSubResult,
+	     output_C => s_addSubCarry,
+	     o_Overflow => s_overflowDetected);
+
+
+G_OVERFLOWAND: andg2     --only care about overflow flag if and only if the operation is not unsigned
+   port map(i_A  => s_overflowDetected,
+	    i_B  => i_signed,
+	    o_F  => o_overflow);
+
+G_SHIFT: Barrel_Shifter
+   port map(i_shamt      => s_shamt,
+	    i_sign       => s_barrelShiftSign,  
+	    i_leftShift  => i_shiftDir,
+	    i_D          => s_Operand,
+	    o_O          => s_shiftResult);
+
+G_BRANCH: branch 
+   port map(i_A  => i_RS,
+	    i_B  => s_Operand,
+	    i_bne  => i_bne,
+	    i_beq  => i_beq,
+	    o_branchFlag  => o_branch);
+
+G_SELECT: selectOperation
+   port map(i_ALUOp => i_ALUOp,
+	    i_orResult => s_orResult,
+	    i_andResult => s_andResult,
+	    i_xorResult => s_xorResult,
+	    i_norResult => s_norResult,
+	    i_sltResult => s_sltResult,
+	    i_addSubResult => s_addSubResult,
+	    i_shiftResult => s_shiftResult,
+	    o_result      => o_result);	    
+	
+end structure;
