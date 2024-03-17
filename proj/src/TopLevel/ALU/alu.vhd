@@ -227,9 +227,5 @@ G_SELECT: selectOperation
 	    i_addSubResult => s_addSubResult,
 	    i_shiftResult => s_shiftResult,
 	    o_result      => o_result);	    
-	
-	     
-	   
-	   
 
 end structure;

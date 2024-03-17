@@ -1,5 +1,5 @@
---Benjamin Towle
---10/7/2023
+--Abrahim Toutoungi
+--3/17/2024
 --branch.vhd
 --To be used by the ALU for bne and beq instructions
 

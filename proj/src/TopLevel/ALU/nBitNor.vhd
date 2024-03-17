@@ -1,5 +1,5 @@
---Benjamin Towle
---9/30/2023
+--Abrahim Toutoungi
+-- 3/17/2024
 --nBitNor.vhd
 --To be used by the ALU for nor operations
 
