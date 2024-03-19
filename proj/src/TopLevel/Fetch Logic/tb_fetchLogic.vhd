@@ -9,6 +9,17 @@
 -- DESCRIPTION: Testbench for the fetchLogic module.
 -------------------------------------------------------------------------
 
+-------------------------------------------------------------------------
+-- Abrahim Toutoungi
+-- CPRE 381 
+-- Iowa State University 
+-- 3/14/2024
+-------------------------------------------------------------------------
+-- fetchLogic_tb.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: Testbench for the fetchLogic module.
+-------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all; 
@@ -19,89 +30,84 @@ end entity fetchLogic_tb;
 architecture tb of fetchLogic_tb is
     constant CLOCK_PERIOD : time := 10 ns;
     
-    signal clk, reset, j, jal, jReg, brEQ, brNE, ALU0 : std_logic;
-    signal pAddr, pInst, nAddr, jRetReg : std_logic_vector(31 downto 0);
+    signal i_clk, i_rst, i_j, i_jal, i_jReg, i_brEQ, i_brNE, i_ALU0 : std_logic;
+    signal i_pInst, o_nAddr, o_pJPC, i_jRetReg : std_logic_vector(31 downto 0);
     
 begin
     uut: entity work.fetchLogic
         port map(
-            i_clk => clk,
-            i_reset => reset,
-            i_j => j,
-            i_jal => jal,
-            i_jReg => jReg,
-            i_jRetReg => jRetReg,
-            i_brEQ => brEQ,
-            i_brNE => brNE,
-            i_ALU0 => ALU0,
-            i_pInst => pInst,
-            o_nAddr => nAddr
+            i_clk => i_clk,
+            i_rst => i_rst,
+            i_j => i_j,
+            i_jal => i_jal,
+            i_jReg => i_jReg,
+            i_jRetReg => i_jRetReg,
+            i_brEQ => i_brEQ,
+            i_brNE => i_brNE,
+            i_ALU0 => i_ALU0,
+            i_pInst => i_pInst,
+            o_nAddr => o_nAddr,
+            o_pJPC => o_pJPC
         );
 
     -- Clock process
     clk_process: process
     begin
-        while now < 500 ns loop
-            clk <= '0';
-            wait for CLOCK_PERIOD / 2;
-            clk <= '1';
-            wait for CLOCK_PERIOD / 2;
-        end loop;
-        wait;
+        i_clk <= '0';
+        wait for CLOCK_PERIOD / 2;
+        i_clk <= '1';
+        wait for CLOCK_PERIOD / 2;
     end process;
 
     -- Stimulus process
     stim_process: process
     begin
         -- Initialize inputs
-        reset <= '1';
+        i_rst <= '1';
         wait for 20 ns;
-        reset <= '0';
+        i_rst <= '0';
 
         -- Test cases
-        wait for CLOCK_PERIOD * 5;
+        wait for 5 * CLOCK_PERIOD;  -- Wait for 5 clock cycles for stability
+
         -- Reset Test
-        pAddr <= x"0000000A";  -- Program Counter initial value
-        pInst <= x"00000000";  -- No operation (NOP) instruction
-        reset <= '1';  -- Reset signal active
+        i_pInst <= x"0000000A";  -- Program Counter initial value
+        i_jRetReg <= x"00000000";  -- No operation (NOP) instruction
+        i_rst <= '1';  -- Reset signal active
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should remain the same after reset
-        assert nAddr = pAddr report "Reset test failed" severity error;
+        assert o_nAddr = i_pInst report "Reset test failed" severity error;
 
         -- Jump test
-        pAddr <= x"00000000";  -- Program Counter initial value
-        pInst <= x"08000000";  -- Jump instruction
-        j <= '1';  -- Jump signal
-        jReg <= '0';  -- No jump register signal
+        i_pInst <= x"08000000";  -- Jump instruction
+        i_j <= '1';  -- Jump signal
+        i_jReg <= '0';  -- No jump register signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x08000000
-        assert nAddr = x"08000000" report "Jump instruction failed" severity error;
+        assert o_nAddr = x"08000000" report "Jump instruction failed" severity error;
 
         -- Branch Equal Test
-        pAddr <= x"00000000";  -- Program Counter initial value
-        pInst <= x"10000005";  -- Branch Equal instruction
-        brEQ <= '1';  -- Branch Equal signal
-        brNE <= '0';  -- No Branch Not Equal signal
+        i_pInst <= x"10000005";  -- Branch Equal instruction
+        i_brEQ <= '1';  -- Branch Equal signal
+        i_brNE <= '0';  -- No Branch Not Equal signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x00000014 (if condition is true)
-        assert nAddr = x"00000014" report "Branch Equal instruction failed" severity error;
+        assert o_nAddr = x"00000014" report "Branch Equal instruction failed" severity error;
 
         -- Branch Not Equal Test
-        pAddr <= x"00000000";  -- Program Counter initial value
-        pInst <= x"20000005";  -- Branch Not Equal instruction
-        brEQ <= '0';  -- No Branch Equal signal
-        brNE <= '1';  -- Branch Not Equal signal
+        i_pInst <= x"20000005";  -- Branch Not Equal instruction
+        i_brEQ <= '0';  -- No Branch Equal signal
+        i_brNE <= '1';  -- Branch Not Equal signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x00000014 (if condition is false)
-        assert nAddr = x"00000014" report "Branch Not Equal instruction failed" severity error;
+        assert o_nAddr = x"00000014" report "Branch Not Equal instruction failed" severity error;
 
         -- Jump and Link Test
-        pAddr <= x"00000000";  -- Program Counter initial value
-        pInst <= x"0C000000";  -- Jump and Link instruction
-        jal <= '1';  -- Jump and Link signal
+        i_pInst <= x"0C000000";  -- Jump and Link instruction
+        i_jal <= '1';  -- Jump and Link signal
         wait for CLOCK_PERIOD;
-        -- Expected result: Next address should be 0x08000000 and jRetReg should be updated
-        assert nAddr = x"08000000" and jRetReg = x"00000000" report "Jump and Link instruction failed" severity error;
+        -- Expected result: Next address should be 0x08000000 and o_pJPC should be updated
+        assert o_nAddr = x"08000000" and o_pJPC = x"00000000" report "Jump and Link instruction failed" severity error;
 
         wait;
     end process;
