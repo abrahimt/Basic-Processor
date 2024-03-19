@@ -1,7 +1,10 @@
+-------------------------------------------------------------------------
 -- Abrahim Toutoungi
--- 3/14/2024
+-- 3/19/2024
 -- tb_alu.vhd
--- Test bench for the alu.vhd module
+-- Testbench for the ALU (Arithmetic Logic Unit) component used in a 
+-- processor.
+-------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -48,8 +51,8 @@ signal	s_overflow         : std_logic;
 signal	s_branch           : std_logic; 
 signal  s_lui              : std_logic;
 
-
 begin
+
 DUT0: alu
 
 port map(i_RS  => s_RS,
@@ -69,9 +72,10 @@ port map(i_RS  => s_RS,
 	 o_overflow  => s_overflow,
 	 o_branch    => s_branch);
 
-
 TEST_CASES: process
 begin 
+
+-- There are a total of 22 tests (each one waits 50ns)
 
 --subu
 s_RS <= x"00080000";
