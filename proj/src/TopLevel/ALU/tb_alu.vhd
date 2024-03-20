@@ -80,7 +80,6 @@ begin
 --subu
 s_RS <= x"00080000";
 s_RT <= x"00000001";
-s_Imm <= x"FFFFFFFF";
 s_ALUOp <= "0010";
 s_ALUSrc <= '0';
 s_bne <= '0';
@@ -92,12 +91,11 @@ s_addSub <= '1';
 s_signed <= '1';
 s_lui <= '0';
 wait for 50 ns;
-assert s_result = x"00000004" report "Error: result mismatch" severity error; --Expect result = x"00000004"
+assert s_result = x"0007FFFF" report "Error: result mismatch" severity error; --Expect result = x"00000004"
 
 --or 
 s_RS <= x"ABC12300";
 s_RT <= x"00000000";
-s_Imm <= x"FFFFFFFF";
 s_ALUOp <= "0111";
 s_ALUSrc <= '0';
 s_bne <= '0';
@@ -112,9 +110,8 @@ wait for 50 ns;
 assert s_result = x"ABC12300" report "Error: result mismatch" severity error; --expect result = x"ABC12300"
 
 --ori
-s_RS <= x"ABC12300";
-s_RT <= x"00000000";
-s_Imm <= x"FFFFFFFF";
+s_RS <= x"AB012300";
+s_Imm <= x"FF0FFFFF";
 s_ALUOp <= "0111";
 s_ALUSrc <= '1';
 s_bne <= '0';
@@ -126,13 +123,12 @@ s_addSub <= '0';
 s_signed <= '0';
 s_lui <= '0';
 wait for 50 ns;
-assert s_result = x"FFFFFFFF" report "Error: result mismatch" severity error; --expect result = x"FFFFFFFF"
+assert s_result = x"FF0FFFFF" report "Error: result mismatch" severity error; --expect result = x"FFFFFFFF"
 
 
 --and
 s_RS <= x"ABC12300";
 s_RT <= x"00000000";
-s_Imm <= x"FFFFFFFF";
 s_ALUOp <= "0011";
 s_ALUSrc <= '0';
 s_bne <= '0';
@@ -148,9 +144,8 @@ assert s_result = x"00000000" report "Error: result mismatch" severity error; --
 
 
 --xori
-s_RS <= x"ABC12300";
-s_RT <= x"00000000";
-s_Imm <= x"FFFFFFFF";
+s_RS <= x"0000000F";
+s_Imm <= x"FFF0FFFF";
 s_ALUOp <= "0110";
 s_ALUSrc <= '1';
 s_bne <= '0';
@@ -162,13 +157,12 @@ s_addSub <= '0';
 s_signed <= '0';
 s_lui <= '0';
 wait for 50 ns;
-assert s_result = not s_RT report "Error: result mismatch" severity error; --Expect all bits of o_result to be inverted
+assert s_result = x"FFF0FFF0" report "Error: result mismatch" severity error; --Expect all bits of o_result to be inverted
 
 
 --nor
 s_RS <= x"ABC12300";
 s_RT <= x"FFFFFFFF";
-s_Imm <= x"00000000";
 s_ALUOp <= "0101";
 s_ALUSrc <= '0';
 s_bne <= '0';
@@ -185,7 +179,6 @@ assert s_result = x"00000000" report "Error: result mismatch" severity error; --
 --add
 s_RS <= x"7FFFFFFF";
 s_RT <= x"00000001";
-s_Imm <= x"00000008";
 s_ALUOp <= "0010";
 s_ALUSrc <= '0';
 s_bne <= '0';
