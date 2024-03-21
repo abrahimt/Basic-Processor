@@ -28,7 +28,7 @@ entity fetchLogic_tb is
 end entity fetchLogic_tb;
 
 architecture tb of fetchLogic_tb is
-    constant CLOCK_PERIOD : time := 10 ns;
+    constant CLOCK_PERIOD : time := 20 ns;
     
     signal i_clk, i_rst, i_j, i_jal, i_jReg, i_brEQ, i_brNE, i_ALU0 : std_logic;
     signal i_pInst, o_nAddr, o_pJPC, i_jRetReg : std_logic_vector(31 downto 0);
@@ -66,9 +66,6 @@ begin
         i_rst <= '1';
         wait for 20 ns;
         i_rst <= '0';
-
-        -- Test cases
-        wait for 5 * CLOCK_PERIOD;  -- Wait for 5 clock cycles for stability
 
         -- Reset Test
         i_pInst <= x"0000000A";  -- Program Counter initial value

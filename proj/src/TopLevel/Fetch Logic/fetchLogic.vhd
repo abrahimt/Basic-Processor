@@ -9,161 +9,160 @@
 -- This program implements the basic fetch function (PC + 4)
 -- that we used in the original fetch.vhd file along with
 -- the addition of jump and branch instructions
+
+-- Unlike the old version this one uses if else statements
+-- to make it easier to understand
 ------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
+-- Non-Control Flow: In this scenario, the program counter (PC) is incremented by 4, indicating sequential execution of instructions.
+-- Jump (j): The PC is set to the value specified by JumpAddr, which is calculated as { PC+4[31:28], address, 2’b0 }.
+-- Jump Register (jr): The PC is set to the value stored in register R[rs].
+-- Jump and Link (jal): This instruction involves two steps:
+-- R[31] is set to PC + 8.
+-- PC is set to the value specified by JumpAddr.
+-- Branch on Equal (beq): If the contents of registers R[rs] and R[rt] are equal, the PC is updated using the formula PC = PC + 4 + BranchAddr.
+-- Branch Not Equal (bne): If the contents of registers R[rs] and R[rt] are not equal, the PC is updated using the formula PC = PC + 4 + BranchAddr.
 
-entity fetchLogic is
-   port(i_CLK     : in std_logic;
-        i_RST     : in std_logic;
-        i_j       : in std_logic;
-        i_jal     : in std_logic;
-        i_jReg    : in std_logic;
-        i_jRetReg : in std_logic_vector(31 downto 0);
-        i_brEQ      : in std_logic;
-        i_brNE    : in std_logic;
-        i_ALU0    : in std_logic;
-        i_pInst   : in std_logic_vector(31 downto 0);
-        o_nAddr   : out std_logic_vector(31 downto 0);
-        o_pJPC    : out std_logic_vector(31 downto 0));
-end fetchLogic;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+ENTITY fetchLogic IS
+    PORT (
+        i_clk : IN STD_LOGIC;
+        i_rst : IN STD_LOGIC;
+        i_bne : IN STD_LOGIC;
+        i_beq : IN STD_LOGIC;
+        i_j : IN STD_LOGIC;
+        i_jr : IN STD_LOGIC;
+        i_jal : IN STD_LOGIC;
+        i_ALUO : IN STD_LOGIC;
+        o_pJPC : IN STD_LOGIC;
+        o_nAddr : IN STD_LOGIC);
 
-architecture structure of fetchLogic is
+    ARCHITECTURE behavioral OF fetchLogic IS
 
-component nBitAdder is
-   generic(N : integer := 32); -- use generics for a multiple bit input/output
-   port(in_A       : in std_logic_vector(N-1 downto 0);
-        in_B       : in std_logic_vector(N-1 downto 0);
-        in_C       : in std_logic;
-        out_S      : out std_logic_vector(N-1 downto 0);
-        out_C      : out std_logic);
-end component;
+        COMPONENT nBitAdder IS
+            GENERIC (N : INTEGER := 32); -- use generics for a multiple bit input/output
+            PORT (
+                in_A : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+                in_B : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+                in_C : IN STD_LOGIC;
+                out_S : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+                out_C : OUT STD_LOGIC);
+        END COMPONENT;
 
-component mux2t1_N is
-   generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
-   port(i_S         : in std_logic;
-        i_D0        : in std_logic_vector(N-1 downto 0);
-        i_D1        : in std_logic_vector(N-1 downto 0);
-        o_O         : out std_logic_vector(N-1 downto 0));
-end component;
+        COMPONENT mux2t1_N IS
+            GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+            PORT (
+                i_S : IN STD_LOGIC;
+                i_D0 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+                i_D1 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+                o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
+        END COMPONENT;
 
-component pcRegister is
-   port(i_CLK        : in std_logic;                          -- Clock input
-        i_RST        : in std_logic;                          -- Reset input
-        i_WE         : in std_logic;                          -- Write enable input
-        i_D          : in std_logic_vector(31 downto 0);     -- Data value input
-        o_Q          : out std_logic_vector(31 downto 0));   -- Data value output
-end component;
+        COMPONENT pcRegister IS
+            PORT (
+                i_CLK : IN STD_LOGIC; -- Clock input
+                i_RST : IN STD_LOGIC; -- Reset input
+                i_WE : IN STD_LOGIC; -- Write enable input
+                i_D : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Data value input
+                o_Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Data value output
+        END COMPONENT;
 
-component extendSign is
-   port(i_sign   : in std_logic_vector(15 downto 0);
-        o_sign   : out std_logic_vector(31 downto 0));
-end component;
+        COMPONENT extendSign IS
+            PORT (
+                i_sign : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+                o_sign : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+        END COMPONENT;
 
-component shift is
-   port(i_In    : in std_logic_vector(31 downto 0);
-        o_Out   : out std_logic_vector(31 downto 0));
-end component;
+        COMPONENT shift IS
+            PORT (
+                i_In : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+                o_Out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+        END COMPONENT;
 
-component addToStart is
-   port(i_jBits : in std_logic_vector(27 downto 0);
-        i_PCb    : in std_logic_vector(3 downto 0);
-        o_Out    : out std_logic_vector(31 downto 0));
-end component;
+        COMPONENT addToStart IS
+            PORT (
+                i_jBits : IN STD_LOGIC_VECTOR(27 DOWNTO 0);
+                i_PCb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+                o_Out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+        END COMPONENT;
 
-component addToEnd is
-   port(i_In     : in std_logic_vector(25 downto 0);
-        o_Out    : out std_logic_vector(27 downto 0));
-end component;
+        COMPONENT addToEnd IS
+            PORT (
+                i_In : IN STD_LOGIC_VECTOR(25 DOWNTO 0);
+                o_Out : OUT STD_LOGIC_VECTOR(27 DOWNTO 0));
+        END COMPONENT;
 
-signal const4      : std_logic_vector(31 downto 0) := x"00000004";
-signal const1      : std_logic := '1';
-signal reset       : std_logic := '0';
-signal update, brUpdate     : std_logic_vector(31 downto 0) := x"00000000";
-signal newAddr, pcIncrement, selAddr : std_logic_vector(31 downto 0);
-signal brFin, brShift, brExt  : std_logic_vector(31 downto 0);
-signal leave, brSelect : std_logic;
-signal jSelect  : std_logic;
-signal jMUX, jFin  : std_logic_vector(31 downto 0);
-signal jAddToEnd  : std_logic_vector(27 downto 0);
+        SIGNAL const4 : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000004";
+        SIGNAL const1 : STD_LOGIC := '1';
+        SIGNAL reset : STD_LOGIC := '0';
+        SIGNAL update, brUpdate : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+        SIGNAL newAddr, pcIncrement, selAddr : STD_LOGIC_VECTOR(31 DOWNTO 0);
+        SIGNAL brFin, brShift, brExt : STD_LOGIC_VECTOR(31 DOWNTO 0);
+        SIGNAL leave, brSelect : STD_LOGIC;
+        SIGNAL jSelect : STD_LOGIC;
+        SIGNAL jMUX, jFin : STD_LOGIC_VECTOR(31 DOWNTO 0);
+        SIGNAL jAddToEnd : STD_LOGIC_VECTOR(27 DOWNTO 0);
 
-begin
-   -- Calculate branch selection
-   brSelect <= ((i_ALU0 and i_brEQ) or (i_ALU0 and i_brNE));
+    BEGIN
 
-   -- Instantiate PC register
-   PC: pcRegister
-   port map(i_CLK  => i_CLK,
-            i_RST  => i_RST,
-            i_WE   => const1,
-            i_D    => selAddr,
-            o_Q    => newAddr);
+        -- Instantiate PC register
+        PC : pcRegister
+        PORT MAP(
+            i_CLK => i_CLK,
+            i_RST => i_RST,
+            i_WE => const1,
+            i_D => selAddr,
+            o_Q => newAddr);
 
-   -- Increment PC by 4
-   INCREMENT_PC: nBitAdder
-   port map(in_A    => const4,
-            in_B    => newAddr,
-            in_C    => reset,
-            out_S   => pcIncrement,
-            out_C   => leave);
+        PROCESS (i_clk)
+        BEGIN
+            IF rising_edge(i_clk) THEN
+                IF reset = '1' THEN
+                    -- Reinstantiate PC register
+                    PC : pcRegister
+                    PORT MAP(
+                        i_CLK => i_clk,
+                        i_RST => i_rst,
+                        i_WE => const1,
+                        i_D => selAddr,
+                        o_Q => newAddr
+                    );
+                ELSE
+                    -- Calculate branch selection
+                    brSelect <= (i_brEQ OR i_ALUO);
 
-   -- Extend the sign for branch calculation
-   BRANCH_EXTEND: extendSign
-   port map(i_sign => i_pInst(15 downto 0),
-            o_sign => brExt);
+                    -- Handle different instructions
+                    IF i_j = '1' THEN
+                        -- Change PC address to the jump address
+                    
+                    ELSIF i_jal = '1' THEN
+                        
+                        o_pJPC <= o_pJPC + 8; -- PC + 8 for jal instruction
+                    ELSIF i_jr = '1' THEN
+                        -- Change PC address to the jump return address
+                        o_nAddr <= o_pJPC; -- o_pJPC holds the jump return address
+                    ELSIF i_bne = '1' THEN
+                        -- Change PC address based on branch condition
+                        o_nAddr <= brUpdate; -- Assuming brUpdate holds the branch address
+                    ELSIF i_beq = '1' THEN
+                        -- Change PC address based on branch condition
+                        o_nAddr <= brUpdate; -- Assuming brUpdate holds the branch address
+                    ELSE
+                        -- Default behavior: Increment PC by 4
+                        INCREMENT_PC : nBitAdder
+                        PORT MAP(
+                            in_A => const4,
+                            in_B => newAddr,
+                            in_C => reset,
+                            out_S => pcIncrement,
+                            out_C => leave
+                        );
+                        o_nAddr <= pcIncrement;
+                        o_pJPC <= o_pJPC; -- No change in PC + 4 for non-branch instructions
+                    END IF;
+                END IF;
+            END IF;
+        END PROCESS;
 
-   -- Shift the extended sign for branch calculation
-   BRANCH_SHIFT: shift
-   port map(i_In    => brExt,
-            o_Out   => brShift);
-
-   -- Calculate branch address
-   BRANCH_CALCULATE: nBitAdder
-   port map(in_A    => brShift,
-            in_B    => pcIncrement,
-            in_C    => reset,
-            out_S   => brFin,
-            out_C   => leave);
-
-   -- Select between PC increment and branch address
-   BRANCH_SELECT: mux2t1_N
-   generic map(N => 32)
-   port map(i_S    => brSelect,
-            i_D0   => pcIncrement,
-            i_D1   => brFin,
-            o_O    => brUpdate);
-
-   -- Add to end for jump calculation
-   JUMP_ADDTOEND: addToEnd
-   port map(i_In    => i_pInst(25 downto 0),
-            o_Out   => jAddToEnd);
-
-   -- Add to start for jump calculation
-   JUMP_ADDTOSTART: addToStart
-   port map(i_jBits => jAddToEnd,
-            i_PCb    => pcIncrement(31 downto 28),
-            o_Out    => jFin);
-
-   -- Select between branch update and jump address
-   JUMP_SELECT: mux2t1_N
-   generic map(N => 32)
-   port map(i_S    => i_j,
-            i_D0   => brUpdate,
-            i_D1   => jFin,
-            o_O    => jMUX);
-
-   -- Select between jump register and jump return register
-   RA_SELECT: mux2t1_N
-   generic map(N => 32)
-   port map(i_S    => i_jReg,
-            i_D0   => jMUX,
-            i_D1   => i_jRetReg,
-            o_O    => selAddr);
-
-   -- Output new address and PC + 4
-   o_nAddr  <=  newAddr;
-   o_pJPC   <=  pcIncrement;
-
-end structure;
+    END PROCESS;
