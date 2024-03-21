@@ -30,25 +30,41 @@ end entity fetchLogic_tb;
 architecture tb of fetchLogic_tb is
     constant CLOCK_PERIOD : time := 20 ns;
     
-    signal i_clk, i_rst, i_j, i_jal, i_jReg, i_brEQ, i_brNE, i_ALU0 : std_logic;
-    signal i_pInst, o_nAddr, o_pJPC, i_jRetReg : std_logic_vector(31 downto 0);
+component fetchLogic is
+    port(
+	i_inst  : in std_logic_vector(31 downto 0);	-- Instruction input
+	i_PC	: in std_logic_vector(31 downto 0);	-- PC Address input
+        i_clk 	: in std_logic;				-- clock bit
+        i_rst 	: in std_logic;				-- reset bit
+        i_bne 	: in std_logic;				-- branch not equal bit
+        i_beq 	: in std_logic;				-- branch equal bit
+        i_j 	: in std_logic;				-- jump bit
+        i_jr 	: in std_logic;				-- jump return bit
+        i_jal 	: in std_logic;				-- jump and link bit
+        i_ALUO 	: in std_logic;				-- 
+        o_ra 	: in std_logic_vector(31 downto 0);	-- Output for $ra Address
+        o_newPC : in std_logic_vector(31 downto 0));	-- Output for PC Address
+end component;
+
+    signal i_clk, i_rst, i_j, i_jal, i_jr, i_beq, i_bne, i_ALUO : std_logic;
+    signal i_inst, i_PC, o_newPC, o_ra : std_logic_vector(31 downto 0) := (others => '0');
     
 begin
-    uut: entity work.fetchLogic
+
+    DUT0: fetchLogic
         port map(
-            i_clk => i_clk,
-            i_rst => i_rst,
-            i_j => i_j,
-            i_jal => i_jal,
-            i_jReg => i_jReg,
-            i_jRetReg => i_jRetReg,
-            i_brEQ => i_brEQ,
-            i_brNE => i_brNE,
-            i_ALU0 => i_ALU0,
-            i_pInst => i_pInst,
-            o_nAddr => o_nAddr,
-            o_pJPC => o_pJPC
-        );
+            i_clk 	=> i_clk,
+            i_rst 	=> i_rst,
+            i_j		=> i_j,
+	    i_jr	=> i_jr,
+            i_jal 	=> i_jal,
+            i_beq	=> i_beq,
+            i_bne 	=> i_bne,
+            i_ALUO 	=> i_ALUO,
+            i_inst 	=> i_inst,
+	    i_PC	=> i_PC,
+            o_newPC 	=> o_newPC,
+            o_ra 	=> o_ra);
 
     -- Clock process
     clk_process: process
@@ -63,89 +79,96 @@ begin
     stim_process: process
     begin
         -- Initialize inputs
-        i_rst <= '1';
+        i_rst 	<= '1';
+	i_j	<= '0'; 
+	i_jal	<= '0';  
+	i_beq	<= '0';  
+	i_bne	<= '0';  
+	i_ALUO  <= '0'; 
         wait for 20 ns;
-        i_rst <= '0';
+        i_rst 	<= '0';
 
 	-- Reset Test
-        i_pInst <= x"00000000";  -- Program Counter initial value
-        i_jRetReg <= x"00000000";  -- No operation (NOP) instruction
-        i_rst <= '1';  -- Reset signal active
+        i_inst <= x"00000000";  -- Program Counter initial value
+	i_PC   <= o_newPC;	-- Current PC Address
+        i_rst  <= '1';  	-- Reset signal active
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should remain the same after reset
-        assert o_nAddr = x"00400000" report "Reset test failed" severity error;
+        assert o_newPC = x"00400000" report "Reset test failed" severity error;
 
         -- addi Test
-        i_pInst <= x"20090032";  -- addi instruction
-        i_jRetReg <= x"00000000";  -- No operation (NOP) instruction
-        i_rst <= '0';  -- Reset signal active
+        i_inst <= x"20090032";  -- addi instruction
+	i_PC   <= o_newPC;	-- Current PC Address
+        i_rst <= '0';  		-- Reset signal active
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should remain the same after reset
-        assert o_nAddr = x"00400004" report "Reset test failed" severity error;
+        assert o_newPC = x"00400004" report "Reset test failed" severity error;
 
         -- Jump test
-        i_pInst <= x"08100008";  -- Jump instruction
-        i_j <= '1';  		 -- Jump signal
-        i_jReg <= '0';  	 -- No jump register signal
+        i_inst <= x"08100008";  -- Jump instruction
+	i_PC   <= o_newPC;	-- Current PC Address
+        i_j    <= '1';  	-- Jump signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x08000000
-        assert o_nAddr = x"00400020" report "Jump instruction failed" severity error;
+        assert o_newPC = x"00400020" report "Jump instruction failed" severity error;
 
         -- addi Test
-        i_pInst <= x"200a0032";   -- addi instruction
-        i_jRetReg <= x"00000000"; -- No operation (NOP) instruction
-        i_rst <= '0';  		  -- Reset signal active
+        i_inst <= x"200a0032";  -- addi instruction
+	i_PC   <= o_newPC;	-- Current PC Address
+        i_j    <= '0';  	-- Jump signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should remain the same after reset
-        assert o_nAddr = x"00400024" report "Reset test failed" severity error;
+        assert o_newPC = x"00400024" report "Reset test failed" severity error;
 
         -- Branch Equal Test
-        i_pInst <= x"116c0001";  -- Branch Equal instruction
-        i_brEQ <= '1';  	-- Branch Equal signal
-        i_brNE <= '0';  	-- Branch Not Equal signal
+        i_inst <= x"116c0001";  -- Branch Equal instruction
+	i_PC   <= o_newPC;	-- Current PC Address
+        i_beq  <= '1';  	-- Branch Equal signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x0040002c (if condition is true)
-        assert o_nAddr = x"0040002c" report "Branch Equal instruction failed" severity error;
+        assert o_newPC = x"0040002c" report "Branch Equal instruction failed" severity error;
 
 	-- sub Test
-        i_pInst <= x"01ad6822";  -- Sub instruction
-        i_brEQ <= '0';  	 -- Branch Equal signal
-        i_brNE <= '0';  	 -- No Branch Not Equal signal
+        i_inst <= x"01ad6822";  -- Sub instruction
+	i_PC    <= o_newPC;	-- Current PC Address
+        i_beq   <= '0';  	-- Branch Equal signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x00000014 (if condition is true)
-        assert o_nAddr = x"00400030" report "Branch Equal instruction failed" severity error;
+        assert o_newPC = x"00400030" report "Branch Equal instruction failed" severity error;
 
 	-- Branch Not Equal Test
-        i_pInst <= x"158d0001";  -- Branch Not Equal instruction
-        i_brEQ <= '0';		 -- Branch Equal signal
-        i_brNE <= '1';  	 -- Branch Not Equal signal
+        i_inst <= x"158d0001";  -- Branch Not Equal instruction
+	i_PC   <= o_newPC;	-- Current PC Address
+        i_bne  <= '1';  	-- Branch Not Equal signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x00000014 (if condition is true)
-        assert o_nAddr = x"00400038" report "Branch Equal instruction failed" severity error;
+        assert o_newPC = x"00400038" report "Branch Equal instruction failed" severity error;
 
 	-- jal Test
-        i_pInst <= x"0c100011";  -- jal instruction
-        i_brEQ <= '0';  	 -- Branch Equal signal
-        i_brNE <= '0';  	 -- No Branch Not Equal signal
+        i_inst  <= x"0c100011"; -- jal instruction
+	i_PC    <= o_newPC;	-- Current PC Address
+        i_bne   <= '0';  	-- Branch Not Equal signal
+	i_jal	<= '1';		-- jal signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x00000014 (if condition is true)
-        assert o_nAddr = x"00400044" report "Branch Equal instruction failed" severity error;
+        assert o_newPC = x"00400044" report "Branch Equal instruction failed" severity error;
 
 	-- jr Test
-        i_pInst <= x"03e00008";  -- jr instruction
-        i_brEQ <= '0';  	 -- Branch Equal signal
-        i_brNE <= '0';  	 -- No Branch Not Equal signal
+        i_inst  <= x"03e00008"; -- jr instruction
+	i_PC   <= o_newPC;	-- Current PC Address
+	i_jr    <= '1';		-- jr signal
+	i_jal	<= '0';		-- jal signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should be 0x00000014 (if condition is true)
-        assert o_nAddr = x"0040003c" report "Branch Equal instruction failed" severity error;
+        assert o_newPC = x"0040003c" report "Branch Equal instruction failed" severity error;
 
         -- addi Test
-        i_pInst <= x"200d0032";    -- addi instruction
-        i_jRetReg <= x"00000000";  -- No operation (NOP) instruction
-        i_rst <= '0';  		   -- Reset signal low
+        i_inst  <= x"200d0032"; -- addi instruction
+	i_PC   <= o_newPC;	-- Current PC Address
+	i_jr    <= '0';		-- jr signal
         wait for CLOCK_PERIOD;
         -- Expected result: Next address should remain the same after reset
-        assert o_nAddr = x"00400040" report "Reset test failed" severity error;
+        assert o_newPC = x"00400040" report "Reset test failed" severity error;
 
 
 	wait;
