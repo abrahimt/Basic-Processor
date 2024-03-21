@@ -1,96 +1,662 @@
--- Control.vhd
+-------------------------------------------------------------------------
+-- Abrahim Toutoungi
+-- CPRE 381 
+-- Iowa State University 
+-- 3/14/2024
+-------------------------------------------------------------------------
+-- control.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: --Control logic module
+-------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+ENTITY control IS
+	PORT (
+		i_opCode : IN STD_LOGIC_VECTOR(5 DOWNTO 0); --MIPS instruction opcode (6 bits wide)
+		i_functCode : IN STD_LOGIC_VECTOR(5 DOWNTO 0); --MIPS instruction function code (6 bits wide) used for R-Type instructions
+		o_RegDst : OUT STD_LOGIC;
+		o_RegWrite : OUT STD_LOGIC;
+		o_memToReg : OUT STD_LOGIC;
+		o_memWrite : OUT STD_LOGIC;
+		o_ALUSrc : OUT STD_LOGIC;
+		o_ALUOp : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		o_signed : OUT STD_LOGIC;
+		o_addSub : OUT STD_LOGIC;
+		o_shiftType : OUT STD_LOGIC;
+		o_shiftDir : OUT STD_LOGIC;
+		o_bne : OUT STD_LOGIC;
+		o_beq : OUT STD_LOGIC;
+		o_j : OUT STD_LOGIC;
+		o_jr : OUT STD_LOGIC;
+		o_jal : OUT STD_LOGIC;
+		o_branch : OUT STD_LOGIC;
+		o_jump : OUT STD_LOGIC;
+		o_lui : OUT STD_LOGIC;
+		o_halt : OUT STD_LOGIC;
+		o_ctlExt : OUT STD_LOGIC);
+END control;
 
+ARCHITECTURE behavioral OF control IS
+BEGIN
 
-entity Control is
-   port(i_instruction		: in std_logic_vector(5 downto 0); 	-- Opcode of Instruction [31-26]
-	i_function		: in std_logic_vector(5 downto 0); 	-- Function of Instruction [5-0]
-	o_RegDst		: out std_logic;			-- Selects Rd or Rt register as destination
-	o_Jump			: out std_logic;			-- 1 for jumping, 0 for no jump
-	o_Branch		: out std_logic;			-- 1 for branch, 0 for no branch
-	o_MemRead		: out std_logic;			-- 1 if reading memory, 0 otherwise
-	o_MemtoReg		: out std_logic;			-- 1 if memory to register, 0 otherwise
-	o_ALUControl		: out std_logic_vector(3 downto 0);	-- 
-	o_MemWrite		: out std_logic;			-- 1 if writing to memory, 0 otherwise
-	o_ALUSrc		: out std_logic;			-- 1 if Immediate value is being selected, 0 for B register
-	o_RegWrite		: out std_logic);			-- 1 if writing to register, 0 otherwise
-end Control;
+	PROCESS (i_opCode, i_functCode)
+	BEGIN
+		IF i_opCode = "000000" THEN --Case for R-Type instruction
+			IF i_functCode = "100000" THEN --add instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0010";
+				o_signed <= '1';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "100001" THEN --addu instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0010";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "100100" THEN --and instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0011";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "100111" THEN --nor instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0101";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "100110" THEN --xor instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0110";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "100101" THEN --or instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0111";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "101010" THEN --slt instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "1000";
+				o_signed <= '1';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "000000" THEN --sll instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "1001";
+				o_signed <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '1';
+				o_addSub <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "000010" THEN --srl instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "1001";
+				o_signed <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_addSub <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "000011" THEN --sra instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "1001";
+				o_signed <= '0';
+				o_shiftType <= '1';
+				o_shiftDir <= '0';
+				o_addSub <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "100010" THEN --sub instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0010";
+				o_signed <= '1';
+				o_addSub <= '1';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "100011" THEN --subu instruction
+				o_RegDst <= '1';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0010";
+				o_signed <= '0';
+				o_addSub <= '1';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_functCode = "001000" THEN --jr instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '0';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "1011";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jal <= '0';
+				o_jr <= '1';
+				o_jump <= '1';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSE
+				o_RegDst <= '0';
+				o_RegWrite <= '0';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0000";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jal <= '0';
+				o_jr <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			END IF;
+		ELSE --I and J type instructions
+			IF i_opCode = "001000" THEN --addi instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "0010";
+				o_signed <= '1';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '1';
+			ELSIF i_opCode = "001001" THEN --addiu instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "0010";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '1';
+			ELSIF i_opCode = "001100" THEN --andi instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "0011";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_opCode = "001111" THEN --lui instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "1001";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '1';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '1';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_opCode = "100011" THEN --lw instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '1';
+				o_memWrite <= '0';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "0010";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '1';
+			ELSIF i_opCode = "001110" THEN --xori instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "0110";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_opCode = "001101" THEN --ori instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "0111";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_opCode = "001010" THEN --slti instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "1000";
+				o_signed <= '1';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '1';
+			ELSIF i_opCode = "101011" THEN --sw instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '0';
+				o_memToReg <= '0';
+				o_memWrite <= '1';
+				o_ALUSrc <= '1';
+				o_ALUOp <= "0010";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '1';
+			ELSIF i_opCode = "000100" THEN --beq instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '0';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0000";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '1';
+				o_branch <= '1';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_opCode = "000101" THEN --bne instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '0';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0000";
+				o_signed <= '0';
+				o_bne <= '1';
+				o_beq <= '0';
+				o_branch <= '1';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_opCode = "000010" THEN --j instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '0';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "1011";
+				o_signed <= '0';
+				o_j <= '1';
+				o_jal <= '0';
+				o_jr <= '0';
+				o_jump <= '1';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_opCode = "000011" THEN --jal instruction
+				o_RegDst <= '0';
+				o_RegWrite <= '1';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "1011";
+				o_signed <= '0';
+				o_j <= '0';
+				o_jal <= '1';
+				o_jr <= '0';
+				o_jump <= '1';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			ELSIF i_opCode = "010100" THEN --halt instruction 
+				o_RegDst <= '0';
+				o_RegWrite <= '0';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0000";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '1';
+				o_ctlExt <= '0';
+			ELSE
+				o_RegDst <= '0';
+				o_RegWrite <= '0';
+				o_memToReg <= '0';
+				o_memWrite <= '0';
+				o_ALUSrc <= '0';
+				o_ALUOp <= "0000";
+				o_signed <= '0';
+				o_addSub <= '0';
+				o_shiftType <= '0';
+				o_shiftDir <= '0';
+				o_bne <= '0';
+				o_beq <= '0';
+				o_branch <= '0';
+				o_j <= '0';
+				o_jr <= '0';
+				o_jal <= '0';
+				o_jump <= '0';
+				o_lui <= '0';
+				o_halt <= '0';
+				o_ctlExt <= '0';
+			END IF;
+		END IF;
 
-architecture structural of Control is
+	END PROCESS;
 
-
-  begin
-
-  ---------------------------------------------------------------------------
-  -- Level 1: 
-  ---------------------------------------------------------------------------
-
-  with i_instruction select
-	o_ALUSrc   	<= 	'0' when "000000",	-- B register
-		      		'1' when others;	-- immediate
-
-  with i_function select
-	o_ALUControl 	 <= 	"0001" when "100101",	-- or
-				"1000" when "100100",	-- and
-				"0011" when "100110",	-- xor
-				"0101" when "100111",	-- nor
-				"0111" when "101010",	-- slt
-				"0010" when "100000",	-- add
-				"0010" when "100001",	-- addu
-				"0010" when "100010",	-- sub
-				"0010" when "100011",	-- subu
-				"0100" when "000000",	-- sll  (function is 000000 for non R-type)
-				"0100" when "000010",	-- srl
-				"0100" when "000011",	-- sra
-				"0100" when "000100",	-- sllv
-				"0100" when "000110",	-- srlv
-				"0100" when "000111",	-- srav
-		      		"0000" when others;
-
-  with i_instruction select
-	o_ALUControl 	<= 	"0010" when "001000",	-- addi
-				"0010" when "001001",	-- addiu
-				"1000" when "001100",	-- andi
-				"0111" when "001010",	-- slti
-				"0011" when "001110",	-- xori
-				"0001" when "001101",	-- ori
-		      		"0000" when others;
-
-  with i_instruction select
-	o_MemtoReg 	<= 	'1' when "100000",	-- lb
-				'1' when "100001",	-- lh
-				'1' when "100011",	-- lw
-				'1' when "100100",	-- lbu
-				'1' when "100101",	-- lhu
-		      		'0' when others;	
-  with i_instruction select
-	o_MemWrite	<=	'1' when "101011",	-- sw
-				'0' when others;	
-  with i_instruction select
-	o_RegWrite	<=	'0' when "000100",	-- beq
-				'0' when "000101",	-- bne
-				'0' when "100101",	-- sw
-				'0' when "000010",	-- j
-				'0' when "000011",	-- jal
-				'1' when others;
-  with i_instruction select
-	o_RegDst	<=	'1' when "000000",	-- rd register
-				'0' when others;	-- rt register
-  with i_instruction select
-	o_Jump		<=	'1' when "000010",	-- j
-				'1' when "000011",	-- jal
-				'1' when "000100",	-- beq
-				'1' when "000101",	-- bne
-				'0' when others;	
-  with i_instruction select
-	o_Branch	<=	'1' when "000100",	-- beq
-				'1' when "000101",	-- bne
-				'0' when others;	
-  with i_instruction select
-	o_MemRead	<= 	'1' when "101011",	-- sw
-				'0' when others;	
-
-end structural;
+END behavioral;

@@ -9,17 +9,6 @@
 -- DESCRIPTION: Testbench for the fetchLogic module.
 -------------------------------------------------------------------------
 
--------------------------------------------------------------------------
--- Abrahim Toutoungi
--- CPRE 381 
--- Iowa State University 
--- 3/14/2024
--------------------------------------------------------------------------
--- fetchLogic_tb.vhd
--------------------------------------------------------------------------
--- DESCRIPTION: Testbench for the fetchLogic module.
--------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all; 
