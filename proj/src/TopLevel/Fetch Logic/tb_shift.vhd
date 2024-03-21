@@ -39,10 +39,31 @@ begin
 
 	-- TEST 1
 	s_shamt <= "00110";
-	s_D   <= x"00400010";
+	s_D   <= x"08100008";
 	s_sign <= '0';
-	s_leftShift <= '0';
-	wait for CLOCK_PERIOD;
+	s_leftShift <= '1';
+	wait for 150 ns;
+
+	-- TEST 2
+	s_shamt <= "00110";
+	s_D   <= x"00000001";
+	s_sign <= '0';
+	s_leftShift <= '1';
+	wait for 150 ns;
+
+	-- TEST 3
+	s_shamt <= "00110";
+	s_D   <= x"10000000";
+	s_sign <= '0';
+	s_leftShift <= '1';
+	wait for 150 ns;
+
+	-- TEST 4
+	s_shamt <= "00110";
+	s_D   <= x"0000000F";
+	s_sign <= '0';
+	s_leftShift <= '1';
+	wait;
 
     end process;
 

@@ -58,14 +58,14 @@ end jump;
 	port map(
 		i_shamt		=> "00110",	-- shift by 6
 		i_sign  	=> '0',		-- shift left
-		i_leftShift 	=> '0',		-- logical shift
+		i_leftShift 	=> '1',		-- logical shift
 		i_D		=> i_Data,	-- Jump Instrcution
 		o_O		=> jump_addr);	-- Shifted Jump Address
 
    G_RIGHT_SHIFT: Barrel_Shifter
 	port map(
 		i_shamt		=> "00100",	-- shift by 4
-		i_sign  	=> '1',		-- shift right
+		i_sign  	=> '0',		-- shift right
 		i_leftShift 	=> '0',		-- logical shift
 		i_D		=> jump_addr,	-- Shifted Jump Address
 		o_O		=> jump_addr);	-- Final Shifted Jump Address
@@ -81,7 +81,7 @@ end jump;
    G_RIGHT_SHIFT_PC: Barrel_Shifter
 	port map(
 		i_shamt		=> "11100",	-- shift by 28
-		i_sign  	=> '1',		-- shift right
+		i_sign  	=> '0',		-- shift right
 		i_leftShift 	=> '0',		-- logical shift
 		i_D		=> i_PC,	-- PC Address
 		o_O		=> PC_4);	-- Shifted PC Address
@@ -90,7 +90,7 @@ end jump;
 	port map(
 		i_shamt		=> "11100",	-- shift by 28
 		i_sign  	=> '0',		-- shift left
-		i_leftShift 	=> '0',		-- logical shift
+		i_leftShift 	=> '1',		-- logical shift
 		i_D		=> PC_4,	-- Jump Instrcution
 		o_O		=> PC_4);	-- Shifted PC Address
 
