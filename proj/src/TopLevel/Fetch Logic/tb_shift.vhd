@@ -45,24 +45,24 @@ begin
 	wait for 150 ns;
 
 	-- TEST 2
-	s_shamt <= "00110";
-	s_D   <= x"00000001";
+	s_shamt <= "00100";
+	s_D   <= x"04000200";
 	s_sign <= '0';
-	s_leftShift <= '1';
+	s_leftShift <= '0';
 	wait for 150 ns;
 
 	-- TEST 3
-	s_shamt <= "00110";
-	s_D   <= x"10000000";
+	s_shamt <= "11100";
+	s_D   <= x"00400014";
 	s_sign <= '0';
 	s_leftShift <= '1';
 	wait for 150 ns;
 
 	-- TEST 4
-	s_shamt <= "00110";
-	s_D   <= x"0000000F";
+	s_shamt <= "11100";
+	s_D   <= x"00000000";
 	s_sign <= '0';
-	s_leftShift <= '1';
+	s_leftShift <= '0';
 	wait;
 
     end process;

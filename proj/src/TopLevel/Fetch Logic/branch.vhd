@@ -12,15 +12,15 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity jump is 
-    port(i_CLK    : in std_logic;                          -- Clock input
+entity branch is 
+    port(i_clk    : in std_logic;                          -- Clock input
          i_rst    : in std_logic;                          -- Reset input
-	 i_PC	  : in std_logic_vector(31 downto 0);	   -- PC + 4 [31 - 28]
-         i_Data   : in std_logic_vector(31 downto 0);      -- Jump Instruction Input
+	 i_PC	  : in std_logic_vector(31 downto 0);	   -- PC + 4 [31 - 0]
+         i_Data   : in std_logic_vector(31 downto 0);      -- Branch Instruction Input [15-0]
          o_Q      : out std_logic_vector(31 downto 0));    -- Jump Address Output
-end jump;
+end branch;
 
-   architecture structural of jump is 
+   architecture structural of branch is 
 
         COMPONENT nBitAdder IS
             GENERIC (N : INTEGER := 32); -- use generics for a multiple bit input/output
@@ -47,34 +47,20 @@ end jump;
     		o_O          : out std_logic_vector(31 downto 0)); -- Output vector after shifting
 	end component;
 
-	
-	signal LS_jump_addr : std_logic_vector(31 downto 0);  -- i_Data [25-0]
-	signal RS_jump_addr : std_logic_vector(31 downto 0);  -- i_Data [25-0]
-	signal PC_4	 : std_logic_vector(31 downto 0);  -- i_PC + 4
-	signal RS_PC_4	 : std_logic_vector(31 downto 0);  -- right shifted PC + 4
-	signal LS_PC_4	 : std_logic_vector(31 downto 0);  -- left shifted PC + 4
-	signal carry1	 : std_logic := '0'; 		   -- signal for carry of adder
-	signal carry2	 : std_logic := '0'; 		   -- signal for carry of adder
-	
-   begin 
+	component Extender is
+  	   port(i_data       : in std_logic_vector(15 downto 0);
+   	     	o_out        : out std_logic_vector(31 downto 0));
+	end component;
 
-   G_LEFT_SHIFT: Barrel_Shifter
-	port map(
-		i_shamt		=> "00110",	-- shift by 6
-		i_sign  	=> '0',		-- shift left
-		i_leftShift 	=> '1',		-- logical shift
-		i_D		=> i_Data,	-- Jump Instrcution
-		o_O		=> LS_jump_addr);	-- Shifted Jump Address
+	signal SE_branch_addr 		: std_logic_vector(31 downto 0);     -- i_Data [15-0]
+	signal shifted_branch_addr 	: std_logic_vector(31 downto 0);     -- i_Data [15-0]
+	signal PC_4	      		: std_logic_vector(31 downto 0);     -- i_PC + 4
+	signal carry1	      		: std_logic := '0'; 		     -- signal for carry of adder
+	signal carry2	      		: std_logic := '0'; 		     -- signal for carry of adder
 
-   G_RIGHT_SHIFT: Barrel_Shifter
-	port map(
-		i_shamt		=> "00100",	-- shift by 4
-		i_sign  	=> '0',		-- shift right
-		i_leftShift 	=> '0',		-- logical shift
-		i_D		=> LS_jump_addr,	-- Shifted Jump Address
-		o_O		=> RS_jump_addr);	-- Final Shifted Jump Address
+  begin
 
-   G_ADD: nBitAdder
+  G_ADD: nBitAdder
 	port map(
 		in_A		=> i_PC,	-- PC Address
 		in_B		=> x"00000004",	-- Four
@@ -82,29 +68,23 @@ end jump;
 		out_S		=> PC_4,	-- PC Address Plus 4
 		out_C		=> carry1);	-- Carry Bit Output
 
-   G_RIGHT_SHIFT_PC: Barrel_Shifter
+  G_EXTEND: Extender
 	port map(
-		i_shamt		=> "11100",	-- shift by 28
-		i_sign  	=> '0',		-- shift right
-		i_leftShift 	=> '0',		-- logical shift
-		i_D		=> PC_4,	-- PC Address
-		o_O		=> RS_PC_4);	-- Shifted PC Address
+		i_data		=> i_Data(15 downto 0),
+		o_out		=> SE_branch_addr);
 
-   G_LEFT_SHIFT_PC: Barrel_Shifter
+  G_SHIFT: shift
 	port map(
-		i_shamt		=> "11100",	-- shift by 28
-		i_sign  	=> '0',		-- shift left
-		i_leftShift 	=> '1',		-- logical shift
-		i_D		=> RS_PC_4,	-- Jump Instrcution
-		o_O		=> LS_PC_4);	-- Shifted PC Address
+		i_IN		=> SE_branch_addr,	 -- Sign Extended branch address
+		o_Out		=> shifted_branch_addr); -- Shifted left 2 branch address
 
-   G_ADD2: nBitAdder
+  G_ADD2: nbitAdder
 	port map(
-		in_A		=> RS_jump_addr,
-		in_B		=> LS_PC_4,
-		in_C		=> carry2,
-		out_S		=> o_Q,
-		out_C		=> carry2);
+		in_A 		=> PC_4,
+                in_B 		=> shifted_branch_addr,
+                in_C 		=> carry2,
+                out_S 		=> o_Q,
+                out_C 		=> carry2);
 
 
 end structural; 

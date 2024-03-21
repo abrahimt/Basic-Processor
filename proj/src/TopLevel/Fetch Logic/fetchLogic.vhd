@@ -25,22 +25,26 @@
 
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
-ENTITY fetchLogic IS
+
+
+entity fetchLogic is
     PORT (
-        i_clk : IN STD_LOGIC;
-        i_rst : IN STD_LOGIC;
-        i_bne : IN STD_LOGIC;
-        i_beq : IN STD_LOGIC;
-        i_j : IN STD_LOGIC;
-        i_jr : IN STD_LOGIC;
-        i_jal : IN STD_LOGIC;
-        i_ALUO : IN STD_LOGIC;
-        o_pJPC : IN STD_LOGIC;
-        o_nAddr : IN STD_LOGIC);
+	i_inst  : in std_logic_vector(31 downto 0);	-- Instruction input
+	i_PC	: in std_logic_vector(31 downto 0);	-- PC Address input
+        i_clk 	: IN STD_LOGIC;				-- clock bit
+        i_rst 	: IN STD_LOGIC;				-- reset bit
+        i_bne 	: IN STD_LOGIC;				-- branch not equal bit
+        i_beq 	: IN STD_LOGIC;				-- branch equal bit
+        i_j 	: IN STD_LOGIC;				-- jump bit
+        i_jr 	: IN STD_LOGIC;				-- jump return bit
+        i_jal 	: IN STD_LOGIC;				-- jump and link bit
+        i_ALUO 	: IN STD_LOGIC;				-- 
+        o_pJPC 	: in std_logic_vector(31 downto 0);	-- Output for $ra Address
+        o_newPC : in std_logic_vector(31 downto 0));	-- Output for PC Address
 
-    ARCHITECTURE behavioral OF fetchLogic IS
+    architecture structural of fetchLogic is
 
-        COMPONENT nBitAdder IS
+        component nBitAdder is
             GENERIC (N : INTEGER := 32); -- use generics for a multiple bit input/output
             PORT (
                 in_A : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
@@ -48,121 +52,160 @@ ENTITY fetchLogic IS
                 in_C : IN STD_LOGIC;
                 out_S : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
                 out_C : OUT STD_LOGIC);
-        END COMPONENT;
+        end component;
 
-        COMPONENT mux2t1_N IS
+        component mux2t1_N is
             GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
             PORT (
                 i_S : IN STD_LOGIC;
                 i_D0 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
                 i_D1 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
                 o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
-        END COMPONENT;
+        end component;
 
-        COMPONENT pcRegister IS
+        component pcRegister is
             PORT (
                 i_CLK : IN STD_LOGIC; -- Clock input
                 i_RST : IN STD_LOGIC; -- Reset input
                 i_WE : IN STD_LOGIC; -- Write enable input
                 i_D : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Data value input
                 o_Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Data value output
-        END COMPONENT;
+        end component;
 
-        COMPONENT extendSign IS
-            PORT (
-                i_sign : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-                o_sign : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
-        END COMPONENT;
+	component jump is
+	    port(
+		i_CLK    : in std_logic;                          -- Clock input
+         	i_rst    : in std_logic;                          -- Reset input
+	 	i_PC	  : in std_logic_vector(31 downto 0);	   -- PC + 4 [31 - 28]
+         	i_Data   : in std_logic_vector(31 downto 0);      -- Jump Instruction Input
+         	o_Q      : out std_logic_vector(31 downto 0));    -- Jump Address Output
+	end component;
 
-        COMPONENT shift IS
-            PORT (
-                i_In : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-                o_Out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
-        END COMPONENT;
+	component branch is
+	    port(
+		i_CLK    : in std_logic;                          -- Clock input
+         	i_rst    : in std_logic;                          -- Reset input
+	 	i_PC	 : in std_logic_vector(31 downto 0);	  -- PC + 4 [31 - 28]
+         	i_Data   : in std_logic_vector(31 downto 0);      -- branch Instruction Input
+         	o_Q      : out std_logic_vector(31 downto 0));    -- branch Address Output
+	end component;
 
-        COMPONENT addToStart IS
-            PORT (
-                i_jBits : IN STD_LOGIC_VECTOR(27 DOWNTO 0);
-                i_PCb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-                o_Out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
-        END COMPONENT;
+        SIGNAL carry1 				: STD_LOGIC := '0';		-- Carry bit for first adder
+        SIGNAL carry2 				: STD_LOGIC := '0';		-- Carry bit for second adder
+        SIGNAL reset 				: STD_LOGIC := '0';
+        SIGNAL update, brUpdate 		: STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+        SIGNAL newAddr, selAddr 		: STD_LOGIC_VECTOR(31 DOWNTO 0);
+        SIGNAL brFin, brShift, brExt 		: STD_LOGIC_VECTOR(31 DOWNTO 0);
+        SIGNAL brSelect 			: STD_LOGIC;
+        SIGNAL jSelect 				: STD_LOGIC;
+        SIGNAL jMUX, jFin 			: STD_LOGIC_VECTOR(31 DOWNTO 0);
+        SIGNAL jAddToEnd 			: STD_LOGIC_VECTOR(27 DOWNTO 0);
 
-        COMPONENT addToEnd IS
-            PORT (
-                i_In : IN STD_LOGIC_VECTOR(25 DOWNTO 0);
-                o_Out : OUT STD_LOGIC_VECTOR(27 DOWNTO 0));
-        END COMPONENT;
-
-        SIGNAL const4 : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000004";
-        SIGNAL const1 : STD_LOGIC := '1';
-        SIGNAL reset : STD_LOGIC := '0';
-        SIGNAL update, brUpdate : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
-        SIGNAL newAddr, pcIncrement, selAddr : STD_LOGIC_VECTOR(31 DOWNTO 0);
-        SIGNAL brFin, brShift, brExt : STD_LOGIC_VECTOR(31 DOWNTO 0);
-        SIGNAL leave, brSelect : STD_LOGIC;
-        SIGNAL jSelect : STD_LOGIC;
-        SIGNAL jMUX, jFin : STD_LOGIC_VECTOR(31 DOWNTO 0);
-        SIGNAL jAddToEnd : STD_LOGIC_VECTOR(27 DOWNTO 0);
-
-    BEGIN
+    begin
 
         -- Instantiate PC register
         PC : pcRegister
         PORT MAP(
-            i_CLK => i_CLK,
-            i_RST => i_RST,
-            i_WE => const1,
-            i_D => selAddr,
-            o_Q => newAddr);
+            i_CLK => i_clk,
+            i_RST => i_rst,
+            i_WE  => '1',		
+            i_D   => x"00000000",	-- 0x00000000
+            o_Q   => o_newPC);		-- 0x00400000
 
         PROCESS (i_clk)
-        BEGIN
+        begin
             IF rising_edge(i_clk) THEN
                 IF reset = '1' THEN
-                    -- Reinstantiate PC register
+			-- If we are reseting PC should be 0x00400000
+                    	-- Reinstantiate PC register
                     PC : pcRegister
                     PORT MAP(
                         i_CLK => i_clk,
                         i_RST => i_rst,
-                        i_WE => const1,
-                        i_D => selAddr,
-                        o_Q => newAddr
-                    );
+                        i_WE => '1',
+                        i_D => x"00000000",	-- 0x00000000,
+                        o_Q => o_newPC);	-- 0x00400000
+
                 ELSE
+-- TODO
                     -- Calculate branch selection
                     brSelect <= (i_brEQ OR i_ALUO);
 
-                    -- Handle different instructions
+
+
+-- Handle different instructions
+
                     IF i_j = '1' THEN
                         -- Change PC address to the jump address
-                    
+		    JUMP: jump
+			port map(
+				i_CLK  => i_clk,
+				i_rst  => i_rst,
+				i_PC   => i_PC,
+				i_Data => i_inst,
+				o_Q    => o_newPC);
+
                     ELSIF i_jal = '1' THEN
-                        
-                        o_pJPC <= o_pJPC + 8; -- PC + 8 for jal instruction
-                    ELSIF i_jr = '1' THEN
+			-- Save PC address for jr
+			-- Change PC address to the jump address
+		    G_ADD: nBitAdder
+			port map(
+				in_A	=> i_PC,	-- PC Address
+				in_B	=> x"00000008",	-- Eight
+				in_C	=> carry1,	-- Carry Bit
+				out_S	=> o_pJPC,	-- PC Address Plus 4
+				out_C	=> carry1);	-- Carry Bit Output
+		    JAL: jump
+			port map(
+				i_CLK  => i_clk,
+				i_rst  => i_rst,
+				i_PC   => i_PC,		-- PC Address
+				i_Data => i_inst,	-- Instruction Address
+				o_Q    => o_newPC);	-- New PC Address
+
+                    ELSIF i_jr = '1'  THEN
                         -- Change PC address to the jump return address
-                        o_nAddr <= o_pJPC; -- o_pJPC holds the jump return address
+                        o_newPC <= o_pJPC; -- o_pJPC holds the jump return address
+
                     ELSIF i_bne = '1' THEN
-                        -- Change PC address based on branch condition
-                        o_nAddr <= brUpdate; -- Assuming brUpdate holds the branch address
+-- TODO
+                    	-- Change PC address based on branch condition
+		    BNE: branch
+			port map(
+				i_CLK  => i_clk,
+				i_rst  => i_rst,
+				i_PC   => i_PC,		-- PC Address
+				i_Data => i_inst,	-- Instruction Address
+				o_Q    => o_newPC);	-- New PC Address
+
                     ELSIF i_beq = '1' THEN
+-- TODO
                         -- Change PC address based on branch condition
-                        o_nAddr <= brUpdate; -- Assuming brUpdate holds the branch address
+		    BEQ: branch
+			port map(
+				i_CLK  => i_clk,
+				i_rst  => i_rst,
+				i_PC   => i_PC,		-- PC Address
+				i_Data => i_inst,	-- Instruction Address
+				o_Q    => o_newPC);	-- New PC Address
+
                     ELSE
                         -- Default behavior: Increment PC by 4
-                        INCREMENT_PC : nBitAdder
-                        PORT MAP(
-                            in_A => const4,
-                            in_B => newAddr,
-                            in_C => reset,
-                            out_S => pcIncrement,
-                            out_C => leave
-                        );
-                        o_nAddr <= pcIncrement;
-                        o_pJPC <= o_pJPC; -- No change in PC + 4 for non-branch instructions
+                    INCREMENT_PC : nBitAdder
+                    	PORT MAP(
+                            	in_A  => x"00000004"	-- Four
+                            	in_B  => i_PC,		-- PC Address
+                            	in_C  => carry2,	-- carry in
+                            	out_S => o_newPC,	-- PC + 4
+                            	out_C => carry2);	-- carry out
                     END IF;
+
                 END IF;
+
             END IF;
+
         END PROCESS;
 
-    END PROCESS;
+     END PROCESS;
+
+ end structural;
