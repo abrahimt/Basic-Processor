@@ -103,7 +103,6 @@ BEGIN
         i_WE => '1',
         i_D => x"00000000", -- 0x00000000
         o_Q => s_PC); -- 0x00400000
-	o_newPC <= s_PC;
 
     PROCESS (i_clk)
     BEGIN
@@ -111,13 +110,7 @@ BEGIN
             IF i_rst = '1' THEN
                 -- If we are reseting PC should be 0x00400000
                 -- Reinstantiate PC register
-                PC : pcRegister
-                PORT MAP(
-                    i_CLK => i_clk,
-                    i_RST => i_rst,
-                    i_WE => '1',
-                    i_D => x"00000000", -- 0x00000000,
-                    o_Q => s_PC); -- 0x00400000
+		s_PC <= x"00400000";
 
             ELSE
 
@@ -191,5 +184,7 @@ BEGIN
         END IF;
 
     END PROCESS;
+
+	o_newPC <= s_PC;
 
 END structural;
