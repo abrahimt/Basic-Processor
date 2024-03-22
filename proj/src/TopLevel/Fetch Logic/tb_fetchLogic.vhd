@@ -145,7 +145,6 @@ BEGIN
                 i_jr <= '1'; -- jr signal
                 i_jal <= '0'; -- jal signal
                 WAIT FOR CLOCK_PERIOD;
-                -- Expected result: Next address should be 0x00000014 (if condition is true)
                 ASSERT o_newPC = x"0040003c" REPORT "Branch Equal instruction failed" SEVERITY error;
 
                 -- addi Test
