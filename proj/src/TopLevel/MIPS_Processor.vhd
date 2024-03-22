@@ -165,12 +165,10 @@ ARCHITECTURE structure OF MIPS_Processor IS
   signal s_shiftDir : std_logic;
   signal s_branch : std_logic;
   signal s_lui : std_logic;
+  signal s_ctlExt : std_logic;
 
   --ALU SIGNALS
   signal s_branchALU : std_logic;
-  signal s_ctlExt : std_logic;
-  signal s_ctlExt : std_logic;
-  signal s_ctlExt : std_logic;
   signal s_result : std_logic_vector(31 downto 0);
 
   --AND SIGNALS
@@ -183,11 +181,6 @@ ARCHITECTURE structure OF MIPS_Processor IS
   signal s_RegEMUX : std_logic_vector(31 downto 0);
   signal s_ALUMemMUX : std_logic_vector(31 downto 0);
 
-  signal s_ra : std_logic_vector(31 downto 0);
-  signal s_ra : std_logic_vector(31 downto 0);
-  signal s_ra : std_logic_vector(31 downto 0);
-  signal s_ra : std_logic_vector(31 downto 0);
-  signal s_ra : std_logic_vector(31 downto 0);
 
 BEGIN
 
@@ -230,7 +223,7 @@ BEGIN
   -- TODO: Implement the rest of your processor below this comment! 
   G_CONTROL : control
   PORT MAP(
-    i_inst      => iInstAddr,      --MIPS instruction address
+    i_inst      => iInstAddr,      -- TODO --MIPS instruction address
     o_RegWrite  => s_RegWrite,
     o_memToReg  => s_memToReg,
     o_memWrite  => s_memWrite,
@@ -246,23 +239,23 @@ BEGIN
     o_jr        => s_jr,
     o_jal       => s_jal,
     o_branch    => s_branch,
-    o_jump      => ,
+    o_jump      => ,      -- TODO  (is this the same as s_j)
     o_lui       => s_lui,
     o_halt      => s_halt,
     o_ctlExt    => s_ctlExt);
 
   G_ALU : alu
   PORT MAP(
-    i_RS => ,
-    i_RT => ,
-    i_Imm => ,
+    i_RS => ,      -- TODO
+    i_RT => ,      -- TODO
+    i_Imm => ,      -- TODO
     i_ALUOp => s_ALUOp,
     i_ALUSrc => s_ALUSrc,
     i_bne => s_bne,
     i_beq => s_beq,
     i_shiftDir => s_shiftDir,
     i_shiftType => s_shiftType,
-    i_shamt => ,
+    i_shamt => ,      -- TODO 
     i_addSub => s_addSub,
     i_signed => s_signed,
     i_lui => s_lui,
@@ -272,7 +265,7 @@ BEGIN
 
   G_FETCHLOGIC : fetchLogic
   PORT MAP(
-    i_inst => s_Inst,  -- Instruction input
+    i_inst => s_Inst,  -- Instruction input                 -- TODO
     i_PC => ,  -- PC Address input
     i_clk => ,  -- clock bit
     i_rst => ,  -- reset bit
@@ -281,8 +274,8 @@ BEGIN
     i_j => s_j,  -- jump bit
     i_jr => s_jr,  -- jump return bit
     i_jal => s_jal,  -- jump and link bit
-    o_ra => s_ra, -- Output for $ra Address
-    o_newPC => s_NextInstAddr); -- Output for PC Address
+    o_ra => s_ra, -- Output for $ra Address                 -- TODO
+    o_newPC => s_NextInstAddr); -- Output for PC Address    -- TODO 
 
   G_AND : andg2
   PORT MAP(
