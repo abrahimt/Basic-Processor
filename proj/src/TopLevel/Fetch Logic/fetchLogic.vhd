@@ -52,15 +52,6 @@ ARCHITECTURE structural OF fetchLogic IS
             out_C : OUT STD_LOGIC);
     END COMPONENT;
 
-    COMPONENT mux2t1_N IS
-        GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
-        PORT (
-            i_S : IN STD_LOGIC;
-            i_D0 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
-            i_D1 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
-            o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
-    END COMPONENT;
-
     COMPONENT pcRegister IS
         PORT (
             i_CLK : IN STD_LOGIC; -- Clock input
@@ -90,8 +81,8 @@ ARCHITECTURE structural OF fetchLogic IS
 
     SIGNAL carry1 : STD_LOGIC := '0'; -- Carry bit for first adder
     SIGNAL carry2 : STD_LOGIC := '0'; -- Carry bit for second adder
-    SIGNAL RA	  : STD_LOGIC_VECTOR(31 downto 0);
-    SIGNAL s_PC	  : STD_LOGIC_VECTOR(31 downto 0);
+    SIGNAL RA : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 BEGIN
 
@@ -110,7 +101,7 @@ BEGIN
             IF i_rst = '1' THEN
                 -- If we are reseting PC should be 0x00400000
                 -- Reinstantiate PC register
-		s_PC <= x"00400000";
+                s_PC <= x"00400000";
 
             ELSE
 
@@ -146,7 +137,7 @@ BEGIN
 
                 ELSIF i_jr = '1' THEN
                     -- Change PC address to the jump return address
-                    o_newPC <= RA; -- o_ra holds the jump return address
+                    s_PC <= RA; -- o_ra holds the jump return address
 
                 ELSIF i_bne = '1' THEN
                     -- Change PC address based on branch condition
@@ -185,6 +176,6 @@ BEGIN
 
     END PROCESS;
 
-	o_newPC <= s_PC;
+    o_newPC <= s_PC;
 
 END structural;
