@@ -83,7 +83,12 @@ ARCHITECTURE structural OF fetchLogic IS
     SIGNAL carry2 : STD_LOGIC := '0'; -- Carry bit for second adder
     SIGNAL RA : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-
+    SIGNAL s_jPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_jalPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_jrPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_bnePC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_beqPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_PC4 : STD_LOGIC_VECTOR(31 DOWNTO 0);
 BEGIN
 
     -- Instantiate PC register
@@ -95,6 +100,56 @@ BEGIN
         i_D => x"00000000", -- 0x00000000
         o_Q => s_PC); -- 0x00400000
 
+    -- Change PC address to the jump address
+    JUMP1 : jump
+    PORT MAP(
+        i_CLK => i_clk,
+        i_rst => i_rst,
+        i_PC => i_PC,
+        i_Data => i_inst,
+        o_Q => s_jPC);
+    -- Save PC address for jr
+    -- Change PC address to the jump address
+    G_ADD : nBitAdder
+    PORT MAP(
+        in_A => i_PC, -- PC Address
+        in_B => x"00000008", -- Eight
+        in_C => carry1, -- Carry Bit
+        out_S => RA, -- PC Address Plus 4
+        out_C => carry1); -- Carry Bit Output
+    JAL : jump
+    PORT MAP(
+        i_CLK => i_clk,
+        i_rst => i_rst,
+        i_PC => i_PC, -- PC Address
+        i_Data => i_inst, -- Instruction Address
+        o_Q => s_PC); -- New PC Address
+    -- Change PC address based on branch condition
+    BNE : branch
+    PORT MAP(
+        i_CLK => i_clk,
+        i_rst => i_rst,
+        i_PC => i_PC, -- PC Address
+        i_Data => i_inst, -- Instruction Address
+        o_Q => s_PC); -- New PC Address
+
+    -- Change PC address based on branch condition
+    BEQ : branch
+    PORT MAP(
+        i_CLK => i_clk,
+        i_rst => i_rst,
+        i_PC => i_PC, -- PC Address
+        i_Data => i_inst, -- Instruction Address
+        o_Q => s_PC); -- New PC Address
+
+    -- Default behavior: Increment PC by 4
+    INCREMENT_PC : nBitAdder
+    PORT MAP(
+        in_A => x"00000004", -- Four
+        in_B => i_PC, -- PC Address
+        in_C => carry2, -- carry in
+        out_S => s_PC4, -- PC + 4
+        out_C => carry2); -- carry out
     PROCESS (i_clk)
     BEGIN
         IF rising_edge(i_clk) THEN
@@ -108,66 +163,23 @@ BEGIN
                 -- Handle different instructions
 
                 IF i_j = '1' THEN
-                    -- Change PC address to the jump address
-                    JUMP1 : jump
-                    PORT MAP(
-                        i_CLK => i_clk,
-                        i_rst => i_rst,
-                        i_PC => i_PC,
-                        i_Data => i_inst,
-                        o_Q => s_PC);
+                    o_newPC <= s_jPC;
 
                 ELSIF i_jal = '1' THEN
-                    -- Save PC address for jr
-                    -- Change PC address to the jump address
-                    G_ADD : nBitAdder
-                    PORT MAP(
-                        in_A => i_PC, -- PC Address
-                        in_B => x"00000008", -- Eight
-                        in_C => carry1, -- Carry Bit
-                        out_S => RA, -- PC Address Plus 4
-                        out_C => carry1); -- Carry Bit Output
-                    JAL : jump
-                    PORT MAP(
-                        i_CLK => i_clk,
-                        i_rst => i_rst,
-                        i_PC => i_PC, -- PC Address
-                        i_Data => i_inst, -- Instruction Address
-                        o_Q => s_PC); -- New PC Address
+                    o_ra <= RA;
+                    o_newPC <= s_jalPC;
 
                 ELSIF i_jr = '1' THEN
                     -- Change PC address to the jump return address
                     s_PC <= RA; -- o_ra holds the jump return address
 
                 ELSIF i_bne = '1' THEN
-                    -- Change PC address based on branch condition
-                    BNE : branch
-                    PORT MAP(
-                        i_CLK => i_clk,
-                        i_rst => i_rst,
-                        i_PC => i_PC, -- PC Address
-                        i_Data => i_inst, -- Instruction Address
-                        o_Q => s_PC); -- New PC Address
+                    o_newPC <= s_bnePC;
 
                 ELSIF i_beq = '1' THEN
-                    -- Change PC address based on branch condition
-                    BEQ : branch
-                    PORT MAP(
-                        i_CLK => i_clk,
-                        i_rst => i_rst,
-                        i_PC => i_PC, -- PC Address
-                        i_Data => i_inst, -- Instruction Address
-                        o_Q => s_PC); -- New PC Address
-
+                    o_newPC <= s_bnePC;
                 ELSE
-                    -- Default behavior: Increment PC by 4
-                    INCREMENT_PC : nBitAdder
-                    PORT MAP(
-                        in_A => x"00000004", -- Four
-                        in_B => i_PC, -- PC Address
-                        in_C => carry2, -- carry in
-                        out_S => s_PC, -- PC + 4
-                        out_C => carry2); -- carry out
+                    o_newPC <= s_PC4;
                 END IF;
 
             END IF;
@@ -175,7 +187,4 @@ BEGIN
         END IF;
 
     END PROCESS;
-
-    o_newPC <= s_PC;
-
 END structural;
