@@ -36,9 +36,8 @@ ENTITY fetchLogic IS
         i_j : IN STD_LOGIC; -- jump bit
         i_jr : IN STD_LOGIC; -- jump return bit
         i_jal : IN STD_LOGIC; -- jump and link bit
-        i_ALUO : IN STD_LOGIC; -- 
-        o_pJPC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Output for $ra Address
-        o_newPC : IN STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Output for PC Address
+        o_ra : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- Output for $ra Address
+        o_newPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Output for PC Address
 END ENTITY fetchLogic;
 
 ARCHITECTURE structural OF fetchLogic IS
@@ -91,14 +90,8 @@ ARCHITECTURE structural OF fetchLogic IS
 
     SIGNAL carry1 : STD_LOGIC := '0'; -- Carry bit for first adder
     SIGNAL carry2 : STD_LOGIC := '0'; -- Carry bit for second adder
-    SIGNAL reset : STD_LOGIC := '0';
-    SIGNAL update, brUpdate : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
-    SIGNAL newAddr, selAddr : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL brFin, brShift, brExt : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL brSelect : STD_LOGIC;
-    SIGNAL jSelect : STD_LOGIC;
-    SIGNAL jMUX, jFin : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL jAddToEnd : STD_LOGIC_VECTOR(27 DOWNTO 0);
+    SIGNAL RA	  : STD_LOGIC_VECTOR(31 downto 0);
+    SIGNAL s_PC	  : STD_LOGIC_VECTOR(31 downto 0);
 
 BEGIN
 
@@ -109,12 +102,13 @@ BEGIN
         i_RST => i_rst,
         i_WE => '1',
         i_D => x"00000000", -- 0x00000000
-        o_Q => o_newPC); -- 0x00400000
+        o_Q => s_PC); -- 0x00400000
+	o_newPC <= s_PC;
 
     PROCESS (i_clk)
     BEGIN
         IF rising_edge(i_clk) THEN
-            IF reset = '1' THEN
+            IF i_rst = '1' THEN
                 -- If we are reseting PC should be 0x00400000
                 -- Reinstantiate PC register
                 PC : pcRegister
@@ -123,24 +117,21 @@ BEGIN
                     i_RST => i_rst,
                     i_WE => '1',
                     i_D => x"00000000", -- 0x00000000,
-                    o_Q => o_newPC); -- 0x00400000
+                    o_Q => s_PC); -- 0x00400000
 
             ELSE
-                -- TODO
-                -- Calculate branch selection
-                brSelect <= (i_brEQ OR i_ALUO);
 
                 -- Handle different instructions
 
                 IF i_j = '1' THEN
                     -- Change PC address to the jump address
-                    JUMP : jump
+                    JUMP1 : jump
                     PORT MAP(
                         i_CLK => i_clk,
                         i_rst => i_rst,
                         i_PC => i_PC,
                         i_Data => i_inst,
-                        o_Q => o_newPC);
+                        o_Q => s_PC);
 
                 ELSIF i_jal = '1' THEN
                     -- Save PC address for jr
@@ -150,7 +141,7 @@ BEGIN
                         in_A => i_PC, -- PC Address
                         in_B => x"00000008", -- Eight
                         in_C => carry1, -- Carry Bit
-                        out_S => o_pJPC, -- PC Address Plus 4
+                        out_S => RA, -- PC Address Plus 4
                         out_C => carry1); -- Carry Bit Output
                     JAL : jump
                     PORT MAP(
@@ -158,14 +149,13 @@ BEGIN
                         i_rst => i_rst,
                         i_PC => i_PC, -- PC Address
                         i_Data => i_inst, -- Instruction Address
-                        o_Q => o_newPC); -- New PC Address
+                        o_Q => s_PC); -- New PC Address
 
                 ELSIF i_jr = '1' THEN
                     -- Change PC address to the jump return address
-                    o_newPC <= o_pJPC; -- o_pJPC holds the jump return address
+                    o_newPC <= RA; -- o_ra holds the jump return address
 
                 ELSIF i_bne = '1' THEN
-                    -- TODO
                     -- Change PC address based on branch condition
                     BNE : branch
                     PORT MAP(
@@ -173,10 +163,9 @@ BEGIN
                         i_rst => i_rst,
                         i_PC => i_PC, -- PC Address
                         i_Data => i_inst, -- Instruction Address
-                        o_Q => o_newPC); -- New PC Address
+                        o_Q => s_PC); -- New PC Address
 
                 ELSIF i_beq = '1' THEN
-                    -- TODO
                     -- Change PC address based on branch condition
                     BEQ : branch
                     PORT MAP(
@@ -184,7 +173,7 @@ BEGIN
                         i_rst => i_rst,
                         i_PC => i_PC, -- PC Address
                         i_Data => i_inst, -- Instruction Address
-                        o_Q => o_newPC); -- New PC Address
+                        o_Q => s_PC); -- New PC Address
 
                 ELSE
                     -- Default behavior: Increment PC by 4
@@ -193,7 +182,7 @@ BEGIN
                         in_A => x"00000004", -- Four
                         in_B => i_PC, -- PC Address
                         in_C => carry2, -- carry in
-                        out_S => o_newPC, -- PC + 4
+                        out_S => s_PC, -- PC + 4
                         out_C => carry2); -- carry out
                 END IF;
 
