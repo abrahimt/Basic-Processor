@@ -13,8 +13,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 ENTITY control IS
 	PORT (
-		i_opCode : IN STD_LOGIC_VECTOR(5 DOWNTO 0); --MIPS instruction opcode (6 bits wide)
-		i_functCode : IN STD_LOGIC_VECTOR(5 DOWNTO 0); --MIPS instruction function code (6 bits wide) used for R-Type instructions
+		i_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0); --MIPS instruction
 		o_RegDst : OUT STD_LOGIC;
 		o_RegWrite : OUT STD_LOGIC;
 		o_memToReg : OUT STD_LOGIC;
@@ -38,12 +37,23 @@ ENTITY control IS
 END control;
 
 ARCHITECTURE behavioral OF control IS
+
+	signal s_opcode	: std_logic_vector(5 downto 0);
+	signal s_funct	: std_logic_vector(5 downto 0);
+
+
 BEGIN
 
-	PROCESS (i_opCode, i_functCode)
+    	s_opcode <= i_inst(31 downto 26);
+
+
+    	s_funct <= i_inst(5 downto 0);
+
+
+	PROCESS (s_opcode, s_funct)
 	BEGIN
-		IF i_opCode = "000000" THEN --Case for R-Type instruction
-			IF i_functCode = "100000" THEN --add instruction
+		IF s_opcode = "000000" THEN --Case for R-Type instruction
+			IF s_funct = "100000" THEN --add instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -64,7 +74,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "100001" THEN --addu instruction
+			ELSIF s_funct = "100001" THEN --addu instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -85,7 +95,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "100100" THEN --and instruction
+			ELSIF s_funct = "100100" THEN --and instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -106,7 +116,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "100111" THEN --nor instruction
+			ELSIF s_funct = "100111" THEN --nor instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -127,7 +137,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "100110" THEN --xor instruction
+			ELSIF s_funct = "100110" THEN --xor instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -148,7 +158,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "100101" THEN --or instruction
+			ELSIF s_funct = "100101" THEN --or instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -169,7 +179,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "101010" THEN --slt instruction
+			ELSIF s_funct = "101010" THEN --slt instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -190,7 +200,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "000000" THEN --sll instruction
+			ELSIF s_funct = "000000" THEN --sll instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -211,7 +221,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "000010" THEN --srl instruction
+			ELSIF s_funct = "000010" THEN --srl instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -232,7 +242,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "000011" THEN --sra instruction
+			ELSIF s_funct = "000011" THEN --sra instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -253,7 +263,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "100010" THEN --sub instruction
+			ELSIF s_funct = "100010" THEN --sub instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -274,7 +284,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "100011" THEN --subu instruction
+			ELSIF s_funct = "100011" THEN --subu instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -295,7 +305,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_functCode = "001000" THEN --jr instruction
+			ELSIF s_funct = "001000" THEN --jr instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
 				o_memToReg <= '0';
@@ -339,7 +349,7 @@ BEGIN
 				o_ctlExt <= '0';
 			END IF;
 		ELSE --I and J type instructions
-			IF i_opCode = "001000" THEN --addi instruction
+			IF s_opcode = "001000" THEN --addi instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -360,7 +370,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
-			ELSIF i_opCode = "001001" THEN --addiu instruction
+			ELSIF s_opcode = "001001" THEN --addiu instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -381,7 +391,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
-			ELSIF i_opCode = "001100" THEN --andi instruction
+			ELSIF s_opcode = "001100" THEN --andi instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -402,7 +412,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_opCode = "001111" THEN --lui instruction
+			ELSIF s_opcode = "001111" THEN --lui instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -423,7 +433,7 @@ BEGIN
 				o_lui <= '1';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_opCode = "100011" THEN --lw instruction
+			ELSIF s_opcode = "100011" THEN --lw instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '1';
@@ -444,7 +454,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
-			ELSIF i_opCode = "001110" THEN --xori instruction
+			ELSIF s_opcode = "001110" THEN --xori instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -465,7 +475,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_opCode = "001101" THEN --ori instruction
+			ELSIF s_opcode = "001101" THEN --ori instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -486,7 +496,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_opCode = "001010" THEN --slti instruction
+			ELSIF s_opcode = "001010" THEN --slti instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -507,7 +517,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
-			ELSIF i_opCode = "101011" THEN --sw instruction
+			ELSIF s_opcode = "101011" THEN --sw instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
 				o_memToReg <= '0';
@@ -528,7 +538,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
-			ELSIF i_opCode = "000100" THEN --beq instruction
+			ELSIF s_opcode = "000100" THEN --beq instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
 				o_memToReg <= '0';
@@ -549,7 +559,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_opCode = "000101" THEN --bne instruction
+			ELSIF s_opcode = "000101" THEN --bne instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
 				o_memToReg <= '0';
@@ -570,7 +580,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_opCode = "000010" THEN --j instruction
+			ELSIF s_opcode = "000010" THEN --j instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
 				o_memToReg <= '0';
@@ -591,7 +601,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_opCode = "000011" THEN --jal instruction
+			ELSIF s_opcode = "000011" THEN --jal instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';
@@ -612,7 +622,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
-			ELSIF i_opCode = "010100" THEN --halt instruction 
+			ELSIF s_opcode = "010100" THEN --halt instruction 
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
 				o_memToReg <= '0';
