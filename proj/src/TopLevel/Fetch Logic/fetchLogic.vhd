@@ -123,7 +123,7 @@ BEGIN
         i_rst => i_rst,
         i_PC => i_PC, -- PC Address
         i_Data => i_inst, -- Instruction Address
-        o_Q => s_PC); -- New PC Address
+        o_Q => s_jalPC); -- New PC Address
     -- Change PC address based on branch condition
     BNE : branch
     PORT MAP(
@@ -131,7 +131,7 @@ BEGIN
         i_rst => i_rst,
         i_PC => i_PC, -- PC Address
         i_Data => i_inst, -- Instruction Address
-        o_Q => s_PC); -- New PC Address
+        o_Q => s_bnePC); -- New PC Address
 
     -- Change PC address based on branch condition
     BEQ : branch
@@ -140,7 +140,7 @@ BEGIN
         i_rst => i_rst,
         i_PC => i_PC, -- PC Address
         i_Data => i_inst, -- Instruction Address
-        o_Q => s_PC); -- New PC Address
+        o_Q => s_beqPC); -- New PC Address
 
     -- Default behavior: Increment PC by 4
     INCREMENT_PC : nBitAdder
@@ -150,13 +150,14 @@ BEGIN
         in_C => carry2, -- carry in
         out_S => s_PC4, -- PC + 4
         out_C => carry2); -- carry out
+
     PROCESS (i_clk)
     BEGIN
         IF rising_edge(i_clk) THEN
             IF i_rst = '1' THEN
                 -- If we are reseting PC should be 0x00400000
                 -- Reinstantiate PC register
-                s_PC <= x"00400000";
+                o_newPC <= x"00400000";
 
             ELSE
 
@@ -169,9 +170,9 @@ BEGIN
                     o_ra <= RA;
                     o_newPC <= s_jalPC;
 
-                ELSIF i_jr = '1' THEN
+                ELSIF i_jr = '1' THEN --TODO: JR functionality is wrong
                     -- Change PC address to the jump return address
-                    s_PC <= RA; -- o_ra holds the jump return address
+                    o_newPC <= RA; -- o_ra holds the jump return address
 
                 ELSIF i_bne = '1' THEN
                     o_newPC <= s_bnePC;
@@ -187,4 +188,7 @@ BEGIN
         END IF;
 
     END PROCESS;
+
+
+    
 END structural;
