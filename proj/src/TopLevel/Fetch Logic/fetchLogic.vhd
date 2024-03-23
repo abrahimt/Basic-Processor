@@ -31,11 +31,11 @@ ENTITY fetchLogic IS
         i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC Address input
         i_clk : IN STD_LOGIC; -- clock bit
         i_rst : IN STD_LOGIC; -- reset bit
-        i_bne : IN STD_LOGIC; -- branch not equal bit
-        i_beq : IN STD_LOGIC; -- branch equal bit
-        i_j : IN STD_LOGIC; -- jump bit
-        i_jr : IN STD_LOGIC; -- jump return bit
-        i_jal : IN STD_LOGIC; -- jump and link bit
+        i_zero : IN STD_LOGIC; -- zero bit from ALU
+        i_branch : in std_logic -- branch bit from control
+        i_jump : IN STD_LOGIC; -- jump bit from control
+        i_jr : IN STD_LOGIC; -- jump return bit from control
+        i_jal : IN STD_LOGIC; -- jump and link bit from control
         o_ra : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- Output for $ra Address
         o_newPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Output for PC Address
 END ENTITY fetchLogic;
@@ -79,6 +79,13 @@ ARCHITECTURE structural OF fetchLogic IS
             o_Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- branch Address Output
     END COMPONENT;
 
+    COMPONENT andg2 IS
+    PORT (
+        i_A : IN STD_LOGIC;
+        i_B : IN STD_LOGIC;
+        o_F : OUT STD_LOGIC);
+    END COMPONENT;
+
     SIGNAL carry1 : STD_LOGIC := '0'; -- Carry bit for first adder
     SIGNAL carry2 : STD_LOGIC := '0'; -- Carry bit for second adder
     SIGNAL RA : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -86,9 +93,11 @@ ARCHITECTURE structural OF fetchLogic IS
     SIGNAL s_jPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_jalPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_jrPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_bnePC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_beqPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_bPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_PC4 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_branch : STD_LOGIC;
+
+
 BEGIN
 
     -- Instantiate PC register
@@ -108,6 +117,7 @@ BEGIN
         i_PC => i_PC,
         i_Data => i_inst,
         o_Q => s_jPC);
+
     -- Save PC address for jr
     -- Change PC address to the jump address
     G_ADD : nBitAdder
@@ -117,6 +127,7 @@ BEGIN
         in_C => carry1, -- Carry Bit
         out_S => RA, -- PC Address Plus 4
         out_C => carry1); -- Carry Bit Output
+
     JAL : jump
     PORT MAP(
         i_CLK => i_clk,
@@ -125,22 +136,14 @@ BEGIN
         i_Data => i_inst, -- Instruction Address
         o_Q => s_jalPC); -- New PC Address
     -- Change PC address based on branch condition
-    BNE : branch
-    PORT MAP(
-        i_CLK => i_clk,
-        i_rst => i_rst,
-        i_PC => i_PC, -- PC Address
-        i_Data => i_inst, -- Instruction Address
-        o_Q => s_bnePC); -- New PC Address
 
-    -- Change PC address based on branch condition
-    BEQ : branch
+    G_BRANCH : branch
     PORT MAP(
         i_CLK => i_clk,
         i_rst => i_rst,
         i_PC => i_PC, -- PC Address
         i_Data => i_inst, -- Instruction Address
-        o_Q => s_beqPC); -- New PC Address
+        o_Q => s_bPC); -- New PC Address
 
     -- Default behavior: Increment PC by 4
     INCREMENT_PC : nBitAdder
@@ -150,6 +153,14 @@ BEGIN
         in_C => carry2, -- carry in
         out_S => s_PC4, -- PC + 4
         out_C => carry2); -- carry out
+
+    G_AND : andg2
+    port map(
+        i_A => i_zero,
+        i_B => i_branch,
+        o_F => s_branch);
+
+    
 
     PROCESS (i_clk)
     BEGIN
@@ -163,7 +174,7 @@ BEGIN
 
                 -- Handle different instructions
 
-                IF i_j = '1' THEN
+                IF i_jump = '1' THEN
                     o_newPC <= s_jPC;
 
                 ELSIF i_jal = '1' THEN
@@ -174,11 +185,9 @@ BEGIN
                     -- Change PC address to the jump return address
                     o_newPC <= RA; -- o_ra holds the jump return address
 
-                ELSIF i_bne = '1' THEN
-                    o_newPC <= s_bnePC;
+                ELSIF s_branch = '1' THEN
+                    o_newPC <= s_bPC;
 
-                ELSIF i_beq = '1' THEN
-                    o_newPC <= s_bnePC;
                 ELSE
                     o_newPC <= s_PC4;
                 END IF;

@@ -11,7 +11,7 @@ USE IEEE.std_logic_1164.ALL; -- Importing standard logic data types
 ENTITY alu IS -- Entity declaration for the ALU module
     PORT (
         i_RS, i_RT : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Input ports for operands
-        i_Imm : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Input port for immediate value
+        i_Imm : IN STD_LOGIC_VECTOR(15 DOWNTO 0); -- Input port for immediate value
         i_ALUOp : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- Input port for ALU operation code
         i_ALUSrc : IN STD_LOGIC; -- Input port for ALU source selection
         i_bne : IN STD_LOGIC; -- Input port for branch if not equal
@@ -24,7 +24,7 @@ ENTITY alu IS -- Entity declaration for the ALU module
         i_lui : IN STD_LOGIC; -- Input port for load upper immediate
         o_result : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- Output port for result
         o_overflow : OUT STD_LOGIC; -- Output port for overflow flag
-        o_branch : OUT STD_LOGIC -- Output port for branch signal
+        o_zero : OUT STD_LOGIC -- Output port for branch signal
     );
 END alu; -- End of entity declaration
 
@@ -136,6 +136,12 @@ ARCHITECTURE structure OF alu IS -- Architecture declaration for the structural 
         );
     END COMPONENT;
 
+    component Extender is
+        port(
+            i_data       : in std_logic_vector(15 downto 0);
+            o_out        : out std_logic_vector(31 downto 0));
+    end component;
+
     -- Driven by the ALUOp control signal, this module will decide what operation is output by ALU
     COMPONENT selectOperation IS
         PORT (
@@ -187,7 +193,7 @@ BEGIN
     PORT MAP(
         i_S => i_ALUSrc, -- ALUSrc control signal
         i_D0 => i_RT, -- RT input
-        i_D1 => i_Imm, -- Immediate input
+        i_D1 => s_signImm, -- Immediate input
         o_O => s_Operand); -- Output selected operand
 
     -- Mux to select between LUI Shift Amount and Constant Shift Amount
@@ -280,4 +286,11 @@ BEGIN
         i_addSubResult => s_addSubResult, -- Add/Subtract operation result
         i_shiftResult => s_shiftResult, -- Shift operation result
         o_result => o_result); -- ALU output result	    
+
+    G_EXTENDER : Extender
+    PORT MAP(
+        i_data => Imm,
+        o_out => s_signImm);
+
+
 END structure;
