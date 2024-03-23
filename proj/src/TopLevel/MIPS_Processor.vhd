@@ -60,6 +60,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_bne : STD_LOGIC;
   SIGNAL s_beq : STD_LOGIC;
   SIGNAL s_j : STD_LOGIC;
+  SIGNAL s_jump : STD_LOGIC;
   SIGNAL s_jal : STD_LOGIC;
   SIGNAL s_jr : STD_LOGIC;
   SIGNAL s_halt : STD_LOGIC;
@@ -211,11 +212,6 @@ ARCHITECTURE structure OF MIPS_Processor IS
       o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
   END COMPONENT;
 
-  COMPONENT extendSign IS
-    PORT (
-      i_sign : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      o_sign : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
-  END COMPONENT;
 BEGIN
 
   -- TODO: This is required to be your final input to your instruction memory. 
@@ -255,7 +251,7 @@ BEGIN
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment! 
-  CTL : control
+  G_CTL : control
   PORT MAP(
     i_inst => iInstAddr, -- TODO --MIPS instruction address
     o_RegWrite => s_RegWrite,
@@ -273,14 +269,14 @@ BEGIN
     o_jr => s_jr,
     o_jal => s_jal,
     o_branch => s_branch,
-    o_jump = >, -- TODO  (is this the same as s_j)
+    o_jump => s_jump, -- TODO  (is this the same as s_j) -abe: no I think we need a different one that's s_jump
     o_lui => s_lui,
     o_halt => s_halt,
     o_ctlExt => s_ctlExt);
 
   G_ALU : alu
   PORT MAP(
-    i_RS = >, -- TODO
+    i_RS = >, -- TODO  
     i_RT = >, -- TODO
     i_Imm = >, -- TODO
     i_ALUOp => s_ALUOp,
@@ -289,7 +285,7 @@ BEGIN
     i_beq => s_beq,
     i_shiftDir => s_shiftDir,
     i_shiftType => s_shiftType,
-    i_shamt = >, -- TODO 
+    i_shamt => s_Inst(10 DOWNTO 6), -- TODO - abe added this
     i_addSub => s_addSub,
     i_signed => s_signed,
     i_lui => s_lui,
@@ -301,11 +297,11 @@ BEGIN
   PORT MAP(
     i_inst => s_Inst, -- Instruction input                 -- TODO
     i_PC = >, -- PC Address input
-    i_clk = >, -- clock bit
-    i_rst = >, -- reset bit
+    i_clk => iCLK, -- clock bit  -abe
+    i_rst => iRST, -- reset bit  -abe
     i_bne => s_bne, -- branch not equal bit
     i_beq => s_beq, -- branch equal bit
-    i_j => s_j, -- jump bit
+    i_j => s_jump, -- jump bit    -abe changed this from s_j to s_jump
     i_jr => s_jr, -- jump return bit
     i_jal => s_jal, -- jump and link bit
     o_ra => s_ra, -- Output for $ra Address                 -- TODO
@@ -341,8 +337,8 @@ BEGIN
   G_MUX_REGDST : mux2t1_N
   PORT MAP(
     i_S => s_RegDst,
-    i_D0 => s_, -- TODO (instruction [20-16])
-    i_D1 => s_, -- TODO (instruction [15-11])
+    i_D0 => s_Inst(20 DOWNTO 16), -- TODO (instruction [20-16])  -abe just put that in
+    i_D1 => s_Inst(15 DOWNTO 11), -- TODO (instruction [15-11]) - abe
     o_O => s_RegDMUX);
 
   G_MUX_REGE : mux2t1_N
@@ -352,6 +348,6 @@ BEGIN
     i_D1 => s_, -- TODO (Sign-Extended Immediate)
     o_O => s_RegEMUX);
 
-
+  oALUOut <= s_DMemAddr; --abe added this
 
 END structure;
