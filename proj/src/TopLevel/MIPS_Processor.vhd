@@ -24,36 +24,72 @@ ENTITY MIPS_Processor IS
     iInstLd : IN STD_LOGIC;
     iInstAddr : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
     iInstExt : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
-    oALUOut : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); 		-- TODO: Hook this up to the output of the ALU. 
-								-- It is important for synthesis that you have 
-								-- this output that can effectively be impacted by 
-								-- all other components so they are not optimized away.
+    oALUOut : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- TODO: Hook this up to the output of the ALU. 
+  -- It is important for synthesis that you have 
+  -- this output that can effectively be impacted by 
+  -- all other components so they are not optimized away.
 
 END MIPS_Processor;
 ARCHITECTURE structure OF MIPS_Processor IS
 
   -- Required data memory signals
-  SIGNAL s_DMemWr : STD_LOGIC; 					-- TODO: use this signal as the final active high data memory write enable signal
-  SIGNAL s_DMemAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); 	-- TODO: use this signal as the final data memory address input
-  SIGNAL s_DMemData : STD_LOGIC_VECTOR(N - 1 DOWNTO 0);	 	-- TODO: use this signal as the final data memory data input
-  SIGNAL s_DMemOut : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); 		-- TODO: use this signal as the data memory output
+  SIGNAL s_DMemWr : STD_LOGIC; -- TODO: use this signal as the final active high data memory write enable signal
+  SIGNAL s_DMemAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the final data memory address input
+  SIGNAL s_DMemData : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the final data memory data input
+  SIGNAL s_DMemOut : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the data memory output
 
   -- Required register file signals 
-  SIGNAL s_RegWr : STD_LOGIC; 					-- TODO: use this signal as the final active high write enable input to the register file
-  SIGNAL s_RegWrAddr : STD_LOGIC_VECTOR(4 DOWNTO 0); 		-- TODO: use this signal as the final destination register address input
-  SIGNAL s_RegWrData : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); 	-- TODO: use this signal as the final data memory data input
+  SIGNAL s_RegWr : STD_LOGIC; -- TODO: use this signal as the final active high write enable input to the register file
+  SIGNAL s_RegWrAddr : STD_LOGIC_VECTOR(4 DOWNTO 0); -- TODO: use this signal as the final destination register address input
+  SIGNAL s_RegWrData : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the final data memory data input
 
   -- Required instruction memory signals
-  SIGNAL s_IMemAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); 	    -- Do not assign this signal, assign to s_NextInstAddr instead
-  SIGNAL s_NextInstAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); 	-- TODO: use this signal as your intended final instruction memory address input.
-  SIGNAL s_Inst : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); 		      -- TODO: use this signal as the instruction signal 
+  SIGNAL s_IMemAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Do not assign this signal, assign to s_NextInstAddr instead
+  SIGNAL s_NextInstAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as your intended final instruction memory address input.
+  SIGNAL s_Inst : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the instruction signal 
 
   -- Required halt signal -- for simulation
-  SIGNAL s_Halt : STD_LOGIC; 					-- TODO: this signal indicates to the simulation that intended program execution has completed. (Opcode: 01 0100)
+  SIGNAL s_Halt : STD_LOGIC; -- TODO: this signal indicates to the simulation that intended program execution has completed. (Opcode: 01 0100)
 
-  -- Required overflow signal 
-  -- for overflow exception detection
-  SIGNAL s_Ovfl : STD_LOGIC; 					-- TODO: this signal indicates an overflow exception would have been initiated
+  -- Required overflow signal for overflow exception detection
+  SIGNAL s_Ovfl : STD_LOGIC; -- TODO: this signal indicates an overflow exception would have been initiated
+
+  -- OUR SIGNALS
+
+  --CONTROL SIGNALS
+  SIGNAL s_bne : STD_LOGIC;
+  SIGNAL s_beq : STD_LOGIC;
+  SIGNAL s_j : STD_LOGIC;
+  SIGNAL s_jal : STD_LOGIC;
+  SIGNAL s_jr : STD_LOGIC;
+  SIGNAL s_halt : STD_LOGIC;
+  SIGNAL s_RegDst : STD_LOGIC;
+  SIGNAL s_RegWrite : STD_LOGIC;
+  SIGNAL s_memToReg : STD_LOGIC;
+  SIGNAL s_memWrite : STD_LOGIC;
+  SIGNAL s_ALUSrc : STD_LOGIC;
+  SIGNAL s_ALUOp : STD_LOGIC;
+  SIGNAL s_signed : STD_LOGIC;
+  SIGNAL s_addSub : STD_LOGIC;
+  SIGNAL s_shiftType : STD_LOGIC;
+  SIGNAL s_shiftDir : STD_LOGIC;
+  SIGNAL s_branch : STD_LOGIC;
+  SIGNAL s_lui : STD_LOGIC;
+  SIGNAL s_ctlExt : STD_LOGIC;
+
+  --ALU SIGNALS
+  SIGNAL s_branchALU : STD_LOGIC;
+  SIGNAL s_result : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+  --AND SIGNALS
+  SIGNAL s_branchAnd : STD_LOGIC;
+
+  --MUX SIGNALS
+  SIGNAL s_branchMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_jumpMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_RegDMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_RegEMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_ALUMemMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   COMPONENT mem IS
     GENERIC (
@@ -129,59 +165,57 @@ ARCHITECTURE structure OF MIPS_Processor IS
     );
   END COMPONENT;
 
-  component andg2 is
+  COMPONENT andg2 IS
     PORT (
-        i_A : in std_logic;
-        i_B : in std_logic;
-        o_F : out std_logic);
+      i_A : IN STD_LOGIC;
+      i_B : IN STD_LOGIC;
+      o_F : OUT STD_LOGIC);
   END COMPONENT;
 
-  component mux2t1_N is
-    generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
-    port(i_S  : in std_logic;
-         i_D0 : in std_logic_vector(N-1 downto 0);
-         i_D1 : in std_logic_vector(N-1 downto 0);
-         o_O  : out std_logic_vector(N-1 downto 0));
-  end component;
+  --Sign/Zero Extension
+  COMPONENT bit_width_extender IS
+    PORT (
+      i_Imm16 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      i_ctl : IN STD_LOGIC;
+      o_Imm32 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
 
-  -- OUR SIGNALS
+  END COMPONENT;
 
-  --CONTROL SIGNALS
-  signal s_bne : std_logic;
-  signal s_beq : std_logic;
-  signal s_j    : std_logic;
-  signal s_jal : std_logic;
-  signal s_jr : std_logic;
-  signal s_halt : std_logic;
-  signal s_RegDst : std_logic;
-  signal s_RegWrite : std_logic;
-  signal s_memToReg : std_logic;
-  signal s_memWrite : std_logic;
-  signal s_ALUSrc : std_logic;
-  signal s_ALUOp : std_logic;
-  signal s_signed : std_logic;
-  signal s_addSub : std_logic;
-  signal s_shiftType : std_logic;
-  signal s_shiftDir : std_logic;
-  signal s_branch : std_logic;
-  signal s_lui : std_logic;
-  signal s_ctlExt : std_logic;
+  -- 32 bit mux to determine whether the memory output or alu output is writtent desired register
+  COMPONENT mux2t1_N IS
+    GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+    PORT (
+      i_S : IN STD_LOGIC;
+      i_D0 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+      i_D1 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+      o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
+  END COMPONENT;
 
-  --ALU SIGNALS
-  signal s_branchALU : std_logic;
-  signal s_result : std_logic_vector(31 downto 0);
+  -- 5 bit mux to determine which address is being written to 
+  COMPONENT mux2t1_5bit IS
+    PORT (
+      i_S : IN STD_LOGIC;
+      i_D0 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_D1 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      o_O : OUT STD_LOGIC_VECTOR(4 DOWNTO 0));
+  END COMPONENT;
 
-  --AND SIGNALS
-  signal s_branchAnd : std_logic;
+  COMPONENT mux3t1_N IS
+    GENERIC (N : INTEGER := 5); -- Generic of type integer for input/output data width. Default value is 32.
+    PORT (
+      i_S : IN STD_LOGIC;
+      i_jal : IN STD_LOGIC;
+      i_D0 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+      i_D1 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+      i_D2 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
+      o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
+  END COMPONENT;
 
-  --MUX SIGNALS
-  signal s_branchMUX : std_logic_vector(31 downto 0);
-  signal s_jumpMUX : std_logic_vector(31 downto 0);
-  signal s_RegDMUX : std_logic_vector(31 downto 0);
-  signal s_RegEMUX : std_logic_vector(31 downto 0);
-  signal s_ALUMemMUX : std_logic_vector(31 downto 0);
-
-
+  COMPONENT extendSign IS
+    PORT (
+      i_sign : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      o_sign : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+  END COMPONENT;
 BEGIN
 
   -- TODO: This is required to be your final input to your instruction memory. 
@@ -221,41 +255,41 @@ BEGIN
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment! 
-  G_CONTROL : control
+  CTL : control
   PORT MAP(
-    i_inst      => iInstAddr,      -- TODO --MIPS instruction address
-    o_RegWrite  => s_RegWrite,
-    o_memToReg  => s_memToReg,
-    o_memWrite  => s_memWrite,
-    o_ALUSrc    => s_ALUSrc,
-    o_ALUOp     => s_ALUOp,
-    o_signed    => s_signed,
-    o_addSub    => s_addSub,
+    i_inst => iInstAddr, -- TODO --MIPS instruction address
+    o_RegWrite => s_RegWrite,
+    o_memToReg => s_memToReg,
+    o_memWrite => s_memWrite,
+    o_ALUSrc => s_ALUSrc,
+    o_ALUOp => s_ALUOp,
+    o_signed => s_signed,
+    o_addSub => s_addSub,
     o_shiftType => s_shiftType,
-    o_shiftDir  => shiftDir,
-    o_bne       => s_bne,
-    o_beq       => s_beq,
-    o_j         => s_j,
-    o_jr        => s_jr,
-    o_jal       => s_jal,
-    o_branch    => s_branch,
-    o_jump      => ,      -- TODO  (is this the same as s_j)
-    o_lui       => s_lui,
-    o_halt      => s_halt,
-    o_ctlExt    => s_ctlExt);
+    o_shiftDir => shiftDir,
+    o_bne => s_bne,
+    o_beq => s_beq,
+    o_j => s_j,
+    o_jr => s_jr,
+    o_jal => s_jal,
+    o_branch => s_branch,
+    o_jump = >, -- TODO  (is this the same as s_j)
+    o_lui => s_lui,
+    o_halt => s_halt,
+    o_ctlExt => s_ctlExt);
 
   G_ALU : alu
   PORT MAP(
-    i_RS => ,      -- TODO
-    i_RT => ,      -- TODO
-    i_Imm => ,      -- TODO
+    i_RS = >, -- TODO
+    i_RT = >, -- TODO
+    i_Imm = >, -- TODO
     i_ALUOp => s_ALUOp,
     i_ALUSrc => s_ALUSrc,
     i_bne => s_bne,
     i_beq => s_beq,
     i_shiftDir => s_shiftDir,
     i_shiftType => s_shiftType,
-    i_shamt => ,      -- TODO 
+    i_shamt = >, -- TODO 
     i_addSub => s_addSub,
     i_signed => s_signed,
     i_lui => s_lui,
@@ -265,15 +299,15 @@ BEGIN
 
   G_FETCHLOGIC : fetchLogic
   PORT MAP(
-    i_inst => s_Inst,  -- Instruction input                 -- TODO
-    i_PC => ,  -- PC Address input
-    i_clk => ,  -- clock bit
-    i_rst => ,  -- reset bit
-    i_bne => s_bne,  -- branch not equal bit
-    i_beq => s_beq,  -- branch equal bit
-    i_j => s_j,  -- jump bit
-    i_jr => s_jr,  -- jump return bit
-    i_jal => s_jal,  -- jump and link bit
+    i_inst => s_Inst, -- Instruction input                 -- TODO
+    i_PC = >, -- PC Address input
+    i_clk = >, -- clock bit
+    i_rst = >, -- reset bit
+    i_bne => s_bne, -- branch not equal bit
+    i_beq => s_beq, -- branch equal bit
+    i_j => s_j, -- jump bit
+    i_jr => s_jr, -- jump return bit
+    i_jal => s_jal, -- jump and link bit
     o_ra => s_ra, -- Output for $ra Address                 -- TODO
     o_newPC => s_NextInstAddr); -- Output for PC Address    -- TODO 
 
@@ -286,36 +320,38 @@ BEGIN
   G_MUX_BRANCH : mux2t1_N
   PORT MAP(
     i_S => s_branchAnd,
-    i_D0 => s_PC4,      -- TODO
+    i_D0 => s_PC4, -- TODO
     i_D1 => s_NextInstAddr,
     o_O => s_branchMUX);
 
   G_MUX_JUMP : mux2t1_N
   PORT MAP(
     i_S => s_j,
-    i_D0 => s_PC4,      -- TODO
+    i_D0 => s_PC4, -- TODO
     i_D1 => s_branchMUX,
     o_O => s_jumpMUX);
 
   G_MUX_ALU_MEM : mux2t1_N
   PORT MAP(
     i_S => s_memToReg,
-    i_D0 => s_,        -- TODO
+    i_D0 => s_, -- TODO
     i_D1 => s_result,
     o_O => s_ALUMemMUX);
 
-  G_MUX_REGD : mux2t1_N
+  G_MUX_REGDST : mux2t1_N
   PORT MAP(
     i_S => s_RegDst,
-    i_D0 => s_,        -- TODO (instruction [20-16])
-    i_D1 => s_,        -- TODO (instruction [15-11])
+    i_D0 => s_, -- TODO (instruction [20-16])
+    i_D1 => s_, -- TODO (instruction [15-11])
     o_O => s_RegDMUX);
 
   G_MUX_REGE : mux2t1_N
   PORT MAP(
     i_S => s_branchAnd,
-    i_D0 => s_,        -- TODO (Read Data 2)
-    i_D1 => s_,        -- TODO (Sign-Extended Immediate)
+    i_D0 => s_, -- TODO (Read Data 2)
+    i_D1 => s_, -- TODO (Sign-Extended Immediate)
     o_O => s_RegEMUX);
+
+
 
 END structure;
