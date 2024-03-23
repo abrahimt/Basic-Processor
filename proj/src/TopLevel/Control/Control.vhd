@@ -38,18 +38,12 @@ END control;
 
 ARCHITECTURE behavioral OF control IS
 
-	signal s_opcode	: std_logic_vector(5 downto 0);
-	signal s_funct	: std_logic_vector(5 downto 0);
-
-
+	SIGNAL s_opcode : STD_LOGIC_VECTOR(5 DOWNTO 0);
+	SIGNAL s_funct : STD_LOGIC_VECTOR(5 DOWNTO 0);
 BEGIN
 
-    	s_opcode <= i_inst(31 downto 26);
-
-
-    	s_funct <= i_inst(5 downto 0);
-
-
+	s_opcode <= i_inst(31 DOWNTO 26);
+	s_funct <= i_inst(5 DOWNTO 0);
 	PROCESS (s_opcode, s_funct)
 	BEGIN
 		IF s_opcode = "000000" THEN --Case for R-Type instruction
