@@ -1,68 +1,67 @@
 -- DESCRIPTION: This file contains an implementation of a 2:1 multiplexer
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity mux2t1 is
+ENTITY mux2t1 IS
 
-	port(
-		i_S	: in std_logic;
-		i_D0	: in std_logic;
-		i_D1	: in std_logic;
-		o_O	: out std_logic);
-end mux2t1;
+	PORT (
+		i_S : IN STD_LOGIC;
+		i_D0 : IN STD_LOGIC;
+		i_D1 : IN STD_LOGIC;
+		o_O : OUT STD_LOGIC);
+END mux2t1;
 
-architecture structural of mux2t1 is
+ARCHITECTURE structural OF mux2t1 IS
 
-	component andg2
-		port(
-			i_A	: in std_logic;
-			i_B	: in std_logic;
-			o_F	: out std_logic
-		    );
-	end component;
+	COMPONENT andg2
+		PORT (
+			i_A : IN STD_LOGIC;
+			i_B : IN STD_LOGIC;
+			o_F : OUT STD_LOGIC
+		);
+	END COMPONENT;
+	COMPONENT invg
+		PORT (
+			i_A : IN STD_LOGIC;
+			o_F : OUT STD_LOGIC
+		);
+	END COMPONENT;
 
+	COMPONENT org2
+		PORT (
+			i_A : IN STD_LOGIC;
+			i_B : IN STD_LOGIC;
+			o_F : OUT STD_LOGIC
+		);
+	END COMPONENT;
+	SIGNAL s_and1 : STD_LOGIC;
+	SIGNAL s_and2 : STD_LOGIC;
+	SIGNAL s_not : STD_LOGIC;
 
-	component invg
-		port (
-			i_A	: in std_logic;
-			o_F	: out std_logic
-		     );
-	end component;
+BEGIN
 
-	component org2
-		port (
-			i_A	: in std_logic;
-			i_B	: in std_logic;
-			o_F	: out std_logic
-		     );
-	end component;
+	g_Not : invg
+	PORT MAP(
+		i_A => i_S,
+		o_F => s_not);
 
-	
-	signal s_and1	: std_logic;
-	signal s_and2	: std_logic;
-	signal s_not	: std_logic;
+	g_And1 : andg2
+	PORT MAP(
+		i_A => i_D1,
+		i_B => i_S,
+		o_F => s_and1);
 
-begin
+	g_And2 : andg2
+	PORT MAP(
+		i_A => i_D0,
+		i_B => s_not,
+		o_F => s_and2);
 
-	g_Not: invg
-		port MAP(i_A => i_S,
-			o_F => s_not);
+	g_or : org2
+	PORT MAP(
+		i_A => s_and1,
+		i_B => s_and2,
+		o_F => o_O);
 
-	g_And1: andg2
-		port MAP(i_A => i_D1,
-			i_B => i_S,
-			o_F => s_and1);
-
-	g_And2: andg2
-		port MAP(i_A => i_D0,
-			i_B => s_not,
-			o_F => s_and2);
-
-	g_or: org2
-		port MAP(i_A => s_and1,
-			i_B => s_and2,
-			o_F => o_O);
-
-end structural;
-
+END structural;

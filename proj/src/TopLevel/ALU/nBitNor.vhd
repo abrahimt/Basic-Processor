@@ -5,21 +5,21 @@
 -- Module to perform bitwise NOR operation on two 32-bit input vectors.
 -------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity nBitNor is 
-  port (
-    i_A : in std_logic_vector(31 downto 0);  -- Input vector A
-    i_B : in std_logic_vector(31 downto 0);  -- Input vector B
-    o_F : out std_logic_vector(31 downto 0)  -- Output vector after NOR operation
+ENTITY nBitNor IS
+  PORT (
+    i_A : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Input vector A
+    i_B : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Input vector B
+    o_F : OUT STD_LOGIC_VECTOR(31 DOWNTO 0) -- Output vector after NOR operation
   );
-end nBitNor;
+END nBitNor;
 
-architecture dataflow of nBitNor is 
-begin
+ARCHITECTURE dataflow OF nBitNor IS
+BEGIN
   -- Generate loop to perform bitwise NOR operation on each bit of the input vectors
-  G_NBit_NOR: for i in 0 to 31 generate
-    o_F(i) <= not (i_A(i) or i_B(i));  -- NOR operation on bits i of vectors A and B
-  end generate G_NBit_NOR;
-end dataflow;
+  G_NBit_NOR : FOR i IN 0 TO 31 GENERATE
+    o_F(i) <= NOT (i_A(i) OR i_B(i)); -- NOR operation on bits i of vectors A and B
+  END GENERATE G_NBit_NOR;
+END dataflow;

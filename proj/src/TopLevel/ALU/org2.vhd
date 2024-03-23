@@ -3,8 +3,6 @@
 -- Department of Electrical and Computer Engineering
 -- Iowa State University
 -------------------------------------------------------------------------
-
-
 -- org2.vhd
 -------------------------------------------------------------------------
 -- DESCRIPTION: This file contains an implementation of a 2-input OR 
@@ -17,20 +15,21 @@
 --         primitives.
 -------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity org2 is
+ENTITY org2 IS
 
-  port(i_A          : in std_logic;
-       i_B          : in std_logic;
-       o_F          : out std_logic);
+  PORT (
+    i_A : IN STD_LOGIC;
+    i_B : IN STD_LOGIC;
+    o_F : OUT STD_LOGIC);
 
-end org2;
+END org2;
 
-architecture dataflow of org2 is
-begin
+ARCHITECTURE dataflow OF org2 IS
+BEGIN
 
-  o_F <= i_A or i_B;
-  
-end dataflow;
+  o_F <= i_A OR i_B;
+
+END dataflow;

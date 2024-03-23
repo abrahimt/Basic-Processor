@@ -5,32 +5,31 @@
 -- Module for comparing two 32-bit vectors and setting a branch flag based on specified conditions.
 -------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity branch is 
-  port (
-    i_A           : in std_logic_vector(31 downto 0);  -- Input vector A
-    i_B           : in std_logic_vector(31 downto 0);  -- Input vector B
-    i_beq         : in std_logic;                      -- Equal comparison control signal
-    i_bne         : in std_logic;                      -- Not equal comparison control signal
-    o_branchFlag  : out std_logic                      -- Output branch flag
+ENTITY branch IS
+  PORT (
+    i_A : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Input vector A
+    i_B : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Input vector B
+    i_beq : IN STD_LOGIC; -- Equal comparison control signal
+    i_bne : IN STD_LOGIC; -- Not equal comparison control signal
+    o_branchFlag : OUT STD_LOGIC -- Output branch flag
   );
-end branch;
+END branch;
 
-architecture dataflow of branch is
-begin
+ARCHITECTURE dataflow OF branch IS
+BEGIN
 
-  process(i_A, i_B, i_beq, i_bne) 
-  begin
-    if i_A = i_B and i_beq = '1' then  -- Check for equality condition
+  PROCESS (i_A, i_B, i_beq, i_bne)
+  BEGIN
+    IF i_A = i_B AND i_beq = '1' THEN -- Check for equality condition
       o_branchFlag <= '1';
-    elsif i_A /= i_B and i_bne = '1' then  -- Check for inequality condition
+    ELSIF i_A /= i_B AND i_bne = '1' THEN -- Check for inequality condition
       o_branchFlag <= '1';
-    else  -- Default condition if no match
+    ELSE -- Default condition if no match
       o_branchFlag <= '0';
-    end if;
-  end process;
+    END IF;
+  END PROCESS;
 
-end dataflow;
-
+END dataflow;

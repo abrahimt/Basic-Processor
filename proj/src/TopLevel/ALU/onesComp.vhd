@@ -5,40 +5,39 @@
 -- Module to perform one's complement operation on an input vector.
 -------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity onesComp is
-  generic (
-    N : integer := 32  -- Generic parameter specifying the input/output data width, default is 32 bits
+ENTITY onesComp IS
+  GENERIC (
+    N : INTEGER := 32 -- Generic parameter specifying the input/output data width, default is 32 bits
   );
-  port (
-    i_Num : in std_logic_vector(N-1 downto 0);  -- Input vector for one's complement operation
-    o_Num : out std_logic_vector(N-1 downto 0)  -- Output vector after one's complement operation
+  PORT (
+    i_Num : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Input vector for one's complement operation
+    o_Num : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0) -- Output vector after one's complement operation
   );
-end onesComp; 
+END onesComp;
 
-architecture structure of onesComp is 
+ARCHITECTURE structure OF onesComp IS
 
   -- Component declaration for inverter
-  component invg 
-    port (
-      i_A : in std_logic;
-      o_F : out std_logic
+  COMPONENT invg
+    PORT (
+      i_A : IN STD_LOGIC;
+      o_F : OUT STD_LOGIC
     );
-  end component;
+  END COMPONENT;
 
-begin
+BEGIN
   -- Generate loop to perform one's complement operation on each bit of the input vector
-  G_NBit_OnesComp: for i in 0 to N-1 generate
+  G_NBit_OnesComp : FOR i IN 0 TO N - 1 GENERATE
 
-    g_inv: invg
-      port MAP (
-        i_A => i_Num(i),
-        o_F => o_Num(i)
-      );
+    g_inv : invg
+    PORT MAP(
+      i_A => i_Num(i),
+      o_F => o_Num(i)
+    );
 
-  end generate G_NBit_OnesComp;
+  END GENERATE G_NBit_OnesComp;
 
-end structure;
-
+END structure;

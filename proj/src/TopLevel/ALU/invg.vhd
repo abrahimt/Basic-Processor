@@ -3,8 +3,6 @@
 -- Department of Electrical and Computer Engineering
 -- Iowa State University
 -------------------------------------------------------------------------
-
-
 -- invg.vhd
 -------------------------------------------------------------------------
 -- DESCRIPTION: This file contains an implementation of a 1-input NOT 
@@ -17,19 +15,20 @@
 --         primitives.
 -------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity invg is
+ENTITY invg IS
 
-  port(i_A          : in std_logic;
-       o_F          : out std_logic);
+  PORT (
+    i_A : IN STD_LOGIC;
+    o_F : OUT STD_LOGIC);
 
-end invg;
+END invg;
 
-architecture dataflow of invg is
-begin
+ARCHITECTURE dataflow OF invg IS
+BEGIN
 
-  o_F <= not i_A;
-  
-end dataflow;
+  o_F <= NOT i_A;
+
+END dataflow;

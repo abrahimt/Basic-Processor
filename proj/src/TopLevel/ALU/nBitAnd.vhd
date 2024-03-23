@@ -3,31 +3,32 @@
 --nBitAnd.vhd
 --To be used by the ALU for and & andi operations
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity nBitAnd is 
- port(i_A          : in std_logic_vector(31 downto 0);
-       i_B          : in std_logic_vector(31 downto 0);
-       o_F          : out std_logic_vector(31 downto 0));
-end nBitAnd;
+ENTITY nBitAnd IS
+       PORT (
+              i_A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+              i_B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+              o_F : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+END nBitAnd;
 
-architecture structure of nBitAnd is 
+ARCHITECTURE structure OF nBitAnd IS
 
-component andg2 is 
-   port(i_A          : in std_logic;
-       i_B          : in std_logic;
-       o_F          : out std_logic);
-end component;
+       COMPONENT andg2 IS
+              PORT (
+                     i_A : IN STD_LOGIC;
+                     i_B : IN STD_LOGIC;
+                     o_F : OUT STD_LOGIC);
+       END COMPONENT;
 
-begin 
-G_NBit_AND: for i in 0 to 31 generate
+BEGIN
+       G_NBit_AND : FOR i IN 0 TO 31 GENERATE
 
-NBitAnd: andg2
-port map(i_A  => i_A(i),
-	 i_B  => i_B(i),
-	 o_F  => o_F(i));
+              NBitAnd : andg2
+              PORT MAP(
+                     i_A => i_A(i),
+                     i_B => i_B(i),
+                     o_F => o_F(i));
 
-end generate G_NBit_AND;
-
-end structure;
+       END GENERATE G_NBit_AND;
