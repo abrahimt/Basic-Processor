@@ -32,7 +32,7 @@ ENTITY fetchLogic IS
         i_clk : IN STD_LOGIC; -- clock bit
         i_rst : IN STD_LOGIC; -- reset bit
         i_zero : IN STD_LOGIC; -- zero bit from ALU
-        i_branch : in std_logic -- branch bit from control
+        i_branch : in std_logic; -- branch bit from control
         i_jump : IN STD_LOGIC; -- jump bit from control
         i_jr : IN STD_LOGIC; -- jump return bit from control
         i_jal : IN STD_LOGIC; -- jump and link bit from control
