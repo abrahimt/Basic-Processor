@@ -24,7 +24,6 @@ ARCHITECTURE tb OF tb_fetchLogic IS
         i_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Instruction input
         i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC Address input
         i_clk : IN STD_LOGIC; -- clock bit
-	i_clk2 : in std_logic;
         i_rst : IN STD_LOGIC; -- reset bit
         i_zero : IN STD_LOGIC; -- zero bit from ALU
         i_branch : in std_logic; -- branch bit from control
@@ -36,7 +35,7 @@ ARCHITECTURE tb OF tb_fetchLogic IS
         o_newPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Output for PC Address
         END COMPONENT;
 
-        SIGNAL i_clk, i_clk2, i_rst, i_jump, i_jal, i_jr, i_branch, i_zero : STD_LOGIC;
+        SIGNAL i_clk, i_rst, i_jump, i_jal, i_jr, i_branch, i_zero : STD_LOGIC;
         SIGNAL i_inst, i_PC, i_rs, o_newPC, o_ra : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
 
 BEGIN
@@ -44,7 +43,6 @@ BEGIN
         DUT0 : fetchLogic
         PORT MAP(
                 i_clk => i_clk,
-		i_clk2 => i_clk2,
                 i_rst => i_rst,
                 i_jump => i_jump,
                 i_jr => i_jr,
@@ -64,15 +62,6 @@ BEGIN
                 WAIT FOR CLOCK_PERIOD / 2;
                 i_clk <= '1';
                 WAIT FOR CLOCK_PERIOD / 2;
-        END PROCESS;
-
-        -- Clock process
-        clk_process2 : PROCESS
-        BEGIN
-                i_clk2 <= '0';
-                WAIT FOR CLOCK_PERIOD / 4;
-                i_clk2 <= '1';
-                WAIT FOR CLOCK_PERIOD / 4;
         END PROCESS;
 
         -- Stimulus process
@@ -104,7 +93,7 @@ BEGIN
 
                 -- addi Test
                 i_inst <= x"20090032"; -- addi instruction
-                i_PC <= x"00400000"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_rst <= '0'; -- Reset signal active
                 WAIT FOR CLOCK_PERIOD;  -- 60 ns
                 -- Expected result: Next address should remain the same after reset
@@ -112,7 +101,7 @@ BEGIN
 
                 -- Jump test
                 i_inst <= x"08100008"; -- Jump instruction
-                i_PC <= x"00400004"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_jump <= '1'; -- Jump signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x08000000
@@ -120,7 +109,7 @@ BEGIN
 
                 -- addi Test
                 i_inst <= x"200a0032"; -- addi instruction
-                i_PC <= x"00400020"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_jump <= '0'; -- Jump signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should remain the same after reset
@@ -128,7 +117,7 @@ BEGIN
 
                 -- Branch Equal Test
                 i_inst <= x"116c0001"; -- Branch Equal instruction
-                i_PC <= x"00400024"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_branch <= '1'; -- Branch Equal signal
 		i_zero <= '1';
                 WAIT FOR CLOCK_PERIOD;
@@ -155,7 +144,7 @@ BEGIN
 
                 -- jal Test
                 i_inst <= x"0c100011"; -- jal instruction
-                i_PC <= x"00400038"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_branch <= '0'; -- Branch Not Equal signal
 		i_zero <= '0';
                 i_jal <= '1'; -- jal signal
@@ -174,7 +163,7 @@ BEGIN
 
                 -- addi Test
                 i_inst <= x"200d0032"; -- addi instruction
-                i_PC <= x"0040003c"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_jr <= '0'; -- jr signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should remain the same after reset

@@ -49,6 +49,14 @@ end jump;
     		o_O          : out std_logic_vector(31 downto 0)); -- Output vector after shifting
 	end component;
 
+	COMPONENT mux2t1_N IS
+		PORT (
+			i_S : IN STD_LOGIC;
+			i_D0 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			i_D1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			o_O : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+	END COMPONENT;
+
 	
 	signal LS_jump_addr : std_logic_vector(31 downto 0);  -- i_Data [25-0]
 	signal RS_jump_addr : std_logic_vector(31 downto 0);  -- i_Data [25-0]
@@ -109,16 +117,12 @@ end jump;
 		out_S		=> s_j,
 		out_C		=> carry2);
 
-PROCESS (i_clk)
-   BEGIN
-     IF rising_edge(i_clk) THEN
-	IF i_jr = '1' THEN
-		o_Q <= i_rs;
-	ELSE
-		o_Q <= s_j;
-	END IF;
-     END IF;
-END PROCESS;
+  G_MUX: mux2t1_N
+	port map(
+		i_S => i_jr,
+		i_D0 => s_j,
+		i_D1 => i_rs,
+		o_O => o_Q);
 
 
-end structural; 
+end structural;

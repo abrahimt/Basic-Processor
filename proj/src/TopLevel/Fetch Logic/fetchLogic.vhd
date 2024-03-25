@@ -30,7 +30,6 @@ ENTITY fetchLogic IS
         i_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Instruction input
         i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC Address input
         i_clk : IN STD_LOGIC; -- clock bit
-	i_clk2 : in std_logic;
         i_rst : IN STD_LOGIC; -- reset bit
         i_zero : IN STD_LOGIC; -- zero bit from ALU
         i_branch : in std_logic; -- branch bit from control
@@ -90,6 +89,14 @@ ARCHITECTURE structural OF fetchLogic IS
         o_F : OUT STD_LOGIC);
     END COMPONENT;
 
+    COMPONENT mux2t1_N IS
+	PORT (
+		i_S : IN STD_LOGIC;
+		i_D0 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		i_D1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		o_O : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+    END COMPONENT;
+
     SIGNAL carry1 : STD_LOGIC := '0'; -- Carry bit for first adder
     SIGNAL carry2 : STD_LOGIC := '0'; -- Carry bit for second adder
     SIGNAL RA : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -97,24 +104,19 @@ ARCHITECTURE structural OF fetchLogic IS
     SIGNAL s_jPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_bPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_PC4 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxBranch : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJump : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJAL : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJR : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_branch : STD_LOGIC;
 
 
 BEGIN
 
-    -- Instantiate PC register
-    PC : pcRegister
-    PORT MAP(
-        i_CLK => i_clk,
-        i_RST => i_rst,
-        i_WE => '1',
-        i_D => x"00000000", -- 0x00000000
-        o_Q => s_PC); -- 0x00400000
-
     -- Change PC address to the jump address
     JUMP1 : jump
     PORT MAP(
-        i_CLK => i_clk2,
+        i_CLK => i_clk,
         i_rst => i_rst,
 	i_jr => i_jr,
 	i_rs => i_rs,
@@ -155,44 +157,49 @@ BEGIN
         i_B => i_branch,
         o_F => s_branch);
 
-    
+   -- Handle different instructions
 
-    PROCESS (i_clk)
-    BEGIN
-        IF rising_edge(i_clk) THEN
-            IF i_rst = '1' THEN
-                -- If we are reseting PC should be 0x00400000
-                -- Reinstantiate PC register
-                o_newPC <= x"00400000";
+   G_MUX_BRANCH: mux2t1_N
+	port map(
+		i_S => i_branch,
+		i_D0 => s_PC4,
+		i_D1 => s_bPC,
+		o_O => s_muxBranch);  -- outputs PC + 4 or branch address
 
-            ELSE
+   G_MUX_JUMP: mux2t1_N
+	port map(
+		i_S => i_jump,
+		i_D0 => s_muxBranch,
+		i_D1 => s_jPC,
+		o_O => s_muxJump);  -- outputs PC + 4 or branch address or jump address
 
-                -- Handle different instructions
+   G_MUX_JAL1: mux2t1_N
+	port map(
+		i_S => i_jal,
+		i_D0 => s_muxJump,
+		i_D1 => s_jPC,
+		o_O => s_muxJAL);  -- outputs PC + 4 or branch address or jump address or JAL address
 
-                IF i_jump = '1' THEN
-                    o_newPC <= s_jPC;
+   G_MUX_JR: mux2t1_N
+	port map(
+		i_S => i_jr,
+		i_D0 => s_muxJAL,
+		i_D1 => s_jPC,
+		o_O => s_muxJR);  -- outputs PC + 4 or branch address or jump address or JAL address or JR address
 
-                ELSIF i_jal = '1' THEN
-                    o_ra <= RA;	-- PC + 8
-                    o_newPC <= s_jPC; -- Jump Address from Instruction
+   G_MUX_RESET: mux2t1_N
+	port map(
+		i_S => i_rst,
+		i_D0 => s_muxJR,
+		i_D1 => x"00400000",
+		o_O => o_newPC);  -- outputs PC + 4 or branch address or jump address or JAL address or JR address or resets if rst = 1
 
-                ELSIF i_jr = '1' THEN -- TODO: JR functionality is wrong
-                    -- Change PC address to the jump register address
-                    o_newPC <= s_jPC;
-
-                ELSIF s_branch = '1' THEN
-                    o_newPC <= s_bPC;
-
-                ELSE
-                    o_newPC <= s_PC4;
-                END IF;
-
-            END IF;
-
-        END IF;
-
-    END PROCESS;
-
+   G_MUX_JAL2: mux2t1_N
+	port map(
+		i_S => i_jal,
+		i_D0 => RA,
+		i_D1 => x"00000000",
+		o_O => o_ra);  -- outputs PC + 4 or branch address or jump address or resets if rst = 1
 
     
 END structural;

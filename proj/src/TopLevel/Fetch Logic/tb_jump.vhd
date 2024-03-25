@@ -63,6 +63,7 @@ begin
 
 	-- TEST 1
 	s_Data <= x"08100008";
+	s_jr   <= '0';
 	s_PC   <= x"00400004";
 	wait for 20 ns;
 
