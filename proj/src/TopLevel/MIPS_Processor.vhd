@@ -53,11 +53,12 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC Address input
       i_clk : IN STD_LOGIC; -- clock bit
       i_rst : IN STD_LOGIC; -- reset bit
-      i_bne : IN STD_LOGIC; -- branch not equal bit
-      i_beq : IN STD_LOGIC; -- branch equal bit
-      i_j : IN STD_LOGIC; -- jump bit
-      i_jr : IN STD_LOGIC; -- jump return bit
-      i_jal : IN STD_LOGIC; -- jump and link bit
+      i_zero : IN STD_LOGIC; -- zero bit from ALU
+      i_branch : IN STD_LOGIC; -- branch bit from control
+      i_jump : IN STD_LOGIC; -- jump bit from control
+      i_jr : IN STD_LOGIC; -- jump return bit from control
+      i_jal : IN STD_LOGIC; -- jump and link bit from control
+      i_rs : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- RS register value
       o_ra : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- Output for $ra Address
       o_newPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Output for PC Address
   END COMPONENT;
