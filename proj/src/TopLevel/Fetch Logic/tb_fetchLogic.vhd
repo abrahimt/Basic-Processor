@@ -67,12 +67,18 @@ BEGIN
         BEGIN
                 -- Initialize inputs
                 i_rst <= '1';
-                --i_j <= '0';
-                i_jal <= '0';
-                --i_beq <= '0';
-                --i_bne <= '0';
+		i_jump <= '1';
+                i_jal <= '1';
+		i_jr <= '1';
+                i_branch <= '1';
+		i_zero <= '1';
                 WAIT FOR 20 ns;
                 i_rst <= '0';
+		i_jump <= '0';
+                i_jal <= '0';
+		i_jr <= '0';
+                i_branch <= '0';
+		i_zero <= '0';
 
                 -- Reset Test
                 i_inst <= x"00000000"; -- Program Counter initial value
@@ -93,7 +99,7 @@ BEGIN
                 -- Jump test
                 i_inst <= x"08100008"; -- Jump instruction
                 i_PC <= o_newPC; -- Current PC Address
-                --i_j <= '1'; -- Jump signal
+                i_jump <= '1'; -- Jump signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x08000000
                 ASSERT o_newPC = x"00400020" REPORT "Jump instruction failed" SEVERITY error;
@@ -101,7 +107,7 @@ BEGIN
                 -- addi Test
                 i_inst <= x"200a0032"; -- addi instruction
                 i_PC <= o_newPC; -- Current PC Address
-                --i_j <= '0'; -- Jump signal
+                i_jump <= '0'; -- Jump signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should remain the same after reset
                 ASSERT o_newPC = x"00400024" REPORT "Reset test failed" SEVERITY error;
@@ -109,7 +115,8 @@ BEGIN
                 -- Branch Equal Test
                 i_inst <= x"116c0001"; -- Branch Equal instruction
                 i_PC <= o_newPC; -- Current PC Address
-                --i_beq <= '1'; -- Branch Equal signal
+                i_branch <= '1'; -- Branch Equal signal
+		i_zero <= '1';
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x0040002c (if condition is true)
                 ASSERT o_newPC = x"0040002c" REPORT "Branch Equal instruction failed" SEVERITY error;
@@ -117,7 +124,8 @@ BEGIN
                 -- sub Test
                 i_inst <= x"01ad6822"; -- Sub instruction
                 i_PC <= o_newPC; -- Current PC Address
-                --i_beq <= '0'; -- Branch Equal signal
+                i_branch <= '0'; -- Branch Equal signal
+		i_zero <= '0';
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x00000014 (if condition is true)
                 ASSERT o_newPC = x"00400030" REPORT "Branch Equal instruction failed" SEVERITY error;
@@ -125,7 +133,8 @@ BEGIN
                 -- Branch Not Equal Test
                 i_inst <= x"158d0001"; -- Branch Not Equal instruction
                 i_PC <= o_newPC; -- Current PC Address
-                --i_bne <= '1'; -- Branch Not Equal signal
+                i_branch <= '1'; -- Branch Not Equal signal
+		i_zero <= '1';
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x00000014 (if condition is true)
                 ASSERT o_newPC = x"00400038" REPORT "Branch Equal instruction failed" SEVERITY error;
@@ -133,7 +142,8 @@ BEGIN
                 -- jal Test
                 i_inst <= x"0c100011"; -- jal instruction
                 i_PC <= o_newPC; -- Current PC Address
-                --i_bne <= '0'; -- Branch Not Equal signal
+                i_branch <= '0'; -- Branch Not Equal signal
+		i_zero <= '0';
                 i_jal <= '1'; -- jal signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x00000014 (if condition is true)

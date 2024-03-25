@@ -132,6 +132,7 @@ BEGIN
     PORT MAP(
         i_CLK => i_clk,
         i_rst => i_rst,
+	
         i_PC => i_PC, -- PC Address
         i_Data => i_inst, -- Instruction Address
         o_Q => s_jalPC); -- New PC Address
