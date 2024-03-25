@@ -15,6 +15,8 @@ use IEEE.std_logic_1164.all;
 entity jump is 
     port(i_CLK    : in std_logic;                          -- Clock input
          i_rst    : in std_logic;                          -- Reset input
+	 i_jr	  : in std_logic;			   -- Jump Register input
+	 i_rs	  : in std_logic_vector(31 downto 0);	   -- RS Register data
 	 i_PC	  : in std_logic_vector(31 downto 0);	   -- PC + 4 [31 - 28]
          i_Data   : in std_logic_vector(31 downto 0);      -- Jump Instruction Input
          o_Q      : out std_logic_vector(31 downto 0));    -- Jump Address Output
@@ -47,6 +49,14 @@ end jump;
     		o_O          : out std_logic_vector(31 downto 0)); -- Output vector after shifting
 	end component;
 
+	COMPONENT mux2t1_N IS
+		PORT (
+			i_S : IN STD_LOGIC;
+			i_D0 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			i_D1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			o_O : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+	END COMPONENT;
+
 	
 	signal LS_jump_addr : std_logic_vector(31 downto 0);  -- i_Data [25-0]
 	signal RS_jump_addr : std_logic_vector(31 downto 0);  -- i_Data [25-0]
@@ -55,6 +65,7 @@ end jump;
 	signal LS_PC_4	 : std_logic_vector(31 downto 0);  -- left shifted PC + 4
 	signal carry1	 : std_logic := '0'; 		   -- signal for carry of adder
 	signal carry2	 : std_logic := '0'; 		   -- signal for carry of adder
+	signal s_j	 : std_logic_vector(31 downto 0);
 	
    begin 
 
@@ -103,8 +114,15 @@ end jump;
 		in_A		=> RS_jump_addr,
 		in_B		=> LS_PC_4,
 		in_C		=> carry2,
-		out_S		=> o_Q,
+		out_S		=> s_j,
 		out_C		=> carry2);
 
+  G_MUX: mux2t1_N
+	port map(
+		i_S => i_jr,
+		i_D0 => s_j,
+		i_D1 => i_rs,
+		o_O => o_Q);
 
-end structural; 
+
+end structural;

@@ -18,14 +18,16 @@ architecture tb of tb_jump is
 	port(
 	 i_CLK    : in std_logic;                          -- Clock input
          i_rst    : in std_logic;                          -- Reset input
+	 i_jr	  : in std_logic;			   -- Jump Register input
+	 i_rs	  : in std_logic_vector(31 downto 0);	   -- RS Register data
 	 i_PC	  : in std_logic_vector(31 downto 0);	   -- PC + 4 [31 - 28]
          i_Data   : in std_logic_vector(31 downto 0);      -- Jump Instruction Input
          o_Q      : out std_logic_vector(31 downto 0));    -- Jump Address Output
    end component;
 
 
-   signal s_CLK, s_rst : std_logic;
-   signal s_PC, s_Data, s_Q : std_logic_vector(31 downto 0) := (others => '0');
+   signal s_CLK, s_jr, s_rst : std_logic;
+   signal s_PC, s_rs, s_Data, s_Q : std_logic_vector(31 downto 0) := (others => '0');
     
 begin
 
@@ -33,6 +35,8 @@ begin
         port map(
             i_CLK  => s_CLK,
             i_rst  => s_rst,
+	    i_jr   => s_jr,
+	    i_rs   => s_rs,
             i_Data => s_Data,
 	    i_PC   => s_PC,
 	    o_Q    => s_Q);
@@ -59,8 +63,23 @@ begin
 
 	-- TEST 1
 	s_Data <= x"08100008";
-	s_PC   <= x"00400010";
+	s_jr   <= '0';
+	s_PC   <= x"00400004";
+	wait for 20 ns;
+
+	-- TEST 2
+	s_Data <= x"0c100011";
+	s_rs   <= x"0040003c";
+	s_PC   <= x"00400038";
+	wait for 20 ns;
+
+	-- TEST 3
+	s_Data <= x"03e00008";
+	s_jr   <= '1';
+	s_rs   <= x"0040003c";
+	s_PC   <= x"00400044";
 	wait;
+
 
     end process;
 
