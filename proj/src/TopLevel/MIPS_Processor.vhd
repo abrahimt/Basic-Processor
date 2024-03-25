@@ -195,12 +195,11 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_jump : STD_LOGIC;
   SIGNAL s_jal : STD_LOGIC;
   SIGNAL s_jr : STD_LOGIC;
-  SIGNAL s_halt : STD_LOGIC;
   SIGNAL s_RegDst : STD_LOGIC;
   SIGNAL s_RegWrite : STD_LOGIC;
   SIGNAL s_memToReg : STD_LOGIC;
   SIGNAL s_ALUSrc : STD_LOGIC;
-  SIGNAL s_ALUOp : STD_LOGIC;
+  SIGNAL s_ALUOp : STD_LOGIC_VECTOR(3 DOWNTO 0);
   SIGNAL s_signed : STD_LOGIC;
   SIGNAL s_addSub : STD_LOGIC;
   SIGNAL s_shiftType : STD_LOGIC;
@@ -212,10 +211,11 @@ ARCHITECTURE structure OF MIPS_Processor IS
   --ALU SIGNALS
   SIGNAL s_zero : STD_LOGIC;
   SIGNAL s_result : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_ALUBranch : STD_LOGIC;
 
   --FetchLogic Signals
-  SIGNAL s_ra STD_LOGIC_VECTOR(31 DOWNTO 0);
-  SIGNAL s_nextPC STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00400000"; -- Starts at 0x00400000
+  SIGNAL s_ra : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_nextPC : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00400000"; -- Starts at 0x00400000
 
   --MEM SIGNALS
   SIGNAL s_memResult : STD_LOGIC;
@@ -269,7 +269,7 @@ BEGIN
     o_O => s_RegWrAddr); -- 
 
   G_REG : MIPSregister
-  GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+  GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
   PORT MAP(
     i_SEL => s_RegWrAddr, -- selection bits from RegDst MUX -- TODO ()
     i_clk => iCLK, -- clk bit
@@ -294,7 +294,7 @@ BEGIN
     o_signed => s_signed,
     o_addSub => s_addSub,
     o_shiftType => s_shiftType,
-    o_shiftDir => shiftDir,
+    o_shiftDir => s_shiftDir,
     o_bne => s_bne,
     o_beq => s_beq,
     o_j => s_j,
@@ -323,7 +323,7 @@ BEGIN
     i_lui => s_lui,
     o_result => oALUOut, -- Intructions say to connect this here  -- TODO 
     o_overflow => s_Ovfl,
-    o_zero => s_zero);
+    o_branch => s_ALUBranch);
 
   s_result <= oALUOut; -- ALU result signal that is used for other components
   s_DMemAddr <= oALUOut;
