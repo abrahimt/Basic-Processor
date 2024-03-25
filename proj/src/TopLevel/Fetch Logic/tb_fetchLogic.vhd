@@ -24,6 +24,7 @@ ARCHITECTURE tb OF tb_fetchLogic IS
         i_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Instruction input
         i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC Address input
         i_clk : IN STD_LOGIC; -- clock bit
+	i_clk2 : in std_logic;
         i_rst : IN STD_LOGIC; -- reset bit
         i_zero : IN STD_LOGIC; -- zero bit from ALU
         i_branch : in std_logic; -- branch bit from control
@@ -35,7 +36,7 @@ ARCHITECTURE tb OF tb_fetchLogic IS
         o_newPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Output for PC Address
         END COMPONENT;
 
-        SIGNAL i_clk, i_rst, i_jump, i_jal, i_jr, i_branch, i_zero : STD_LOGIC;
+        SIGNAL i_clk, i_clk2, i_rst, i_jump, i_jal, i_jr, i_branch, i_zero : STD_LOGIC;
         SIGNAL i_inst, i_PC, i_rs, o_newPC, o_ra : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
 
 BEGIN
@@ -43,6 +44,7 @@ BEGIN
         DUT0 : fetchLogic
         PORT MAP(
                 i_clk => i_clk,
+		i_clk2 => i_clk2,
                 i_rst => i_rst,
                 i_jump => i_jump,
                 i_jr => i_jr,
@@ -62,6 +64,15 @@ BEGIN
                 WAIT FOR CLOCK_PERIOD / 2;
                 i_clk <= '1';
                 WAIT FOR CLOCK_PERIOD / 2;
+        END PROCESS;
+
+        -- Clock process
+        clk_process2 : PROCESS
+        BEGIN
+                i_clk2 <= '0';
+                WAIT FOR CLOCK_PERIOD / 4;
+                i_clk2 <= '1';
+                WAIT FOR CLOCK_PERIOD / 4;
         END PROCESS;
 
         -- Stimulus process

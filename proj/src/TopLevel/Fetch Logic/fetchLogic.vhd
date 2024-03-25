@@ -30,6 +30,7 @@ ENTITY fetchLogic IS
         i_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Instruction input
         i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC Address input
         i_clk : IN STD_LOGIC; -- clock bit
+	i_clk2 : in std_logic;
         i_rst : IN STD_LOGIC; -- reset bit
         i_zero : IN STD_LOGIC; -- zero bit from ALU
         i_branch : in std_logic; -- branch bit from control
@@ -113,7 +114,7 @@ BEGIN
     -- Change PC address to the jump address
     JUMP1 : jump
     PORT MAP(
-        i_CLK => i_clk,
+        i_CLK => i_clk2,
         i_rst => i_rst,
 	i_jr => i_jr,
 	i_rs => i_rs,
