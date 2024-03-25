@@ -219,7 +219,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_nextPC : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00400000"; -- Starts at 0x00400000
 
   --MEM SIGNALS
-  SIGNAL s_memResult : STD_LOGIC;
+  SIGNAL s_memResult : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   --AND SIGNALS
   SIGNAL s_branchAnd : STD_LOGIC;
@@ -340,6 +340,7 @@ BEGIN
     i_jump => s_jump, -- jump bit from ALU
     i_jr => s_jr, -- jump return bit from ALU
     i_jal => s_jal, -- jump and link bit from ALU
+    i_rs => s_rs, -- RS register value
     o_ra => s_ra, -- Output for $ra Address                
     o_newPC => s_nextPC); -- Output for PC Address    
 
