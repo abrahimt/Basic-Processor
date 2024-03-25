@@ -36,6 +36,7 @@ ENTITY fetchLogic IS
         i_jump : IN STD_LOGIC; -- jump bit from control
         i_jr : IN STD_LOGIC; -- jump return bit from control
         i_jal : IN STD_LOGIC; -- jump and link bit from control
+	i_rs : in std_logic_vector(31 downto 0); -- RS register value
         o_ra : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- Output for $ra Address
         o_newPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Output for PC Address
 END ENTITY fetchLogic;
@@ -65,7 +66,9 @@ ARCHITECTURE structural OF fetchLogic IS
         PORT (
             i_CLK : IN STD_LOGIC; -- Clock input
             i_rst : IN STD_LOGIC; -- Reset input
-            i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC + 4 [31 - 28]
+	    i_jr  : in std_logic; -- Jump Register input
+	    i_rs  : in std_logic_vector(31 downto 0); -- RS Register data
+            i_PC  : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC + 4 [31 - 28]
             i_Data : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Jump Instruction Input
             o_Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Jump Address Output
     END COMPONENT;
@@ -91,8 +94,6 @@ ARCHITECTURE structural OF fetchLogic IS
     SIGNAL RA : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_jPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_jalPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_jrPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_bPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_PC4 : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_branch : STD_LOGIC;
@@ -114,6 +115,8 @@ BEGIN
     PORT MAP(
         i_CLK => i_clk,
         i_rst => i_rst,
+	i_jr => i_jr,
+	i_rs => i_rs,
         i_PC => i_PC,
         i_Data => i_inst,
         o_Q => s_jPC);
@@ -127,16 +130,6 @@ BEGIN
         in_C => carry1, -- Carry Bit
         out_S => RA, -- PC Address Plus 4
         out_C => carry1); -- Carry Bit Output
-
-    JAL : jump
-    PORT MAP(
-        i_CLK => i_clk,
-        i_rst => i_rst,
-	
-        i_PC => i_PC, -- PC Address
-        i_Data => i_inst, -- Instruction Address
-        o_Q => s_jalPC); -- New PC Address
-    -- Change PC address based on branch condition
 
     G_BRANCH : branch
     PORT MAP(
@@ -179,12 +172,12 @@ BEGIN
                     o_newPC <= s_jPC;
 
                 ELSIF i_jal = '1' THEN
-                    o_ra <= RA;
-                    o_newPC <= s_jalPC;
+                    o_ra <= RA;	-- PC + 8
+                    o_newPC <= s_jPC; -- Jump Address from Instruction
 
-                ELSIF i_jr = '1' THEN --TODO: JR functionality is wrong
-                    -- Change PC address to the jump return address
-                    o_newPC <= RA; -- o_ra holds the jump return address
+                ELSIF i_jr = '1' THEN -- TODO: JR functionality is wrong
+                    -- Change PC address to the jump register address
+                    o_newPC <= s_jPC;
 
                 ELSIF s_branch = '1' THEN
                     o_newPC <= s_bPC;
