@@ -75,7 +75,10 @@ BEGIN
 		s_CLK <= '1';
 		WAIT FOR gCLK_HPER;
 	END PROCESS;
-	TEST_CASES : PROCESS
+
+
+TEST_CASES : PROCESS
+
 	BEGIN
 
 		-- There are a total of 23 tests (each one waits a clock cycle)
@@ -90,11 +93,12 @@ BEGIN
 		s_shiftDir <= '0';
 		s_shiftType <= '0';
 		s_shamt <= "00000";
-		s_addSub <= '1';
+		s_addSub <= '0';
 		s_signed <= '1';
 		s_lui <= '0';
 		WAIT FOR gCLK_HPER * 2;
 		ASSERT s_result = x"00000001" REPORT "Error: result mismatch" SEVERITY error; --Expect result = x"00000001"
+
 		--subu
 		s_RS <= x"00080000";
 		s_RT <= x"00000001";

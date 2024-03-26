@@ -55,6 +55,8 @@ begin
                  i_D      => i_D(22),
                  o_Q      => o_Q(22));
 
+-- 0000 0000 0100 0000 0000 0000 0000 0000 
+
     -- Generate registers for bits 23 to 31
     G_NBit_Register: for i in 23 to 31 generate
         DFF: dffg_set

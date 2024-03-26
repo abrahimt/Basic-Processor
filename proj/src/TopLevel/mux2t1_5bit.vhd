@@ -23,7 +23,6 @@ ENTITY mux2t1_5bit IS
     i_D0 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
     i_D1 : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
     o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
-
 END mux2t1_5bit;
 
 ARCHITECTURE structural OF mux2t1_5bit IS

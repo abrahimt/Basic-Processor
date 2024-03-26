@@ -100,6 +100,7 @@ ARCHITECTURE structural OF fetchLogic IS
     SIGNAL carry1 : STD_LOGIC := '0'; -- Carry bit for first adder
     SIGNAL carry2 : STD_LOGIC := '0'; -- Carry bit for second adder
     SIGNAL RA : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_rPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_jPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_bPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -110,6 +111,14 @@ ARCHITECTURE structural OF fetchLogic IS
     SIGNAL s_muxJR : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL s_branch : STD_LOGIC;
 BEGIN
+
+    RESET : pcRegister
+	port map(
+		i_CLK => i_CLK,   -- Clock input
+         	i_rst => i_rst,   -- Reset input
+        	i_WE =>  '0',     -- Write enable input
+         	i_D => i_PC,      -- Data value input
+         	o_Q => s_rPC);    -- Data value output
 
     -- Change PC address to the jump address
     JUMP1 : jump
@@ -127,7 +136,7 @@ BEGIN
     G_ADD : nBitAdder
     PORT MAP(
         in_A => i_PC, -- PC Address
-        in_B => x"00000008", -- Eight
+        in_B => x"00000004", -- four
         in_C => carry1, -- Carry Bit
         out_S => RA, -- PC Address Plus 4
         out_C => carry1); -- Carry Bit Output
@@ -189,7 +198,7 @@ BEGIN
     PORT MAP(
         i_S => i_rst,
         i_D0 => s_muxJR,
-        i_D1 => x"00400000",
+        i_D1 => s_rPC,
         o_O => o_newPC); -- outputs PC + 4 or branch address or jump address or JAL address or JR address or resets if rst = 1
 
     G_MUX_JAL2 : mux2t1_N

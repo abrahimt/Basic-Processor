@@ -69,18 +69,8 @@ BEGIN
         BEGIN
                 -- Initialize inputs
                 i_rst <= '1';
-		i_jump <= '1';
-                i_jal <= '1';
-		i_jr <= '1';
-                i_branch <= '1';
-		i_zero <= '1';
                 WAIT FOR CLOCK_PERIOD/2;
                 i_rst <= '0';
-		i_jump <= '0';
-                i_jal <= '0';
-		i_jr <= '0';
-                i_branch <= '0';
-		i_zero <= '0';
 		WAIT FOR CLOCK_PERIOD/2; -- 20 ns
 
                 -- Reset Test
@@ -93,7 +83,7 @@ BEGIN
 
                 -- addi Test
                 i_inst <= x"20090032"; -- addi instruction
-                i_PC <= x"00400000"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_rst <= '0'; -- Reset signal active
                 WAIT FOR CLOCK_PERIOD;  -- 60 ns
                 -- Expected result: Next address should remain the same after reset
@@ -101,7 +91,7 @@ BEGIN
 
                 -- Jump test
                 i_inst <= x"08100008"; -- Jump instruction
-                i_PC <= x"00400004"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_jump <= '1'; -- Jump signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x08000000
@@ -109,7 +99,7 @@ BEGIN
 
                 -- addi Test
                 i_inst <= x"200a0032"; -- addi instruction
-                i_PC <= x"00400020"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_jump <= '0'; -- Jump signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should remain the same after reset
@@ -117,7 +107,7 @@ BEGIN
 
                 -- Branch Equal Test
                 i_inst <= x"116c0001"; -- Branch Equal instruction
-                i_PC <= x"00400024"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_branch <= '1'; -- Branch Equal signal
 		i_zero <= '1';
                 WAIT FOR CLOCK_PERIOD;
@@ -144,7 +134,7 @@ BEGIN
 
                 -- jal Test
                 i_inst <= x"0c100011"; -- jal instruction
-                i_PC <= x"00400038"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_branch <= '0'; -- Branch Not Equal signal
 		i_zero <= '0';
                 i_jal <= '1'; -- jal signal
@@ -163,7 +153,7 @@ BEGIN
 
                 -- addi Test
                 i_inst <= x"200d0032"; -- addi instruction
-                i_PC <= x"0040003c"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_jr <= '0'; -- jr signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should remain the same after reset

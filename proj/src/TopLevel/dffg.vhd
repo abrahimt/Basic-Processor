@@ -1,22 +1,3 @@
--------------------------------------------------------------------------
--- Joseph Zambreno
--- Department of Electrical and Computer Engineering
--- Iowa State University
--------------------------------------------------------------------------
-
-
--- dffg.vhd
--------------------------------------------------------------------------
--- DESCRIPTION: This file contains an implementation of an edge-triggered
--- flip-flop with parallel access and reset.
---
---
--- NOTES:
--- 8/19/16 by JAZ::Design created.
--- 11/25/19 by H3:Changed name to avoid name conflict with Quartus
---          primitives.
--------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 

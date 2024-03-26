@@ -104,33 +104,28 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_lui : IN STD_LOGIC; -- Input port for load upper immediate
       o_result : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- Output port for result
       o_overflow : OUT STD_LOGIC; -- Output port for overflow flag
-      o_branch : OUT STD_LOGIC -- Output port for branch signal
+      o_zero : OUT STD_LOGIC -- Output port for branch signal
     );
   END COMPONENT;
 
-  COMPONENT MIPSreg IS
-    GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
-    PORT (
-      i_rs : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- Read 1 select
-      i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- Read 2 select
-      i_rd : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- Write select
-      i_RST : IN STD_LOGIC; -- Reset
-      i_CLK : IN STD_LOGIC; -- Clock
-      i_WE : IN STD_LOGIC; -- Write Enable
-      i_DATA : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Data in 
-      o_rs : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Read 1 out
-      o_rt : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- Read 2 out
-
+  COMPONENT MIPSregister
+	generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
+	port(i_SEL		: in std_logic_vector(4 downto 0);	-- selection bits
+	     i_clk		: in std_logic;				-- clk bit
+	     i_rst		: in std_logic;				-- reset bit
+	     i_we		: in std_logic;				-- write enable
+	     i_d		: in std_logic_vector(31 downto 0);	-- 32 bits of data for register
+	     i_rs		: in std_logic_vector(4 downto 0);	-- read selction bit for mux
+	     i_rt		: in std_logic_vector(4 downto 0);	-- read selction bit for mux
+	     o_OUT1		: out std_logic_vector(31 downto 0);	-- output of write
+	     o_OUT2		: out std_logic_vector(31 downto 0));	-- output of write
   END COMPONENT;
 
   --Sign/Zero Extension
-  COMPONENT bit_width_extender IS
-    PORT (
-      i_Imm16 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      i_ctl : IN STD_LOGIC;
-      o_Imm32 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
-
-  END COMPONENT;
+  Component Extender is
+  port(i_data       : in std_logic_vector(15 downto 0);
+       o_out        : out std_logic_vector(31 downto 0));
+  end component;
 
   -- 32 bit mux to determine whether the memory output or alu output is writtent desired register
   COMPONENT mux2t1_N IS
@@ -162,6 +157,16 @@ ARCHITECTURE structure OF MIPS_Processor IS
       o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
   END COMPONENT;
 
+Component pcReg is
+	generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
+	port(
+	     i_clk		: in std_logic;				-- clk bit
+	     i_rst		: in std_logic;				-- reset bit
+	     i_we		: in std_logic;				-- write enable
+	     i_data		: in std_logic_vector(31 downto 0);	-- 32 bits of data for register
+	     o_out		: out std_logic_vector(31 downto 0));	-- output of write
+end component;
+
   -- Required data memory signals
   SIGNAL s_DMemWr : STD_LOGIC; -- TODO: use this signal as the final active high data memory write enable signal
   SIGNAL s_DMemAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the final data memory address input
@@ -175,7 +180,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
 
   -- Required instruction memory signals
   SIGNAL s_IMemAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Do not assign this signal, assign to s_NextInstAddr instead
-  SIGNAL s_NextInstAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as your intended final instruction memory address input.
+  SIGNAL s_NextInstAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as your intended final instruction memory address input.  (PC counter)
   SIGNAL s_Inst : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the instruction signal 
 
   -- Required halt signal -- for simulation
@@ -218,6 +223,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   --FetchLogic Signals
   SIGNAL s_ra : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_nextPC : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00400000"; -- Starts at 0x00400000
+  SIGNAL s_Imm32 : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   --MEM SIGNALS
   SIGNAL s_memResult : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -262,27 +268,38 @@ BEGIN
     data => s_DMemData, -- from register
     we => s_DMemWr, -- from control
     q => s_DMemOut);
+
+
   -- TODO: Implement the rest of your processor below this comment!
-  G_MUX_REGDST : mux2t1_N
+
+
+  PC_REG : pcReg 
+  port map(
+	i_clk => iCLK, -- clk bit
+	i_rst => iRST, -- reset bit
+	i_we => iInstLd, -- write enable
+	i_data => s_nextInstAddr, -- 32 bits of data for register
+	o_out => s_nextInstAddr); -- output of write
+
+  G_MUX_REGDST : mux2t1_5bit
   PORT MAP(
     i_S => s_RegDst, -- RegDst bit from Control
     i_D0 => s_Inst(20 DOWNTO 16),
     i_D1 => s_Inst(15 DOWNTO 11),
     o_O => s_RegWrAddr); -- 
 
-  G_REG : MIPSreg
+  G_REG : MIPSregister
   GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
   PORT MAP(
-    i_rs => s_Inst(25 DOWNTO 21), -- Read 1 select
-    i_rt => s_Inst(20 DOWNTO 16), -- Read 2 select
-    i_rd => s_RegWrAddr, -- Write select TODO
-    i_RST => iRST, -- Reset
-    i_CLK => iCLK, -- Clock
-    i_WE => s_RegWr, -- Write Enable
-    i_DATA => s_RegWrData, -- Data in 
-    o_rs => s_rs, -- Read 1 out
-    o_rt => s_rt -- Read 2 out
-  );
+    i_SEL => s_RegWrAddr, -- 
+    i_clk => iCLK, --
+    i_rst => iRST, -- 
+    i_d => s_RegWrData, -- 
+    i_we => s_RegWr, -- Write Enable
+    i_rs => s_Inst(25 downto 21),
+    i_rt => s_Inst(20 downto 16),
+    o_OUT1 => s_rs, -- Read 1 out
+    o_OUT2 => s_rt); -- Read 2 out
 
   s_DMemData <= s_rt;
 
@@ -309,11 +326,16 @@ BEGIN
     o_halt => s_Halt,
     o_ctlExt => s_ctlExt);
 
+  EXTEND : Extender
+  port map(
+	i_data => s_Inst(15 downto 0),
+	o_out => s_Imm32);
+
   G_ALU : alu
   PORT MAP(
     i_RS => s_rs,
     i_RT => s_rt,
-    i_Imm => s_Inst, -- TODO
+    i_Imm => s_Imm32, -- TODO
     i_ALUOp => s_ALUOp,
     i_ALUSrc => s_ALUSrc,
     i_bne => s_bne,
@@ -326,7 +348,7 @@ BEGIN
     i_lui => s_lui,
     o_result => oALUOut, -- Intructions say to connect this here  -- TODO 
     o_overflow => s_Ovfl,
-    o_branch => s_ALUBranch);
+    o_zero => s_ALUBranch);
 
   s_result <= oALUOut; -- ALU result signal that is used for other components
   s_DMemAddr <= oALUOut;
@@ -334,7 +356,7 @@ BEGIN
   G_FETCHLOGIC : fetchLogic
   PORT MAP(
     i_inst => s_Inst, -- Instruction input                 -- TODO
-    i_PC => s_nextPC, -- PC Address input
+    i_PC => s_NextInstAddr, -- PC Address input
     i_clk => iCLK, -- clock bit
     i_rst => iRST, -- reset bit
     i_zero => s_zero, -- zero bit from ALU
@@ -344,7 +366,7 @@ BEGIN
     i_jal => s_jal, -- jump and link bit from ALU
     i_rs => s_rs, -- RS register value
     o_ra => s_ra, -- Output for $ra Address                
-    o_newPC => s_nextPC); -- Output for PC Address    
+    o_newPC => s_NextInstAddr); -- Output for PC Address    
 
   G_MUX_ALU_MEM : mux2t1_N
   PORT MAP(

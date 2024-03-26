@@ -1,15 +1,4 @@
 
--- dffg_set.vhd
--------------------------------------------------------------------------
--- DESCRIPTION: Based off of dffg gate, but added a SET input
---
---
--- NOTES:
--- 8/19/16 by JAZ::Design created.
--- 11/25/19 by H3:Changed name to avoid name conflict with Quartus
---          primitives.
--------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 

@@ -38,13 +38,13 @@ ARCHITECTURE structure OF tb_alu IS
 			i_lui : IN STD_LOGIC;
 			o_result : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 			o_overflow : OUT STD_LOGIC;
-			o_branch : OUT STD_LOGIC);
+			o_zero : OUT STD_LOGIC);
 	END COMPONENT;
 
 	SIGNAL s_ALUOp : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL s_shamt : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL s_RS, s_RT, s_Imm, s_result : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL s_CLK, s_ALUSrc, s_bne, s_beq, s_shiftDir, s_shiftType, s_addSub, s_signed, s_overflow, s_branch, s_lui : STD_LOGIC;
+	SIGNAL s_CLK, s_ALUSrc, s_bne, s_beq, s_shiftDir, s_shiftType, s_addSub, s_signed, s_overflow, s_zero, s_lui : STD_LOGIC;
 BEGIN
 
 	DUT0 : alu
@@ -64,7 +64,7 @@ BEGIN
 		i_lui => s_lui,
 		o_result => s_result,
 		o_overflow => s_overflow,
-		o_branch => s_branch);
+		o_zero => s_zero);
 	-- This process sets the clock value (low for gCLK_HPER, then high
 	-- for gCLK_HPER). Absent a "wait" command, processes restart 
 	-- at the beginning once they have reached the final statement.
@@ -75,7 +75,10 @@ BEGIN
 		s_CLK <= '1';
 		WAIT FOR gCLK_HPER;
 	END PROCESS;
-	TEST_CASES : PROCESS
+
+
+TEST_CASES : PROCESS
+
 	BEGIN
 
 		-- There are a total of 23 tests (each one waits a clock cycle)
@@ -90,11 +93,26 @@ BEGIN
 		s_shiftDir <= '0';
 		s_shiftType <= '0';
 		s_shamt <= "00000";
-		s_addSub <= '1';
+		s_addSub <= '0';
 		s_signed <= '1';
 		s_lui <= '0';
+
+		i_RS => s_RS,
+		i_RT => s_RT,
+		i_Imm => s_Imm,
+		i_ALUOp => s_ALUOp,
+		i_ALUSrc => s_ALUSrc,
+		i_bne => s_bne,
+		i_beq => s_beq,
+		i_shiftDir => s_shiftDir,
+		i_shiftType => s_shiftType,
+		i_shamt => s_shamt,
+		i_addSub => s_addSub,
+		i_signed => s_signed,
+		i_lui => s_lui,
 		WAIT FOR gCLK_HPER * 2;
 		ASSERT s_result = x"00000001" REPORT "Error: result mismatch" SEVERITY error; --Expect result = x"00000001"
+
 		--subu
 		s_RS <= x"00080000";
 		s_RT <= x"00000001";

@@ -22,7 +22,6 @@ ARCHITECTURE structure OF tb_MIPS_Processor IS
 	CONSTANT cCLK_PER : TIME := gCLK_HPER * 2;
 
 	COMPONENT MIPS_Processor IS
-		GENERIC (N : INTEGER := 32);
 		PORT (
 		iCLK : IN STD_LOGIC;
 		iRST : IN STD_LOGIC;

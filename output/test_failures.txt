@@ -1,5 +1,1 @@
 proj/mips/addiseq.s
-proj/mips/fibonacci.s
-proj/mips/grendel.s
-proj/mips/lab3Seq.s
-proj/mips/simplebranch.s
