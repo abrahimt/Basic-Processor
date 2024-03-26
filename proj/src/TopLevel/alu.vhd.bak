@@ -24,7 +24,7 @@ ENTITY alu IS
 		i_lui : IN STD_LOGIC;
 		o_result : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		o_overflow : OUT STD_LOGIC;
-		o_branch : OUT STD_LOGIC);
+		o_zero : OUT STD_LOGIC);
 
 END alu;
 
@@ -80,7 +80,7 @@ ARCHITECTURE structure OF alu IS
 			i_B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 			i_beq : IN STD_LOGIC;
 			i_bne : IN STD_LOGIC;
-			o_branchFlag : OUT STD_LOGIC);
+			o_zero : OUT STD_LOGIC);
 	END COMPONENT;
 
 	COMPONENT Barrel_Shifter IS
@@ -233,7 +233,7 @@ BEGIN
 		i_B => s_Operand,
 		i_bne => i_bne,
 		i_beq => i_beq,
-		o_branchFlag => o_branch);
+		o_zero => o_zero);
 
 	G_SELECT : selectOperation
 	PORT MAP(
