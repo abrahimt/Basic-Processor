@@ -9,23 +9,25 @@
 -- here.
 -------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-package MIPS_types is
+PACKAGE MIPS_types IS
 
   -- Example Constants. Declare more as needed
-  constant DATA_WIDTH : integer := 32;
-  constant ADDR_WIDTH : integer := 10;
+  CONSTANT DATA_WIDTH : INTEGER := 32;
+  CONSTANT ADDR_WIDTH : INTEGER := 10;
 
   -- Example record type. Declare whatever types you need here
-  type control_t is record
-    reg_wr : std_logic;
-    reg_to_mem : std_logic;
-  end record control_t;
+  TYPE control_t IS RECORD
+    reg_wr : STD_LOGIC;
+    reg_to_mem : STD_LOGIC;
+  END RECORD control_t;
 
-end package MIPS_types;
+  TYPE reg IS ARRAY (0 TO 31) OF STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-package body MIPS_types is
+END PACKAGE MIPS_types;
+
+PACKAGE BODY MIPS_types IS
   -- Probably won't need anything here... function bodies, etc.
-end package body MIPS_types;
+END PACKAGE BODY MIPS_types;

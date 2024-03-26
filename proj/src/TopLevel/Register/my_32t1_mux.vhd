@@ -1,13 +1,10 @@
-
-
-
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.my_registers.all;
+use work.MIPS_types.all;
 
 entity my_32t1_mux is
 	port(i_S         : in std_logic_vector(4 downto 0);
-	     registers   : in regs;
+	     registers   : in reg;
 	     mx_out      : out std_logic_vector(31 downto 0));
 end my_32t1_mux;
 

@@ -2,7 +2,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.my_registers.all;
+use work.MIPS_types.all;
 
 entity MIPSregister is
 	generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
@@ -30,7 +30,7 @@ architecture structural of MIPSregister is
 
   component my_32t1_mux
 	port(i_S         : in std_logic_vector(4 downto 0);
-	     registers   : in regs;
+	     registers   : in reg;
 	     mx_out      : out std_logic_vector(31 downto 0));
   end component;
 
@@ -51,7 +51,7 @@ architecture structural of MIPSregister is
   -- Signal to carry decoder and write bit
   signal i_decode      : std_logic_vector(31 downto 0);
   -- Signal to carry Nbit_regs output
-  signal i_reg	       : regs;
+  signal i_reg	       : reg;
 
   begin
 

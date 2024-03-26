@@ -5,7 +5,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.my_registers.all;
+use work.MIPS_types.all;
 
 entity Nbit_reg is
   generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.

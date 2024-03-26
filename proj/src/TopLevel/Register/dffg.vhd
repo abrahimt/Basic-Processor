@@ -19,7 +19,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.my_registers.all;
+use work.MIPS_types.all;
 
 entity dffg is
 
