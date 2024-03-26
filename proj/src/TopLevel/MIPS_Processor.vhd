@@ -108,18 +108,19 @@ ARCHITECTURE structure OF MIPS_Processor IS
     );
   END COMPONENT;
 
-  COMPONENT MIPSregister IS
+  COMPONENT MIPSreg IS
     GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
     PORT (
-      i_SEL : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- selection bits
-      i_clk : IN STD_LOGIC; -- clk bit
-      i_rst : IN STD_LOGIC; -- reset bit
-      i_we : IN STD_LOGIC; -- write enable
-      i_d : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bits of data for register
-      i_rs : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- read selction bit for mux
-      i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- read selction bit for mux
-      o_OUT1 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- output of write
-      o_OUT2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- output of write
+      i_rs : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- Read 1 select
+      i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- Read 2 select
+      i_rd : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- Write select
+      i_RST : IN STD_LOGIC; -- Reset
+      i_CLK : IN STD_LOGIC; -- Clock
+      i_WE : IN STD_LOGIC; -- Write Enable
+      i_DATA : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Data in 
+      o_rs : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Read 1 out
+      o_rt : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- Read 2 out
+
   END COMPONENT;
 
   --Sign/Zero Extension
@@ -186,8 +187,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
   -- OUR SIGNALS
 
   --Register Signals
-  SIGNAL s_rt : STD_LOGIC_VECTOR(4 DOWNTO 0);
-  SIGNAL s_rs : STD_LOGIC_VECTOR(4 DOWNTO 0);
+  SIGNAL s_rt : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_rs : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   --CONTROL SIGNALS
   SIGNAL s_bne : STD_LOGIC;
@@ -269,18 +270,19 @@ BEGIN
     i_D1 => s_Inst(15 DOWNTO 11),
     o_O => s_RegWrAddr); -- 
 
-  G_REG : MIPSregister
+  G_REG : MIPSreg
   GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
   PORT MAP(
-    i_SEL => s_RegWrAddr, -- selection bits from RegDst MUX -- TODO ()
-    i_clk => iCLK, -- clk bit
-    i_rst => iRST, -- reset bit
-    i_we => s_RegWr, -- write enable from Control
-    i_d => s_RegWrData, -- 32 bits of data for register from Memory/ALU MUX
-    i_rs => s_Inst(25 DOWNTO 21), -- read selction bit for mux
-    i_rt => s_Inst(20 DOWNTO 16), -- read selction bit for mux
-    o_OUT1 => s_rs, -- output of write
-    o_OUT2 => s_rt); -- output of write
+    i_rs => s_Inst(25 DOWNTO 21), -- Read 1 select
+    i_rt => s_Inst(20 DOWNTO 16), -- Read 2 select
+    i_rd => s_RegWrAddr, -- Write select TODO
+    i_RST => iRST, -- Reset
+    i_CLK => iCLK, -- Clock
+    i_WE => s_RegWr, -- Write Enable
+    i_DATA => s_RegWrData, -- Data in 
+    o_rs => s_rs, -- Read 1 out
+    o_rt => s_rt -- Read 2 out
+  );
 
   s_DMemData <= s_rt;
 
@@ -311,7 +313,7 @@ BEGIN
   PORT MAP(
     i_RS => s_rs,
     i_RT => s_rt,
-    i_Imm => s_Inst(15 DOWNTO 0),
+    i_Imm => s_Inst, -- TODO
     i_ALUOp => s_ALUOp,
     i_ALUSrc => s_ALUSrc,
     i_bne => s_bne,
