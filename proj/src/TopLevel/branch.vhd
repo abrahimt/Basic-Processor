@@ -15,7 +15,7 @@ use IEEE.std_logic_1164.all;
 entity branch is 
     port(i_clk    : in std_logic;                          -- Clock input
          i_rst    : in std_logic;                          -- Reset input
-	 i_PC	  : in std_logic_vector(31 downto 0);	   -- PC + 4 [31 - 0]
+	     i_PC	  : in std_logic_vector(31 downto 0);	   -- PC + 4 [31 - 0]
          i_Data   : in std_logic_vector(31 downto 0);      -- Branch Instruction Input [15-0]
          o_Q      : out std_logic_vector(31 downto 0));    -- Jump Address Output
 end branch;
@@ -49,6 +49,7 @@ end branch;
 
 	component Extender is
   	   port(i_data       : in std_logic_vector(15 downto 0);
+			i_S			 : in std_logic;
    	     	o_out        : out std_logic_vector(31 downto 0));
 	end component;
 
@@ -71,6 +72,7 @@ end branch;
   G_EXTEND: Extender
 	port map(
 		i_data		=> i_Data(15 downto 0),
+		i_S			=> '1',
 		o_out		=> SE_branch_addr);
 
   G_SHIFT: shift

@@ -121,6 +121,7 @@ ARCHITECTURE structure OF alu IS
 			i_B : IN STD_LOGIC;
 			o_F : OUT STD_LOGIC);
 	END COMPONENT;
+
 	--Driven by the ALUOp control signal, this module will decide what operation is output by ALU
 	COMPONENT selectOperation IS
 		PORT (
@@ -134,6 +135,7 @@ ARCHITECTURE structure OF alu IS
 			i_shiftResult : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 			o_result : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
 	END COMPONENT;
+
 	SIGNAL s_Operand : STD_LOGIC_VECTOR(31 DOWNTO 0); -- either RS or Immediate
 	SIGNAL s_orResult : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL s_andResult : STD_LOGIC_VECTOR(31 DOWNTO 0);

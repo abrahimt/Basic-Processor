@@ -21,6 +21,7 @@ ENTITY control IS
 		o_ALUSrc : OUT STD_LOGIC;
 		o_ALUOp : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		o_signed : OUT STD_LOGIC;
+		o_extendBy : out std_logic;
 		o_addSub : OUT STD_LOGIC;
 		o_shiftType : OUT STD_LOGIC;
 		o_shiftDir : OUT STD_LOGIC;
@@ -55,6 +56,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0010";
 				o_signed <= '1';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -76,6 +78,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0010";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -97,6 +100,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0011";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -118,6 +122,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0101";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -139,6 +144,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0110";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -160,6 +166,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0111";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -181,6 +188,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "1000";
 				o_signed <= '1';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -202,6 +210,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "1001";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '1';
 				o_addSub <= '0';
@@ -223,6 +232,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "1001";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
 				o_addSub <= '0';
@@ -244,6 +254,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "1001";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_shiftType <= '1';
 				o_shiftDir <= '0';
 				o_addSub <= '0';
@@ -265,6 +276,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0010";
 				o_signed <= '1';
+				o_extendBy <= '0';
 				o_addSub <= '1';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -286,6 +298,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0010";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '1';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -307,6 +320,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "1011";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -328,6 +342,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0000";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -351,6 +366,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "0010";
 				o_signed <= '1';
+				o_extendBy <= '1';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -372,6 +388,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "0010";
 				o_signed <= '0';
+				o_extendBy <= '1';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -393,6 +410,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "0011";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -414,6 +432,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "1001";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '1';
@@ -435,6 +454,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "0010";
 				o_signed <= '0';
+				o_extendBy <= '1';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -456,6 +476,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "0110";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -477,6 +498,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "0111";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -498,6 +520,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "1000";
 				o_signed <= '1';
+				o_extendBy <= '1';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -519,6 +542,7 @@ BEGIN
 				o_ALUSrc <= '1';
 				o_ALUOp <= "0010";
 				o_signed <= '0';
+				o_extendBy <= '1';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -540,6 +564,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0000";
 				o_signed <= '0';
+				o_extendBy <= '1';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -561,6 +586,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0000";
 				o_signed <= '0';
+				o_extendBy <= '1';
 				o_bne <= '1';
 				o_beq <= '0';
 				o_branch <= '1';
@@ -582,6 +608,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "1011";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_j <= '1';
 				o_jal <= '0';
 				o_jr <= '0';
@@ -603,6 +630,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "1011";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_j <= '0';
 				o_jal <= '1';
 				o_jr <= '0';
@@ -624,6 +652,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0000";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
@@ -645,6 +674,7 @@ BEGIN
 				o_ALUSrc <= '0';
 				o_ALUOp <= "0000";
 				o_signed <= '0';
+				o_extendBy <= '0';
 				o_addSub <= '0';
 				o_shiftType <= '0';
 				o_shiftDir <= '0';
