@@ -157,7 +157,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
       o_O : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0));
   END COMPONENT;
 
-Component pcReg is
+Component pcRegister is
 	generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
 	port(
 	     i_clk		: in std_logic;				-- clk bit
@@ -166,6 +166,8 @@ Component pcReg is
 	     i_data		: in std_logic_vector(31 downto 0);	-- 32 bits of data for register
 	     o_out		: out std_logic_vector(31 downto 0));	-- output of write
 end component;
+
+
 
   -- Required data memory signals
   SIGNAL s_DMemWr : STD_LOGIC; -- TODO: use this signal as the final active high data memory write enable signal
@@ -179,15 +181,17 @@ end component;
   SIGNAL s_RegWrData : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the final data memory data input
 
   -- Required instruction memory signals
-  SIGNAL s_IMemAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Do not assign this signal, assign to s_NextInstAddr instead
-  SIGNAL s_NextInstAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as your intended final instruction memory address input.  (PC counter)
-  SIGNAL s_Inst : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- TODO: use this signal as the instruction signal 
+  SIGNAL s_IMemAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0);     -- Do not assign this signal, assign to s_NextInstAddr instead
+  SIGNAL s_NextInstAddr : STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- (PC Address that goes from PC register into Instruction Memory)
+  SIGNAL s_Inst : STD_LOGIC_VECTOR(N - 1 DOWNTO 0);         -- (Instruction Address that goes from Instruction Memory out)
 
   -- Required halt signal -- for simulation
   SIGNAL s_Halt : STD_LOGIC; -- TODO: this signal indicates to the simulation that intended program execution has completed. (Opcode: 01 0100)
 
   -- Required overflow signal for overflow exception detection
   SIGNAL s_Ovfl : STD_LOGIC; -- TODO: this signal indicates an overflow exception would have been initiated
+
+
 
   -- OUR SIGNALS
 
@@ -236,6 +240,9 @@ end component;
   SIGNAL s_jumpMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_RegDMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_ALUMemMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+
+
 BEGIN
 
   -- TODO: This is required to be your final input to your instruction memory. 
@@ -270,16 +277,17 @@ BEGIN
     q => s_DMemOut);
 
 
-  -- TODO: Implement the rest of your processor below this comment!
 
 
-  PC_REG : pcReg 
+  -- TODO: Implement the rest of your processor below this comment
+
+  PC_REG : pcRegister
   port map(
-	i_clk => iCLK, -- clk bit
-	i_rst => iRST, -- reset bit
-	i_we => iInstLd, -- write enable
-	i_data => s_nextInstAddr, -- 32 bits of data for register
-	o_out => s_nextInstAddr); -- output of write
+    i_clk => iCLK, -- clk bit
+    i_rst => iRST, -- reset bit
+    i_we => '1', -- write enable
+    i_data => s_nextPC,       -- Next PC Address
+    o_out => s_nextInstAddr); -- Output from PC Register of Next Address
 
   G_MUX_REGDST : mux2t1_5bit
   PORT MAP(
@@ -366,7 +374,7 @@ BEGIN
     i_jal => s_jal, -- jump and link bit from ALU
     i_rs => s_rs, -- RS register value
     o_ra => s_ra, -- Output for $ra Address                
-    o_newPC => s_NextInstAddr); -- Output for PC Address    
+    o_newPC => s_nextPC); -- Output for PC Address    
 
   G_MUX_ALU_MEM : mux2t1_N
   PORT MAP(

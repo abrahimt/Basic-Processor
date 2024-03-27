@@ -13,59 +13,35 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity pcRegister is 
-    port(i_CLK    : in std_logic;                          -- Clock input
-         i_rst    : in std_logic;                          -- Reset input
-         i_WE     : in std_logic;                          -- Write enable input
-         i_D      : in std_logic_vector(31 downto 0);      -- Data value input
-         o_Q      : out std_logic_vector(31 downto 0));    -- Data value output
+    generic(N : integer := 32);                             -- Generic of type integer for input/output data width. Default value is 32.
+    port(
+        i_clk		: in std_logic;				            -- clk bit
+        i_rst		: in std_logic;				            -- reset bit
+        i_we		: in std_logic;				            -- write enable
+        i_data		: in std_logic_vector(31 downto 0);	    -- 32 bits of data for register
+        o_out		: out std_logic_vector(31 downto 0));	-- output of write
 end pcRegister;
 
 architecture structure of pcRegister is
 
-    component dffg_set is 
-        port(i_CLK    : in std_logic;     -- Clock input
-             i_rst    : in std_logic;     -- Reset input
-             i_SET    : in std_logic;
-             i_WE     : in std_logic;     -- Write enable input
-             i_D      : in std_logic;     -- Data value input
-             o_Q      : out std_logic);   -- Data value output
+    component Nbit_reg
+        generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
+        port(i_CLK        : in std_logic;     			 -- Clock input
+            i_RST         : in std_logic;     			 -- Reset input
+            i_WE          : in std_logic;                        -- Write enable input
+            i_D           : in std_logic_vector(N-1 downto 0);	 -- 32 bit input
+            o_Q           : out std_logic_vector(N-1 downto 0)); -- 32 bit output
     end component;
 
-    signal s_D : std_logic_vector(31 downto 0);
 
 begin
 
-    -- Generate registers for bits 0 to 21
-    G_NBit_Register_21: for i in 0 to 21 generate
-        DFF: dffg_set
-            port map(i_CLK    => i_CLK,
-                     i_RST  => i_rst,
-                     i_SET    => '0',
-                     i_WE     => i_WE,
-                     i_D      => i_D(i),
-                     o_Q      => o_Q(i));
-    end generate G_NBit_Register_21;
-
-    -- Generate register for bit 22 with set functionality
-    DFF: dffg_set
-        port map(i_CLK    => i_CLK,
-                 i_RST  => '0',
-                 i_SET    => i_rst,
-                 i_WE     => i_WE,
-                 i_D      => i_D(22),
-                 o_Q      => o_Q(22));
-
--- 0000 0000 0100 0000 0000 0000 0000 0000 
-
-    -- Generate registers for bits 23 to 31
-    G_NBit_Register: for i in 23 to 31 generate
-        DFF: dffg_set
-            port map(i_CLK    => i_CLK,
-                     i_RST  => i_rst,
-                     i_SET    => '0',
-                     i_WE     => i_WE,
-                     i_D      => i_D(i),
-                     o_Q      => o_Q(i));
-    end generate G_NBit_Register;
-  
+	REG : Nbit_reg 
+    port MAP(
+            i_CLK	=> i_clk,		-- Clock bit input
+            i_RST	=> i_rst,		-- Reset bit input
+            i_WE	=> i_we,		-- Should be selecting 1 bit from decoder for each register; ex) 0000 1000 would be register $3
+            i_D		=> i_data,		-- Data bit input
+            o_Q		=> o_out);
+    
 end structure;

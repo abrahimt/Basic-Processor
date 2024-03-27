@@ -29,7 +29,7 @@ begin
   -- synchronous write. We want to be able to reset 
   -- our processor's registers so that we minimize
   -- glitchy behavior on startup.
-  process (i_CLK, i_RST)
+  process (i_CLK)
   begin
     if (i_RST = '1') then
       s_Q <= '0'; -- Use "(others => '0')" for N-bit values
