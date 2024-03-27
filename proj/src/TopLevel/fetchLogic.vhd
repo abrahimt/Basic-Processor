@@ -122,13 +122,15 @@ ARCHITECTURE structural OF fetchLogic IS
 BEGIN
 
 
-    PC_REG : pcRegister
-    port map(
-        i_clk => i_clk, -- clk bit
-        i_rst => i_rst, -- reset bit
-        i_we => '1',  -- TODO (When should write the new PC address into register)
-        i_data => i_PC, -- Next PC Address
-        o_out => s_PC); -- Output from PC Register of Next Address
+    --PC_REG : pcRegister
+    --port map(
+        --i_clk => i_clk, -- clk bit
+        --_rst => i_rst, -- reset bit
+        --i_we => i_clk,  -- TODO (When should write the new PC address into register)
+        --i_data => i_PC, -- Next PC Address
+        --o_out => s_PC); -- Output from PC Register of Next Address
+
+    s_PC <= i_PC;
 
     -- Change PC address to the jump address
     JUMP1 : jump
@@ -177,7 +179,7 @@ BEGIN
 
     G_MUX_BRANCH : mux2t1_N
     PORT MAP(
-        i_S => i_branch,
+        i_S => s_branch,
         i_D0 => s_PC4,
         i_D1 => s_bPC,
         o_O => s_muxBranch); -- outputs PC + 4 or branch address

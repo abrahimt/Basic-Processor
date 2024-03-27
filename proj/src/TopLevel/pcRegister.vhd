@@ -24,7 +24,7 @@ end pcRegister;
 
 architecture structure of pcRegister is
 
-    component Nbit_reg
+    component Nbit_reg_PC
         generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
         port(i_CLK        : in std_logic;     			 -- Clock input
             i_RST         : in std_logic;     			 -- Reset input
@@ -36,7 +36,7 @@ architecture structure of pcRegister is
 
 begin
 
-	REG : Nbit_reg 
+	REG : Nbit_reg_PC
     port MAP(
             i_CLK	=> i_clk,		-- Clock bit input
             i_RST	=> i_rst,		-- Reset bit input

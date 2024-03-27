@@ -224,13 +224,13 @@ end component;
   SIGNAL s_result : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_ALUBranch : STD_LOGIC;
 
+  --MEMORY SIGNALS
+  SIGNAL s_DMemDataOut : STD_LOGIC_VECTOR(31 downto 0);
+
   --FetchLogic Signals
   SIGNAL s_ra : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_nextPC : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00400000"; -- Starts at 0x00400000
   SIGNAL s_Imm32 : STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-  --MEM SIGNALS
-  SIGNAL s_memResult : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   --AND SIGNALS
   SIGNAL s_branchAnd : STD_LOGIC;
@@ -285,7 +285,7 @@ BEGIN
   port map(
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
-    i_we => '1', -- write enable
+    i_we => iCLK,             -- TODO (When should write the new PC address into register)
     i_data => s_nextPC,       -- Next PC Address
     o_out => s_nextInstAddr); -- Output from PC Register of Next Address
 
@@ -299,10 +299,10 @@ BEGIN
   G_REG : MIPSregister
   GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
   PORT MAP(
-    i_SEL => s_RegWrAddr, -- 
+    i_SEL => s_RegWrAddr, -- Register selection bit
     i_clk => iCLK, --
     i_rst => iRST, -- 
-    i_d => s_RegWrData, -- 
+    i_d => s_RegWrData, -- Data being written into register
     i_we => s_RegWr, -- Write Enable
     i_rs => s_Inst(25 downto 21),
     i_rt => s_Inst(20 downto 16),
@@ -313,7 +313,8 @@ BEGIN
 
   G_CTL : control
   PORT MAP(
-    i_inst => iInstAddr, -- TODO (I think this is wrong, should we set s_Inst to start equal to iInstAddr)
+    i_inst => s_Inst, -- TODO (I think this is wrong, should we set s_Inst to start equal to iInstAddr)
+    o_RegDst => s_RegDst,
     o_RegWrite => s_RegWr,
     o_memToReg => s_memToReg,
     o_memWrite => s_DMemWr,
@@ -343,7 +344,7 @@ BEGIN
   PORT MAP(
     i_RS => s_rs,
     i_RT => s_rt,
-    i_Imm => s_Imm32, -- TODO
+    i_Imm => s_Imm32, 
     i_ALUOp => s_ALUOp,
     i_ALUSrc => s_ALUSrc,
     i_bne => s_bne,
@@ -359,11 +360,11 @@ BEGIN
     o_zero => s_ALUBranch);
 
   s_result <= oALUOut; -- ALU result signal that is used for other components
-  s_DMemAddr <= oALUOut;
+  s_DMemAddr <= oALUOut; -- ALU result is Data Memory Address
 
   G_FETCHLOGIC : fetchLogic
   PORT MAP(
-    i_inst => s_Inst, -- Instruction input                 -- TODO
+    i_inst => s_Inst, -- Instruction input 
     i_PC => s_NextInstAddr, -- PC Address input
     i_clk => iCLK, -- clock bit
     i_rst => iRST, -- reset bit
@@ -379,10 +380,8 @@ BEGIN
   G_MUX_ALU_MEM : mux2t1_N
   PORT MAP(
     i_S => s_memToReg, -- selection bit from Control
-    i_D0 => s_memResult, -- Memory data from MEM
-    i_D1 => s_result, -- ALU data from ALU
+    i_D0 => s_result, -- ALU data from ALU
+    i_D1 => s_DMemDataOut, -- Memory data from MEM
     o_O => s_RegWrData); -- Data output to Register Data Input
-
-  oALUOut <= s_DMemAddr; -- final assignment
 
 END structure;

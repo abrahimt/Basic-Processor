@@ -43,6 +43,9 @@ END ENTITY fetchLogic;
 
 ARCHITECTURE structural OF fetchLogic IS
 
+
+    -- COMPONENTS   
+
     COMPONENT nBitAdder IS
         GENERIC (N : INTEGER := 32); -- use generics for a multiple bit input/output
         PORT (
@@ -51,15 +54,6 @@ ARCHITECTURE structural OF fetchLogic IS
             in_C : IN STD_LOGIC;
             out_S : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
             out_C : OUT STD_LOGIC);
-    END COMPONENT;
-
-    COMPONENT pcRegister IS
-        PORT (
-            i_CLK : IN STD_LOGIC; -- Clock input
-            i_RST : IN STD_LOGIC; -- Reset input
-            i_WE : IN STD_LOGIC; -- Write enable input
-            i_D : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Data value input
-            o_Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Data value output
     END COMPONENT;
 
     COMPONENT jump IS
@@ -97,28 +91,44 @@ ARCHITECTURE structural OF fetchLogic IS
             o_O : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
     END COMPONENT;
 
-    SIGNAL carry1 : STD_LOGIC := '0'; -- Carry bit for first adder
-    SIGNAL carry2 : STD_LOGIC := '0'; -- Carry bit for second adder
-    SIGNAL RA : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_rPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_jPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_bPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_PC4 : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_muxBranch : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_muxJump : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_muxJAL : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_muxJR : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_branch : STD_LOGIC;
+    Component pcRegister is
+        generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
+        port(
+             i_clk		: in std_logic;				-- clk bit
+             i_rst		: in std_logic;				-- reset bit
+             i_we		: in std_logic;				-- write enable
+             i_data		: in std_logic_vector(31 downto 0);	-- 32 bits of data for register
+             o_out		: out std_logic_vector(31 downto 0));	-- output of write
+    end component;
+
+
+    -- SIGNALS
+
+    SIGNAL carry1       : STD_LOGIC := '0'; -- Carry bit for first adder
+    SIGNAL carry2       : STD_LOGIC := '0'; -- Carry bit for second adder
+    SIGNAL s_branch     : STD_LOGIC;
+    SIGNAL RA           : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_PC         : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_jPC        : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_bPC        : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_PC4        : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxBranch  : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJump    : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJAL     : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJR      : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+
+
 BEGIN
 
-    RESET : pcRegister
-	port map(
-		i_CLK => i_CLK,   -- Clock input
-         	i_rst => i_rst,   -- Reset input
-        	i_WE =>  '0',     -- Write enable input
-         	i_D => i_PC,      -- Data value input
-         	o_Q => s_rPC);    -- Data value output
+
+    PC_REG : pcRegister
+    port map(
+        i_clk => i_clk, -- clk bit
+        i_rst => i_rst, -- reset bit
+        i_we => i_clk,  -- TODO (When should write the new PC address into register)
+        i_data => i_PC, -- Next PC Address
+        o_out => s_PC); -- Output from PC Register of Next Address
 
     -- Change PC address to the jump address
     JUMP1 : jump
@@ -127,15 +137,14 @@ BEGIN
         i_rst => i_rst,
         i_jr => i_jr,
         i_rs => i_rs,
-        i_PC => i_PC,
+        i_PC => s_PC,
         i_Data => i_inst,
         o_Q => s_jPC);
 
     -- Save PC address for jr
-    -- Change PC address to the jump address
-    G_ADD : nBitAdder
+    G_RA : nBitAdder
     PORT MAP(
-        in_A => i_PC, -- PC Address
+        in_A => s_PC, -- PC Address
         in_B => x"00000004", -- four
         in_C => carry1, -- Carry Bit
         out_S => RA, -- PC Address Plus 4
@@ -145,7 +154,7 @@ BEGIN
     PORT MAP(
         i_CLK => i_clk,
         i_rst => i_rst,
-        i_PC => i_PC, -- PC Address
+        i_PC => s_PC, -- PC Address
         i_Data => i_inst, -- Instruction Address
         o_Q => s_bPC); -- New PC Address
 
@@ -153,7 +162,7 @@ BEGIN
     INCREMENT_PC : nBitAdder
     PORT MAP(
         in_A => x"00000004", -- Four
-        in_B => i_PC, -- PC Address
+        in_B => s_PC, -- PC Address
         in_C => carry2, -- carry in
         out_S => s_PC4, -- PC + 4
         out_C => carry2); -- carry out
@@ -168,7 +177,7 @@ BEGIN
 
     G_MUX_BRANCH : mux2t1_N
     PORT MAP(
-        i_S => i_branch,
+        i_S => s_branch,
         i_D0 => s_PC4,
         i_D1 => s_bPC,
         o_O => s_muxBranch); -- outputs PC + 4 or branch address
@@ -198,13 +207,13 @@ BEGIN
     PORT MAP(
         i_S => i_rst,
         i_D0 => s_muxJR,
-        i_D1 => s_rPC,
+        i_D1 => x"00400000",
         o_O => o_newPC); -- outputs PC + 4 or branch address or jump address or JAL address or JR address or resets if rst = 1
 
     G_MUX_JAL2 : mux2t1_N
     PORT MAP(
         i_S => i_jal,
-        i_D0 => RA,
-        i_D1 => x"00000000",
+        i_D0 => x"00000000",
+        i_D1 => RA,
         o_O => o_ra); -- outputs PC + 4 or branch address or jump address or resets if rst = 1
 END structural;

@@ -344,6 +344,7 @@ BEGIN
 			END IF;
 		ELSE --I and J type instructions
 			IF s_opcode = "001000" THEN --addi instruction
+				o_Other <= '1';
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
 				o_memToReg <= '0';

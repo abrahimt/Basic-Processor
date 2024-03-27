@@ -31,7 +31,6 @@ BEGIN
 		i_norResult WHEN (i_ALUOp = "0101") ELSE
 		i_sltResult WHEN (i_ALUOp = "1000") ELSE
 		i_addSubResult WHEN (i_ALUOp = "0010") ELSE
-		--	            i_subResult      when (i_ALUOp = "0110") else 
 		i_shiftResult WHEN (i_ALUOp = "1001") ELSE
 		x"00000000"; -- Default output when ALUOp is not recognized
 END dataflow;

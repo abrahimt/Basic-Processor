@@ -25,13 +25,13 @@ END selectOperation;
 ARCHITECTURE dataflow OF selectOperation IS
 BEGIN
 	-- Selecting the ALU operation based on the ALUOp control signal
-	o_result <= i_orResult WHEN (i_ALUOp = "0001") ELSE
-		i_andResult WHEN (i_ALUOp = "1000") ELSE
-		i_xorResult WHEN (i_ALUOp = "0011") ELSE
+	o_result <= i_orResult WHEN (i_ALUOp = "0111") ELSE
+		i_andResult WHEN (i_ALUOp = "0011") ELSE
+		i_xorResult WHEN (i_ALUOp = "0110") ELSE
 		i_norResult WHEN (i_ALUOp = "0101") ELSE
-		i_sltResult WHEN (i_ALUOp = "0111") ELSE
+		i_sltResult WHEN (i_ALUOp = "1000") ELSE
 		i_addSubResult WHEN (i_ALUOp = "0010") ELSE
 		--	            i_subResult      when (i_ALUOp = "0110") else 
-		i_shiftResult WHEN (i_ALUOp = "0100") ELSE
+		i_shiftResult WHEN (i_ALUOp = "1001") ELSE
 		x"00000000"; -- Default output when ALUOp is not recognized
 END dataflow;

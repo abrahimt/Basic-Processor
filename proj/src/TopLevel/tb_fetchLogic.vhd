@@ -68,26 +68,22 @@ BEGIN
         stim_process : PROCESS
         BEGIN
                 -- Initialize inputs
-                i_rst <= '1';
-		i_jump <= '1';
-                i_jal <= '1';
-		i_jr <= '1';
-                i_branch <= '1';
-		i_zero <= '1';
-                WAIT FOR CLOCK_PERIOD/2;
+                i_inst <= x"20010001"; -- Program Counter initial value
+                i_rst <= '0';
+		wait for 5 ns;
+		i_rst <= '1';
+                WAIT FOR 20 ns;
                 i_rst <= '0';
 		i_jump <= '0';
                 i_jal <= '0';
 		i_jr <= '0';
                 i_branch <= '0';
-		i_zero <= '0';
-		WAIT FOR CLOCK_PERIOD/2; -- 20 ns
+		WAIT FOR 15 ns; -- 40 ns
 
                 -- Reset Test
-                i_inst <= x"00000000"; -- Program Counter initial value
-                i_PC <= x"00400000"; -- Current PC Address
+                i_PC <= o_newPC; -- Current PC Address
                 i_rst <= '1'; -- Reset signal active
-                WAIT FOR CLOCK_PERIOD;  -- 40 ns
+                WAIT FOR CLOCK_PERIOD;  -- 60 ns
                 -- Expected result: Next address should remain the same after reset
                 ASSERT o_newPC = x"00400000" REPORT "Reset test failed" SEVERITY error;
 
@@ -95,7 +91,7 @@ BEGIN
                 i_inst <= x"20090032"; -- addi instruction
                 i_PC <= o_newPC; -- Current PC Address
                 i_rst <= '0'; -- Reset signal active
-                WAIT FOR CLOCK_PERIOD;  -- 60 ns
+                WAIT FOR CLOCK_PERIOD;  -- 80 ns
                 -- Expected result: Next address should remain the same after reset
                 ASSERT o_newPC = x"00400004" REPORT "Reset test failed" SEVERITY error;
 

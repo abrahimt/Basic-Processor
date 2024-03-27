@@ -30,10 +30,10 @@ begin
   G_NBit_Reg: for i in 0 to N-1 generate
     REG: dffg port map(
 		i_CLK       => i_CLK,       -- Clock input
-       		i_RST       => i_RST,       -- Reset input
-       		i_WE        => i_WE,        -- Write enable input
-                i_D         => i_D(i),      -- All instances share the same input.
-                o_Q         => o_Q(i));     -- ith instance's data output hooked up to ith data output.
+    i_RST       => i_RST,       -- Reset input
+    i_WE        => i_WE,        -- Write enable input
+    i_D         => i_D(i),      -- All instances share the same input.
+    o_Q         => o_Q(i));     -- ith instance's data output hooked up to ith data output.
   end generate G_NBit_Reg;
   
 end structural;

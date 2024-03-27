@@ -12,10 +12,10 @@ Z0 !s99 nomlopt
 cModel Technology
 Z1 d/home/mdd1/Desktop/Project1/cpr-e-381
 T_opt
-!s110 1711481645
-V2=U]7F8?SdoNWZLWPT2R@3
+!s110 1711561865
+V2SPnX^XB<QYX[z??mM_T42
 04 2 5 work tb mixed 1
-=1-7486e228ab8a-6603232c-d51cf-6463
+=1-0050569b138e-66045c88-e4ade-7b84
 R0
 !s12b OEM100
 !s124 OEM100
@@ -28,7 +28,7 @@ Z2 w1711380057
 Z3 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
 Z4 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
 Z5 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
-!i122 2
+!i122 19
 R1
 Z6 8proj/src/TopLevel/addToEnd.vhd
 Z7 Fproj/src/TopLevel/addToEnd.vhd
@@ -38,11 +38,11 @@ V9h=V;cCX=n2[7N1C_cMK=2
 !s100 d2QB>j6GYbhH8;791WnG@3
 Z9 OL;C;2023.2_2;77
 33
-Z10 !s110 1711481643
+Z10 !s110 1711561862
 !i10b 1
-Z11 !s108 1711481643.000000
-Z12 !s90 -2008|-work|internal/ModelSimContainer/work|proj/src/MIPS_types.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|proj/src/TopLevel/selectOperation.vhd|proj/src/TopLevel/addToStart.vhd|proj/src/TopLevel/andg2.vhd|proj/src/TopLevel/my_32t1_mux.vhd|proj/src/TopLevel/nBitOr.vhd|proj/src/TopLevel/MIPSregister.vhd|proj/src/TopLevel/nBitAdder.vhd|proj/src/TopLevel/onesComp.vhd|proj/src/TopLevel/tb_control.vhd|proj/src/TopLevel/Extender.vhd|proj/src/TopLevel/andg2N.vhd|proj/src/TopLevel/invg.vhd|proj/src/TopLevel/fullAdder.vhd|proj/src/TopLevel/nBitAnd.vhd|proj/src/TopLevel/Control.vhd|proj/src/TopLevel/addToEnd.vhd|proj/src/TopLevel/tb_branch.vhd|proj/src/TopLevel/alu.vhd|proj/src/TopLevel/org2.vhd|proj/src/TopLevel/dffg.vhd|proj/src/TopLevel/mux2t1_N.vhd|proj/src/TopLevel/nBitNor.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/mux2t1.vhd|proj/src/TopLevel/nBitAddSub.vhd|proj/src/TopLevel/tb_fetchLogic.vhd|proj/src/TopLevel/shift.vhd|proj/src/TopLevel/jump.vhd|proj/src/TopLevel/mux2t1_5bit.vhd|proj/src/TopLevel/extendSign.vhd|proj/src/TopLevel/dffg_set.vhd|proj/src/TopLevel/mux2t1_dataflow.vhd|proj/src/TopLevel/nBitXor.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/Barrel_Shifter.vhd|proj/src/TopLevel/decoder.vhd|proj/src/TopLevel/setLessThan.vhd|proj/src/TopLevel/branchALU.vhd|proj/src/TopLevel/tb_jump.vhd|proj/src/TopLevel/tb_shift.vhd|proj/src/TopLevel/branch.vhd|proj/src/TopLevel/tb_alu.vhd|proj/src/TopLevel/tb_MIPS_Processor.vhd|proj/src/TopLevel/pcRegister.vhd|proj/src/TopLevel/fetchLogic.vhd|proj/src/TopLevel/xorg2.vhd|proj/src/TopLevel/Nbit_reg.vhd|
-Z13 !s107 proj/src/TopLevel/Nbit_reg.vhd|proj/src/TopLevel/xorg2.vhd|proj/src/TopLevel/fetchLogic.vhd|proj/src/TopLevel/pcRegister.vhd|proj/src/TopLevel/tb_MIPS_Processor.vhd|proj/src/TopLevel/tb_alu.vhd|proj/src/TopLevel/branch.vhd|proj/src/TopLevel/tb_shift.vhd|proj/src/TopLevel/tb_jump.vhd|proj/src/TopLevel/branchALU.vhd|proj/src/TopLevel/setLessThan.vhd|proj/src/TopLevel/decoder.vhd|proj/src/TopLevel/Barrel_Shifter.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/nBitXor.vhd|proj/src/TopLevel/mux2t1_dataflow.vhd|proj/src/TopLevel/dffg_set.vhd|proj/src/TopLevel/extendSign.vhd|proj/src/TopLevel/mux2t1_5bit.vhd|proj/src/TopLevel/jump.vhd|proj/src/TopLevel/shift.vhd|proj/src/TopLevel/tb_fetchLogic.vhd|proj/src/TopLevel/nBitAddSub.vhd|proj/src/TopLevel/mux2t1.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/nBitNor.vhd|proj/src/TopLevel/mux2t1_N.vhd|proj/src/TopLevel/dffg.vhd|proj/src/TopLevel/org2.vhd|proj/src/TopLevel/alu.vhd|proj/src/TopLevel/tb_branch.vhd|proj/src/TopLevel/addToEnd.vhd|proj/src/TopLevel/Control.vhd|proj/src/TopLevel/nBitAnd.vhd|proj/src/TopLevel/fullAdder.vhd|proj/src/TopLevel/invg.vhd|proj/src/TopLevel/andg2N.vhd|proj/src/TopLevel/Extender.vhd|proj/src/TopLevel/tb_control.vhd|proj/src/TopLevel/onesComp.vhd|proj/src/TopLevel/nBitAdder.vhd|proj/src/TopLevel/MIPSregister.vhd|proj/src/TopLevel/nBitOr.vhd|proj/src/TopLevel/my_32t1_mux.vhd|proj/src/TopLevel/andg2.vhd|proj/src/TopLevel/addToStart.vhd|proj/src/TopLevel/selectOperation.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|
+Z11 !s108 1711561862.000000
+Z12 !s90 -2008|-work|internal/ModelSimContainer/work|proj/src/MIPS_types.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/nBitNor.vhd|proj/src/TopLevel/setLessThan.vhd|proj/src/TopLevel/Nbit_reg.vhd|proj/src/TopLevel/nBitAdder.vhd|proj/src/TopLevel/nBitAddSub.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/tb_shift.vhd|proj/src/TopLevel/mux2t1_dataflow.vhd|proj/src/TopLevel/dffg_PC.vhd|proj/src/TopLevel/extendSign.vhd|proj/src/TopLevel/andg2N.vhd|proj/src/TopLevel/jump.vhd|proj/src/TopLevel/andg2.vhd|proj/src/TopLevel/tb_branch.vhd|proj/src/TopLevel/tb_jump.vhd|proj/src/TopLevel/decoder.vhd|proj/src/TopLevel/nBitXor.vhd|proj/src/TopLevel/dffg_set.vhd|proj/src/TopLevel/Barrel_Shifter.vhd|proj/src/TopLevel/fetchLogic.vhd|proj/src/TopLevel/pcRegister.vhd|proj/src/TopLevel/org2.vhd|proj/src/TopLevel/mux2t1_5bit.vhd|proj/src/TopLevel/dffg.vhd|proj/src/TopLevel/fullAdder.vhd|proj/src/TopLevel/nBitOr.vhd|proj/src/TopLevel/MIPSregister.vhd|proj/src/TopLevel/mux2t1_N.vhd|proj/src/TopLevel/addToStart.vhd|proj/src/TopLevel/selectOperation.vhd|proj/src/TopLevel/tb_fetchLogic.vhd|proj/src/TopLevel/tb_alu.vhd|proj/src/TopLevel/branch.vhd|proj/src/TopLevel/alu.vhd|proj/src/TopLevel/addToEnd.vhd|proj/src/TopLevel/xorg2.vhd|proj/src/TopLevel/Extender.vhd|proj/src/TopLevel/invg.vhd|proj/src/TopLevel/tb_control.vhd|proj/src/TopLevel/my_32t1_mux.vhd|proj/src/TopLevel/mux2t1.vhd|proj/src/TopLevel/onesComp.vhd|proj/src/TopLevel/Nbit_reg_PC.vhd|proj/src/TopLevel/tb_MIPS_Processor.vhd|proj/src/TopLevel/branchALU.vhd|proj/src/TopLevel/nBitAnd.vhd|proj/src/TopLevel/Control.vhd|proj/src/TopLevel/shift.vhd|
+Z13 !s107 proj/src/TopLevel/shift.vhd|proj/src/TopLevel/Control.vhd|proj/src/TopLevel/nBitAnd.vhd|proj/src/TopLevel/branchALU.vhd|proj/src/TopLevel/tb_MIPS_Processor.vhd|proj/src/TopLevel/Nbit_reg_PC.vhd|proj/src/TopLevel/onesComp.vhd|proj/src/TopLevel/mux2t1.vhd|proj/src/TopLevel/my_32t1_mux.vhd|proj/src/TopLevel/tb_control.vhd|proj/src/TopLevel/invg.vhd|proj/src/TopLevel/Extender.vhd|proj/src/TopLevel/xorg2.vhd|proj/src/TopLevel/addToEnd.vhd|proj/src/TopLevel/alu.vhd|proj/src/TopLevel/branch.vhd|proj/src/TopLevel/tb_alu.vhd|proj/src/TopLevel/tb_fetchLogic.vhd|proj/src/TopLevel/selectOperation.vhd|proj/src/TopLevel/addToStart.vhd|proj/src/TopLevel/mux2t1_N.vhd|proj/src/TopLevel/MIPSregister.vhd|proj/src/TopLevel/nBitOr.vhd|proj/src/TopLevel/fullAdder.vhd|proj/src/TopLevel/dffg.vhd|proj/src/TopLevel/mux2t1_5bit.vhd|proj/src/TopLevel/org2.vhd|proj/src/TopLevel/pcRegister.vhd|proj/src/TopLevel/fetchLogic.vhd|proj/src/TopLevel/Barrel_Shifter.vhd|proj/src/TopLevel/dffg_set.vhd|proj/src/TopLevel/nBitXor.vhd|proj/src/TopLevel/decoder.vhd|proj/src/TopLevel/tb_jump.vhd|proj/src/TopLevel/tb_branch.vhd|proj/src/TopLevel/andg2.vhd|proj/src/TopLevel/jump.vhd|proj/src/TopLevel/andg2N.vhd|proj/src/TopLevel/extendSign.vhd|proj/src/TopLevel/dffg_PC.vhd|proj/src/TopLevel/mux2t1_dataflow.vhd|proj/src/TopLevel/tb_shift.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/nBitAddSub.vhd|proj/src/TopLevel/nBitAdder.vhd|proj/src/TopLevel/Nbit_reg.vhd|proj/src/TopLevel/setLessThan.vhd|proj/src/TopLevel/nBitNor.vhd|proj/src/TopLevel/MIPS_Processor.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|
 !i113 0
 Z14 o-2008 -work internal/ModelSimContainer/work
 Z15 tExplicit 1 CvgOpt 0
@@ -51,7 +51,7 @@ R3
 R4
 R5
 DEx4 work 8 addtoend 0 22 9h=V;cCX=n2[7N1C_cMK=2
-!i122 2
+!i122 19
 l20
 L19 4
 V4XJoGIT0=KY_HZWiA3Wf>1
@@ -71,7 +71,7 @@ R2
 R3
 R4
 R5
-!i122 2
+!i122 19
 R1
 Z16 8proj/src/TopLevel/addToStart.vhd
 Z17 Fproj/src/TopLevel/addToStart.vhd
@@ -94,7 +94,7 @@ R3
 R4
 R5
 DEx4 work 10 addtostart 0 22 W7>>S@B4@DZ5oV9CCb]iA1
-!i122 2
+!i122 19
 l21
 L20 4
 V0RADX;denh0di2An4P1:<0
@@ -113,7 +113,7 @@ Ealu
 Z18 w1711473472
 R4
 R5
-!i122 2
+!i122 19
 R1
 Z19 8proj/src/TopLevel/alu.vhd
 Z20 Fproj/src/TopLevel/alu.vhd
@@ -135,7 +135,7 @@ Astructure
 R4
 R5
 DEx4 work 3 alu 0 22 UQDlCKAjb5z8XX]SLomPm2
-!i122 2
+!i122 19
 l151
 L31 221
 V1Lb=Pe=3m8baZ]T6@;mCQ2
@@ -154,7 +154,7 @@ Eandg2
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
 Z22 8proj/src/TopLevel/andg2.vhd
 Z23 Fproj/src/TopLevel/andg2.vhd
@@ -176,7 +176,7 @@ Adataflow
 R4
 R5
 DEx4 work 5 andg2 0 22 z300g:V@=nF5TZJfMXVWQ3
-!i122 2
+!i122 19
 l32
 Z25 L31 6
 V6I4h9Ic9l@3We23>DOX`i3
@@ -195,7 +195,7 @@ Eandg2n
 Z26 w1707496824
 R4
 R5
-!i122 2
+!i122 19
 R1
 Z27 8proj/src/TopLevel/andg2N.vhd
 Z28 Fproj/src/TopLevel/andg2N.vhd
@@ -217,7 +217,7 @@ Astructural
 R4
 R5
 DEx4 work 6 andg2n 0 22 edDBZ_C`JC7QN^^;03?Ug2
-!i122 2
+!i122 19
 l31
 L23 19
 ViDzdefZY1`jfHeWL^@RB12
@@ -236,7 +236,7 @@ Ebarrel_shifter
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
 Z30 8proj/src/TopLevel/Barrel_Shifter.vhd
 Z31 Fproj/src/TopLevel/Barrel_Shifter.vhd
@@ -258,7 +258,7 @@ Astructural
 R4
 R5
 DEx4 work 14 barrel_shifter 0 22 ^MDC`fnObMEW]=^I6jOVR3
-!i122 2
+!i122 19
 l51
 L21 174
 VDWHbSaz7b5M2;H2Uhd3JO0
@@ -277,7 +277,7 @@ Ebranch
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
 Z32 8proj/src/TopLevel/branch.vhd
 Z33 Fproj/src/TopLevel/branch.vhd
@@ -299,7 +299,7 @@ Astructural
 R4
 R5
 DEx4 work 6 branch 0 22 XTR6]b?SmBh^zlkcjBTS=0
-!i122 2
+!i122 19
 l61
 L23 68
 VJYDeI;OJnYOC=zR]?KBkz3
@@ -315,10 +315,10 @@ R13
 R14
 R15
 Ebranchalu
-Z35 w1711473299
+Z35 w1711491770
 R4
 R5
-!i122 2
+!i122 19
 R1
 Z36 8proj/src/TopLevel/branchALU.vhd
 Z37 Fproj/src/TopLevel/branchALU.vhd
@@ -340,7 +340,7 @@ Adataflow
 R4
 R5
 DEx4 work 9 branchalu 0 22 P_[>G>K@1:1O`=OCgG?D73
-!i122 2
+!i122 19
 l22
 L21 15
 V1ala0z4VO5:Y``B4c=hAX3
@@ -356,13 +356,13 @@ R13
 R14
 R15
 Econtrol
-R2
+Z38 w1711499017
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z38 8proj/src/TopLevel/Control.vhd
-Z39 Fproj/src/TopLevel/Control.vhd
+Z39 8proj/src/TopLevel/Control.vhd
+Z40 Fproj/src/TopLevel/Control.vhd
 l0
 R8
 V<zl:_YQSlaCoPYnEzA^O03
@@ -381,7 +381,7 @@ Abehavioral
 R4
 R5
 DEx4 work 7 control 0 22 <zl:_YQSlaCoPYnEzA^O03
-!i122 2
+!i122 19
 l43
 L39 628
 VzeE54J>W[JekNYg3JmTAY3
@@ -400,10 +400,10 @@ Edecoder
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z40 8proj/src/TopLevel/decoder.vhd
-Z41 Fproj/src/TopLevel/decoder.vhd
+Z41 8proj/src/TopLevel/decoder.vhd
+Z42 Fproj/src/TopLevel/decoder.vhd
 l0
 L6 1
 Vg5Ac0]jJP0ZdP5jD[dKO]0
@@ -422,7 +422,7 @@ Adecode
 R4
 R5
 DEx4 work 7 decoder 0 22 g5Ac0]jJP0ZdP5jD[dKO]0
-!i122 2
+!i122 19
 l13
 L11 40
 V06`P?G47m=1]OjGHd4inS2
@@ -438,17 +438,17 @@ R13
 R14
 R15
 Edffg
-R2
+Z43 w1711499819
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z42 8proj/src/TopLevel/dffg.vhd
-Z43 Fproj/src/TopLevel/dffg.vhd
+Z44 8proj/src/TopLevel/dffg.vhd
+Z45 Fproj/src/TopLevel/dffg.vhd
 l0
-R24
-Vk=E:JgRI`5Hh828=;SLFo0
-!s100 FJQDe;FGDG0KnNV;j4DaY2
+L4 1
+VW8]JF@DUMCTNH7<HK3@N61
+!s100 MzC_JBJQGb6nj6hLJU^fi0
 R9
 33
 R10
@@ -462,12 +462,53 @@ R15
 Amixed
 R4
 R5
-DEx4 work 4 dffg 0 22 k=E:JgRI`5Hh828=;SLFo0
-!i122 2
-l37
-L33 29
-V4Z;_=e>@QC_j1^o`6V^560
-!s100 GR5ff]ZD1Yiz`>ZFVE>Hg1
+DEx4 work 4 dffg 0 22 W8]JF@DUMCTNH7<HK3@N61
+!i122 19
+l18
+L14 29
+V36a]L?FIEaki6HKbHbS]32
+!s100 1FXdeX:QdEADPCV5MM5IA2
+R9
+33
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Edffg_pc
+Z46 w1711561845
+R4
+R5
+!i122 19
+R1
+Z47 8proj/src/TopLevel/dffg_PC.vhd
+Z48 Fproj/src/TopLevel/dffg_PC.vhd
+l0
+L4 1
+VI_7BicSOQbIgmo3TWCHU]3
+!s100 EGee^;5E2g_>PnNA_COLB2
+R9
+33
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Amixed
+R4
+R5
+DEx4 work 7 dffg_pc 0 22 I_7BicSOQbIgmo3TWCHU]3
+!i122 19
+l28
+L15 40
+VSO@EZac4B6Ono7LzfRFob2
+!s100 ;Y``]Cg7QLW]8ZE6g<_L20
 R9
 33
 R10
@@ -479,17 +520,17 @@ R13
 R14
 R15
 Edffg_set
-R2
+Z49 w1711484152
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z44 8proj/src/TopLevel/dffg_set.vhd
-Z45 Fproj/src/TopLevel/dffg_set.vhd
+Z50 8proj/src/TopLevel/dffg_set.vhd
+Z51 Fproj/src/TopLevel/dffg_set.vhd
 l0
-R29
-VQg9b69lLhG@[FM4b1lkWJ3
-!s100 UW<PMR0adU?3e<_TX@XBn1
+L5 1
+VbHnBoUE3]WmVCl0=mVjK00
+!s100 C[263n9:C@M5eJk_77Yi71
 R9
 33
 R10
@@ -503,12 +544,12 @@ R15
 Amixed
 R4
 R5
-DEx4 work 8 dffg_set 0 22 Qg9b69lLhG@[FM4b1lkWJ3
-!i122 2
-l31
-L27 31
-V8dHNM2TFW;ZCU`D>7lJ=b1
-!s100 ;L:Bn=XoK]f52Q`2m9<^P2
+DEx4 work 8 dffg_set 0 22 bHnBoUE3]WmVCl0=mVjK00
+!i122 19
+l20
+L16 31
+V=^WeMnLMCmRS3G3B=KSOK0
+!s100 kE`6=eG70LTmW4fBa25oD3
 R9
 33
 R10
@@ -523,10 +564,10 @@ Eextender
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z46 8proj/src/TopLevel/Extender.vhd
-Z47 Fproj/src/TopLevel/Extender.vhd
+Z52 8proj/src/TopLevel/Extender.vhd
+Z53 Fproj/src/TopLevel/Extender.vhd
 l0
 R8
 VacQeamAi=b4:RKInAU[Na0
@@ -545,7 +586,7 @@ Astructural
 R4
 R5
 DEx4 work 8 extender 0 22 acQeamAi=b4:RKInAU[Na0
-!i122 2
+!i122 19
 l30
 L19 26
 VcFdWnmM7aG_Iz7OjM:[nM3
@@ -565,10 +606,10 @@ R2
 R3
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z48 8proj/src/TopLevel/extendSign.vhd
-Z49 Fproj/src/TopLevel/extendSign.vhd
+Z54 8proj/src/TopLevel/extendSign.vhd
+Z55 Fproj/src/TopLevel/extendSign.vhd
 l0
 R8
 V_V2]_1Fam:lW=RRazXD>:2
@@ -588,9 +629,9 @@ R3
 R4
 R5
 DEx4 work 10 extendsign 0 22 _V2]_1Fam:lW=RRazXD>:2
-!i122 2
+!i122 19
 l20
-Z50 L19 5
+Z56 L19 5
 Vjj0RIo4idB1E@Jo`BhMZY3
 !s100 >m`l4MZfdmY^Qa`@RloGk0
 R9
@@ -604,13 +645,13 @@ R13
 R14
 R15
 Efetchlogic
-Z51 w1711469966
+Z57 w1711556360
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z52 8proj/src/TopLevel/fetchLogic.vhd
-Z53 Fproj/src/TopLevel/fetchLogic.vhd
+Z58 8proj/src/TopLevel/fetchLogic.vhd
+Z59 Fproj/src/TopLevel/fetchLogic.vhd
 l0
 L28 1
 Vb^]DzaQO[PVg70<YkoQO21
@@ -629,11 +670,11 @@ Astructural
 R4
 R5
 DEx4 work 10 fetchlogic 0 22 b^]DzaQO[PVg70<YkoQO21
-!i122 2
-l112
-L44 158
-V@:kW2f<JJ?ecmb=H0n2l`1
-!s100 Y>>BD<Rk4EjMYl0ZkYm;A2
+!i122 19
+l122
+L44 176
+VN??YklW9HzZ5N@;d9029K0
+!s100 9GU;VZkF:n;f_4hDYT`V`3
 R9
 33
 R10
@@ -648,10 +689,10 @@ Efulladder
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z54 8proj/src/TopLevel/fullAdder.vhd
-Z55 Fproj/src/TopLevel/fullAdder.vhd
+Z60 8proj/src/TopLevel/fullAdder.vhd
+Z61 Fproj/src/TopLevel/fullAdder.vhd
 l0
 R21
 VGBXh[[nRmTY0:cIgBYAI62
@@ -670,7 +711,7 @@ Astructure
 R4
 R5
 DEx4 work 9 fulladder 0 22 GBXh[[nRmTY0:cIgBYAI62
-!i122 2
+!i122 19
 l48
 L19 64
 VaXGXT9Mz1PzT2`5MFEZMz0
@@ -689,10 +730,10 @@ Einvg
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z56 8proj/src/TopLevel/invg.vhd
-Z57 Fproj/src/TopLevel/invg.vhd
+Z62 8proj/src/TopLevel/invg.vhd
+Z63 Fproj/src/TopLevel/invg.vhd
 l0
 R24
 VIJkcZ1BXD`4RDZ?hjkbIF2
@@ -711,7 +752,7 @@ Adataflow
 R4
 R5
 DEx4 work 4 invg 0 22 IJkcZ1BXD`4RDZ?hjkbIF2
-!i122 2
+!i122 19
 l31
 L30 6
 V@Kk;^@]_o6c=I4@>kUX2A3
@@ -727,13 +768,13 @@ R13
 R14
 R15
 Ejump
-Z58 w1711389606
+Z64 w1711389606
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z59 8proj/src/TopLevel/jump.vhd
-Z60 Fproj/src/TopLevel/jump.vhd
+Z65 8proj/src/TopLevel/jump.vhd
+Z66 Fproj/src/TopLevel/jump.vhd
 l0
 R34
 Vea@YJVCHlb3UA[klY_J`<3
@@ -752,7 +793,7 @@ Astructural
 R4
 R5
 DEx4 work 4 jump 0 22 ea@YJVCHlb3UA[klY_J`<3
-!i122 2
+!i122 19
 l70
 L25 104
 Via[gJzT@g<jYIWBb`QkgB1
@@ -772,10 +813,10 @@ R2
 R3
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z61 8proj/src/TopLevel/mem.vhd
-Z62 Fproj/src/TopLevel/mem.vhd
+Z67 8proj/src/TopLevel/mem.vhd
+Z68 Fproj/src/TopLevel/mem.vhd
 l0
 L8 1
 V72U5Be5H]J^_hIf>:2SgQ2
@@ -795,7 +836,7 @@ R3
 R4
 R5
 DEx4 work 3 mem 0 22 72U5Be5H]J^_hIf>:2SgQ2
-!i122 2
+!i122 19
 l37
 L27 24
 V5c?J75VGOAknnABKPF61A1
@@ -811,16 +852,16 @@ R13
 R14
 R15
 Emips_processor
-Z63 w1711481410
-Z64 DPx4 work 10 mips_types 0 22 ScGBjVCJj_4:>a:z2iZYo0
+Z69 w1711561045
+Z70 DPx4 work 10 mips_types 0 22 ScGBjVCJj_4:>a:z2iZYo0
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z65 8proj/src/TopLevel/MIPS_Processor.vhd
-Z66 Fproj/src/TopLevel/MIPS_Processor.vhd
+Z71 8proj/src/TopLevel/MIPS_Processor.vhd
+Z72 Fproj/src/TopLevel/MIPS_Processor.vhd
 l0
-Z67 L19 1
+Z73 L19 1
 V5k@0FCUbLY^m5Y^HDDoT`1
 !s100 bCoA`[`L3i34>74iT[Cb73
 R9
@@ -834,15 +875,15 @@ R13
 R14
 R15
 Astructure
-R64
+R70
 R4
 R5
 DEx4 work 14 mips_processor 0 22 5k@0FCUbLY^m5Y^HDDoT`1
-!i122 2
-l231
-L34 326
-VCAT2[PkQ0KG1O8Z0SeUWB0
-!s100 i9j`ZkCl8o5KiAKj6:YQ01
+!i122 19
+l246
+L34 354
+VO7]O7@[OLDgI6gzSaY4Rd3
+!s100 _j0cX;[em]G2OUI@9zg:m3
 R9
 33
 R10
@@ -856,11 +897,11 @@ R15
 Pmips_types
 R4
 R5
-!i122 2
-Z68 w1711470036
+!i122 19
+Z74 w1711470036
 R1
-Z69 8proj/src/MIPS_types.vhd
-Z70 Fproj/src/MIPS_types.vhd
+Z75 8proj/src/MIPS_types.vhd
+Z76 Fproj/src/MIPS_types.vhd
 l0
 L15 15
 VScGBjVCJj_4:>a:z2iZYo0
@@ -876,10 +917,10 @@ R13
 R14
 R15
 Bbody
-R64
+R70
 R4
 R5
-!i122 2
+!i122 19
 l0
 L31 3
 VTQS6XlWdaNSCBJGR]kR>Z2
@@ -895,14 +936,14 @@ R13
 R14
 R15
 Emipsregister
-R68
-R64
+Z77 w1711492364
+R70
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z71 8proj/src/TopLevel/MIPSregister.vhd
-Z72 Fproj/src/TopLevel/MIPSregister.vhd
+Z78 8proj/src/TopLevel/MIPSregister.vhd
+Z79 Fproj/src/TopLevel/MIPSregister.vhd
 l0
 L7 1
 V=oVjJ;QMdGJaA4A@0H_1c1
@@ -918,15 +959,15 @@ R13
 R14
 R15
 Astructural
-R64
+R70
 R4
 R5
 DEx4 work 12 mipsregister 0 22 =oVjJ;QMdGJaA4A@0H_1c1
-!i122 2
+!i122 19
 l56
 L20 89
-VQZK]9aCR91Xnie3MGIm0f1
-!s100 dbRSU4ln3G0?U]neQP]5_2
+VBSc@H6ZYQMg<^oj[cf37F0
+!s100 LEVGg`C:j[dOIFjM=Jj]R2
 R9
 33
 R10
@@ -941,10 +982,10 @@ Emux2t1
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z73 8proj/src/TopLevel/mux2t1.vhd
-Z74 Fproj/src/TopLevel/mux2t1.vhd
+Z80 8proj/src/TopLevel/mux2t1.vhd
+Z81 Fproj/src/TopLevel/mux2t1.vhd
 l0
 L6 1
 VbcT]4:Pnc<JXFemRRG<CO0
@@ -963,7 +1004,7 @@ Astructural
 R4
 R5
 DEx4 work 6 mux2t1 0 22 bcT]4:Pnc<JXFemRRG<CO0
-!i122 2
+!i122 19
 l42
 L15 53
 VU8OVW8X`?<?oO@]ocUA<=0
@@ -979,15 +1020,15 @@ R13
 R14
 R15
 Emux2t1_5bit
-Z75 w1711481426
+Z82 w1711481426
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z76 8proj/src/TopLevel/mux2t1_5bit.vhd
-Z77 Fproj/src/TopLevel/mux2t1_5bit.vhd
+Z83 8proj/src/TopLevel/mux2t1_5bit.vhd
+Z84 Fproj/src/TopLevel/mux2t1_5bit.vhd
 l0
-R67
+R73
 V[k?f3<DKa2LQFR80Kgi3P3
 !s100 5A9NH5`mdK0bW_P8mg@dE2
 R9
@@ -1004,7 +1045,7 @@ Astructural
 R4
 R5
 DEx4 work 11 mux2t1_5bit 0 22 [k?f3<DKa2LQFR80Kgi3P3
-!i122 2
+!i122 19
 l38
 L28 22
 V;ZUKWCjMdI>E>:kZK3K^V2
@@ -1023,10 +1064,10 @@ Emux2t1_dataflow
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z78 8proj/src/TopLevel/mux2t1_dataflow.vhd
-Z79 Fproj/src/TopLevel/mux2t1_dataflow.vhd
+Z85 8proj/src/TopLevel/mux2t1_dataflow.vhd
+Z86 Fproj/src/TopLevel/mux2t1_dataflow.vhd
 l0
 L22 1
 VWiga^f9_lWM=nQk]]?[ff2
@@ -1045,7 +1086,7 @@ Adataflow
 R4
 R5
 DEx4 work 15 mux2t1_dataflow 0 22 Wiga^f9_lWM=nQk]]?[ff2
-!i122 2
+!i122 19
 l29
 L28 6
 VNX;d>1?mQBC5LlGVdToPW1
@@ -1064,10 +1105,10 @@ Emux2t1_n
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z80 8proj/src/TopLevel/mux2t1_N.vhd
-Z81 Fproj/src/TopLevel/mux2t1_N.vhd
+Z87 8proj/src/TopLevel/mux2t1_N.vhd
+Z88 Fproj/src/TopLevel/mux2t1_N.vhd
 l0
 L21 1
 V^naQNg30@fDK=gaeXbe;30
@@ -1086,7 +1127,7 @@ Astructural
 R4
 R5
 DEx4 work 8 mux2t1_n 0 22 ^naQNg30@fDK=gaeXbe;30
-!i122 2
+!i122 19
 l39
 L30 21
 V7]4l1^Ie6Oj5MCGLI_U<U1
@@ -1102,14 +1143,14 @@ R13
 R14
 R15
 Emy_32t1_mux
-R68
-R64
+R74
+R70
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z82 8proj/src/TopLevel/my_32t1_mux.vhd
-Z83 Fproj/src/TopLevel/my_32t1_mux.vhd
+Z89 8proj/src/TopLevel/my_32t1_mux.vhd
+Z90 Fproj/src/TopLevel/my_32t1_mux.vhd
 l0
 L5 1
 VDa]FzL=J[`]3ESOBJ:;:L0
@@ -1125,11 +1166,11 @@ R13
 R14
 R15
 Amux32t1
-R64
+R70
 R4
 R5
 DEx4 work 11 my_32t1_mux 0 22 Da]FzL=J[`]3ESOBJ:;:L0
-!i122 2
+!i122 19
 l14
 L11 41
 VRz^48mYmWfU3e`P`c0:a`3
@@ -1145,14 +1186,14 @@ R13
 R14
 R15
 Enbit_reg
-Z84 w1711471447
-R64
+Z91 w1711552597
+R70
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z85 8proj/src/TopLevel/Nbit_reg.vhd
-Z86 Fproj/src/TopLevel/Nbit_reg.vhd
+Z92 8proj/src/TopLevel/Nbit_reg.vhd
+Z93 Fproj/src/TopLevel/Nbit_reg.vhd
 l0
 L7 1
 Vn_mMhEkcjz7=6ZmJ_:nIE0
@@ -1168,15 +1209,58 @@ R13
 R14
 R15
 Astructural
-R64
+R70
 R4
 R5
 DEx4 work 8 nbit_reg 0 22 n_mMhEkcjz7=6ZmJ_:nIE0
-!i122 2
+!i122 19
 l27
 L17 23
-VPjSHHZgHYRbfeR?e2Co;H2
-!s100 l3cW2P??2OJj2ccinCjhX0
+VlOf]blBe?I=NS`k3PK[0D2
+!s100 PFP=W:j`amSJaJWbdjTIX1
+R9
+33
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Enbit_reg_pc
+Z94 w1711553309
+R70
+R4
+R5
+!i122 19
+R1
+Z95 8proj/src/TopLevel/Nbit_reg_PC.vhd
+Z96 Fproj/src/TopLevel/Nbit_reg_PC.vhd
+l0
+L7 1
+VZ[hjD5JVzN_iKXYDzG3[P3
+!s100 amLEFg;XIGBacoom>>zQ[1
+R9
+33
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Astructural
+R70
+R4
+R5
+DEx4 work 11 nbit_reg_pc 0 22 Z[hjD5JVzN_iKXYDzG3[P3
+!i122 19
+l30
+L17 27
+VcjGU0nf@[<0[AONdLRWkD0
+!s100 jzeaBZO><@NRY0OB=U9=c3
 R9
 33
 R10
@@ -1191,10 +1275,10 @@ Enbitadder
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z87 8proj/src/TopLevel/nBitAdder.vhd
-Z88 Fproj/src/TopLevel/nBitAdder.vhd
+Z97 8proj/src/TopLevel/nBitAdder.vhd
+Z98 Fproj/src/TopLevel/nBitAdder.vhd
 l0
 R21
 V^JNZKBnl8U0n_^17BKT`V1
@@ -1213,7 +1297,7 @@ Astructure
 R4
 R5
 DEx4 work 9 nbitadder 0 22 ^JNZKBnl8U0n_^17BKT`V1
-!i122 2
+!i122 19
 l41
 L26 47
 V5H4aEbC@eLzGP:fDlEH6N3
@@ -1232,10 +1316,10 @@ Enbitaddsub
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z89 8proj/src/TopLevel/nBitAddSub.vhd
-Z90 Fproj/src/TopLevel/nBitAddSub.vhd
+Z99 8proj/src/TopLevel/nBitAddSub.vhd
+Z100 Fproj/src/TopLevel/nBitAddSub.vhd
 l0
 R21
 VQk3iU:27XElgKTO2L?Bz30
@@ -1254,7 +1338,7 @@ Astructure
 R4
 R5
 DEx4 work 10 nbitaddsub 0 22 Qk3iU:27XElgKTO2L?Bz30
-!i122 2
+!i122 19
 l64
 L25 68
 VXM0IzWeBg[MRzGfEiCO>N0
@@ -1273,10 +1357,10 @@ Enbitand
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z91 8proj/src/TopLevel/nBitAnd.vhd
-Z92 Fproj/src/TopLevel/nBitAnd.vhd
+Z101 8proj/src/TopLevel/nBitAnd.vhd
+Z102 Fproj/src/TopLevel/nBitAnd.vhd
 l0
 R21
 V2a6aN<Y4UmdW_kgjTWWM73
@@ -1295,7 +1379,7 @@ Astructure
 R4
 R5
 DEx4 work 7 nbitand 0 22 2a6aN<Y4UmdW_kgjTWWM73
-!i122 2
+!i122 19
 l28
 L18 24
 VjK60WZnFJiNSLN<E52S>W2
@@ -1314,10 +1398,10 @@ Enbitnor
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z93 8proj/src/TopLevel/nBitNor.vhd
-Z94 Fproj/src/TopLevel/nBitNor.vhd
+Z103 8proj/src/TopLevel/nBitNor.vhd
+Z104 Fproj/src/TopLevel/nBitNor.vhd
 l0
 R21
 VI`25>WMQf>lP0dFSPi<ML1
@@ -1336,7 +1420,7 @@ Adataflow
 R4
 R5
 DEx4 work 7 nbitnor 0 22 I`25>WMQf>lP0dFSPi<ML1
-!i122 2
+!i122 19
 l20
 L19 7
 VKHf<F5X<JfgX4ae1PTKiO3
@@ -1355,10 +1439,10 @@ Enbitor
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z95 8proj/src/TopLevel/nBitOr.vhd
-Z96 Fproj/src/TopLevel/nBitOr.vhd
+Z105 8proj/src/TopLevel/nBitOr.vhd
+Z106 Fproj/src/TopLevel/nBitOr.vhd
 l0
 R21
 VWFgKhVH6h?da8e5D@6^Ok1
@@ -1377,9 +1461,9 @@ Astructure
 R4
 R5
 DEx4 work 6 nbitor 0 22 WFgKhVH6h?da8e5D@6^Ok1
-!i122 2
+!i122 19
 l30
-Z97 L20 23
+Z107 L20 23
 VBiH7Y[jWnO]h@:H;j>^dh0
 !s100 UfdNZlaR7Hk7@6OSG`ma]0
 R9
@@ -1396,10 +1480,10 @@ Enbitxor
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z98 8proj/src/TopLevel/nBitXor.vhd
-Z99 Fproj/src/TopLevel/nBitXor.vhd
+Z108 8proj/src/TopLevel/nBitXor.vhd
+Z109 Fproj/src/TopLevel/nBitXor.vhd
 l0
 R21
 Va^@aGBQe<2f2;Y:N8bP381
@@ -1418,9 +1502,9 @@ Astructure
 R4
 R5
 DEx4 work 7 nbitxor 0 22 a^@aGBQe<2f2;Y:N8bP381
-!i122 2
+!i122 19
 l30
-R97
+R107
 V_^c>AS[X1ZiEIIaiQn21Q1
 !s100 8`D<3UMR070ceUV7o:ObI2
 R9
@@ -1437,10 +1521,10 @@ Eonescomp
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z100 8proj/src/TopLevel/onesComp.vhd
-Z101 Fproj/src/TopLevel/onesComp.vhd
+Z110 8proj/src/TopLevel/onesComp.vhd
+Z111 Fproj/src/TopLevel/onesComp.vhd
 l0
 R21
 VIK9c7E8YG:kX=U^O;^6ZR2
@@ -1459,7 +1543,7 @@ Astructure
 R4
 R5
 DEx4 work 8 onescomp 0 22 IK9c7E8YG:kX=U^O;^6ZR2
-!i122 2
+!i122 19
 l31
 L21 23
 V0Fa2chDP_4bK5g9n=g<Q=2
@@ -1478,10 +1562,10 @@ Eorg2
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z102 8proj/src/TopLevel/org2.vhd
-Z103 Fproj/src/TopLevel/org2.vhd
+Z112 8proj/src/TopLevel/org2.vhd
+Z113 Fproj/src/TopLevel/org2.vhd
 l0
 R24
 VaV[]T@E1l<VelaHoW:L;60
@@ -1500,7 +1584,7 @@ Adataflow
 R4
 R5
 DEx4 work 4 org2 0 22 aV[]T@E1l<VelaHoW:L;60
-!i122 2
+!i122 19
 l32
 R25
 V5bY8D]TWo0LHRH2I5]i[W0
@@ -1515,18 +1599,61 @@ R13
 !i113 0
 R14
 R15
-Epcregister
-R2
+Epcreg
+Z114 w1711485556
+R70
 R4
 R5
-!i122 2
+!i122 4
 R1
-Z104 8proj/src/TopLevel/pcRegister.vhd
-Z105 Fproj/src/TopLevel/pcRegister.vhd
+Z115 8proj/src/TopLevel/pcReg.vhd
+Z116 Fproj/src/TopLevel/pcReg.vhd
+l0
+L7 1
+VMl>20No@W<ia4bbL6;kH=3
+!s100 OEOT3<M8:QZ?lEm_e@P]k1
+R9
+33
+Z117 !s110 1711486293
+!i10b 1
+Z118 !s108 1711486293.000000
+Z119 !s90 -2008|-work|internal/ModelSimContainer/work|proj/src/MIPS_types.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|proj/src/TopLevel/selectOperation.vhd|proj/src/TopLevel/addToStart.vhd|proj/src/TopLevel/andg2.vhd|proj/src/TopLevel/my_32t1_mux.vhd|proj/src/TopLevel/nBitOr.vhd|proj/src/TopLevel/MIPSregister.vhd|proj/src/TopLevel/nBitAdder.vhd|proj/src/TopLevel/onesComp.vhd|proj/src/TopLevel/tb_control.vhd|proj/src/TopLevel/Extender.vhd|proj/src/TopLevel/pcReg.vhd|proj/src/TopLevel/andg2N.vhd|proj/src/TopLevel/invg.vhd|proj/src/TopLevel/fullAdder.vhd|proj/src/TopLevel/nBitAnd.vhd|proj/src/TopLevel/Control.vhd|proj/src/TopLevel/addToEnd.vhd|proj/src/TopLevel/tb_branch.vhd|proj/src/TopLevel/alu.vhd|proj/src/TopLevel/org2.vhd|proj/src/TopLevel/dffg.vhd|proj/src/TopLevel/mux2t1_N.vhd|proj/src/TopLevel/nBitNor.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/mux2t1.vhd|proj/src/TopLevel/nBitAddSub.vhd|proj/src/TopLevel/tb_fetchLogic.vhd|proj/src/TopLevel/shift.vhd|proj/src/TopLevel/jump.vhd|proj/src/TopLevel/mux2t1_5bit.vhd|proj/src/TopLevel/extendSign.vhd|proj/src/TopLevel/dffg_set.vhd|proj/src/TopLevel/mux2t1_dataflow.vhd|proj/src/TopLevel/nBitXor.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/Barrel_Shifter.vhd|proj/src/TopLevel/decoder.vhd|proj/src/TopLevel/setLessThan.vhd|proj/src/TopLevel/branchALU.vhd|proj/src/TopLevel/tb_jump.vhd|proj/src/TopLevel/tb_shift.vhd|proj/src/TopLevel/branch.vhd|proj/src/TopLevel/tb_alu.vhd|proj/src/TopLevel/tb_MIPS_Processor.vhd|proj/src/TopLevel/pcRegister.vhd|proj/src/TopLevel/fetchLogic.vhd|proj/src/TopLevel/xorg2.vhd|proj/src/TopLevel/Nbit_reg.vhd|
+Z120 !s107 proj/src/TopLevel/Nbit_reg.vhd|proj/src/TopLevel/xorg2.vhd|proj/src/TopLevel/fetchLogic.vhd|proj/src/TopLevel/pcRegister.vhd|proj/src/TopLevel/tb_MIPS_Processor.vhd|proj/src/TopLevel/tb_alu.vhd|proj/src/TopLevel/branch.vhd|proj/src/TopLevel/tb_shift.vhd|proj/src/TopLevel/tb_jump.vhd|proj/src/TopLevel/branchALU.vhd|proj/src/TopLevel/setLessThan.vhd|proj/src/TopLevel/decoder.vhd|proj/src/TopLevel/Barrel_Shifter.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/nBitXor.vhd|proj/src/TopLevel/mux2t1_dataflow.vhd|proj/src/TopLevel/dffg_set.vhd|proj/src/TopLevel/extendSign.vhd|proj/src/TopLevel/mux2t1_5bit.vhd|proj/src/TopLevel/jump.vhd|proj/src/TopLevel/shift.vhd|proj/src/TopLevel/tb_fetchLogic.vhd|proj/src/TopLevel/nBitAddSub.vhd|proj/src/TopLevel/mux2t1.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/nBitNor.vhd|proj/src/TopLevel/mux2t1_N.vhd|proj/src/TopLevel/dffg.vhd|proj/src/TopLevel/org2.vhd|proj/src/TopLevel/alu.vhd|proj/src/TopLevel/tb_branch.vhd|proj/src/TopLevel/addToEnd.vhd|proj/src/TopLevel/Control.vhd|proj/src/TopLevel/nBitAnd.vhd|proj/src/TopLevel/fullAdder.vhd|proj/src/TopLevel/invg.vhd|proj/src/TopLevel/andg2N.vhd|proj/src/TopLevel/pcReg.vhd|proj/src/TopLevel/Extender.vhd|proj/src/TopLevel/tb_control.vhd|proj/src/TopLevel/onesComp.vhd|proj/src/TopLevel/nBitAdder.vhd|proj/src/TopLevel/MIPSregister.vhd|proj/src/TopLevel/nBitOr.vhd|proj/src/TopLevel/my_32t1_mux.vhd|proj/src/TopLevel/andg2.vhd|proj/src/TopLevel/addToStart.vhd|proj/src/TopLevel/selectOperation.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|
+!i113 0
+R14
+R15
+Astructural
+R70
+R4
+R5
+DEx4 work 5 pcreg 0 22 Ml>20No@W<ia4bbL6;kH=3
+!i122 4
+l32
+L17 30
+VL2hLN@9@A0aW@7OhcGkij1
+!s100 cRLGl<3a;bMa1UL4o8=232
+R9
+33
+R117
+!i10b 1
+R118
+R119
+R120
+!i113 0
+R14
+R15
+Epcregister
+Z121 w1711556342
+R4
+R5
+!i122 19
+R1
+Z122 8proj/src/TopLevel/pcRegister.vhd
+Z123 Fproj/src/TopLevel/pcRegister.vhd
 l0
 R34
-VCIC@bC;hX^0c<Rd?3bG^g0
-!s100 SRXAIC7]z;UFADDk:H:IJ0
+VG3D@Zi4ClVl^8_oDUWhMl3
+!s100 JYm5_ZSj<9=BaBKZmaNPX2
 R9
 33
 R10
@@ -1540,12 +1667,12 @@ R15
 Astructure
 R4
 R5
-DEx4 work 10 pcregister 0 22 CIC@bC;hX^0c<Rd?3bG^g0
-!i122 2
-l36
-L23 47
-VgmD?HNZNkONZ_1DRTjPLF0
-!s100 0LVCOV_9`Q88LJdZ8KM4n3
+DEx4 work 10 pcregister 0 22 G3D@Zi4ClVl^8_oDUWhMl3
+!i122 19
+l37
+L25 23
+Vz_3HkW24cBjR9ILHhEhR53
+!s100 =ZHlbNBbS`9NI5J[12XMg3
 R9
 33
 R10
@@ -1557,13 +1684,13 @@ R13
 R14
 R15
 Eselectoperation
-R2
+Z124 w1711559631
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z106 8proj/src/TopLevel/selectOperation.vhd
-Z107 Fproj/src/TopLevel/selectOperation.vhd
+Z125 8proj/src/TopLevel/selectOperation.vhd
+Z126 Fproj/src/TopLevel/selectOperation.vhd
 l0
 R21
 VNnh2>79C3XgkR9T^Cca_g0
@@ -1582,11 +1709,11 @@ Adataflow
 R4
 R5
 DEx4 work 15 selectoperation 0 22 Nnh2>79C3XgkR9T^Cca_g0
-!i122 2
+!i122 19
 l26
-L25 13
-VYXdNN]6RD5XF1>O;bhGQ42
-!s100 [4zZ^J4G=;lm=P]Hzg3lI1
+L25 12
+V@4ObcOgCP[@eGkVR<k_;F1
+!s100 =J@GiP;73YA@Z=^;D[fe?2
 R9
 33
 R10
@@ -1602,10 +1729,10 @@ R2
 R3
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z108 8proj/src/TopLevel/setLessThan.vhd
-Z109 Fproj/src/TopLevel/setLessThan.vhd
+Z127 8proj/src/TopLevel/setLessThan.vhd
+Z128 Fproj/src/TopLevel/setLessThan.vhd
 l0
 L13 1
 V_;Ek`UYH?=ndnG@MjgRWV0
@@ -1625,7 +1752,7 @@ R3
 R4
 R5
 DEx4 work 11 setlessthan 0 22 _;Ek`UYH?=ndnG@MjgRWV0
-!i122 2
+!i122 19
 l24
 L21 11
 V[:5gdNIAnAc8F96bo7M@V3
@@ -1645,10 +1772,10 @@ R2
 R3
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z110 8proj/src/TopLevel/shift.vhd
-Z111 Fproj/src/TopLevel/shift.vhd
+Z129 8proj/src/TopLevel/shift.vhd
+Z130 Fproj/src/TopLevel/shift.vhd
 l0
 R8
 Vzm=QeZo7Q0UU_5jBVX_:l2
@@ -1668,9 +1795,9 @@ R3
 R4
 R5
 DEx4 work 5 shift 0 22 zm=QeZo7Q0UU_5jBVX_:l2
-!i122 2
+!i122 19
 l20
-R50
+R56
 V@S41UH8CYWc1nE:WV4Q0N2
 !s100 Bi?F0HNhjFLSS@cNia49P1
 R9
@@ -1684,15 +1811,15 @@ R13
 R14
 R15
 Etb
-Z112 w1710949425
-Z113 DPx3 std 3 env 0 22 QPZJVBPkV?55nUWhDzFik0
-Z114 DPx4 ieee 16 std_logic_textio 0 22 C8j>g0lzF^EAA]5<S6PY32
+Z131 w1710949425
+Z132 DPx3 std 3 env 0 22 QPZJVBPkV?55nUWhDzFik0
+Z133 DPx4 ieee 16 std_logic_textio 0 22 C8j>g0lzF^EAA]5<S6PY32
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z115 8internal/testpy/tb.vhd
-Z116 Finternal/testpy/tb.vhd
+Z134 8internal/testpy/tb.vhd
+Z135 Finternal/testpy/tb.vhd
 l0
 L24 1
 VmnW?FF:Ib87hj>e3NzoaR2
@@ -1708,12 +1835,12 @@ R13
 R14
 R15
 Amixed
-R113
-R114
+R132
+R133
 R4
 R5
 DEx4 work 2 tb 0 22 mnW?FF:Ib87hj>e3NzoaR2
-!i122 2
+!i122 19
 l56
 L31 127
 V8b52hZOUTz;mGPlR1XoM@1
@@ -1729,14 +1856,14 @@ R13
 R14
 R15
 Etb_alu
-Z117 w1711472550
-R114
+Z136 w1711482345
+R133
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z118 8proj/src/TopLevel/tb_alu.vhd
-Z119 Fproj/src/TopLevel/tb_alu.vhd
+Z137 8proj/src/TopLevel/tb_alu.vhd
+Z138 Fproj/src/TopLevel/tb_alu.vhd
 l0
 R34
 VMBT?@BDH:M2]VQgOf]^<n2
@@ -1752,15 +1879,15 @@ R13
 R14
 R15
 Astructure
-R114
+R133
 R4
 R5
 DEx4 work 6 tb_alu 0 22 MBT?@BDH:M2]VQgOf]^<n2
-!i122 2
+!i122 19
 l48
-L19 432
-Vm5^;L_NaUlUHFdbPjOW[:3
-!s100 Wjl]jN5CN7]e9CodIQL7O2
+L19 436
+V_[1KhzLHM46QHejJj7RX92
+!s100 3CaY3NkaMeDH=1h_z`EMe3
 R9
 33
 R10
@@ -1773,14 +1900,14 @@ R14
 R15
 Etb_branch
 R2
-R113
-R114
+R132
+R133
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z120 8proj/src/TopLevel/tb_branch.vhd
-Z121 Fproj/src/TopLevel/tb_branch.vhd
+Z139 8proj/src/TopLevel/tb_branch.vhd
+Z140 Fproj/src/TopLevel/tb_branch.vhd
 l0
 L8 1
 VETmS>41OiMoY==Q8cR^OG0
@@ -1796,12 +1923,12 @@ R13
 R14
 R15
 Atb
-R113
-R114
+R132
+R133
 R4
 R5
 DEx4 work 9 tb_branch 0 22 ETmS>41OiMoY==Q8cR^OG0
-!i122 2
+!i122 19
 l30
 L12 58
 Vo97HY]0=de>@3ffDbbB>V2
@@ -1818,13 +1945,13 @@ R14
 R15
 Etb_control
 R2
-R114
+R133
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z122 8proj/src/TopLevel/tb_control.vhd
-Z123 Fproj/src/TopLevel/tb_control.vhd
+Z141 8proj/src/TopLevel/tb_control.vhd
+Z142 Fproj/src/TopLevel/tb_control.vhd
 l0
 L20 1
 VVl@:@_n82K68FjE0a_VBN3
@@ -1840,11 +1967,11 @@ R13
 R14
 R15
 Astructure
-R114
+R133
 R4
 R5
 DEx4 work 10 tb_control 0 22 Vl@:@_n82K68FjE0a_VBN3
-!i122 2
+!i122 19
 l69
 L23 184
 VHo:55zlBVcQdLdHiWkSb91
@@ -1860,14 +1987,14 @@ R13
 R14
 R15
 Etb_fetchlogic
-Z124 w1711391759
+Z143 w1711555705
 R3
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z125 8proj/src/TopLevel/tb_fetchLogic.vhd
-Z126 Fproj/src/TopLevel/tb_fetchLogic.vhd
+Z144 8proj/src/TopLevel/tb_fetchLogic.vhd
+Z145 Fproj/src/TopLevel/tb_fetchLogic.vhd
 l0
 R29
 Vl3RH5USBbBo>0amZ_>Ck;3
@@ -1887,11 +2014,11 @@ R3
 R4
 R5
 DEx4 work 13 tb_fetchlogic 0 22 l3RH5USBbBo>0amZ_>Ck;3
-!i122 2
+!i122 19
 l41
-L19 155
-VCXLNf4>G^le?YKKDLeY7P3
-!s100 UIYP7:1ocJ6;`8@FfT[lF0
+L19 151
+Vaa=Ujil06ZHi[V?^=bIT^0
+!s100 5CX:O0oWzW@A:XBK3NbDA3
 R9
 33
 R10
@@ -1903,15 +2030,15 @@ R13
 R14
 R15
 Etb_jump
-Z127 w1711389785
-R113
-R114
+Z146 w1711389785
+R132
+R133
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z128 8proj/src/TopLevel/tb_jump.vhd
-Z129 Fproj/src/TopLevel/tb_jump.vhd
+Z147 8proj/src/TopLevel/tb_jump.vhd
+Z148 Fproj/src/TopLevel/tb_jump.vhd
 l0
 L8 1
 V5P<Q7ZXg94heZ3BVB=^jD0
@@ -1927,12 +2054,12 @@ R13
 R14
 R15
 Atb
-R113
-R114
+R132
+R133
 R4
 R5
 DEx4 work 7 tb_jump 0 22 5P<Q7ZXg94heZ3BVB=^jD0
-!i122 2
+!i122 19
 l32
 L12 75
 VMY<GDfzlb:DWFZ8nGZgG52
@@ -1948,14 +2075,14 @@ R13
 R14
 R15
 Etb_mips_processor
-Z130 w1711471282
-R114
+Z149 w1711486428
+R133
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z131 8proj/src/TopLevel/tb_MIPS_Processor.vhd
-Z132 Fproj/src/TopLevel/tb_MIPS_Processor.vhd
+Z150 8proj/src/TopLevel/tb_MIPS_Processor.vhd
+Z151 Fproj/src/TopLevel/tb_MIPS_Processor.vhd
 l0
 R34
 V0W;7mL3^L8jF423J9I`iF1
@@ -1971,15 +2098,15 @@ R13
 R14
 R15
 Astructure
-R114
+R133
 R4
 R5
 DEx4 work 17 tb_mips_processor 0 22 0W;7mL3^L8jF423J9I`iF1
-!i122 2
-l40
-L19 59
-V[<Fa@d6bK=:E:fV@;JIAC3
-!s100 LnaINO1=`;0?e;=C<ciAW2
+!i122 19
+l39
+L19 58
+V5aQ9^Z:DdzoFNmDcIjO691
+!s100 L0zD4l=Dh[c=i[f4h9g720
 R9
 33
 R10
@@ -1995,10 +2122,10 @@ R2
 R3
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z133 8proj/src/TopLevel/tb_shift.vhd
-Z134 Fproj/src/TopLevel/tb_shift.vhd
+Z152 8proj/src/TopLevel/tb_shift.vhd
+Z153 Fproj/src/TopLevel/tb_shift.vhd
 l0
 L5 1
 V2jE]7^]8@;aJm26`h<;MA2
@@ -2018,7 +2145,7 @@ R3
 R4
 R5
 DEx4 work 8 tb_shift 0 22 2jE]7^]8@;aJm26`h<;MA2
-!i122 2
+!i122 19
 l27
 L8 63
 V:^iA74V^dR<=7jIN2QbTE1
@@ -2037,10 +2164,10 @@ Exorg2
 R2
 R4
 R5
-!i122 2
+!i122 19
 R1
-Z135 8proj/src/TopLevel/xorg2.vhd
-Z136 Fproj/src/TopLevel/xorg2.vhd
+Z154 8proj/src/TopLevel/xorg2.vhd
+Z155 Fproj/src/TopLevel/xorg2.vhd
 l0
 R24
 V>8:W_a_Yo8nfe6MMcbgE73
@@ -2059,7 +2186,7 @@ Adataflow
 R4
 R5
 DEx4 work 5 xorg2 0 22 >8:W_a_Yo8nfe6MMcbgE73
-!i122 2
+!i122 19
 l32
 R25
 Vn2QZ9MNeUiN4G2Yb@g3:J0

@@ -1,6 +1,6 @@
 QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
-Start time: 22:37:30 on Mar 25,2024
-vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/Control/tb_control.vhd proj/src/TopLevel/Control/Control.vhd proj/src/TopLevel/Register/my_32t1_mux.vhd proj/src/TopLevel/Register/MIPSregister.vhd proj/src/TopLevel/Register/decoder.vhd proj/src/TopLevel/Register/andg2.vhd proj/src/TopLevel/Register/dffg.vhd proj/src/TopLevel/Register/Nbit_reg.vhd proj/src/TopLevel/ALU/Extender.vhd proj/src/TopLevel/ALU/nBitAdder.vhd proj/src/TopLevel/ALU/nBitAnd.vhd proj/src/TopLevel/ALU/nBitOr.vhd proj/src/TopLevel/ALU/setLessThan.vhd proj/src/TopLevel/ALU/mux2t1_5bit.vhd proj/src/TopLevel/ALU/mux2t1_dataflow.vhd proj/src/TopLevel/ALU/fullAdder.vhd proj/src/TopLevel/ALU/invg.vhd proj/src/TopLevel/ALU/onesComp.vhd proj/src/TopLevel/ALU/andg2.vhd proj/src/TopLevel/ALU/nBitAddSub.vhd proj/src/TopLevel/ALU/nBitXor.vhd proj/src/TopLevel/ALU/mux2t1.vhd proj/src/TopLevel/ALU/xorg2.vhd proj/src/TopLevel/ALU/alu.vhd proj/src/TopLevel/ALU/org2.vhd proj/src/TopLevel/ALU/tb_alu.vhd proj/src/TopLevel/ALU/Barrel_Shifter.vhd proj/src/TopLevel/ALU/branch.vhd proj/src/TopLevel/ALU/selectOperation.vhd proj/src/TopLevel/ALU/nBitNor.vhd proj/src/TopLevel/ALU/mux2t1_N.vhd proj/src/TopLevel/Fetch Logic/tb_jump.vhd proj/src/TopLevel/Fetch Logic/dffg_set.vhd proj/src/TopLevel/Fetch Logic/branch.vhd proj/src/TopLevel/Fetch Logic/addToStart.vhd proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd proj/src/TopLevel/Fetch Logic/shift.vhd proj/src/TopLevel/Fetch Logic/jump.vhd proj/src/TopLevel/Fetch Logic/mux2t1.vhd proj/src/TopLevel/Fetch Logic/tb_fetchLogic.vhd proj/src/TopLevel/Fetch Logic/dffg.vhd proj/src/TopLevel/Fetch Logic/xorg2.vhd proj/src/TopLevel/Fetch Logic/tb_shift.vhd proj/src/TopLevel/Fetch Logic/org2.vhd proj/src/TopLevel/Fetch Logic/andg2.vhd proj/src/TopLevel/Fetch Logic/fullAdder.vhd proj/src/TopLevel/Fetch Logic/mem.vhd proj/src/TopLevel/Fetch Logic/extendSign.vhd proj/src/TopLevel/Fetch Logic/tb_branch.vhd proj/src/TopLevel/Fetch Logic/mux2t1_dataflow.vhd proj/src/TopLevel/Fetch Logic/invg.vhd proj/src/TopLevel/Fetch Logic/pcRegister.vhd proj/src/TopLevel/Fetch Logic/addToEnd.vhd proj/src/TopLevel/Fetch Logic/fetchLogic.vhd proj/src/TopLevel/Fetch Logic/Barrel_Shifter.vhd proj/src/TopLevel/Fetch Logic/nBitAdder.vhd proj/src/TopLevel/Fetch Logic/Extender.vhd 
+Start time: 12:02:21 on Mar 27,2024
+vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/nBitNor.vhd proj/src/TopLevel/setLessThan.vhd proj/src/TopLevel/Nbit_reg.vhd proj/src/TopLevel/nBitAdder.vhd proj/src/TopLevel/nBitAddSub.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/tb_shift.vhd proj/src/TopLevel/mux2t1_dataflow.vhd proj/src/TopLevel/dffg_PC.vhd proj/src/TopLevel/extendSign.vhd proj/src/TopLevel/andg2N.vhd proj/src/TopLevel/jump.vhd proj/src/TopLevel/andg2.vhd proj/src/TopLevel/tb_branch.vhd proj/src/TopLevel/tb_jump.vhd proj/src/TopLevel/decoder.vhd proj/src/TopLevel/nBitXor.vhd proj/src/TopLevel/dffg_set.vhd proj/src/TopLevel/Barrel_Shifter.vhd proj/src/TopLevel/fetchLogic.vhd proj/src/TopLevel/pcRegister.vhd proj/src/TopLevel/org2.vhd proj/src/TopLevel/mux2t1_5bit.vhd proj/src/TopLevel/dffg.vhd proj/src/TopLevel/fullAdder.vhd proj/src/TopLevel/nBitOr.vhd proj/src/TopLevel/MIPSregister.vhd proj/src/TopLevel/mux2t1_N.vhd proj/src/TopLevel/addToStart.vhd proj/src/TopLevel/selectOperation.vhd proj/src/TopLevel/tb_fetchLogic.vhd proj/src/TopLevel/tb_alu.vhd proj/src/TopLevel/branch.vhd proj/src/TopLevel/alu.vhd proj/src/TopLevel/addToEnd.vhd proj/src/TopLevel/xorg2.vhd proj/src/TopLevel/Extender.vhd proj/src/TopLevel/invg.vhd proj/src/TopLevel/tb_control.vhd proj/src/TopLevel/my_32t1_mux.vhd proj/src/TopLevel/mux2t1.vhd proj/src/TopLevel/onesComp.vhd proj/src/TopLevel/Nbit_reg_PC.vhd proj/src/TopLevel/tb_MIPS_Processor.vhd proj/src/TopLevel/branchALU.vhd proj/src/TopLevel/nBitAnd.vhd proj/src/TopLevel/Control.vhd proj/src/TopLevel/shift.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -19,26 +19,8 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Loading package MIPS_types
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
--- Loading package NUMERIC_STD
--- Compiling entity mem
--- Compiling architecture rtl of mem
--- Compiling entity tb_control
--- Compiling architecture structure of tb_control
--- Compiling entity control
--- Compiling architecture behavioral of control
--- Compiling entity my_32t1_mux
--- Compiling architecture mux32t1 of my_32t1_mux
--- Compiling entity MIPSregister
--- Compiling architecture structural of MIPSregister
--- Compiling entity decoder
--- Compiling architecture decode of decoder
--- Compiling entity andg2
--- Compiling architecture dataflow of andg2
--- Compiling entity dffg
--- Compiling architecture mixed of dffg
-** Error: (vcom-11) Could not find work.my_registers.
-** Error (suppressible): proj/src/TopLevel/Register/Nbit_reg.vhd(8): (vcom-1195) Cannot find expanded name "work.my_registers".
-** Error: proj/src/TopLevel/Register/Nbit_reg.vhd(8): Unknown expanded name.
-** Note: proj/src/TopLevel/Register/Nbit_reg.vhd(10): VHDL Compiler exiting
-End time: 22:37:30 on Mar 25,2024, Elapsed time: 0:00:00
-Errors: 3, Warnings: 2
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(318): near "o_RegWrite": (vcom-1576) expecting ',' or ')'.
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(338): Statement cannot be labeled.
+** Note: proj/src/TopLevel/MIPS_Processor.vhd(389): VHDL Compiler exiting
+End time: 12:02:21 on Mar 27,2024, Elapsed time: 0:00:00
+Errors: 2, Warnings: 2
