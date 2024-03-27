@@ -203,14 +203,7 @@ BEGIN
         i_S => i_jr,
         i_D0 => s_muxJAL,
         i_D1 => s_jPC,
-        o_O => s_muxJR); -- outputs PC + 4 or branch address or jump address or JAL address or JR address
-
-    G_MUX_RESET : mux2t1_N
-    PORT MAP(
-        i_S => i_rst,
-        i_D0 => s_muxJR,
-        i_D1 => x"00400000",
-        o_O => o_newPC); -- outputs PC + 4 or branch address or jump address or JAL address or JR address or resets if rst = 1
+        o_O => o_newPC); -- outputs PC + 4 or branch address or jump address or JAL address or JR address
 
     G_MUX_JAL2 : mux2t1_N
     PORT MAP(

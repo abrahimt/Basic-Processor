@@ -28,26 +28,45 @@ END COMPONENT;
 begin
 
   -- The output of the FF is fixed to s_Q
-   o_Q <= s_Q;
+  o_Q <= s_Q;
+  
+  -- Create a multiplexed input to the FF based on i_WE
+  with i_WE select
+    s_D <= i_D when '1',
+           s_Q when others;
+  
+  -- This process handles the asyncrhonous reset and
+  -- synchronous write. We want to be able to reset 
+  -- our processor's registers so that we minimize
+  -- glitchy behavior on startup.
+  process (i_CLK)
+  begin
+    if (i_RST = '1') then
+      s_Q <= r_D; -- Use "(others => '0')" for N-bit values
+    elsif (falling_edge(i_CLK)) then
+      s_Q <= s_D;
+    end if;
 
-  G_MUX : mux2t1
-  PORT MAP(
-    i_S => i_WE, -- selection bit from Control
-    i_D0 => s_Q, -- ALU data from ALU
-    i_D1 => i_D, -- Memory data from MEM
-    o_O => s_D); -- Data output to Register Data Input
+  end process;
+
+  --G_MUX : mux2t1
+  --PORT MAP(
+    --i_S => i_WE, -- selection bit from Control
+    --i_D0 => s_Q, -- ALU data from ALU
+    --i_D1 => i_D, -- Memory data from MEM
+    --o_O => s_D); -- Data output to Register Data Input
 
     -- This process handles the asyncrhonous reset and
   -- synchronous write. We want to be able to reset 
   -- our processor's registers so that we minimize
   -- glitchy behavior on startup.
    
-  G_MUX1 : mux2t1
-  port map(
-    i_S => i_RST, -- selection bit from Control
-    i_D0 => s_D, -- ALU data from ALU
-    i_D1 => r_D, -- Memory data from MEM
-    o_O => s_Q); -- Data output to Register Data Input
+  --G_MUX1 : mux2t1
+  --port map(
+   -- i_S => i_RST, -- selection bit from Control
+    --i_D0 => s_D, -- ALU data from ALU
+    --i_D1 => r_D, -- Memory data from MEM
+   --o_O => s_Q); -- Data output to Register Data Input
     
 
   

@@ -28,7 +28,7 @@ begin
 			registers(12) when (i_S = "01100") else
 			registers(13) when (i_S = "01101") else
 			registers(14) when (i_S = "01110") else
-			registers(15) when (i_S = "00111") else
+			registers(15) when (i_S = "01111") else
 			registers(16) when (i_S = "10000") else
 			registers(17) when (i_S = "10001") else
 			registers(18) when (i_S = "10010") else

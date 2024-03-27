@@ -1,6 +1,6 @@
 QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
-Start time: 22:39:54 on Mar 25,2024
-vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/Control/tb_control.vhd proj/src/TopLevel/Control/Control.vhd proj/src/TopLevel/Register/my_32t1_mux.vhd proj/src/TopLevel/Register/MIPSregister.vhd proj/src/TopLevel/Register/decoder.vhd proj/src/TopLevel/Register/andg2.vhd proj/src/TopLevel/Register/dffg.vhd proj/src/TopLevel/Register/Nbit_reg.vhd proj/src/TopLevel/ALU/Extender.vhd proj/src/TopLevel/ALU/nBitAdder.vhd proj/src/TopLevel/ALU/nBitAnd.vhd proj/src/TopLevel/ALU/nBitOr.vhd proj/src/TopLevel/ALU/setLessThan.vhd proj/src/TopLevel/ALU/mux2t1_5bit.vhd proj/src/TopLevel/ALU/mux2t1_dataflow.vhd proj/src/TopLevel/ALU/fullAdder.vhd proj/src/TopLevel/ALU/invg.vhd proj/src/TopLevel/ALU/onesComp.vhd proj/src/TopLevel/ALU/andg2.vhd proj/src/TopLevel/ALU/nBitAddSub.vhd proj/src/TopLevel/ALU/nBitXor.vhd proj/src/TopLevel/ALU/mux2t1.vhd proj/src/TopLevel/ALU/xorg2.vhd proj/src/TopLevel/ALU/alu.vhd proj/src/TopLevel/ALU/org2.vhd proj/src/TopLevel/ALU/tb_alu.vhd proj/src/TopLevel/ALU/Barrel_Shifter.vhd proj/src/TopLevel/ALU/branch.vhd proj/src/TopLevel/ALU/selectOperation.vhd proj/src/TopLevel/ALU/nBitNor.vhd proj/src/TopLevel/ALU/mux2t1_N.vhd proj/src/TopLevel/Fetch Logic/tb_jump.vhd proj/src/TopLevel/Fetch Logic/dffg_set.vhd proj/src/TopLevel/Fetch Logic/branch.vhd proj/src/TopLevel/Fetch Logic/addToStart.vhd proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd proj/src/TopLevel/Fetch Logic/shift.vhd proj/src/TopLevel/Fetch Logic/jump.vhd proj/src/TopLevel/Fetch Logic/mux2t1.vhd proj/src/TopLevel/Fetch Logic/tb_fetchLogic.vhd proj/src/TopLevel/Fetch Logic/dffg.vhd proj/src/TopLevel/Fetch Logic/xorg2.vhd proj/src/TopLevel/Fetch Logic/tb_shift.vhd proj/src/TopLevel/Fetch Logic/org2.vhd proj/src/TopLevel/Fetch Logic/andg2.vhd proj/src/TopLevel/Fetch Logic/fullAdder.vhd proj/src/TopLevel/Fetch Logic/mem.vhd proj/src/TopLevel/Fetch Logic/extendSign.vhd proj/src/TopLevel/Fetch Logic/tb_branch.vhd proj/src/TopLevel/Fetch Logic/mux2t1_dataflow.vhd proj/src/TopLevel/Fetch Logic/invg.vhd proj/src/TopLevel/Fetch Logic/pcRegister.vhd proj/src/TopLevel/Fetch Logic/addToEnd.vhd proj/src/TopLevel/Fetch Logic/fetchLogic.vhd proj/src/TopLevel/Fetch Logic/Barrel_Shifter.vhd proj/src/TopLevel/Fetch Logic/nBitAdder.vhd proj/src/TopLevel/Fetch Logic/Extender.vhd 
+Start time: 17:09:25 on Mar 27,2024
+vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/nBitNor.vhd proj/src/TopLevel/setLessThan.vhd proj/src/TopLevel/Nbit_reg.vhd proj/src/TopLevel/nBitAdder.vhd proj/src/TopLevel/nBitAddSub.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/tb_shift.vhd proj/src/TopLevel/mux2t1_dataflow.vhd proj/src/TopLevel/dffg_PC.vhd proj/src/TopLevel/extendSign.vhd proj/src/TopLevel/andg2N.vhd proj/src/TopLevel/jump.vhd proj/src/TopLevel/andg2.vhd proj/src/TopLevel/tb_branch.vhd proj/src/TopLevel/tb_jump.vhd proj/src/TopLevel/decoder.vhd proj/src/TopLevel/nBitXor.vhd proj/src/TopLevel/dffg_set.vhd proj/src/TopLevel/Barrel_Shifter.vhd proj/src/TopLevel/fetchLogic.vhd proj/src/TopLevel/pcRegister.vhd proj/src/TopLevel/org2.vhd proj/src/TopLevel/mux2t1_5bit.vhd proj/src/TopLevel/dffg.vhd proj/src/TopLevel/fullAdder.vhd proj/src/TopLevel/nBitOr.vhd proj/src/TopLevel/MIPSregister.vhd proj/src/TopLevel/mux2t1_N.vhd proj/src/TopLevel/addToStart.vhd proj/src/TopLevel/selectOperation.vhd proj/src/TopLevel/tb_fetchLogic.vhd proj/src/TopLevel/tb_alu.vhd proj/src/TopLevel/branch.vhd proj/src/TopLevel/alu.vhd proj/src/TopLevel/addToEnd.vhd proj/src/TopLevel/xorg2.vhd proj/src/TopLevel/Extender.vhd proj/src/TopLevel/invg.vhd proj/src/TopLevel/tb_control.vhd proj/src/TopLevel/my_32t1_mux.vhd proj/src/TopLevel/mux2t1.vhd proj/src/TopLevel/onesComp.vhd proj/src/TopLevel/Nbit_reg_PC.vhd proj/src/TopLevel/tb_MIPS_Processor.vhd proj/src/TopLevel/branchALU.vhd proj/src/TopLevel/nBitAnd.vhd proj/src/TopLevel/Control.vhd proj/src/TopLevel/shift.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -19,178 +19,102 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Loading package MIPS_types
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
--- Loading package NUMERIC_STD
-** Warning: proj/src/TopLevel/mem.vhd(8): (vcom-1615) Existing entity 'mem' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mem.vhd(8) will be overwritten.
--- Compiling entity mem
-** Warning: proj/src/TopLevel/mem.vhd(27): (vcom-1615) Existing architecture 'mem(rtl)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mem.vhd(27) will be overwritten.
--- Compiling architecture rtl of mem
--- Compiling entity tb_control
--- Compiling architecture structure of tb_control
--- Compiling entity control
--- Compiling architecture behavioral of control
--- Compiling entity my_32t1_mux
--- Compiling architecture mux32t1 of my_32t1_mux
--- Compiling entity MIPSregister
--- Compiling architecture structural of MIPSregister
--- Compiling entity decoder
--- Compiling architecture decode of decoder
-** Warning: proj/src/TopLevel/Register/andg2.vhd(23): (vcom-1615) Existing entity 'andg2' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/andg2.vhd(23) will be overwritten.
--- Compiling entity andg2
-** Warning: proj/src/TopLevel/Register/andg2.vhd(31): (vcom-1615) Existing architecture 'andg2(dataflow)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/andg2.vhd(31) will be overwritten.
--- Compiling architecture dataflow of andg2
-** Warning: proj/src/TopLevel/Register/dffg.vhd(24): (vcom-1615) Existing entity 'dffg' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/dffg.vhd(23) will be overwritten.
--- Compiling entity dffg
-** Warning: proj/src/TopLevel/Register/dffg.vhd(34): (vcom-1615) Existing architecture 'dffg(mixed)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/dffg.vhd(33) will be overwritten.
--- Compiling architecture mixed of dffg
--- Compiling entity Nbit_reg
--- Compiling architecture structural of Nbit_reg
-** Warning: proj/src/TopLevel/ALU/Extender.vhd(14): (vcom-1615) Existing entity 'Extender' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/Extender.vhd(14) will be overwritten.
--- Compiling entity Extender
-** Warning: proj/src/TopLevel/ALU/Extender.vhd(19): (vcom-1615) Existing architecture 'Extender(structural)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/Extender.vhd(19) will be overwritten.
--- Compiling architecture structural of Extender
-** Warning: proj/src/TopLevel/ALU/nBitAdder.vhd(11): (vcom-1615) Existing entity 'nBitAdder' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/nBitAdder.vhd(15) will be overwritten.
--- Compiling entity nBitAdder
-** Warning: proj/src/TopLevel/ALU/nBitAdder.vhd(26): (vcom-1615) Existing architecture 'nBitAdder(structure)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/nBitAdder.vhd(27) will be overwritten.
--- Compiling architecture structure of nBitAdder
--- Compiling entity nBitAnd
--- Compiling architecture structure of nBitAnd
--- Compiling entity nBitOr
--- Compiling architecture structure of nBitOr
--- Compiling entity setLessThan
--- Compiling architecture dataflow of setLessThan
--- Compiling entity mux2t1_5bit
--- Compiling architecture structural of mux2t1_5bit
-** Warning: proj/src/TopLevel/ALU/mux2t1_dataflow.vhd(12): (vcom-1615) Existing entity 'mux2t1_dataflow' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1_dataflow.vhd(22) will be overwritten.
--- Compiling entity mux2t1_dataflow
-** Warning: proj/src/TopLevel/ALU/mux2t1_dataflow.vhd(20): (vcom-1615) Existing architecture 'mux2t1_dataflow(dataflow)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1_dataflow.vhd(28) will be overwritten.
--- Compiling architecture dataflow of mux2t1_dataflow
-** Warning: proj/src/TopLevel/ALU/fullAdder.vhd(11): (vcom-1615) Existing entity 'fullAdder' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/fullAdder.vhd(20) will be overwritten.
--- Compiling entity fullAdder
-** Warning: proj/src/TopLevel/ALU/fullAdder.vhd(19): (vcom-1615) Existing architecture 'fullAdder(structure)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/fullAdder.vhd(27) will be overwritten.
--- Compiling architecture structure of fullAdder
-** Warning: proj/src/TopLevel/ALU/invg.vhd(21): (vcom-1615) Existing entity 'invg' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/invg.vhd(23) will be overwritten.
--- Compiling entity invg
-** Warning: proj/src/TopLevel/ALU/invg.vhd(29): (vcom-1615) Existing architecture 'invg(dataflow)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/invg.vhd(30) will be overwritten.
--- Compiling architecture dataflow of invg
--- Compiling entity onesComp
--- Compiling architecture structure of onesComp
-** Warning: proj/src/TopLevel/ALU/andg2.vhd(21): (vcom-1615) Existing entity 'andg2' at proj/src/TopLevel/Register/andg2.vhd(23) will be overwritten.
--- Compiling entity andg2
-** Warning: proj/src/TopLevel/ALU/andg2.vhd(30): (vcom-1615) Existing architecture 'andg2(dataflow)' at proj/src/TopLevel/Register/andg2.vhd(31) will be overwritten.
--- Compiling architecture dataflow of andg2
--- Compiling entity nBitAddSub
--- Compiling architecture structure of nBitAddSub
--- Compiling entity nBitXor
--- Compiling architecture structure of nBitXor
-** Warning: proj/src/TopLevel/ALU/mux2t1.vhd(6): (vcom-1615) Existing entity 'mux2t1' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1.vhd(6) will be overwritten.
--- Compiling entity mux2t1
-** Warning: proj/src/TopLevel/ALU/mux2t1.vhd(15): (vcom-1615) Existing architecture 'mux2t1(structural)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1.vhd(15) will be overwritten.
--- Compiling architecture structural of mux2t1
-** Warning: proj/src/TopLevel/ALU/xorg2.vhd(21): (vcom-1615) Existing entity 'xorg2' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/xorg2.vhd(23) will be overwritten.
--- Compiling entity xorg2
-** Warning: proj/src/TopLevel/ALU/xorg2.vhd(30): (vcom-1615) Existing architecture 'xorg2(dataflow)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/xorg2.vhd(31) will be overwritten.
--- Compiling architecture dataflow of xorg2
--- Compiling entity alu
--- Compiling architecture structure of alu
-** Warning: proj/src/TopLevel/ALU/org2.vhd(21): (vcom-1615) Existing entity 'org2' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/org2.vhd(23) will be overwritten.
--- Compiling entity org2
-** Warning: proj/src/TopLevel/ALU/org2.vhd(30): (vcom-1615) Existing architecture 'org2(dataflow)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/org2.vhd(31) will be overwritten.
--- Compiling architecture dataflow of org2
--- Compiling entity tb_alu
--- Compiling architecture structure of tb_alu
-** Warning: proj/src/TopLevel/ALU/Barrel_Shifter.vhd(11): (vcom-1615) Existing entity 'Barrel_Shifter' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/Barrel_Shifter.vhd(11) will be overwritten.
--- Compiling entity Barrel_Shifter
-** Warning: proj/src/TopLevel/ALU/Barrel_Shifter.vhd(21): (vcom-1615) Existing architecture 'Barrel_Shifter(structural)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/Barrel_Shifter.vhd(21) will be overwritten.
--- Compiling architecture structural of Barrel_Shifter
-** Warning: proj/src/TopLevel/ALU/branch.vhd(11): (vcom-1615) Existing entity 'branch' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/branch.vhd(15) will be overwritten.
--- Compiling entity branch
--- Compiling architecture dataflow of branch
--- Compiling entity selectOperation
--- Compiling architecture dataflow of selectOperation
 -- Compiling entity nBitNor
 -- Compiling architecture dataflow of nBitNor
-** Warning: proj/src/TopLevel/ALU/mux2t1_N.vhd(19): (vcom-1615) Existing entity 'mux2t1_N' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd(21) will be overwritten.
--- Compiling entity mux2t1_N
-** Warning: proj/src/TopLevel/ALU/mux2t1_N.vhd(29): (vcom-1615) Existing architecture 'mux2t1_N(structural)' at /home/abrahimt/CPR E 381/Project/proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd(30) will be overwritten.
--- Compiling architecture structural of mux2t1_N
--- Compiling entity tb_jump
--- Compiling architecture tb of tb_jump
--- Compiling entity dffg_set
--- Compiling architecture mixed of dffg_set
-** Warning: proj/src/TopLevel/Fetch Logic/branch.vhd(15): (vcom-1615) Existing entity 'branch' at proj/src/TopLevel/ALU/branch.vhd(11) will be overwritten.
--- Compiling entity branch
--- Compiling architecture structural of branch
--- Compiling entity addToStart
--- Compiling architecture behavioral of addToStart
-** Warning: proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd(21): (vcom-1615) Existing entity 'mux2t1_N' at proj/src/TopLevel/ALU/mux2t1_N.vhd(19) will be overwritten.
--- Compiling entity mux2t1_N
-** Warning: proj/src/TopLevel/Fetch Logic/mux2t1_N.vhd(30): (vcom-1615) Existing architecture 'mux2t1_N(structural)' at proj/src/TopLevel/ALU/mux2t1_N.vhd(29) will be overwritten.
--- Compiling architecture structural of mux2t1_N
--- Compiling entity shift
--- Compiling architecture behavioral of shift
--- Compiling entity jump
--- Compiling architecture structural of jump
-** Warning: proj/src/TopLevel/Fetch Logic/mux2t1.vhd(6): (vcom-1615) Existing entity 'mux2t1' at proj/src/TopLevel/ALU/mux2t1.vhd(6) will be overwritten.
--- Compiling entity mux2t1
-** Warning: proj/src/TopLevel/Fetch Logic/mux2t1.vhd(15): (vcom-1615) Existing architecture 'mux2t1(structural)' at proj/src/TopLevel/ALU/mux2t1.vhd(15) will be overwritten.
--- Compiling architecture structural of mux2t1
--- Compiling entity tb_fetchLogic
--- Compiling architecture tb of tb_fetchLogic
-** Warning: proj/src/TopLevel/Fetch Logic/dffg.vhd(23): (vcom-1615) Existing entity 'dffg' at proj/src/TopLevel/Register/dffg.vhd(24) will be overwritten.
--- Compiling entity dffg
-** Warning: proj/src/TopLevel/Fetch Logic/dffg.vhd(33): (vcom-1615) Existing architecture 'dffg(mixed)' at proj/src/TopLevel/Register/dffg.vhd(34) will be overwritten.
--- Compiling architecture mixed of dffg
-** Warning: proj/src/TopLevel/Fetch Logic/xorg2.vhd(23): (vcom-1615) Existing entity 'xorg2' at proj/src/TopLevel/ALU/xorg2.vhd(21) will be overwritten.
--- Compiling entity xorg2
-** Warning: proj/src/TopLevel/Fetch Logic/xorg2.vhd(31): (vcom-1615) Existing architecture 'xorg2(dataflow)' at proj/src/TopLevel/ALU/xorg2.vhd(30) will be overwritten.
--- Compiling architecture dataflow of xorg2
+-- Loading package NUMERIC_STD
+-- Compiling entity setLessThan
+-- Compiling architecture dataflow of setLessThan
+-- Compiling entity Nbit_reg
+-- Compiling architecture structural of Nbit_reg
+-- Compiling entity nBitAdder
+-- Compiling architecture structure of nBitAdder
+-- Compiling entity nBitAddSub
+-- Compiling architecture structure of nBitAddSub
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
 -- Compiling entity tb_shift
 -- Compiling architecture tb of tb_shift
-** Warning: proj/src/TopLevel/Fetch Logic/org2.vhd(23): (vcom-1615) Existing entity 'org2' at proj/src/TopLevel/ALU/org2.vhd(21) will be overwritten.
--- Compiling entity org2
-** Warning: proj/src/TopLevel/Fetch Logic/org2.vhd(31): (vcom-1615) Existing architecture 'org2(dataflow)' at proj/src/TopLevel/ALU/org2.vhd(30) will be overwritten.
--- Compiling architecture dataflow of org2
-** Warning: proj/src/TopLevel/Fetch Logic/andg2.vhd(23): (vcom-1615) Existing entity 'andg2' at proj/src/TopLevel/ALU/andg2.vhd(21) will be overwritten.
--- Compiling entity andg2
-** Warning: proj/src/TopLevel/Fetch Logic/andg2.vhd(31): (vcom-1615) Existing architecture 'andg2(dataflow)' at proj/src/TopLevel/ALU/andg2.vhd(30) will be overwritten.
--- Compiling architecture dataflow of andg2
-** Warning: proj/src/TopLevel/Fetch Logic/fullAdder.vhd(20): (vcom-1615) Existing entity 'fullAdder' at proj/src/TopLevel/ALU/fullAdder.vhd(11) will be overwritten.
--- Compiling entity fullAdder
-** Warning: proj/src/TopLevel/Fetch Logic/fullAdder.vhd(27): (vcom-1615) Existing architecture 'fullAdder(structure)' at proj/src/TopLevel/ALU/fullAdder.vhd(19) will be overwritten.
--- Compiling architecture structure of fullAdder
-** Warning: proj/src/TopLevel/Fetch Logic/mem.vhd(8): (vcom-1615) Existing entity 'mem' at proj/src/TopLevel/mem.vhd(8) will be overwritten.
--- Compiling entity mem
-** Warning: proj/src/TopLevel/Fetch Logic/mem.vhd(27): (vcom-1615) Existing architecture 'mem(rtl)' at proj/src/TopLevel/mem.vhd(27) will be overwritten.
--- Compiling architecture rtl of mem
+-- Compiling entity mux2t1_dataflow
+-- Compiling architecture dataflow of mux2t1_dataflow
+-- Compiling entity dffg_PC
+-- Compiling architecture mixed of dffg_PC
 -- Compiling entity extendSign
 -- Compiling architecture behavioral of extendSign
+-- Compiling entity andg2N
+-- Compiling architecture structural of andg2N
+-- Compiling entity jump
+-- Compiling architecture structural of jump
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
 -- Compiling entity tb_branch
 -- Compiling architecture tb of tb_branch
-** Warning: proj/src/TopLevel/Fetch Logic/mux2t1_dataflow.vhd(22): (vcom-1615) Existing entity 'mux2t1_dataflow' at proj/src/TopLevel/ALU/mux2t1_dataflow.vhd(12) will be overwritten.
--- Compiling entity mux2t1_dataflow
-** Warning: proj/src/TopLevel/Fetch Logic/mux2t1_dataflow.vhd(28): (vcom-1615) Existing architecture 'mux2t1_dataflow(dataflow)' at proj/src/TopLevel/ALU/mux2t1_dataflow.vhd(20) will be overwritten.
--- Compiling architecture dataflow of mux2t1_dataflow
-** Warning: proj/src/TopLevel/Fetch Logic/invg.vhd(23): (vcom-1615) Existing entity 'invg' at proj/src/TopLevel/ALU/invg.vhd(21) will be overwritten.
--- Compiling entity invg
-** Warning: proj/src/TopLevel/Fetch Logic/invg.vhd(30): (vcom-1615) Existing architecture 'invg(dataflow)' at proj/src/TopLevel/ALU/invg.vhd(29) will be overwritten.
--- Compiling architecture dataflow of invg
--- Compiling entity pcRegister
--- Compiling architecture structure of pcRegister
--- Compiling entity addToEnd
--- Compiling architecture behavioral of addToEnd
+-- Compiling entity tb_jump
+-- Compiling architecture tb of tb_jump
+-- Compiling entity decoder
+-- Compiling architecture decode of decoder
+-- Compiling entity nBitXor
+-- Compiling architecture structure of nBitXor
+-- Compiling entity dffg_set
+-- Compiling architecture mixed of dffg_set
+-- Compiling entity Barrel_Shifter
+-- Compiling architecture structural of Barrel_Shifter
 -- Compiling entity fetchLogic
 -- Compiling architecture structural of fetchLogic
-** Warning: proj/src/TopLevel/Fetch Logic/Barrel_Shifter.vhd(11): (vcom-1615) Existing entity 'Barrel_Shifter' at proj/src/TopLevel/ALU/Barrel_Shifter.vhd(11) will be overwritten.
--- Compiling entity Barrel_Shifter
-** Warning: proj/src/TopLevel/Fetch Logic/Barrel_Shifter.vhd(21): (vcom-1615) Existing architecture 'Barrel_Shifter(structural)' at proj/src/TopLevel/ALU/Barrel_Shifter.vhd(21) will be overwritten.
--- Compiling architecture structural of Barrel_Shifter
-** Warning: proj/src/TopLevel/Fetch Logic/nBitAdder.vhd(15): (vcom-1615) Existing entity 'nBitAdder' at proj/src/TopLevel/ALU/nBitAdder.vhd(11) will be overwritten.
--- Compiling entity nBitAdder
-** Warning: proj/src/TopLevel/Fetch Logic/nBitAdder.vhd(27): (vcom-1615) Existing architecture 'nBitAdder(structure)' at proj/src/TopLevel/ALU/nBitAdder.vhd(26) will be overwritten.
--- Compiling architecture structure of nBitAdder
-** Warning: proj/src/TopLevel/Fetch Logic/Extender.vhd(14): (vcom-1615) Existing entity 'Extender' at proj/src/TopLevel/ALU/Extender.vhd(14) will be overwritten.
+-- Compiling entity pcRegister
+-- Compiling architecture structure of pcRegister
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Compiling entity mux2t1_5bit
+-- Compiling architecture structural of mux2t1_5bit
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+-- Compiling entity fullAdder
+-- Compiling architecture structure of fullAdder
+-- Compiling entity nBitOr
+-- Compiling architecture structure of nBitOr
+-- Compiling entity MIPSregister
+-- Compiling architecture structural of MIPSregister
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+-- Compiling entity addToStart
+-- Compiling architecture behavioral of addToStart
+-- Compiling entity selectOperation
+-- Compiling architecture dataflow of selectOperation
+-- Compiling entity tb_fetchLogic
+-- Compiling architecture tb of tb_fetchLogic
+-- Compiling entity tb_alu
+-- Compiling architecture structure of tb_alu
+-- Compiling entity branch
+-- Compiling architecture structural of branch
+-- Compiling entity alu
+-- Compiling architecture structure of alu
+-- Compiling entity addToEnd
+-- Compiling architecture behavioral of addToEnd
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
 -- Compiling entity Extender
-** Warning: proj/src/TopLevel/Fetch Logic/Extender.vhd(19): (vcom-1615) Existing architecture 'Extender(structural)' at proj/src/TopLevel/ALU/Extender.vhd(19) will be overwritten.
 -- Compiling architecture structural of Extender
-End time: 22:39:54 on Mar 25,2024, Elapsed time: 0:00:00
-Errors: 0, Warnings: 58
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+-- Compiling entity tb_control
+-- Compiling architecture structure of tb_control
+-- Compiling entity my_32t1_mux
+-- Compiling architecture mux32t1 of my_32t1_mux
+-- Compiling entity mux2t1
+-- Compiling architecture structural of mux2t1
+-- Compiling entity onesComp
+-- Compiling architecture structure of onesComp
+-- Compiling entity Nbit_reg_PC
+-- Compiling architecture structural of Nbit_reg_PC
+-- Compiling entity tb_MIPS_Processor
+-- Compiling architecture structure of tb_MIPS_Processor
+-- Compiling entity branchALU
+-- Compiling architecture dataflow of branchALU
+-- Compiling entity nBitAnd
+-- Compiling architecture structure of nBitAnd
+-- Compiling entity control
+-- Compiling architecture behavioral of control
+-- Compiling entity shift
+-- Compiling architecture behavioral of shift
+End time: 17:09:25 on Mar 27,2024, Elapsed time: 0:00:00
+Errors: 0, Warnings: 2

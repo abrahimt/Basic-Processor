@@ -55,8 +55,8 @@ end branch;
 	signal SE_branch_addr 		: std_logic_vector(31 downto 0);     -- i_Data [15-0]
 	signal shifted_branch_addr 	: std_logic_vector(31 downto 0);     -- i_Data [15-0]
 	signal PC_4	      		: std_logic_vector(31 downto 0);     -- i_PC + 4
-	signal carry1	      		: std_logic := '0'; 		     -- signal for carry of adder
-	signal carry2	      		: std_logic := '0'; 		     -- signal for carry of adder
+	signal carry1	      		: std_logic; 		     -- signal for carry of adder
+	signal carry2	      		: std_logic; 		     -- signal for carry of adder
 
   begin
 
@@ -64,7 +64,7 @@ end branch;
 	port map(
 		in_A		=> i_PC,	-- PC Address
 		in_B		=> x"00000004",	-- Four
-		in_C		=> carry1,	-- Carry Bit
+		in_C		=> '0',	-- Carry Bit
 		out_S		=> PC_4,	-- PC Address Plus 4
 		out_C		=> carry1);	-- Carry Bit Output
 
@@ -82,7 +82,7 @@ end branch;
 	port map(
 		in_A 		=> PC_4,
                 in_B 		=> shifted_branch_addr,
-                in_C 		=> carry2,
+                in_C 		=> '0',
                 out_S 		=> o_Q,
                 out_C 		=> carry2);
 

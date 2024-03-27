@@ -224,9 +224,6 @@ end component;
   SIGNAL s_result : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_ALUBranch : STD_LOGIC;
 
-  --MEMORY SIGNALS
-  SIGNAL s_DMemDataOut : STD_LOGIC_VECTOR(31 downto 0);
-
   --FetchLogic Signals
   SIGNAL s_ra : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_nextPC : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00400000"; -- Starts at 0x00400000
@@ -239,7 +236,9 @@ end component;
   SIGNAL s_branchMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_jumpMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_RegDMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
-  SIGNAL s_ALUMemMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_ALUMEMMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_RegDstOrg : STD_LOGIC_VECTOR(4 DOWNTO 0);
+  
 
 
 
@@ -285,7 +284,7 @@ BEGIN
   port map(
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
-    i_we => iCLK,             -- TODO (When should write the new PC address into register)
+    i_we => '1',             -- TODO (When should write the new PC address into register)
     i_data => s_nextPC,       -- Next PC Address
     o_out => s_nextInstAddr); -- Output from PC Register of Next Address
 
@@ -294,6 +293,13 @@ BEGIN
     i_S => s_RegDst, -- RegDst bit from Control
     i_D0 => s_Inst(20 DOWNTO 16),
     i_D1 => s_Inst(15 DOWNTO 11),
+    o_O => s_RegDstOrg); -- 
+
+  G_MUX_REGDST2 : mux2t1_5bit
+  PORT MAP(
+    i_S => s_jal, -- RegDst bit from Control
+    i_D0 => s_RegDstOrg,
+    i_D1 => "11111", --31
     o_O => s_RegWrAddr); -- 
 
   G_REG : MIPSregister
@@ -357,7 +363,7 @@ BEGIN
     i_lui => s_lui,
     o_result => oALUOut, -- Intructions say to connect this here  -- TODO 
     o_overflow => s_Ovfl,
-    o_zero => s_ALUBranch);
+    o_zero => s_zero);
 
   s_result <= oALUOut; -- ALU result signal that is used for other components
   s_DMemAddr <= oALUOut; -- ALU result is Data Memory Address
@@ -381,7 +387,14 @@ BEGIN
   PORT MAP(
     i_S => s_memToReg, -- selection bit from Control
     i_D0 => s_result, -- ALU data from ALU
-    i_D1 => s_DMemDataOut, -- Memory data from MEM
+    i_D1 => s_DMemOut, -- Memory data from MEM
+    o_O => s_ALUMEMMUX); -- Data output to Register Data Input
+
+  G_MUX_JAL : mux2t1_N
+  PORT MAP(
+    i_S => s_jal, -- selection bit from Control
+    i_D0 => s_ALUMEMMUX, -- ALU data from ALU
+    i_D1 => s_ra, -- Memory data from MEM
     o_O => s_RegWrData); -- Data output to Register Data Input
 
 END structure;
