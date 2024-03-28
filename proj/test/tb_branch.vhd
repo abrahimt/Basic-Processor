@@ -1,98 +1,69 @@
---Benjamin Towle
---10/7/2023
---tb_branch.vhd
---Test bench for the nBitOr.vhd module
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_textio.all;  -- For logic types I/O
 library std;
+use std.env.all;                -- For hierarchical/external signals
 use std.textio.all;             -- For basic I/O
 
-entity tb_branch is 
-end tb_branch;
+entity tb_branch is
+  generic(gCLK_HPER   : time := 10 ns);   -- Generic for half of the clock cycle period
+end entity tb_branch;
 
-architecture structure of tb_branch is 
+architecture tb of tb_branch is
 
-component branch is 
-  port(i_A          : in std_logic_vector(31 downto 0);
-       i_B          : in std_logic_vector(31 downto 0);
-       i_beq        : in std_logic;
-       i_bne        : in std_logic;
-       o_branchFlag : out std_logic);
-end component;
+   -- Define the total clock period time
+   constant cCLK_PER  : time := gCLK_HPER * 2;
+    
+   component branch
+	port(
+	 i_clk    : in std_logic;                          -- Clock input
+         i_rst    : in std_logic;                          -- Reset input
+	 i_PC	  : in std_logic_vector(31 downto 0);	   -- PC + 4 [31 - 0]
+         i_Data   : in std_logic_vector(31 downto 0);      -- Branch Instruction Input [15-0]
+         o_Q      : out std_logic_vector(31 downto 0));    -- Jump Address Output
+   end component;
 
-signal s_A, s_B   : std_logic_vector(31 downto 0);
-signal s_beq, s_bne : std_logic;
-signal s_branchOrNa   : std_logic;
 
-begin 
-DUT0: branch
-
-port map (i_A     => s_A,
-	  i_B     => s_B,
-	  i_beq   => s_beq,
-	  i_bne   => s_bne,
-	  o_branchFlag  => s_branchOrNa);
-
-TEST_CASES: process 
+   signal s_clk, s_rst : std_logic;
+   signal s_PC, s_Data, s_Q : std_logic_vector(31 downto 0) := (others => '0');
+    
 begin
 
---Don't branch
-s_A  <= x"00000032";
-s_B  <= x"00000032";
-s_bne <= '1';
-s_beq <= '0';    
-wait for 50 ns;
+    DUT0: branch
+        port map(
+            i_clk  => s_clk,
+            i_rst  => s_rst,
+            i_Data => s_Data,
+	    i_PC   => s_PC,
+	    o_Q    => s_Q);
 
---branch
-s_A  <= x"00000032";
-s_B  <= x"00000032";
-s_bne <= '0';
-s_beq <= '1';    
-wait for 50 ns;
+  -- This process sets the clock value (low for gCLK_HPER, then high
+  -- for gCLK_HPER). Absent a "wait" command, processes restart 
+  -- at the beginning once they have reached the final statement.
+  P_CLK: process
+  begin
+    s_clk <= '0';
+    wait for gCLK_HPER;
+    s_clk <= '1';
+    wait for gCLK_HPER;
+  end process;
 
---branch
-s_A  <= x"000046A3";
-s_B  <= x"0E207003";
-s_bne <= '1';
-s_beq <= '0';    
-wait for 50 ns;
+    P_TB: process
+    begin
+	wait for gCLK_HPER/2; 	-- for waveform clarity, I prefer not to change inputs on clk edges
 
---Don't branch
-s_A  <= x"000046A3";
-s_B  <= x"0E207002";
-s_bne <= '0';
-s_beq <= '1';    
-wait for 50 ns;
+   	 s_rst <= '1';		 -- Resest low
+   	 wait for gCLK_HPER * 2; -- 20
+   	 s_rst <= '0';		 -- Resest low
+   	 wait for gCLK_HPER * 2; -- 40
 
---Don't branch
-s_A  <= x"80000000";
-s_B  <= x"7FFFFFFF";
-s_bne <= '0';
-s_beq <= '1';   
-wait for 50 ns;
+	-- TEST 1
+	s_Data <= x"116c0001";
+	s_PC   <= x"00400024";
+	wait;
 
---branch
-s_A  <= x"80000000";
-s_B  <= x"7FFFFFFF";
-s_bne <= '1';
-s_beq <= '0';   
-wait for 50 ns;
+-- Expect 0x0040002c
 
---branch
-s_A  <= x"00000000";
-s_B  <= x"FFFFFFFF";
-s_bne <= '1';
-s_beq <= '0';   
-wait for 50 ns;
+    end process;
 
---Don't branch
-s_A  <= x"00000000";
-s_B  <= x"FFFFFFFF";
-s_bne <= '0';
-s_beq <= '1';   
-wait for 50 ns;
-end process;
-
-end structure;
+end architecture tb;
