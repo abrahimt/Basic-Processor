@@ -1,0 +1,114 @@
+Flow report for toolflow
+Wed Mar 27 18:58:04 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++--------------------------------------------------------------------------------------+
+; Flow Summary                                                                         ;
++------------------------------------+-------------------------------------------------+
+; Flow Status                        ; Successful - Wed Mar 27 18:58:02 2024           ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Standard Edition ;
+; Revision Name                      ; toolflow                                        ;
+; Top-level Entity Name              ; MIPS_Processor                                  ;
+; Family                             ; Cyclone IV E                                    ;
+; Device                             ; EP4CE115F29C7                                   ;
+; Timing Models                      ; Final                                           ;
+; Total logic elements               ; 114,581                                         ;
+;     Total combinational functions  ; 48,117                                          ;
+;     Dedicated logic registers      ; 66,560                                          ;
+; Total registers                    ; 66560                                           ;
+; Total pins                         ; 99                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 03/27/2024 18:51:54 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; toolflow            ;
++-------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                           ;
++-------------------------------------+----------------------------------------+---------------+----------------+------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
++-------------------------------------+----------------------------------------+---------------+----------------+------------+
+; COMPILER_SIGNATURE_ID               ; 345050425351.171158351432544           ; --            ; --             ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; MIPS_Processor ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; MIPS_Processor ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; MIPS_Processor ; Top        ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --             ; --         ;
+; TOP_LEVEL_ENTITY                    ; MIPS_Processor                         ; toolflow      ; --             ; --         ;
+; VHDL_INPUT_VERSION                  ; VHDL_2008                              ; VHDL_1993     ; --             ; --         ;
++-------------------------------------+----------------------------------------+---------------+----------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:05:58     ; 1.0                     ; 1204 MB             ; 00:06:00                           ;
+; Total                ; 00:05:58     ; --                      ; --                  ; 00:06:00                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                            ;
++----------------------+-----------------------------+---------+------------+----------------+
+; Module Name          ; Machine Hostname            ; OS Name ; OS Version ; Processor type ;
++----------------------+-----------------------------+---------+------------+----------------+
+; Analysis & Synthesis ; linuxvdi-40.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
++----------------------+-----------------------------+---------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
+
+
+
