@@ -1,0 +1,59 @@
+[N
+9
+2
+8 mux2t1_n
+4
+1 N
+7
+6 i_sign
+8
+9 nbitadder
+9
+9 structure
+5
+14 barrel_shifter
+3
+10 structural
+1
+54 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/work
+6
+11 i_leftShift
+]
+[G
+1
+2
+3
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+8
+9
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[P
+1
+5
+3
+6
+7
+2
+0
+0
+]

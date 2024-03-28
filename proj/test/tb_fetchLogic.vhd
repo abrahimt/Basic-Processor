@@ -93,7 +93,7 @@ BEGIN
                 i_rst <= '0'; -- Reset signal active
                 WAIT FOR CLOCK_PERIOD;  -- 80 ns
                 -- Expected result: Next address should remain the same after reset
-                ASSERT o_newPC = x"00400004" REPORT "Reset test failed" SEVERITY error;
+                ASSERT o_newPC = x"00400004" REPORT "Addi test failed" SEVERITY error;
 
                 -- Jump test
                 i_inst <= x"08100008"; -- Jump instruction
@@ -109,7 +109,7 @@ BEGIN
                 i_jump <= '0'; -- Jump signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should remain the same after reset
-                ASSERT o_newPC = x"00400024" REPORT "Reset test failed" SEVERITY error;
+                ASSERT o_newPC = x"00400024" REPORT "Addi test failed" SEVERITY error;
 
                 -- Branch Equal Test
                 i_inst <= x"116c0001"; -- Branch Equal instruction
@@ -127,7 +127,7 @@ BEGIN
 		i_zero <= '0';
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x00000014 (if condition is true)
-                ASSERT o_newPC = x"00400030" REPORT "Branch Equal instruction failed" SEVERITY error;
+                ASSERT o_newPC = x"00400030" REPORT "Sub instruction failed" SEVERITY error;
 
                 -- Branch Not Equal Test
                 i_inst <= x"158d0001"; -- Branch Not Equal instruction
@@ -136,7 +136,7 @@ BEGIN
 		i_zero <= '1';
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x00000014 (if condition is true)
-                ASSERT o_newPC = x"00400038" REPORT "Branch Equal instruction failed" SEVERITY error;
+                ASSERT o_newPC = x"00400038" REPORT "Branch Not Equal instruction failed" SEVERITY error;
 
                 -- jal Test
                 i_inst <= x"0c100011"; -- jal instruction
@@ -146,7 +146,7 @@ BEGIN
                 i_jal <= '1'; -- jal signal
                 WAIT FOR CLOCK_PERIOD;
                 -- Expected result: Next address should be 0x00000014 (if condition is true)
-                ASSERT o_newPC = x"00400044" REPORT "Branch Equal instruction failed" SEVERITY error;
+                ASSERT o_newPC = x"00400044" REPORT "JAL instruction failed" SEVERITY error;
 
                 -- jr Test
                 i_inst <= x"03e00008"; -- jr instruction
@@ -155,7 +155,7 @@ BEGIN
                 i_jr <= '1'; -- jr signal
                 i_jal <= '0'; -- jal signal
                 WAIT FOR CLOCK_PERIOD;
-                ASSERT o_newPC = x"0040003c" REPORT "Branch Equal instruction failed" SEVERITY error;
+                ASSERT o_newPC = x"0040003c" REPORT "JR instruction failed" SEVERITY error;
 
                 -- addi Test
                 i_inst <= x"200d0032"; -- addi instruction

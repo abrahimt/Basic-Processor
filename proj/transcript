@@ -12,3 +12,565 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+vlib work
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:17 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package MIPS_types
+# -- Compiling package body MIPS_types
+# -- Loading package MIPS_types
+# End time: 22:36:17 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToEnd.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToEnd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity addToEnd
+# -- Compiling architecture behavioral of addToEnd
+# End time: 22:36:30 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToStart.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToStart.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity addToStart
+# -- Compiling architecture behavioral of addToStart
+# End time: 22:36:30 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/alu.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity alu
+# -- Compiling architecture structure of alu
+# End time: 22:36:30 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity andg2
+# -- Compiling architecture dataflow of andg2
+# End time: 22:36:30 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2N.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2N.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity andg2N
+# -- Compiling architecture structural of andg2N
+# End time: 22:36:30 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Barrel_Shifter
+# -- Compiling architecture structural of Barrel_Shifter
+# End time: 22:36:30 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branch.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branch.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity branch
+# -- Compiling architecture structural of branch
+# End time: 22:36:30 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branchALU.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branchALU.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity branchALU
+# -- Compiling architecture dataflow of branchALU
+# End time: 22:36:30 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Control.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:30 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity control
+# -- Compiling architecture behavioral of control
+# End time: 22:36:31 on Mar 27,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/decoder.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:31 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity decoder
+# -- Compiling architecture decode of decoder
+# End time: 22:36:31 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:31 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dffg
+# -- Compiling architecture mixed of dffg
+# End time: 22:36:31 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:31 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dffg_PC
+# -- Compiling architecture mixed of dffg_PC
+# End time: 22:36:31 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_set.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:31 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_set.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dffg_set
+# -- Compiling architecture mixed of dffg_set
+# End time: 22:36:31 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Extender.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:31 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Extender.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Extender
+# -- Compiling architecture behavior of Extender
+# End time: 22:36:31 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/extendSign.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:31 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/extendSign.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity extendSign
+# -- Compiling architecture behavioral of extendSign
+# End time: 22:36:31 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:31 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fetchLogic
+# -- Compiling architecture structural of fetchLogic
+# End time: 22:36:31 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fullAdder.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:31 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fullAdder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fullAdder
+# -- Compiling architecture structure of fullAdder
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/invg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/invg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity invg
+# -- Compiling architecture dataflow of invg
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/jump.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/jump.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity jump
+# -- Compiling architecture structural of jump
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mem.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity MIPS_Processor
+# -- Compiling architecture structure of MIPS_Processor
+# ** Error: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd(363): Cannot read output "oALUOut".
+# 	VHDL 2008 allows reading outputs.
+# 	This facility is enabled by compiling with -2008.
+# ** Error: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd(364): Cannot read output "oALUOut".
+# 	VHDL 2008 allows reading outputs.
+# 	This facility is enabled by compiling with -2008.
+# ** Note: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd(395): VHDL Compiler exiting
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity MIPSregister
+# -- Compiling architecture structural of MIPSregister
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2t1
+# -- Compiling architecture structural of mux2t1
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_5bit.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_5bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2t1_5bit
+# -- Compiling architecture structural of mux2t1_5bit
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_dataflow.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_dataflow.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2t1_dataflow
+# -- Compiling architecture dataflow of mux2t1_dataflow
+# End time: 22:36:32 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:32 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2t1_N
+# -- Compiling architecture structural of mux2t1_N
+# End time: 22:36:33 on Mar 27,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/my_32t1_mux.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:33 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/my_32t1_mux.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity my_32t1_mux
+# -- Compiling architecture mux32t1 of my_32t1_mux
+# End time: 22:36:33 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:33 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity Nbit_reg
+# -- Compiling architecture structural of Nbit_reg
+# End time: 22:36:33 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:33 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity Nbit_reg_PC
+# -- Compiling architecture structural of Nbit_reg_PC
+# End time: 22:36:33 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:33 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitAdder
+# -- Compiling architecture structure of nBitAdder
+# End time: 22:36:33 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:33 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitAddSub
+# -- Compiling architecture structure of nBitAddSub
+# End time: 22:36:33 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAnd.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:33 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAnd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitAnd
+# -- Compiling architecture structure of nBitAnd
+# End time: 22:36:33 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitNor.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:33 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitNor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitNor
+# -- Compiling architecture dataflow of nBitNor
+# End time: 22:36:33 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitOr.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:33 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitOr.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitOr
+# -- Compiling architecture structure of nBitOr
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitXor.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:34 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitXor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitXor
+# -- Compiling architecture structure of nBitXor
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/onesComp.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:34 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/onesComp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity onesComp
+# -- Compiling architecture structure of onesComp
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/org2.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:34 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/org2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity org2
+# -- Compiling architecture dataflow of org2
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/pcRegister.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:34 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/pcRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pcRegister
+# -- Compiling architecture structure of pcRegister
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/selectOperation.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:34 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/selectOperation.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity selectOperation
+# -- Compiling architecture dataflow of selectOperation
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/setLessThan.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:34 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/setLessThan.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity setLessThan
+# -- Compiling architecture dataflow of setLessThan
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/xorg2.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:34 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/xorg2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity xorg2
+# -- Compiling architecture dataflow of xorg2
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/shift.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:34 on Mar 27,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/shift.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shift
+# -- Compiling architecture behavioral of shift
+# End time: 22:36:34 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/test/tb_fetchLogic.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 22:36:38 on Mar 27,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/test/tb_fetchLogic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_fetchLogic
+# -- Compiling architecture tb of tb_fetchLogic
+# End time: 22:36:38 on Mar 27,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_fetchlogic -voptargs=+acc
+# vsim work.tb_fetchlogic -voptargs="+acc" 
+# Start time: 22:36:46 on Mar 27,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_fetchlogic(tb)#1
+# Loading work.fetchlogic(structural)#1
+# Loading work.jump(structural)#1
+# Loading work.barrel_shifter(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1_dataflow(dataflow)#1
+# Loading work.mux2t1(structural)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.barrel_shifter(structural)#2
+# Loading work.nbitadder(structure)#1
+# Loading work.fulladder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.branch(structural)#1
+# Loading work.extender(behavior)#1
+# Loading work.shift(behavioral)#1
+add wave -position insertpoint  \
+sim:/tb_fetchlogic/o_ra \
+sim:/tb_fetchlogic/o_newPC \
+sim:/tb_fetchlogic/i_zero \
+sim:/tb_fetchlogic/i_rst \
+sim:/tb_fetchlogic/i_rs \
+sim:/tb_fetchlogic/i_PC \
+sim:/tb_fetchlogic/i_jump \
+sim:/tb_fetchlogic/i_jr \
+sim:/tb_fetchlogic/i_jal \
+sim:/tb_fetchlogic/i_inst \
+sim:/tb_fetchlogic/i_clk \
+sim:/tb_fetchlogic/i_branch \
+sim:/tb_fetchlogic/CLOCK_PERIOD
+run 600
+# ** Error: Reset test failed
+#    Time: 60 ns  Iteration: 0  Instance: /tb_fetchlogic
+# ** Error: Addi test failed
+#    Time: 80 ns  Iteration: 0  Instance: /tb_fetchlogic
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+run 250
+# ** Error: Reset test failed
+#    Time: 60 ns  Iteration: 0  Instance: /tb_fetchlogic
+# ** Error: Addi test failed
+#    Time: 80 ns  Iteration: 0  Instance: /tb_fetchlogic
+# End time: 22:37:50 on Mar 27,2024, Elapsed time: 0:01:04
+# Errors: 2, Warnings: 1
