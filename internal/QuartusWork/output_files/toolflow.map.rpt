@@ -1,5 +1,5 @@
 Analysis & Synthesis report for toolflow
-Wed Mar 27 18:58:04 2024
+Wed Mar 27 21:05:09 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -170,7 +170,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 27 18:58:02 2024           ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 27 21:05:07 2024           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Standard Edition ;
 ; Revision Name                      ; toolflow                                        ;
 ; Top-level Entity Name              ; MIPS_Processor                                  ;
@@ -3504,7 +3504,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:05:37     ;
+; Top            ; 00:05:34     ;
 +----------------+--------------+
 
 
@@ -3528,7 +3528,7 @@ Info: Running Quartus Prime Analysis & Synthesis
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Wed Mar 27 18:51:53 2024
+    Info: Processing started: Wed Mar 27 20:59:01 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -3771,9 +3771,9 @@ Info (21057): Implemented 114744 device resources after synthesis - the final re
     Info (21059): Implemented 32 output pins
     Info (21061): Implemented 114645 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
-    Info: Peak virtual memory: 1204 megabytes
-    Info: Processing ended: Wed Mar 27 18:58:04 2024
-    Info: Elapsed time: 00:06:11
-    Info: Total CPU time (on all processors): 00:06:12
+    Info: Peak virtual memory: 1202 megabytes
+    Info: Processing ended: Wed Mar 27 21:05:09 2024
+    Info: Elapsed time: 00:06:08
+    Info: Total CPU time (on all processors): 00:06:09
 
 
