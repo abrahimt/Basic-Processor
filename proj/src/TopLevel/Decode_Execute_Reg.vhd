@@ -10,8 +10,16 @@ entity Decode_Execute_Reg is
         i_rst		: in std_logic;				-- reset bit
         i_we		: in std_logic;				-- write enable
 	i_WB		: in std_logic;				-- write back bit
-	i_M		: in std_logic;				-- Memory bit
-	i_EX		: in std_logic;				-- Execute bit
+	i_M		: in std_logic;				-- Memory bit		
+        i_ALUOp         : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        i_ALUSrc        : IN STD_LOGIC;
+        i_bne           : IN STD_LOGIC;
+        i_beq           : IN STD_LOGIC;
+        i_shiftDir      : IN STD_LOGIC;
+        i_shiftType     : IN STD_LOGIC;
+        i_addSub        : IN STD_LOGIC;
+        i_signed        : IN STD_LOGIC;
+        i_lui           : IN STD_LOGIC;
         i_RSReg		: in std_logic_vector(31 downto 0);	-- 32 bit instruction register
 	i_RTReg		: in std_logic_vector(31 downto 0);	-- 32 bit PC + 4 data
 	i_Imm		: in std_logic_vector(31 downto 0);	-- 32 bit PC + 4 data
@@ -21,9 +29,17 @@ entity Decode_Execute_Reg is
 	i_shamt		: in std_logic_vector(4 downto 0);	-- 5 bits (inst 10-6)
 	o_WBOut		: out std_logic;			-- write back bit out
 	o_MOut		: out std_logic;			-- Memory bit out
-	o_EXOut		: out std_logic;			-- Execute bit out
-        o_RSRegOut	: out std_logic_vector(31 downto 0);	-- 32 bit instruction register out
-	o_RTRegOut	: out std_logic_vector(31 downto 0);	-- 32 bit PC + 4 data out 
+        o_ALUOp         : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        o_ALUSrc        : OUT STD_LOGIC;
+        o_bne           : OUT STD_LOGIC;
+        o_beq           : OUT STD_LOGIC;
+        o_shiftDir      : OUT STD_LOGIC;
+        o_shiftType     : OUT STD_LOGIC;
+        o_addSub        : OUT STD_LOGIC;
+        o_signed        : OUT STD_LOGIC;
+        o_lui           : OUT STD_LOGIC;
+        o_RSDataOut	: out std_logic_vector(31 downto 0);	-- 32 bit instruction register out
+	o_RTDataOut	: out std_logic_vector(31 downto 0);	-- 32 bit PC + 4 data out 
 	o_ImmOut	: out std_logic_vector(31 downto 0);	-- 32 bit PC + 4 data out
 	o_rsOut		: out std_logic_vector(4 downto 0);	-- 5 bits (inst 25-21) out
 	o_rtOut		: out std_logic_vector(4 downto 0);	-- 5 bits (inst 20-16) out
