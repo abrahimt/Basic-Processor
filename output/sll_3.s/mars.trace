@@ -1,4 +1,4 @@
-Warning in /home/mdd1/Desktop/Project1/cpr-e-381/proj/mips/tests/sll_3.s line 5 column 1: MARS does not recognize the .global directive.  Ignored.
+Warning in /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/mips/sll_3.s line 5 column 1: MARS does not recognize the .global directive.  Ignored.
 
 [inst #1] lui $1,4097
 Register Write to Reg: 0x01 Val: 0x10010000

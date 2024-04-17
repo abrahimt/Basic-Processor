@@ -1,0 +1,171 @@
+# //  Questa Sim-64
+# //  Version 2023.2_2 linux_x86_64 Jun  9 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+add wave -position insertpoint  \
+vsim:/tb/MyMips/s_zero \
+vsim:/tb/MyMips/s_signed \
+vsim:/tb/MyMips/s_shiftType \
+vsim:/tb/MyMips/s_shiftDir \
+vsim:/tb/MyMips/s_rt \
+vsim:/tb/MyMips/s_rs \
+vsim:/tb/MyMips/s_result \
+vsim:/tb/MyMips/s_RegWrite \
+vsim:/tb/MyMips/s_RegWrData \
+vsim:/tb/MyMips/s_RegWrAddr \
+vsim:/tb/MyMips/s_RegWr \
+vsim:/tb/MyMips/s_RegDstOrg \
+vsim:/tb/MyMips/s_RegDst \
+vsim:/tb/MyMips/s_RegDMUX \
+vsim:/tb/MyMips/s_ra \
+vsim:/tb/MyMips/s_Ovfl \
+vsim:/tb/MyMips/s_nextPC \
+vsim:/tb/MyMips/s_NextInstAddr \
+vsim:/tb/MyMips/s_memToReg \
+vsim:/tb/MyMips/s_lui \
+vsim:/tb/MyMips/s_jumpMUX \
+vsim:/tb/MyMips/s_jump \
+vsim:/tb/MyMips/s_jr \
+vsim:/tb/MyMips/s_jal \
+vsim:/tb/MyMips/s_j \
+vsim:/tb/MyMips/s_Inst \
+vsim:/tb/MyMips/s_Imm32 \
+vsim:/tb/MyMips/s_IMemAddr \
+vsim:/tb/MyMips/s_Halt \
+vsim:/tb/MyMips/s_extendBy \
+vsim:/tb/MyMips/s_DMemWr \
+vsim:/tb/MyMips/s_DMemOut \
+vsim:/tb/MyMips/s_DMemData \
+vsim:/tb/MyMips/s_DMemAddr \
+vsim:/tb/MyMips/s_ctlExt \
+vsim:/tb/MyMips/s_branchMUX \
+vsim:/tb/MyMips/s_branchAnd \
+vsim:/tb/MyMips/s_branch \
+vsim:/tb/MyMips/s_bne \
+vsim:/tb/MyMips/s_beq \
+vsim:/tb/MyMips/s_ALUSrc \
+vsim:/tb/MyMips/s_ALUOp \
+vsim:/tb/MyMips/s_ALUMEMMUX \
+vsim:/tb/MyMips/s_ALUBranch \
+vsim:/tb/MyMips/s_addSub \
+vsim:/tb/MyMips/oALUOut \
+vsim:/tb/MyMips/iRST \
+vsim:/tb/MyMips/iInstLd \
+vsim:/tb/MyMips/iInstExt \
+vsim:/tb/MyMips/iInstAddr \
+vsim:/tb/MyMips/iCLK
+add wave -position insertpoint  \
+vsim1:/tb/MyMips/s_zero \
+vsim1:/tb/MyMips/s_signed \
+vsim1:/tb/MyMips/s_shiftType \
+vsim1:/tb/MyMips/s_shiftDir \
+vsim1:/tb/MyMips/s_rt \
+vsim1:/tb/MyMips/s_rs \
+vsim1:/tb/MyMips/s_result \
+vsim1:/tb/MyMips/s_RegWrite \
+vsim1:/tb/MyMips/s_RegWrData \
+vsim1:/tb/MyMips/s_RegWrAddr \
+vsim1:/tb/MyMips/s_RegWr \
+vsim1:/tb/MyMips/s_RegDstOrg \
+vsim1:/tb/MyMips/s_RegDst \
+vsim1:/tb/MyMips/s_RegDMUX \
+vsim1:/tb/MyMips/s_ra \
+vsim1:/tb/MyMips/s_Ovfl \
+vsim1:/tb/MyMips/s_nextPC \
+vsim1:/tb/MyMips/s_NextInstAddr \
+vsim1:/tb/MyMips/s_memToReg \
+vsim1:/tb/MyMips/s_lui \
+vsim1:/tb/MyMips/s_jumpMUX \
+vsim1:/tb/MyMips/s_jump \
+vsim1:/tb/MyMips/s_jr \
+vsim1:/tb/MyMips/s_jal \
+vsim1:/tb/MyMips/s_j \
+vsim1:/tb/MyMips/s_Inst \
+vsim1:/tb/MyMips/s_Imm32 \
+vsim1:/tb/MyMips/s_IMemAddr \
+vsim1:/tb/MyMips/s_Halt \
+vsim1:/tb/MyMips/s_extendBy \
+vsim1:/tb/MyMips/s_DMemWr \
+vsim1:/tb/MyMips/s_DMemOut \
+vsim1:/tb/MyMips/s_DMemData \
+vsim1:/tb/MyMips/s_DMemAddr \
+vsim1:/tb/MyMips/s_ctlExt \
+vsim1:/tb/MyMips/s_branchMUX \
+vsim1:/tb/MyMips/s_branchAnd \
+vsim1:/tb/MyMips/s_branch \
+vsim1:/tb/MyMips/s_bne \
+vsim1:/tb/MyMips/s_beq \
+vsim1:/tb/MyMips/s_ALUSrc \
+vsim1:/tb/MyMips/s_ALUOp \
+vsim1:/tb/MyMips/s_ALUMEMMUX \
+vsim1:/tb/MyMips/s_ALUBranch \
+vsim1:/tb/MyMips/s_addSub \
+vsim1:/tb/MyMips/oALUOut \
+vsim1:/tb/MyMips/iRST \
+vsim1:/tb/MyMips/iInstLd \
+vsim1:/tb/MyMips/iInstExt \
+vsim1:/tb/MyMips/iInstAddr \
+vsim1:/tb/MyMips/iCLK
+# Can't move the Now cursor.
+add wave -position insertpoint  \
+vsim2:/tb/MyMips/s_zero \
+vsim2:/tb/MyMips/s_signed \
+vsim2:/tb/MyMips/s_shiftType \
+vsim2:/tb/MyMips/s_shiftDir \
+vsim2:/tb/MyMips/s_rt \
+vsim2:/tb/MyMips/s_rs \
+vsim2:/tb/MyMips/s_result \
+vsim2:/tb/MyMips/s_RegWrite \
+vsim2:/tb/MyMips/s_RegWrData \
+vsim2:/tb/MyMips/s_RegWrAddr \
+vsim2:/tb/MyMips/s_RegWr \
+vsim2:/tb/MyMips/s_RegDstOrg \
+vsim2:/tb/MyMips/s_RegDst \
+vsim2:/tb/MyMips/s_RegDMUX \
+vsim2:/tb/MyMips/s_ra \
+vsim2:/tb/MyMips/s_Ovfl \
+vsim2:/tb/MyMips/s_nextPC \
+vsim2:/tb/MyMips/s_NextInstAddr \
+vsim2:/tb/MyMips/s_memToReg \
+vsim2:/tb/MyMips/s_lui \
+vsim2:/tb/MyMips/s_jumpMUX \
+vsim2:/tb/MyMips/s_jump \
+vsim2:/tb/MyMips/s_jr \
+vsim2:/tb/MyMips/s_jal \
+vsim2:/tb/MyMips/s_j \
+vsim2:/tb/MyMips/s_Inst \
+vsim2:/tb/MyMips/s_Imm32 \
+vsim2:/tb/MyMips/s_IMemAddr \
+vsim2:/tb/MyMips/s_Halt \
+vsim2:/tb/MyMips/s_extendBy \
+vsim2:/tb/MyMips/s_DMemWr \
+vsim2:/tb/MyMips/s_DMemOut \
+vsim2:/tb/MyMips/s_DMemData \
+vsim2:/tb/MyMips/s_DMemAddr \
+vsim2:/tb/MyMips/s_ctlExt \
+vsim2:/tb/MyMips/s_branchMUX \
+vsim2:/tb/MyMips/s_branchAnd \
+vsim2:/tb/MyMips/s_branch \
+vsim2:/tb/MyMips/s_bne \
+vsim2:/tb/MyMips/s_beq \
+vsim2:/tb/MyMips/s_ALUSrc \
+vsim2:/tb/MyMips/s_ALUOp \
+vsim2:/tb/MyMips/s_ALUMEMMUX \
+vsim2:/tb/MyMips/s_ALUBranch \
+vsim2:/tb/MyMips/s_addSub \
+vsim2:/tb/MyMips/oALUOut \
+vsim2:/tb/MyMips/iRST \
+vsim2:/tb/MyMips/iInstLd \
+vsim2:/tb/MyMips/iInstExt \
+vsim2:/tb/MyMips/iInstAddr \
+vsim2:/tb/MyMips/iCLK
