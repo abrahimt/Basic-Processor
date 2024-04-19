@@ -9,10 +9,9 @@ entity Fetch_Decode_Reg is
         i_clk		: in std_logic;				-- clk bit
         i_rst		: in std_logic;				-- reset bit
         i_we		: in std_logic;				-- write enable
-	i_flush		: in std_logic;				-- flush bit				--Serves as almost a reset
         i_Inst		: in std_logic_vector(31 downto 0);	-- 32 bit instruction register
-	i_PC4		: in std_logic_vector(31 downto 0);	-- 32 bit PC + 4 data
-        o_PC4Out	: out std_logic_vector(31 downto 0);	-- output of PC4
+	    i_PC		: in std_logic_vector(31 downto 0);	-- 32 bit PC data
+        o_PCOut	    : out std_logic_vector(31 downto 0);	-- output of PC4
         o_InstOut	: out std_logic_vector(31 downto 0));	-- output of Inst
 end Fetch_Decode_Reg;
 
@@ -51,8 +50,8 @@ begin
             i_CLK	=> i_clk,		-- Clock bit input
             i_RST	=> i_rst,		-- Reset bit input
             i_WE	=> i_we,		-- 
-            i_D		=> i_PC4,		-- Data bit input
-            o_Q		=> o_PC4Out);
+            i_D		=> i_PC,		-- Data bit input
+            o_Q		=> o_PCOut);
 
     
 end structure;

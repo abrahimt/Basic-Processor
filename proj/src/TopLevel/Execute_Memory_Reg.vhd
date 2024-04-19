@@ -1,88 +1,108 @@
 -- Execute_Memory_Reg
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity Execute_Memory_Reg is 
-    generic(N : integer := 32);                             	-- Generic of type integer for input/output data width. Default value is 32.
-    port(
-        i_clk		: in std_logic;				-- clk bit
-        i_rst		: in std_logic;				-- reset bit
-        i_we		: in std_logic;				-- write enable
-	i_WB		: in std_logic;				-- write back input
-	i_M		: in std_logic;				-- Memory input
-        i_ALUResult	: in std_logic_vector(31 downto 0);	-- 32 bit ALU Result
-	i_DmemAddr	: in std_logic_vector(31 downto 0);	-- 32 bit Dmem Address 
-	i_unknown	: in std_logic_vector(4 downto 0);	-- 4 bit RD or Shamt?
-	o_unknownOut	: out std_logic_vector(4 downto 0);	-- 4 bit RD or Shamt out?
-	o_WBOut		: out std_logic;			-- write back output
-	o_MOut		: out std_logic;			-- memory output
-        o_ALUResultOut	: out std_logic_vector(31 downto 0);	-- output of ALU Result
-        o_DmemAddrOut	: out std_logic_vector(31 downto 0));	-- output of Dmem Addr Input
-end Execute_Memory_Reg;
+ENTITY Execute_Memory_Reg IS
+        GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+        PORT (
+                i_clk : IN STD_LOGIC; -- clk bit
+                i_rst : IN STD_LOGIC; -- reset bit
+                i_we : IN STD_LOGIC; -- write enable
+                i_memWrite : IN STD_LOGIC; -- Goes to Dmem
+                i_jal : IN STD_LOGIC; -- Goes to Write Back
+                i_MemToReg : IN STD_LOGIC; -- Goes to Write Back
+                i_ALUResult : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bit ALU Result
+                i_DmemData : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bit Dmem Data
+                i_ra : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+                i_nextPC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+                o_nextPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+                o_ra : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+                o_memWrite : OUT STD_LOGIC; -- Goes to Dmem
+                o_jal : OUT STD_LOGIC; -- Goes to Write Back
+                o_MemToReg : OUT STD_LOGIC; -- Goes to Write Back
+                o_ALUResultOut : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- output of ALU Result
+                o_DmemDataOut : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- output of Dmem Data Input
+END Execute_Memory_Reg;
 
-architecture structure of Execute_Memory_Reg is
+ARCHITECTURE structure OF Execute_Memory_Reg IS
 
-    component Nbit_dffg
-  	generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
-        port(i_CLK    : in std_logic;     			-- Clock input
-        i_RST         : in std_logic;     			-- Reset input
-        i_WE          : in std_logic;                        	-- Write enable input
-        i_D           : in std_logic_vector(N-1 downto 0);	-- 32 bit input
-        o_Q           : out std_logic_vector(N-1 downto 0)); 	-- 32 bit output
-    end component;
+        COMPONENT Nbit_dffg
+                GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+                PORT (
+                        i_CLK : IN STD_LOGIC; -- Clock input
+                        i_RST : IN STD_LOGIC; -- Reset input
+                        i_WE : IN STD_LOGIC; -- Write enable input
+                        i_D : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- 32 bit input
+                        o_Q : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- 32 bit output
+        END COMPONENT;
 
-    component dffg
-  	port(i_CLK   : in std_logic;     -- Clock input
-       	i_RST        : in std_logic;     -- Reset input
-       	i_WE         : in std_logic;     -- Write enable input
-       	i_D          : in std_logic;     -- Data value input
-       	o_Q          : out std_logic);   -- Data value output
-    end component;
+        COMPONENT dffg
+                PORT (
+                        i_CLK : IN STD_LOGIC; -- Clock input
+                        i_RST : IN STD_LOGIC; -- Reset input
+                        i_WE : IN STD_LOGIC; -- Write enable input
+                        i_D : IN STD_LOGIC; -- Data value input
+                        o_Q : OUT STD_LOGIC); -- Data value output
+        END COMPONENT;
+BEGIN
 
+        REG_nextPC : Nbit_dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_nextPC, -- ALU Result input
+                o_Q => o_nextPC);
 
-begin
+        REG_RA : Nbit_dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_ra, -- Dmem Addr input
+                o_Q => o_ra);
 
-    REG_ALU : Nbit_dffg
-    port MAP(
-            i_CLK	=> i_clk,		-- Clock bit input
-            i_RST	=> i_rst,		-- Reset bit input
-            i_WE	=> i_we,		-- 
-            i_D		=> i_ALUResult,		-- ALU Result input
-            o_Q		=> o_ALUResultOut);
+        REG_ALURESULT : Nbit_dffg
+        GENERIC MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_ALUResult, --  input
+                o_Q => o_ALUResultOut);
 
-    REG_DMEM : Nbit_dffg
-    port MAP(
-            i_CLK	=> i_clk,		-- Clock bit input
-            i_RST	=> i_rst,		-- Reset bit input
-            i_WE	=> i_we,		-- 
-            i_D		=> i_DmemAddr,		-- Dmem Addr input
-            o_Q		=> o_DmemAddrOut);
+        REG_DMEMDATA : Nbit_dffg
+        GENERIC MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_DmemData, --  input
+                o_Q => o_DmemDataOut);
 
-    REG_INST : Nbit_dffg
-    generic MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
-    port MAP(
-            i_CLK	=> i_clk,		-- Clock bit input
-            i_RST	=> i_rst,		-- Reset bit input
-            i_WE	=> i_we,		-- 
-            i_D		=> i_unknown,			--  input
-            o_Q		=> o_unknownOut);
+        REG_MEMWR : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_memWrite, -- write back input
+                o_Q => o_memWrite);
 
+        REG_JAL : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_jal, -- memory bit input
+                o_Q => o_jal);
 
-    REG_WB : dffg
-    port MAP(
-            i_CLK	=> i_clk,		-- Clock bit input
-            i_RST	=> i_rst,		-- Reset bit input
-            i_WE	=> i_we,		-- 
-            i_D		=> i_WB,		-- write back input
-            o_Q		=> o_WBOut);
+        REG_MEMTOREG : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_MemToReg, -- memory bit input
+                o_Q => o_MemToReg);
 
-    REG_M : dffg
-    port MAP(
-            i_CLK	=> i_clk,		-- Clock bit input
-            i_RST	=> i_rst,		-- Reset bit input
-            i_WE	=> i_we,		-- 
-            i_D		=> i_M,			-- memory bit input
-            o_Q		=> o_MOut);
-    
-end structure;
+END structure;

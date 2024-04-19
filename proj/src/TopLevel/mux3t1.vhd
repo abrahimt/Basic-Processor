@@ -19,9 +19,9 @@ ARCHITECTURE structure OF mux3t1 IS
 
 begin
 
-    o_O <= i_A when (i_select == '00') else
-           i_B when (i_select == '01') else
-           i_C when (i_select == '10') else
+    o_O <= i_A when (i_select = "00") else
+           i_B when (i_select = "00") else
+           i_C when (i_select = "00") else
            x"00000000";
 
 end structure;

@@ -20,16 +20,16 @@ architecture structure of ForwardingUnit is
 
 begin
 
-    o_mux1 <= '00' when (i_rs != i_memMux and i_rs != i_wbMux) else     -- rs in decode does not match rs in memory or write back
-              '01' when (i_rs != i_memMux and i_rs == i_wbMux) else     -- rs in decode matches write back but not memory
-              '11' when (i_rs == i_memMux and i_rs != i_wbMux) else     -- rs in decode matches memory and not write back
-              '11' when (i_rs == i_memMux and i_rs == i_wbMux) else     -- rs in decode matches both memory and write back
-              '00';
+    o_mux1 <= "00" when (i_rs /= i_memMux and i_rs /= i_wbMux) else     -- rs in decode does not match rs in memory or write back
+              "01" when (i_rs /= i_memMux and i_rs = i_wbMux) else     -- rs in decode matches write back but not memory
+              "10" when (i_rs = i_memMux and i_rs /= i_wbMux) else     -- rs in decode matches memory and not write back
+              "10" when (i_rs = i_memMux and i_rs = i_wbMux) else     -- rs in decode matches both memory and write back
+              "00";
 
-    o_mux2 <= '00' when (i_rt != i_memMux and i_rt != i_wbMux) else     -- rt in decode does not match rt in memory or write back
-              '01' when (i_rt != i_memMux and i_rt == i_wbMux) else     -- rt in decode matches write back but not memory
-              '11' when (i_rt == i_memMux and i_rt != i_wbMux) else     -- rt in decode matches memory and not write back
-              '11' when (i_rt == i_memMux and i_rt == i_wbMux) else     -- rt in decode matches both memory and write back
-              '00';
+    o_mux2 <= "00" when (i_rt /= i_memMux and i_rt /= i_wbMux) else     -- rt in decode does not match rt in memory or write back
+              "01" when (i_rt /= i_memMux and i_rt = i_wbMux) else     -- rt in decode matches write back but not memory
+              "10" when (i_rt = i_memMux and i_rt /= i_wbMux) else     -- rt in decode matches memory and not write back
+              "10" when (i_rt = i_memMux and i_rt = i_wbMux) else     -- rt in decode matches both memory and write back
+              "00";
 
 end structure;
