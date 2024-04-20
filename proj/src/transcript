@@ -1482,3 +1482,5 @@ vsim work.mips_processor -voptargs=+acc
 # Error opening /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/(vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut
 # Path name '/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/(vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut' doesn't exist.
 # A time value could not be extracted from the current line
+# End time: 20:50:52 on Apr 19,2024, Elapsed time: 0:02:12
+# Errors: 0, Warnings: 296
