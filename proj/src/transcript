@@ -1,0 +1,1484 @@
+# //  Questa Sim-64
+# //  Version 2023.2_2 linux_x86_64 Jun  9 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+vlib work
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:47:54 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package MIPS_types
+# -- Compiling package body MIPS_types
+# -- Loading package MIPS_types
+# End time: 20:47:54 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Modified modelsim.ini
+# Modified modelsim.ini
+# Modified modelsim.ini
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:03 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package MIPS_types
+# -- Compiling package body MIPS_types
+# -- Loading package MIPS_types
+# End time: 20:48:03 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToEnd.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:07 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToEnd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity addToEnd
+# -- Compiling architecture behavioral of addToEnd
+# End time: 20:48:07 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToStart.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:07 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToStart.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity addToStart
+# -- Compiling architecture behavioral of addToStart
+# End time: 20:48:07 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/alu.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:07 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity alu
+# -- Compiling architecture structure of alu
+# End time: 20:48:08 on Apr 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:08 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity andg2
+# -- Compiling architecture dataflow of andg2
+# End time: 20:48:08 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2N.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:08 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2N.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity andg2N
+# -- Compiling architecture structural of andg2N
+# End time: 20:48:08 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:08 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Barrel_Shifter
+# -- Compiling architecture structural of Barrel_Shifter
+# End time: 20:48:08 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branch.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:08 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branch.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity branch
+# -- Compiling architecture structural of branch
+# End time: 20:48:08 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branchALU.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:08 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branchALU.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity branchALU
+# -- Compiling architecture dataflow of branchALU
+# End time: 20:48:08 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Control.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:08 on Apr 19,2024
+# vcom -reportprogress 300 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity control
+# -- Compiling architecture behavioral of control
+# End time: 20:48:08 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:08 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Decode_Execute_Reg
+# -- Compiling architecture structure of Decode_Execute_Reg
+# End time: 20:48:08 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/decoder.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:09 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity decoder
+# -- Compiling architecture decode of decoder
+# End time: 20:48:09 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:09 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dffg
+# -- Compiling architecture mixed of dffg
+# End time: 20:48:09 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:09 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dffg_PC
+# -- Compiling architecture mixed of dffg_PC
+# End time: 20:48:09 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_set.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:09 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_set.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dffg_set
+# -- Compiling architecture mixed of dffg_set
+# End time: 20:48:09 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:09 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Execute_Memory_Reg
+# -- Compiling architecture structure of Execute_Memory_Reg
+# End time: 20:48:09 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Extender.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:09 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Extender.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Extender
+# -- Compiling architecture behavior of Extender
+# End time: 20:48:09 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/extendSign.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:09 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/extendSign.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity extendSign
+# -- Compiling architecture behavioral of extendSign
+# End time: 20:48:10 on Apr 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:10 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Fetch_Decode_Reg
+# -- Compiling architecture structure of Fetch_Decode_Reg
+# End time: 20:48:10 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:10 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fetchLogic
+# -- Compiling architecture structural of fetchLogic
+# End time: 20:48:10 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/ForwardingUnit.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:10 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/ForwardingUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ForwardingUnit
+# -- Compiling architecture structure of ForwardingUnit
+# End time: 20:48:10 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fullAdder.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:10 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fullAdder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fullAdder
+# -- Compiling architecture structure of fullAdder
+# End time: 20:48:10 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/invg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:10 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/invg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity invg
+# -- Compiling architecture dataflow of invg
+# End time: 20:48:10 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/jump.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:10 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/jump.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity jump
+# -- Compiling architecture structural of jump
+# End time: 20:48:10 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mem.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:10 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 20:48:11 on Apr 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:11 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Memory_WriteBack_Reg
+# -- Compiling architecture structure of Memory_WriteBack_Reg
+# End time: 20:48:11 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:11 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity MIPS_Processor
+# -- Compiling architecture structure of MIPS_Processor
+# End time: 20:48:11 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:11 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity MIPSregister
+# -- Compiling architecture structural of MIPSregister
+# End time: 20:48:11 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:11 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2t1
+# -- Compiling architecture structural of mux2t1
+# End time: 20:48:11 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_5bit.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:11 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_5bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2t1_5bit
+# -- Compiling architecture structural of mux2t1_5bit
+# End time: 20:48:11 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_dataflow.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:11 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_dataflow.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2t1_dataflow
+# -- Compiling architecture dataflow of mux2t1_dataflow
+# End time: 20:48:12 on Apr 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:12 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2t1_N
+# -- Compiling architecture structural of mux2t1_N
+# End time: 20:48:12 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/my_32t1_mux.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:12 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/my_32t1_mux.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity my_32t1_mux
+# -- Compiling architecture mux32t1 of my_32t1_mux
+# End time: 20:48:12 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:12 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity Nbit_reg
+# -- Compiling architecture structural of Nbit_reg
+# End time: 20:48:12 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:12 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MIPS_types
+# -- Compiling entity Nbit_reg_PC
+# -- Compiling architecture structural of Nbit_reg_PC
+# End time: 20:48:12 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:12 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitAdder
+# -- Compiling architecture structure of nBitAdder
+# End time: 20:48:12 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:12 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitAddSub
+# -- Compiling architecture structure of nBitAddSub
+# End time: 20:48:12 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAnd.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:12 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAnd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitAnd
+# -- Compiling architecture structure of nBitAnd
+# End time: 20:48:13 on Apr 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitNor.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:13 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitNor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitNor
+# -- Compiling architecture dataflow of nBitNor
+# End time: 20:48:13 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitOr.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:13 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitOr.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitOr
+# -- Compiling architecture structure of nBitOr
+# End time: 20:48:13 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitXor.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:13 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitXor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitXor
+# -- Compiling architecture structure of nBitXor
+# End time: 20:48:13 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/onesComp.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:13 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/onesComp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity onesComp
+# -- Compiling architecture structure of onesComp
+# End time: 20:48:13 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/org2.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:13 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/org2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity org2
+# -- Compiling architecture dataflow of org2
+# End time: 20:48:13 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/pcRegister.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:13 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/pcRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pcRegister
+# -- Compiling architecture structure of pcRegister
+# End time: 20:48:13 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/prediction.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:13 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/prediction.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity prediction
+# -- Compiling architecture structure of prediction
+# End time: 20:48:14 on Apr 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/selectOperation.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:14 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/selectOperation.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity selectOperation
+# -- Compiling architecture dataflow of selectOperation
+# End time: 20:48:14 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/setLessThan.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:14 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/setLessThan.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity setLessThan
+# -- Compiling architecture dataflow of setLessThan
+# End time: 20:48:14 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/shift.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:14 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/shift.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shift
+# -- Compiling architecture behavioral of shift
+# End time: 20:48:14 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work {/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/xorg2.vhd}
+# QuestaSim-64 vcom 2023.2_2 Compiler 2023.06 Jun  9 2023
+# Start time: 20:48:14 on Apr 19,2024
+# vcom -reportprogress 30 -work work /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/xorg2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity xorg2
+# -- Compiling architecture dataflow of xorg2
+# End time: 20:48:14 on Apr 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.mips_processor -voptargs=+acc
+# vsim work.mips_processor -voptargs="+acc" 
+# Start time: 20:48:40 on Apr 19,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd(40): (vopt-3473) Component instance "REG1 : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/IF_D
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd(48): (vopt-3473) Component instance "REG2 : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/IF_D
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(94): (vopt-3473) Component instance "REG_RS : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(102): (vopt-3473) Component instance "REG_RT : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(110): (vopt-3473) Component instance "REG_IMM : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(118): (vopt-3473) Component instance "REG_INST1 : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(127): (vopt-3473) Component instance "REG_INST2 : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(136): (vopt-3473) Component instance "REG_INST3 : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(145): (vopt-3473) Component instance "REG_INST4 : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(154): (vopt-3473) Component instance "REG_inst : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(162): (vopt-3473) Component instance "REG_PC : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd(170): (vopt-3473) Component instance "REG_Op : FOURbit_dffg" is not bound.
+#         Region: /MIPS_Processor/D_EX
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd(50): (vopt-3473) Component instance "REG_nextPC : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/EX_MEM
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd(58): (vopt-3473) Component instance "REG_RA : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/EX_MEM
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd(66): (vopt-3473) Component instance "REG_ALURESULT : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/EX_MEM
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd(75): (vopt-3473) Component instance "REG_DMEMDATA : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/EX_MEM
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd(47): (vopt-3473) Component instance "REG_nextPC : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/MEM_WB
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd(55): (vopt-3473) Component instance "REG_RA : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/MEM_WB
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd(63): (vopt-3473) Component instance "REG_ALURESULT : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/MEM_WB
+# ** Warning: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd(72): (vopt-3473) Component instance "REG_DMEM : Nbit_dffg" is not bound.
+#         Region: /MIPS_Processor/MEM_WB
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=21.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.mips_types(body)
+# Loading work.mips_processor(structure)#1
+# Loading ieee.numeric_std(body)
+# Loading work.mem(rtl)#1
+# Loading work.pcregister(structure)#1
+# Loading work.nbit_reg_pc(structural)#1
+# Loading work.dffg_pc(mixed)#1
+# Loading work.fetch_decode_reg(structure)#1
+# ** Warning: (vsim-3473) Component instance "REG1 : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/IF_D File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG2 : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/IF_D File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd
+# Loading work.mux2t1_5bit(structural)#1
+# Loading work.mux2t1_dataflow(dataflow)#1
+# Loading work.mipsregister(structural)#1
+# Loading work.decoder(decode)#1
+# Loading work.andg2n(structural)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.nbit_reg(structural)#1
+# Loading work.dffg(mixed)#2
+# Loading work.nbit_reg(structural)#2
+# Loading work.dffg(mixed)#1
+# Loading work.my_32t1_mux(mux32t1)#1
+# Loading work.extender(behavior)#1
+# Loading work.control(behavioral)#1
+# Loading work.decode_execute_reg(structure)#1
+# ** Warning: (vsim-3473) Component instance "REG_RS : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_RT : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_IMM : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_INST1 : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_INST2 : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_INST3 : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_INST4 : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_inst : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_PC : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_Op : FOURbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/D_EX File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+# Loading work.fetchlogic(structural)#1
+# Loading work.jump(structural)#1
+# Loading work.barrel_shifter(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structural)#1
+# Loading work.invg(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.barrel_shifter(structural)#2
+# Loading work.nbitadder(structure)#1
+# Loading work.fulladder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.branch(structural)#1
+# Loading work.shift(behavioral)#1
+# Loading work.alu(structure)#1
+# Loading work.nbitor(structure)#1
+# Loading work.nbitand(structure)#1
+# Loading work.nbitxor(structure)#1
+# Loading work.nbitnor(dataflow)#1
+# Loading work.setlessthan(dataflow)#1
+# Loading work.nbitaddsub(structure)#1
+# Loading work.onescomp(structure)#1
+# Loading work.branchalu(dataflow)#1
+# Loading work.selectoperation(dataflow)#1
+# Loading work.execute_memory_reg(structure)#1
+# ** Warning: (vsim-3473) Component instance "REG_nextPC : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/EX_MEM File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_RA : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/EX_MEM File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_ALURESULT : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/EX_MEM File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_DMEMDATA : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/EX_MEM File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd
+# Loading work.memory_writeback_reg(structure)#1
+# ** Warning: (vsim-3473) Component instance "REG_nextPC : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/MEM_WB File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_RA : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/MEM_WB File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_ALURESULT : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/MEM_WB File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd
+# ** Warning: (vsim-3473) Component instance "REG_DMEM : Nbit_dffg" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /mips_processor/MEM_WB File: /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_PCOut, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_nextInstAddrDec.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(31 downto 26), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(31 downto 26).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(25 downto 21), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(25 downto 21).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(20), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(20).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(19), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(19).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(18), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(18).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(17), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(17).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(16), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(16).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(15), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(15).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(14), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(14).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(13), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(13).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(12), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(12).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(11), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(11).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(10 downto 6), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(10 downto 6).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/IF_D/o_InstOut(5 downto 0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstDec(5 downto 0).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_PC, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_nextInstAddrEx.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(31), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(31).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(30), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(30).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(29), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(29).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(28), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(28).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(27), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(27).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(26), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(26).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(25), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(25).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(24), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(24).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(23), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(23).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(22), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(22).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(21), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(21).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(20), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(20).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(19), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(19).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(18), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(18).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(17), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(17).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(16), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(16).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(15), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(15).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(14), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(14).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(13), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(13).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(12), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(12).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(11), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(11).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(10), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(10).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(9), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(9).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(8), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(8).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(7), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(7).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(6), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(6).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(5), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(5).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(4), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(4).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(3), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(3).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(2), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(2).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(1), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(1).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_inst(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_InstEx(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ALUOp, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUOpEx.
+# ** Warning: (vsim-8683) Uninitialized out port /mips_processor/D_EX/o_beq has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(31), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(31).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(30), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(30).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(29), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(29).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(28), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(28).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(27), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(27).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(26), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(26).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(25), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(25).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(24), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(24).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(23), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(23).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(22), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(22).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(21), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(21).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(20), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(20).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(19), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(19).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(18), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(18).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(17), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(17).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(16), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(16).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(15), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(15).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(14), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(14).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(13), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(13).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(12), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(12).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(11), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(11).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(10), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(10).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(9), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(9).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(8), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(8).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(7), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(7).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(6), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(6).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(5), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(5).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(4), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(4).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(3), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(3).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(2), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(2).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(1), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(1).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RSDataOut(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RSDataOut(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(31), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(31).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(30), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(30).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(29), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(29).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(28), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(28).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(27), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(27).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(26), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(26).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(25), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(25).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(24), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(24).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(23), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(23).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(22), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(22).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(21), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(21).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(20), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(20).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(19), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(19).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(18), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(18).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(17), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(17).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(16), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(16).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(15), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(15).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(14), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(14).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(13), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(13).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(12), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(12).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(11), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(11).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(10), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(10).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(9), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(9).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(8), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(8).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(7), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(7).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(6), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(6).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(5), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(5).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(4), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(4).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(3), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(3).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(2), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(2).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(1), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(1).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_RTDataOut(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_RTDataOut(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(31), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(31).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(30), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(30).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(29), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(29).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(28), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(28).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(27), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(27).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(26), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(26).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(25), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(25).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(24), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(24).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(23), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(23).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(22), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(22).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(21), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(21).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(20), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(20).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(19), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(19).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(18), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(18).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(17), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(17).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(16), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(16).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(15), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(15).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(14), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(14).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(13), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(13).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(12), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(12).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(11), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(11).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(10), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(10).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(9), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(9).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(8), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(8).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(7), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(7).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(6), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(6).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(5), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(5).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(4), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(4).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(3), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(3).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(2), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(2).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(1), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(1).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_ImmOut(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_Imm32Ex(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_rsOut, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_rsEx.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_rtOut, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_rtEx.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_rdOut, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_rdEx.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_shamt(4), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_shamtEx(4).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_shamt(3), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_shamtEx(3).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_shamt(2), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_shamtEx(2).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_shamt(1), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_shamtEx(1).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/D_EX/o_shamt(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_shamtEx(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/EX_MEM/o_nextPC, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_nextPCMem.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/EX_MEM/o_ra, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raMem.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/EX_MEM/o_ALUResultOut, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_resultMem.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/EX_MEM/o_DmemDataOut, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemDataOut.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_nextPC, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_nextPCWB.
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(31), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(31).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(30), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(30).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(29), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(29).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(28), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(28).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(27), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(27).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(26), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(26).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(25), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(25).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(24), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(24).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(23), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(23).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(22), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(22).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(21), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(21).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(20), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(20).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(19), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(19).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(18), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(18).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(17), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(17).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(16), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(16).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(15), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(15).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(14), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(14).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(13), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(13).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(12), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(12).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(11), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(11).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(10), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(10).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(9), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(9).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(8), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(8).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(7), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(7).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(6), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(6).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(5), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(5).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(4), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(4).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(3), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(3).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(2), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(2).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(1), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(1).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ra(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_raWB(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(31), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(31).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(30), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(30).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(29), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(29).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(28), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(28).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(27), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(27).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(26), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(26).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(25), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(25).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(24), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(24).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(23), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(23).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(22), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(22).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(21), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(21).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(20), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(20).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(19), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(19).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(18), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(18).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(17), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(17).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(16), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(16).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(15), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(15).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(14), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(14).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(13), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(13).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(12), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(12).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(11), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(11).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(10), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(10).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(9), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(9).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(8), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(8).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(7), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(7).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(6), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(6).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(5), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(5).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(4), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(4).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(3), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(3).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(2), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(2).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(1), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(1).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_DmemOutWB(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(31), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(31).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(30), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(30).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(29), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(29).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(28), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(28).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(27), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(27).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(26), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(26).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(25), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(25).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(24), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(24).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(23), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(23).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(22), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(22).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(21), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(21).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(20), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(20).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(19), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(19).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(18), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(18).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(17), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(17).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(16), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(16).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(15), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(15).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(14), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(14).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(13), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(13).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(12), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(12).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(11), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(11).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(10), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(10).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(9), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(9).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(8), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(8).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(7), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(7).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(6), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(6).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(5), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(5).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(4), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(4).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(3), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(3).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(2), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(2).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(1), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(1).
+# ** Warning: (vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_ALUResultOut(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mips_processor/s_ALUResultOutWB(0).
+# Error opening /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/(vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut
+# Path name '/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/(vsim-8684) No drivers exist on out port /mips_processor/MEM_WB/o_DmemOut' doesn't exist.
+# A time value could not be extracted from the current line
