@@ -672,7 +672,7 @@ BEGIN
     o_overflow => s_Ovfl,
     o_zero => s_zero);
 
-    oALUOut <= s_result; -- ALU result signal that is used for other components
+  oALUOut <= s_result; -- ALU result signal that is used for other components
 
   EX_MEM : Execute_Memory_Reg
   PORT MAP(

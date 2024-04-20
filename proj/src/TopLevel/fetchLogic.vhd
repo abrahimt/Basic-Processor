@@ -42,8 +42,6 @@ ENTITY fetchLogic IS
 END ENTITY fetchLogic;
 
 ARCHITECTURE structural OF fetchLogic IS
-
-
     -- COMPONENTS   
 
     COMPONENT nBitAdder IS
@@ -91,33 +89,29 @@ ARCHITECTURE structural OF fetchLogic IS
             o_O : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
     END COMPONENT;
 
-    Component pcRegister is
-        generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
-        port(
-             i_clk		: in std_logic;				-- clk bit
-             i_rst		: in std_logic;				-- reset bit
-             i_we		: in std_logic;				-- write enable
-             i_data		: in std_logic_vector(31 downto 0);	-- 32 bits of data for register
-             o_out		: out std_logic_vector(31 downto 0));	-- output of write
-    end component;
-
-
+    COMPONENT pcRegister IS
+        GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+        PORT (
+            i_clk : IN STD_LOGIC; -- clk bit
+            i_rst : IN STD_LOGIC; -- reset bit
+            i_we : IN STD_LOGIC; -- write enable
+            i_data : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bits of data for register
+            o_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- output of write
+    END COMPONENT;
     -- SIGNALS
 
-    SIGNAL carry1       : STD_LOGIC := '0'; -- Carry bit for first adder
-    SIGNAL carry2       : STD_LOGIC := '0'; -- Carry bit for second adder
-    SIGNAL s_branch     : STD_LOGIC;
-    SIGNAL RA           : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_PC         : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_jPC        : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_bPC        : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_PC4        : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_muxBranch  : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_muxJump    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_muxJAL     : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_muxJR      : STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-
+    SIGNAL carry1 : STD_LOGIC := '0'; -- Carry bit for first adder
+    SIGNAL carry2 : STD_LOGIC := '0'; -- Carry bit for second adder
+    SIGNAL s_branch : STD_LOGIC;
+    SIGNAL RA : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_jPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_bPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_PC4 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxBranch : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJump : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJAL : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_muxJR : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 BEGIN
 

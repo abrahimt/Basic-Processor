@@ -1,0 +1,2167 @@
+m255
+K4
+z2
+!s11e vcom 2023.2_2 2023.06, Jun  9 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src
+Eaddtoend
+Z1 w1711590509
+Z2 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
+Z3 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z4 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+!i122 52
+R0
+Z5 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToEnd.vhd
+Z6 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToEnd.vhd
+l0
+Z7 L14 1
+VzXL_?6_B=XPVePc00]gL92
+!s100 d2QB>j6GYbhH8;791WnG@3
+Z8 OL;C;2023.2_2;77
+33
+Z9 !s110 1713576155
+!i10b 1
+Z10 !s108 1713576155.000000
+Z11 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToEnd.vhd|
+Z12 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToEnd.vhd|
+!i113 0
+Z13 o-work work
+Z14 tExplicit 1 NoCoverage 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+DEx4 work 8 addtoend 0 22 zXL_?6_B=XPVePc00]gL92
+!i122 52
+l20
+L19 4
+V0>z5hG=;jWT_@T704FQH^0
+!s100 EaVQ3ZB?00cRcl=eIj0z>3
+R8
+33
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Eaddtostart
+R1
+R2
+R3
+R4
+!i122 53
+R0
+Z15 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToStart.vhd
+Z16 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToStart.vhd
+l0
+R7
+VlU0RjL9CHMXa9@G1K=_Ke2
+!s100 FdefThU66g__WVbLR0U<`0
+R8
+33
+Z17 !s110 1713576156
+!i10b 1
+Z18 !s108 1713576156.000000
+Z19 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToStart.vhd|
+Z20 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/addToStart.vhd|
+!i113 0
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+DEx4 work 10 addtostart 0 22 lU0RjL9CHMXa9@G1K=_Ke2
+!i122 53
+l21
+L20 4
+VPXhd^KiXW>FYf4ZSXHkSf0
+!s100 bBR<73i^FVmOTo7BSBYz63
+R8
+33
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 0
+R13
+R14
+Ealu
+R1
+R3
+R4
+!i122 54
+R0
+Z21 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/alu.vhd
+Z22 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/alu.vhd
+l0
+Z23 L11 1
+V_@AbdYDz?QKfEG[<RSY0Z1
+!s100 0S9RiODJ[X]n=B1?Bmbi<2
+R8
+33
+R17
+!i10b 1
+R18
+Z24 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/alu.vhd|
+Z25 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/alu.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 3 alu 0 22 _@AbdYDz?QKfEG[<RSY0Z1
+!i122 54
+l153
+L31 223
+V_:J`QA]0S8=B<bHK;NL7L3
+!s100 ;]]z@jT6FF3@b;1njRVaL1
+R8
+33
+R17
+!i10b 1
+R18
+R24
+R25
+!i113 0
+R13
+R14
+Eandg2
+R1
+R3
+R4
+!i122 55
+R0
+Z26 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2.vhd
+Z27 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2.vhd
+l0
+Z28 L23 1
+V`ZXnieNX25Iz2HDXPGzo91
+!s100 0e<Rg^QbB^Y@JP[zKSc0[3
+R8
+33
+R17
+!i10b 1
+R18
+Z29 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2.vhd|
+Z30 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R3
+R4
+DEx4 work 5 andg2 0 22 `ZXnieNX25Iz2HDXPGzo91
+!i122 55
+l32
+Z31 L31 6
+VaH[`4RgPnZ4F<9<6AYHeb1
+!s100 CbBW?3Q;N[15?`QCEQ<@f2
+R8
+33
+R17
+!i10b 1
+R18
+R29
+R30
+!i113 0
+R13
+R14
+Eandg2n
+R1
+R3
+R4
+!i122 56
+R0
+Z32 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2N.vhd
+Z33 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2N.vhd
+l0
+L16 1
+VLZ<Hm]D00GD9j1m;fL[Po1
+!s100 ]5JVMgXNMN3^G8Z[DARP02
+R8
+33
+R17
+!i10b 1
+R18
+Z34 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2N.vhd|
+Z35 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/andg2N.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+DEx4 work 6 andg2n 0 22 LZ<Hm]D00GD9j1m;fL[Po1
+!i122 56
+l31
+L23 19
+VVjFIER?1i6af4X<O1VAe?3
+!s100 O:2ECm@f<WF[<@iAT8R@U1
+R8
+33
+R17
+!i10b 1
+R18
+R34
+R35
+!i113 0
+R13
+R14
+Ebarrel_shifter
+R1
+R3
+R4
+!i122 57
+R0
+Z36 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd
+Z37 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd
+l0
+R23
+V?c?k9JTc`R^IfMiDWKF3<3
+!s100 neM95ED[PF3aX>o1fB97h1
+R8
+33
+R17
+!i10b 1
+R18
+Z38 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd|
+Z39 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+DEx4 work 14 barrel_shifter 0 22 ?c?k9JTc`R^IfMiDWKF3<3
+!i122 57
+l51
+L21 174
+VHD83M>O3^nVOI<khN?BM?1
+!s100 k>7n@ghZEC7Z<nLTP6@[]3
+R8
+33
+R17
+!i10b 1
+R18
+R38
+R39
+!i113 0
+R13
+R14
+Ebranch
+R1
+R3
+R4
+!i122 58
+R0
+Z40 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branch.vhd
+Z41 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branch.vhd
+l0
+Z42 L15 1
+VaQj_dnW]gWPo1^C@oS02h2
+!s100 [iNQgEehEVB1M64=PalVf2
+R8
+33
+R17
+!i10b 1
+R18
+Z43 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branch.vhd|
+Z44 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branch.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+DEx4 work 6 branch 0 22 aQj_dnW]gWPo1^C@oS02h2
+!i122 58
+l62
+L23 70
+VhfSoOQY8PXPeE>zb?>=So1
+!s100 gNIjG>DhhP;PeKlIz7><g2
+R8
+33
+R17
+!i10b 1
+R18
+R43
+R44
+!i113 0
+R13
+R14
+Ebranchalu
+R1
+R3
+R4
+!i122 59
+R0
+Z45 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branchALU.vhd
+Z46 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branchALU.vhd
+l0
+R23
+V[FM3mC6Z2zHPDMeVP27jc2
+!s100 TSkO5JW8CTmPmdW8GF[8:3
+R8
+33
+R17
+!i10b 1
+R18
+Z47 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branchALU.vhd|
+Z48 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/branchALU.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R3
+R4
+DEx4 work 9 branchalu 0 22 [FM3mC6Z2zHPDMeVP27jc2
+!i122 59
+l22
+L21 15
+VeJEVkoJgFGog`:3nn<=dD0
+!s100 l;>d]c03GQYCcNh3B3=ET2
+R8
+33
+R17
+!i10b 1
+R18
+R47
+R48
+!i113 0
+R13
+R14
+Econtrol
+R1
+R3
+R4
+!i122 60
+R0
+Z49 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Control.vhd
+Z50 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Control.vhd
+l0
+R7
+VJUSBdYPk:B7an1mWS:fg03
+!s100 =kH]DmY07lbKNHT^TB[0S2
+R8
+33
+R17
+!i10b 1
+R18
+Z51 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Control.vhd|
+Z52 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Control.vhd|
+!i113 0
+R13
+R14
+Abehavioral
+R3
+R4
+DEx4 work 7 control 0 22 JUSBdYPk:B7an1mWS:fg03
+!i122 60
+l44
+L40 657
+V38cIaE7XXc_3h;bH[in623
+!s100 ]I_jY13d?bXN0ajhea_m73
+R8
+33
+R17
+!i10b 1
+R18
+R51
+R52
+!i113 0
+R13
+R14
+Edecode_execute_reg
+Z53 w1713575796
+R3
+R4
+!i122 61
+R0
+Z54 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+Z55 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd
+l0
+L6 1
+VTJBPzbLQ^h55A9NDW:=iL1
+!s100 NgCTcz04QTK5SV63Vmla91
+R8
+33
+R17
+!i10b 1
+R18
+Z56 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd|
+Z57 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 18 decode_execute_reg 0 22 TJBPzbLQ^h55A9NDW:=iL1
+!i122 61
+l92
+L62 221
+VRkIj?KJzJbmI2aUSe`d:Q1
+!s100 S5aaN;BPbBZ2Q7mKT]a=d1
+R8
+33
+R17
+!i10b 1
+R18
+R56
+R57
+!i113 0
+R13
+R14
+Edecoder
+R1
+R3
+R4
+!i122 62
+R0
+Z58 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/decoder.vhd
+Z59 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/decoder.vhd
+l0
+L6 1
+VfQf::_PEA>B9<dA2>J3gn3
+!s100 HSLl<P[S7NM:I513mgk@d0
+R8
+33
+Z60 !s110 1713576157
+!i10b 1
+Z61 !s108 1713576157.000000
+Z62 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/decoder.vhd|
+Z63 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/decoder.vhd|
+!i113 0
+R13
+R14
+Adecode
+R3
+R4
+DEx4 work 7 decoder 0 22 fQf::_PEA>B9<dA2>J3gn3
+!i122 62
+l13
+L11 40
+V_7O:?AD;OcGihT4Ez51cY1
+!s100 Jk8O`QjH[ogg`=g59?6hg1
+R8
+33
+R60
+!i10b 1
+R61
+R62
+R63
+!i113 0
+R13
+R14
+Edffg
+R1
+R3
+R4
+!i122 63
+R0
+Z64 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg.vhd
+Z65 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg.vhd
+l0
+L4 1
+V3l75<g513EELkNL>;f8Ym3
+!s100 MzC_JBJQGb6nj6hLJU^fi0
+R8
+33
+R60
+!i10b 1
+R61
+Z66 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg.vhd|
+Z67 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg.vhd|
+!i113 0
+R13
+R14
+Amixed
+R3
+R4
+DEx4 work 4 dffg 0 22 3l75<g513EELkNL>;f8Ym3
+!i122 63
+l18
+L14 29
+VB@IF<h89AW@?a;]oI@GCP1
+!s100 1FXdeX:QdEADPCV5MM5IA2
+R8
+33
+R60
+!i10b 1
+R61
+R66
+R67
+!i113 0
+R13
+R14
+Edffg_pc
+R1
+R3
+R4
+!i122 64
+R0
+Z68 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd
+Z69 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd
+l0
+L4 1
+V]ALk`Z1Bc36k7FHkJ6Izl0
+!s100 EGee^;5E2g_>PnNA_COLB2
+R8
+33
+R60
+!i10b 1
+R61
+Z70 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd|
+Z71 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd|
+!i113 0
+R13
+R14
+Amixed
+R3
+R4
+DEx4 work 7 dffg_pc 0 22 ]ALk`Z1Bc36k7FHkJ6Izl0
+!i122 64
+l28
+L15 59
+VlND^VQ0b_D97:klLL]jBD0
+!s100 fm3YZ<@MnzM9EIPc@AWH83
+R8
+33
+R60
+!i10b 1
+R61
+R70
+R71
+!i113 0
+R13
+R14
+Edffg_set
+R1
+R3
+R4
+!i122 65
+R0
+Z72 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_set.vhd
+Z73 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_set.vhd
+l0
+L5 1
+VQI^AUdDoE9L5:EUU@Ul8<0
+!s100 C[263n9:C@M5eJk_77Yi71
+R8
+33
+R60
+!i10b 1
+R61
+Z74 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_set.vhd|
+Z75 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/dffg_set.vhd|
+!i113 0
+R13
+R14
+Amixed
+R3
+R4
+DEx4 work 8 dffg_set 0 22 QI^AUdDoE9L5:EUU@Ul8<0
+!i122 65
+l20
+L16 31
+V9?9H;]K`YzolPmg[AzHYO0
+!s100 kE`6=eG70LTmW4fBa25oD3
+R8
+33
+R60
+!i10b 1
+R61
+R74
+R75
+!i113 0
+R13
+R14
+Eexecute_memory_reg
+R53
+R3
+R4
+!i122 66
+R0
+Z76 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd
+Z77 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd
+l0
+L6 1
+VfTVmo`WFl3ikoPSgceWZN2
+!s100 [ogCOWH0em00@Pe9PQ;^<2
+R8
+33
+R60
+!i10b 1
+R61
+Z78 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd|
+Z79 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 18 execute_memory_reg 0 22 fTVmo`WFl3ikoPSgceWZN2
+!i122 66
+l48
+L28 81
+Ve1e^9Tf1IU9DCn8b<<>Yz0
+!s100 [;2J<MYI9VQ]U0l=Kdf5]1
+R8
+33
+R60
+!i10b 1
+R61
+R78
+R79
+!i113 0
+R13
+R14
+Eextender
+R1
+R3
+R4
+!i122 67
+R0
+Z80 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Extender.vhd
+Z81 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Extender.vhd
+l0
+R7
+VW9^Z<9_^a5^VPSC[zdNJU2
+!s100 Ob?6N@>VE>`2na=8MlAmK1
+R8
+33
+R60
+!i10b 1
+R61
+Z82 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Extender.vhd|
+Z83 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Extender.vhd|
+!i113 0
+R13
+R14
+Abehavior
+R3
+R4
+DEx4 work 8 extender 0 22 W9^Z<9_^a5^VPSC[zdNJU2
+!i122 67
+l22
+L21 12
+VCUMGUCk4fKCm]N[9c;i3l1
+!s100 `n3TC58SGCTgd8?RFG?G53
+R8
+33
+R60
+!i10b 1
+R61
+R82
+R83
+!i113 0
+R13
+R14
+Eextendsign
+R1
+R2
+R3
+R4
+!i122 68
+R0
+Z84 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/extendSign.vhd
+Z85 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/extendSign.vhd
+l0
+R7
+VQ2@oh`a=Q?DYQTeMnH?0K0
+!s100 ?hXY;RK?Q1FNiRGnB7KdE1
+R8
+33
+R60
+!i10b 1
+R61
+Z86 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/extendSign.vhd|
+Z87 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/extendSign.vhd|
+!i113 0
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+DEx4 work 10 extendsign 0 22 Q2@oh`a=Q?DYQTeMnH?0K0
+!i122 68
+l20
+Z88 L19 5
+V0SPE4=Nkhz5T7@JcfK]UB2
+!s100 >m`l4MZfdmY^Qa`@RloGk0
+R8
+33
+R60
+!i10b 1
+R61
+R86
+R87
+!i113 0
+R13
+R14
+Efetch_decode_reg
+R53
+R3
+R4
+!i122 69
+R0
+Z89 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd
+Z90 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd
+l0
+L6 1
+VBE<ehaacm:kY7>aj2jS?T3
+!s100 dCFo1MS431J6=XF>>6GlY2
+R8
+33
+R60
+!i10b 1
+R61
+Z91 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd|
+Z92 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 16 fetch_decode_reg 0 22 BE<ehaacm:kY7>aj2jS?T3
+!i122 69
+l38
+L18 40
+VmBMD4:^?C>]NaU6]JkLkV1
+!s100 RI`LOI85]^j>MQ<:hz=^G0
+R8
+33
+R60
+!i10b 1
+R61
+R91
+R92
+!i113 0
+R13
+R14
+Efetchlogic
+R53
+R3
+R4
+!i122 70
+R0
+Z93 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd
+Z94 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd
+l0
+L28 1
+V:b:;I]gzzEie2ScL1?4AX1
+!s100 95bBED`WcFJ0l6g<:Dz263
+R8
+33
+R60
+!i10b 1
+R61
+Z95 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd|
+Z96 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+DEx4 work 10 fetchlogic 0 22 :b:;I]gzzEie2ScL1?4AX1
+!i122 70
+l122
+L44 162
+VF5UP<hlBZ]P;WBO8lKKRl3
+!s100 ;P3>k<KCieb230bG2a1O50
+R8
+33
+R60
+!i10b 1
+R61
+R95
+R96
+!i113 0
+R13
+R14
+Eforwardingunit
+R53
+R3
+R4
+!i122 71
+R0
+Z97 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/ForwardingUnit.vhd
+Z98 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/ForwardingUnit.vhd
+l0
+L6 1
+V[>=MQ4Sm>UK4KCakmM?E;2
+!s100 n]0nWWc@=le6IRbhTY[2X1
+R8
+33
+Z99 !s110 1713576158
+!i10b 1
+Z100 !s108 1713576158.000000
+Z101 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/ForwardingUnit.vhd|
+Z102 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/ForwardingUnit.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 14 forwardingunit 0 22 [>=MQ4Sm>UK4KCakmM?E;2
+!i122 71
+l21
+L19 17
+V4@:B:7gj60R7UOclC8BFf1
+!s100 9zO?AO;4QgFURM]F7Y^bo1
+R8
+33
+R99
+!i10b 1
+R100
+R101
+R102
+!i113 0
+R13
+R14
+Efourbit_dffg
+R53
+R3
+R4
+!i122 72
+R0
+Z103 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/FOURbit_dffg.vhd
+Z104 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/FOURbit_dffg.vhd
+l0
+L6 1
+VT@BL;?mR<NMjIA;HCkdK?1
+!s100 3_]ol57DXVW8CfOa:153f0
+R8
+33
+R99
+!i10b 1
+R100
+Z105 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/FOURbit_dffg.vhd|
+Z106 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/FOURbit_dffg.vhd|
+!i113 0
+R13
+R14
+Amixed
+R3
+R4
+DEx4 work 12 fourbit_dffg 0 22 T@BL;?mR<NMjIA;HCkdK?1
+!i122 72
+l21
+L16 30
+VTk[72V<KlgG0KlaQBfC@O2
+!s100 GAb=0^7K`eZlIRakDFPa:1
+R8
+33
+R99
+!i10b 1
+R100
+R105
+R106
+!i113 0
+R13
+R14
+Efulladder
+R1
+R3
+R4
+!i122 73
+R0
+Z107 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fullAdder.vhd
+Z108 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fullAdder.vhd
+l0
+R23
+VO85Bg8:E457Sd=V__Zc3;1
+!s100 bcAijPa`L2Hd^JJf<R9Dk1
+R8
+33
+R99
+!i10b 1
+R100
+Z109 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fullAdder.vhd|
+Z110 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/fullAdder.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 9 fulladder 0 22 O85Bg8:E457Sd=V__Zc3;1
+!i122 73
+l48
+L19 64
+Vn8@iITK9nic]DhCEWGIUc1
+!s100 JF18cVnLDFSMn[ZS0EG>H1
+R8
+33
+R99
+!i10b 1
+R100
+R109
+R110
+!i113 0
+R13
+R14
+Einvg
+R1
+R3
+R4
+!i122 74
+R0
+Z111 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/invg.vhd
+Z112 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/invg.vhd
+l0
+R28
+V^IQhB0M:TibmTX48^HJa:0
+!s100 5^0jfQ^dVk:bl_Za_KajG0
+R8
+33
+R99
+!i10b 1
+R100
+Z113 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/invg.vhd|
+Z114 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/invg.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R3
+R4
+DEx4 work 4 invg 0 22 ^IQhB0M:TibmTX48^HJa:0
+!i122 74
+l31
+L30 6
+VGnAN1IHi;Y?=mi4968o873
+!s100 Q?`9^ToWC]zk1[=<LdPdE3
+R8
+33
+R99
+!i10b 1
+R100
+R113
+R114
+!i113 0
+R13
+R14
+Ejump
+R1
+R3
+R4
+!i122 75
+R0
+Z115 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/jump.vhd
+Z116 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/jump.vhd
+l0
+R42
+V`Q5>RVj`fg=]OFYQD^j^L1
+!s100 X>dzYHn5>D`91JT2S82Vf0
+R8
+33
+R99
+!i10b 1
+R100
+Z117 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/jump.vhd|
+Z118 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/jump.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+DEx4 work 4 jump 0 22 `Q5>RVj`fg=]OFYQD^j^L1
+!i122 75
+l70
+L25 104
+Vb<H3heKhlhmVkR0TmeecM2
+!s100 L183LbDET`Rd3[R1Z<e>B1
+R8
+33
+R99
+!i10b 1
+R100
+R117
+R118
+!i113 0
+R13
+R14
+Emem
+R1
+R2
+R3
+R4
+!i122 76
+R0
+Z119 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mem.vhd
+Z120 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mem.vhd
+l0
+L8 1
+Vof;k8UOTO]0z0:Ag6`VnF3
+!s100 GF_U?1mjKdlzTC==@Eoi@2
+R8
+33
+R99
+!i10b 1
+R100
+Z121 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mem.vhd|
+Z122 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mem.vhd|
+!i113 0
+R13
+R14
+Artl
+R2
+R3
+R4
+DEx4 work 3 mem 0 22 of;k8UOTO]0z0:Ag6`VnF3
+!i122 76
+l37
+L27 24
+V_XQBD327<9Q`ORP@466N51
+!s100 h2oZ:n@5VDnM^B7>cA]W22
+R8
+33
+R99
+!i10b 1
+R100
+R121
+R122
+!i113 0
+R13
+R14
+Ememory_writeback_reg
+R53
+R3
+R4
+!i122 77
+R0
+Z123 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd
+Z124 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd
+l0
+L6 1
+VeD<zeDa[Xkz:]EH3gUzFA3
+!s100 gcn291^zMJELOWQh35bMz1
+R8
+33
+R99
+!i10b 1
+R100
+Z125 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd|
+Z126 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 20 memory_writeback_reg 0 22 eD<zeDa[Xkz:]EH3gUzFA3
+!i122 77
+l46
+L26 72
+V=fC[R5fV@EDP=l5TUE4NM1
+!s100 2_MAWIiS@Lfk0aJKmIWDQ2
+R8
+33
+R99
+!i10b 1
+R100
+R125
+R126
+!i113 0
+R13
+R14
+Emips_processor
+R53
+Z127 DPx4 work 10 mips_types 0 22 _oPT6kZ``U^N8NT@KXY813
+R3
+R4
+!i122 78
+R0
+Z128 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd
+Z129 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd
+l0
+Z130 L19 1
+VDWhK=fjTC>nKi]gY67M`51
+!s100 bCoA`[`L3i34>74iT[Cb73
+R8
+33
+R99
+!i10b 1
+R100
+Z131 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd|
+Z132 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd|
+!i113 0
+R13
+R14
+Astructure
+R127
+R3
+R4
+DEx4 work 14 mips_processor 0 22 DWhK=fjTC>nKi]gY67M`51
+!i122 78
+l425
+L34 703
+VoUbnSQ6HfH?CUzV`5::O[0
+!s100 4PFoFk82Djf7>F?cgo>IX2
+R8
+33
+R99
+!i10b 1
+R100
+R131
+R132
+!i113 0
+R13
+R14
+Pmips_types
+R3
+R4
+!i122 0
+R1
+R0
+Z133 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd
+Z134 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd
+l0
+L15 15
+V_oPT6kZ``U^N8NT@KXY813
+!s100 j7B259kK>zlST=TBP<JE11
+R8
+33
+Z135 !s110 1713576053
+!i10b 1
+Z136 !s108 1713576053.000000
+Z137 !s90 -reportprogress|300|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd|
+Z138 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/MIPS_types.vhd|
+!i113 0
+R13
+R14
+Bbody
+R127
+R3
+R4
+!i122 0
+l0
+L31 3
+Va:4Y6kjGGf^1T[GzW9j:E3
+!s100 h5IN3<Sj6<I[zl0lJHcX[1
+R8
+33
+R135
+!i10b 1
+R136
+R137
+R138
+!i113 0
+R13
+R14
+Emipsregister
+R1
+R127
+R3
+R4
+!i122 79
+R0
+Z139 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd
+Z140 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd
+l0
+L7 1
+VLf4e<O;OP]NmATaoj>n@C2
+!s100 fVdbb2X753>n:ddO[kE?13
+R8
+33
+R99
+!i10b 1
+R100
+Z141 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd|
+Z142 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd|
+!i113 0
+R13
+R14
+Astructural
+R127
+R3
+R4
+DEx4 work 12 mipsregister 0 22 Lf4e<O;OP]NmATaoj>n@C2
+!i122 79
+l56
+L20 89
+Vca?=1;JZOD281D2_XFH1V3
+!s100 LEVGg`C:j[dOIFjM=Jj]R2
+R8
+33
+Z143 !s110 1713576159
+!i10b 1
+R100
+R141
+R142
+!i113 0
+R13
+R14
+Emux2t1
+R1
+R3
+R4
+!i122 80
+R0
+Z144 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1.vhd
+Z145 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1.vhd
+l0
+L6 1
+VSGH8Po[fV_zD?JOKiCF5n0
+!s100 3UYzZ=k^JlNcB;NV2c7RU0
+R8
+33
+R143
+!i10b 1
+Z146 !s108 1713576159.000000
+Z147 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1.vhd|
+Z148 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+DEx4 work 6 mux2t1 0 22 SGH8Po[fV_zD?JOKiCF5n0
+!i122 80
+l42
+L15 53
+V[]ccFbDkgDG_P3WYI3JjI1
+!s100 ecg=RgK`fQF=I5`Yj1`g42
+R8
+33
+R143
+!i10b 1
+R146
+R147
+R148
+!i113 0
+R13
+R14
+Emux2t1_5bit
+R1
+R3
+R4
+!i122 81
+R0
+Z149 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_5bit.vhd
+Z150 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_5bit.vhd
+l0
+R130
+VZT1aB219R<MnYbnS[^5PI3
+!s100 5A9NH5`mdK0bW_P8mg@dE2
+R8
+33
+R143
+!i10b 1
+R146
+Z151 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_5bit.vhd|
+Z152 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_5bit.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+DEx4 work 11 mux2t1_5bit 0 22 ZT1aB219R<MnYbnS[^5PI3
+!i122 81
+l38
+L28 22
+ViLYeGh[eA903kQXI`;ePa3
+!s100 MFE@`Cg>g``oLE=Y08=3^3
+R8
+33
+R143
+!i10b 1
+R146
+R151
+R152
+!i113 0
+R13
+R14
+Emux2t1_dataflow
+R1
+R3
+R4
+!i122 82
+R0
+Z153 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_dataflow.vhd
+Z154 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_dataflow.vhd
+l0
+L22 1
+VC2:F0P5iWe<HYFc:OZWW62
+!s100 2NN1AKDUa8C_ASPl4O?]G3
+R8
+33
+R143
+!i10b 1
+R146
+Z155 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_dataflow.vhd|
+Z156 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_dataflow.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R3
+R4
+DEx4 work 15 mux2t1_dataflow 0 22 C2:F0P5iWe<HYFc:OZWW62
+!i122 82
+l29
+L28 6
+V0oHzXHYT2I2<n5RaEcCDO2
+!s100 U2Rcf8a96W_fCAifLgfg;1
+R8
+33
+R143
+!i10b 1
+R146
+R155
+R156
+!i113 0
+R13
+R14
+Emux2t1_n
+R1
+R3
+R4
+!i122 83
+R0
+Z157 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd
+Z158 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd
+l0
+L21 1
+VQAf8Q9Ej2QBN0lQXa4H@13
+!s100 Y80E^d;5=hf2cNC6Yk_Di1
+R8
+33
+R143
+!i10b 1
+R146
+Z159 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd|
+Z160 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+DEx4 work 8 mux2t1_n 0 22 QAf8Q9Ej2QBN0lQXa4H@13
+!i122 83
+l39
+L30 21
+VZggGD2ii4G[;@WWf7PEo_3
+!s100 z@V^Da@TT<kE]=8h20CUZ3
+R8
+33
+R143
+!i10b 1
+R146
+R159
+R160
+!i113 0
+R13
+R14
+Emux3t1
+R53
+R127
+R3
+R4
+!i122 84
+R0
+Z161 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux3t1.vhd
+Z162 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux3t1.vhd
+l0
+L7 1
+VlaPTMiXo^cE8WLG>>;ZhS3
+!s100 >TeF?[9NnEC@1R[1JDB^E2
+R8
+33
+R143
+!i10b 1
+R146
+Z163 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux3t1.vhd|
+Z164 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/mux3t1.vhd|
+!i113 0
+R13
+R14
+Astructure
+R127
+R3
+R4
+DEx4 work 6 mux3t1 0 22 laPTMiXo^cE8WLG>>;ZhS3
+!i122 84
+l20
+L18 10
+VbP`FWSUkClU2nn4iAj97f0
+!s100 Beg@Th`FUBPK^0PR[kQ=A1
+R8
+33
+R143
+!i10b 1
+R146
+R163
+R164
+!i113 0
+R13
+R14
+Emy_32t1_mux
+R1
+R127
+R3
+R4
+!i122 85
+R0
+Z165 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/my_32t1_mux.vhd
+Z166 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/my_32t1_mux.vhd
+l0
+L5 1
+VzE5HYM[]o^LWDOQb:=;J[1
+!s100 3j0I4CD@R@cQJ83f>JKB[2
+R8
+33
+R143
+!i10b 1
+R146
+Z167 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/my_32t1_mux.vhd|
+Z168 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/my_32t1_mux.vhd|
+!i113 0
+R13
+R14
+Amux32t1
+R127
+R3
+R4
+DEx4 work 11 my_32t1_mux 0 22 zE5HYM[]o^LWDOQb:=;J[1
+!i122 85
+l14
+L11 41
+V;8]c;m2QPUPM=L=1RI2gL3
+!s100 blSHa`fi`^:oPR=jD21Si1
+R8
+33
+R143
+!i10b 1
+R146
+R167
+R168
+!i113 0
+R13
+R14
+Enbit_dffg
+R53
+R3
+R4
+!i122 86
+R0
+Z169 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd
+Z170 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd
+l0
+L4 1
+VI5=?hVok^h@eDWzkSzYN21
+!s100 ;7QY752?]Zj6ZL0UK3:=?2
+R8
+33
+R143
+!i10b 1
+R146
+Z171 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd|
+Z172 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd|
+!i113 0
+R13
+R14
+Amixed
+R3
+R4
+DEx4 work 9 nbit_dffg 0 22 I5=?hVok^h@eDWzkSzYN21
+!i122 86
+l19
+L14 30
+VI5AgOzCeKQJQb=gI<7B583
+!s100 <49d?BU2MT1SWOk3gmO8C1
+R8
+33
+R143
+!i10b 1
+R146
+R171
+R172
+!i113 0
+R13
+R14
+Enbit_reg
+R1
+R127
+R3
+R4
+!i122 87
+R0
+Z173 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd
+Z174 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd
+l0
+L7 1
+VbF=J@0>fn4[dV4JZ7T40I3
+!s100 a@o_`Ub08U>WoD@KWSDRL1
+R8
+33
+R143
+!i10b 1
+R146
+Z175 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd|
+Z176 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd|
+!i113 0
+R13
+R14
+Astructural
+R127
+R3
+R4
+DEx4 work 8 nbit_reg 0 22 bF=J@0>fn4[dV4JZ7T40I3
+!i122 87
+l27
+L17 23
+V:07B7ERR6T<I<@50SlGP81
+!s100 PFP=W:j`amSJaJWbdjTIX1
+R8
+33
+R143
+!i10b 1
+R146
+R175
+R176
+!i113 0
+R13
+R14
+Enbit_reg_pc
+R1
+R127
+R3
+R4
+!i122 88
+R0
+Z177 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd
+Z178 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd
+l0
+L7 1
+VU5ZCk6Wfam8LL`;`bAONO2
+!s100 amLEFg;XIGBacoom>>zQ[1
+R8
+33
+Z179 !s110 1713576160
+!i10b 1
+R146
+Z180 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd|
+Z181 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd|
+!i113 0
+R13
+R14
+Astructural
+R127
+R3
+R4
+DEx4 work 11 nbit_reg_pc 0 22 U5ZCk6Wfam8LL`;`bAONO2
+!i122 88
+l30
+L17 27
+V^>LAUiOjX8ggn:0c:CX@@1
+!s100 jzeaBZO><@NRY0OB=U9=c3
+R8
+33
+R179
+!i10b 1
+R146
+R180
+R181
+!i113 0
+R13
+R14
+Enbitadder
+R1
+R3
+R4
+!i122 89
+R0
+Z182 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd
+Z183 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd
+l0
+R23
+VoW2NE2DLJ;ZnTz7F5g4Mc2
+!s100 g:CYSW0IXmJ;V]Vh`1LYO2
+R8
+33
+R179
+!i10b 1
+Z184 !s108 1713576160.000000
+Z185 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd|
+Z186 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 9 nbitadder 0 22 oW2NE2DLJ;ZnTz7F5g4Mc2
+!i122 89
+l41
+L26 47
+VBEWC203G1_hz2K>P]fek[3
+!s100 E[o;SMfmd4QFWeDKm=EN31
+R8
+33
+R179
+!i10b 1
+R184
+R185
+R186
+!i113 0
+R13
+R14
+Enbitaddsub
+R1
+R3
+R4
+!i122 90
+R0
+Z187 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd
+Z188 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd
+l0
+R23
+V<OE00JcTCD1KmMFcR_^em1
+!s100 V?j12SSKLAVQVgZWg??IH1
+R8
+33
+R179
+!i10b 1
+R184
+Z189 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd|
+Z190 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 10 nbitaddsub 0 22 <OE00JcTCD1KmMFcR_^em1
+!i122 90
+l64
+L25 68
+VY]@aXfOg=dITSbfY70iD53
+!s100 T8L5@XOSnkNUN1:58A5hX0
+R8
+33
+R179
+!i10b 1
+R184
+R189
+R190
+!i113 0
+R13
+R14
+Enbitand
+R1
+R3
+R4
+!i122 91
+R0
+Z191 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAnd.vhd
+Z192 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAnd.vhd
+l0
+R23
+VR3zj2cTPcZ5WZSG_E_^7b1
+!s100 zbl4F3XB9Aai6]FmbV7kD0
+R8
+33
+R179
+!i10b 1
+R184
+Z193 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAnd.vhd|
+Z194 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitAnd.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 7 nbitand 0 22 R3zj2cTPcZ5WZSG_E_^7b1
+!i122 91
+l28
+L18 24
+VKB70nzJcHXNN2n8ceboj[1
+!s100 F8K3M77ULnY5M[ZcE@`S91
+R8
+33
+R179
+!i10b 1
+R184
+R193
+R194
+!i113 0
+R13
+R14
+Enbitnor
+R1
+R3
+R4
+!i122 92
+R0
+Z195 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitNor.vhd
+Z196 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitNor.vhd
+l0
+R23
+V=C;ZC0iX_XOJk6EU<Q[_o1
+!s100 Zh=zeaXe?KS0VC[H61WiF2
+R8
+33
+R179
+!i10b 1
+R184
+Z197 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitNor.vhd|
+Z198 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitNor.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R3
+R4
+DEx4 work 7 nbitnor 0 22 =C;ZC0iX_XOJk6EU<Q[_o1
+!i122 92
+l20
+L19 7
+VT=FHnDWc9nUb<Gkd79>ZD1
+!s100 K2;go^oJYPfj4YDJKNC0B3
+R8
+33
+R179
+!i10b 1
+R184
+R197
+R198
+!i113 0
+R13
+R14
+Enbitor
+R1
+R3
+R4
+!i122 93
+R0
+Z199 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitOr.vhd
+Z200 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitOr.vhd
+l0
+R23
+ViJIh>F^g]3=49?bZIdPRz3
+!s100 N56VB52UZ_B;P62S=f0U42
+R8
+33
+R179
+!i10b 1
+R184
+Z201 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitOr.vhd|
+Z202 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitOr.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 6 nbitor 0 22 iJIh>F^g]3=49?bZIdPRz3
+!i122 93
+l30
+Z203 L20 23
+VZj975jeIbm;0JM:dRJS6_2
+!s100 UfdNZlaR7Hk7@6OSG`ma]0
+R8
+33
+R179
+!i10b 1
+R184
+R201
+R202
+!i113 0
+R13
+R14
+Enbitxor
+R1
+R3
+R4
+!i122 94
+R0
+Z204 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitXor.vhd
+Z205 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitXor.vhd
+l0
+R23
+V]cmz<d3Xg7o9cCZzTi_2`0
+!s100 ^m>9=lRMEdHVjDec9N5Un0
+R8
+33
+R179
+!i10b 1
+R184
+Z206 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitXor.vhd|
+Z207 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/nBitXor.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 7 nbitxor 0 22 ]cmz<d3Xg7o9cCZzTi_2`0
+!i122 94
+l30
+R203
+VFkWSjQ]Ke;;E8[7Sa<l>O0
+!s100 8`D<3UMR070ceUV7o:ObI2
+R8
+33
+R179
+!i10b 1
+R184
+R206
+R207
+!i113 0
+R13
+R14
+Eonescomp
+R1
+R3
+R4
+!i122 95
+R0
+Z208 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/onesComp.vhd
+Z209 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/onesComp.vhd
+l0
+R23
+VUP<C>Y6Y:]dRF[>Zjc94C1
+!s100 ?iU?OD>WSZGZOOU6S1LCG0
+R8
+33
+R179
+!i10b 1
+R184
+Z210 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/onesComp.vhd|
+Z211 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/onesComp.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 8 onescomp 0 22 UP<C>Y6Y:]dRF[>Zjc94C1
+!i122 95
+l31
+L21 23
+VGnGoM<90MOc8HQc1W0?BE2
+!s100 7aFY9`J5dD5RXn;@2N1:b3
+R8
+33
+R179
+!i10b 1
+R184
+R210
+R211
+!i113 0
+R13
+R14
+Eorg2
+R1
+R3
+R4
+!i122 96
+R0
+Z212 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/org2.vhd
+Z213 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/org2.vhd
+l0
+R28
+VkbW`>IOf=9G1AFX9^DNzY1
+!s100 hJAZ>EB8bm_e<^5IFaP9e1
+R8
+33
+R179
+!i10b 1
+R184
+Z214 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/org2.vhd|
+Z215 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/org2.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R3
+R4
+DEx4 work 4 org2 0 22 kbW`>IOf=9G1AFX9^DNzY1
+!i122 96
+l32
+R31
+Vgb<e=7>XBQTJGCc<Rd:i:1
+!s100 nma>Pa=mMW`KzzjeW=1[d1
+R8
+33
+R179
+!i10b 1
+R184
+R214
+R215
+!i113 0
+R13
+R14
+Epcregister
+R1
+R3
+R4
+!i122 97
+R0
+Z216 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/pcRegister.vhd
+Z217 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/pcRegister.vhd
+l0
+R42
+V:Z9[[CR15IlSm6kcm962S2
+!s100 JYm5_ZSj<9=BaBKZmaNPX2
+R8
+33
+Z218 !s110 1713576161
+!i10b 1
+R184
+Z219 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/pcRegister.vhd|
+Z220 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/pcRegister.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 10 pcregister 0 22 :Z9[[CR15IlSm6kcm962S2
+!i122 97
+l37
+L25 23
+V@Y3Xz^j3n0MbKnITzP^2J3
+!s100 =ZHlbNBbS`9NI5J[12XMg3
+R8
+33
+R218
+!i10b 1
+R184
+R219
+R220
+!i113 0
+R13
+R14
+Eprediction
+Z221 w1713576148
+R3
+R4
+!i122 98
+R0
+Z222 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/prediction.vhd
+Z223 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/prediction.vhd
+l0
+L6 1
+V^WZTO[AAM<:T92L1e>:OF1
+!s100 BM>CoZ?K<MY@6UcD]bUVB3
+R8
+33
+R218
+!i10b 1
+Z224 !s108 1713576161.000000
+Z225 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/prediction.vhd|
+Z226 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/prediction.vhd|
+!i113 0
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 10 prediction 0 22 ^WZTO[AAM<:T92L1e>:OF1
+!i122 98
+l15
+L12 22
+VcEmCiiiX<iC<OVIOVCQOY2
+!s100 ^F:Mmo3]0=;iUR5FG<Zh=3
+R8
+33
+R218
+!i10b 1
+R224
+R225
+R226
+!i113 0
+R13
+R14
+Eselectoperation
+R1
+R3
+R4
+!i122 99
+R0
+Z227 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/selectOperation.vhd
+Z228 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/selectOperation.vhd
+l0
+R23
+V?:GBmO1FaU?hS_P`_=iWP1
+!s100 hdQ_bJZ`W_DMWUd:LE4`P0
+R8
+33
+R218
+!i10b 1
+R224
+Z229 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/selectOperation.vhd|
+Z230 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/selectOperation.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R3
+R4
+DEx4 work 15 selectoperation 0 22 ?:GBmO1FaU?hS_P`_=iWP1
+!i122 99
+l26
+L25 12
+VFeja<<b>;L21jbMOFfldY2
+!s100 =J@GiP;73YA@Z=^;D[fe?2
+R8
+33
+R218
+!i10b 1
+R224
+R229
+R230
+!i113 0
+R13
+R14
+Esetlessthan
+R1
+R2
+R3
+R4
+!i122 102
+R0
+Z231 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/setLessThan.vhd
+Z232 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/setLessThan.vhd
+l0
+L13 1
+VL8FKQXIO5D82UcjgXjSz80
+!s100 =11o<HWWb?jTfWMl=KO8:0
+R8
+33
+R218
+!i10b 1
+R224
+Z233 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/setLessThan.vhd|
+Z234 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/setLessThan.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R2
+R3
+R4
+Z235 DEx4 work 11 setlessthan 0 22 L8FKQXIO5D82UcjgXjSz80
+!i122 102
+l24
+Z236 L21 11
+Z237 VXl:8mkh:UQAE[G_JDSR_F1
+Z238 !s100 O:4VeWDVTnAKFg1k2P_1F0
+R8
+33
+R218
+!i10b 1
+R224
+R233
+R234
+!i113 0
+R13
+R14
+Eshift
+R1
+R2
+R3
+R4
+!i122 100
+R0
+Z239 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/shift.vhd
+Z240 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/shift.vhd
+l0
+R7
+VbcD8^HVkHfYlmd^X7ZokK1
+!s100 3o@Oj9mnaUooPmWKdScO@1
+R8
+33
+R218
+!i10b 1
+R224
+Z241 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/shift.vhd|
+Z242 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/shift.vhd|
+!i113 0
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+DEx4 work 5 shift 0 22 bcD8^HVkHfYlmd^X7ZokK1
+!i122 100
+l20
+R88
+V:^IBPGclNSXlMYMX==Ton1
+!s100 Bi?F0HNhjFLSS@cNia49P1
+R8
+33
+R218
+!i10b 1
+R224
+R241
+R242
+!i113 0
+R13
+R14
+Exorg2
+R1
+R3
+R4
+!i122 101
+R0
+Z243 8/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/xorg2.vhd
+Z244 F/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/xorg2.vhd
+l0
+R28
+VESJV1emcX7m;an9A`9kkk3
+!s100 zGkHVGJ]HQ5RboN2N>KzN1
+R8
+33
+R218
+!i10b 1
+R224
+Z245 !s90 -reportprogress|30|-work|work|/home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/xorg2.vhd|
+Z246 !s107 /home/abrahimt/CPR E 381/Project 1/cpr-e-381/proj/src/TopLevel/xorg2.vhd|
+!i113 0
+R13
+R14
+Adataflow
+R3
+R4
+DEx4 work 5 xorg2 0 22 ESJV1emcX7m;an9A`9kkk3
+!i122 101
+l32
+R31
+VI5[iO;Q^1X31k599`eic[1
+!s100 2<f]d3XziROLh_[:_6mNg2
+R8
+33
+R218
+!i10b 1
+R224
+R245
+R246
+!i113 0
+R13
+R14

@@ -1,57 +1,55 @@
 -- Fetch_Decode_Reg
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity Fetch_Decode_Reg is 
-    generic(N : integer := 32);                             	-- Generic of type integer for input/output data width. Default value is 32.
-    port(
-        i_clk		: in std_logic;				-- clk bit
-        i_rst		: in std_logic;				-- reset bit
-        i_we		: in std_logic;				-- write enable
-        i_Inst		: in std_logic_vector(31 downto 0);	-- 32 bit instruction register
-	    i_PC		: in std_logic_vector(31 downto 0);	-- 32 bit PC data
-        o_PCOut	    : out std_logic_vector(31 downto 0);	-- output of PC4
-        o_InstOut	: out std_logic_vector(31 downto 0));	-- output of Inst
-end Fetch_Decode_Reg;
+ENTITY Fetch_Decode_Reg IS
+    GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+    PORT (
+        i_clk : IN STD_LOGIC; -- clk bit
+        i_rst : IN STD_LOGIC; -- reset bit
+        i_we : IN STD_LOGIC; -- write enable
+        i_Inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bit instruction register
+        i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bit PC data
+        o_PCOut : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- output of PC4
+        o_InstOut : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- output of Inst
+END Fetch_Decode_Reg;
 
-architecture structure of Fetch_Decode_Reg is
+ARCHITECTURE structure OF Fetch_Decode_Reg IS
 
-    component Nbit_dffg
-  	generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
-        port(i_CLK    : in std_logic;     			-- Clock input
-        i_RST         : in std_logic;     			-- Reset input
-        i_WE          : in std_logic;                        	-- Write enable input
-        i_D           : in std_logic_vector(N-1 downto 0);	-- 32 bit input
-        o_Q           : out std_logic_vector(N-1 downto 0)); 	-- 32 bit output
-    end component;
+    COMPONENT Nbit_dffg
+        GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+        PORT (
+            i_CLK : IN STD_LOGIC; -- Clock input
+            i_RST : IN STD_LOGIC; -- Reset input
+            i_WE : IN STD_LOGIC; -- Write enable input
+            i_D : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- 32 bit input
+            o_Q : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- 32 bit output
+    END COMPONENT;
 
-    component dffg
-  	port(i_CLK   : in std_logic;     -- Clock input
-       	i_RST        : in std_logic;     -- Reset input
-       	i_WE         : in std_logic;     -- Write enable input
-       	i_D          : in std_logic;     -- Data value input
-       	o_Q          : out std_logic);   -- Data value output
-    end component;
-
-
-begin
+    COMPONENT dffg
+        PORT (
+            i_CLK : IN STD_LOGIC; -- Clock input
+            i_RST : IN STD_LOGIC; -- Reset input
+            i_WE : IN STD_LOGIC; -- Write enable input
+            i_D : IN STD_LOGIC; -- Data value input
+            o_Q : OUT STD_LOGIC); -- Data value output
+    END COMPONENT;
+BEGIN
 
     REG1 : Nbit_dffg
-    port MAP(
-            i_CLK	=> i_clk,		-- Clock bit input
-            i_RST	=> i_rst,		-- Reset bit input
-            i_WE	=> i_we,		-- 
-            i_D		=> i_Inst,		-- Data bit input
-            o_Q		=> o_InstOut);
+    PORT MAP(
+        i_CLK => i_clk, -- Clock bit input
+        i_RST => i_rst, -- Reset bit input
+        i_WE => i_we, -- 
+        i_D => i_Inst, -- Data bit input
+        o_Q => o_InstOut);
 
     REG2 : Nbit_dffg
-    port MAP(
-            i_CLK	=> i_clk,		-- Clock bit input
-            i_RST	=> i_rst,		-- Reset bit input
-            i_WE	=> i_we,		-- 
-            i_D		=> i_PC,		-- Data bit input
-            o_Q		=> o_PCOut);
-
-    
-end structure;
+    PORT MAP(
+        i_CLK => i_clk, -- Clock bit input
+        i_RST => i_rst, -- Reset bit input
+        i_WE => i_we, -- 
+        i_D => i_PC, -- Data bit input
+        o_Q => o_PCOut);
+END structure;

@@ -9,7 +9,7 @@ ENTITY prediction IS
         o_Out : OUT STD_LOGIC); -- whether we predict true or false
 END prediction;
 
-ARCHITECTURE structure OF prediction IS
+ARCHITECTURE structure OF alu IS
     SIGNAL s_location : STD_LOGIC_VECTOR(1 DOWNTO 0) := "11"; -- 2 bits to determine whether we predict true or false (starts at true)
 
 BEGIN
