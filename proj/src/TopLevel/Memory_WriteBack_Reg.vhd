@@ -61,7 +61,7 @@ BEGIN
                 o_Q => o_ra);
 
         REG_ALURESULT : Nbit_dffg
-        GENERIC MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
+        GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
@@ -70,7 +70,7 @@ BEGIN
                 o_Q => o_ALUResultOut);
 
         REG_DMEM : Nbit_dffg
-        GENERIC MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
+        GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
