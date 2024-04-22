@@ -33,6 +33,8 @@ ENTITY Decode_Execute_Reg IS
                 i_shamt : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 10-6)
                 i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
                 i_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+                i_regDst : IN STD_LOGIC; -- Goes to Write Back
+                o_RegDst : OUT STD_LOGIC; -- Goes to Write Back
                 o_PC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
                 o_inst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
                 o_memWrite : OUT STD_LOGIC; -- Goes to Dmem
@@ -81,6 +83,17 @@ ARCHITECTURE structure OF Decode_Execute_Reg IS
                         o_Q : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- 32 bit output
         END COMPONENT;
 
+        COMPONENT Fivebit_dffg IS
+                GENERIC (N : INTEGER := 5); -- Generic of type integer for input/output data width. Default value is 32.
+                PORT (
+                        i_CLK : IN STD_LOGIC; -- Clock input
+                        i_RST : IN STD_LOGIC; -- Reset input
+                        i_WE : IN STD_LOGIC; -- Write enable input
+                        i_D : IN STD_LOGIC_VECTOR(N - 1 DOWNTO 0); -- Data value input
+                        o_Q : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- Data value output
+
+        END COMPONENT;
+
         COMPONENT dffg
                 PORT (
                         i_CLK : IN STD_LOGIC; -- Clock input
@@ -115,8 +128,7 @@ BEGIN
                 i_D => i_Imm, -- Data bit input
                 o_Q => o_ImmOut);
 
-        REG_INST1 : Nbit_dffg
-        GENERIC MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
+        REG_INST1 : FIVEbit_dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
@@ -124,8 +136,7 @@ BEGIN
                 i_D => i_rs, --  input
                 o_Q => o_rsOut);
 
-        REG_INST2 : Nbit_dffg
-        GENERIC MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
+        REG_INST2 : FIVEbit_dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
@@ -133,8 +144,7 @@ BEGIN
                 i_D => i_rt, --  input
                 o_Q => o_rtOut);
 
-        REG_INST3 : Nbit_dffg
-        GENERIC MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
+        REG_INST3 : FIVEbit_dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
@@ -142,8 +152,7 @@ BEGIN
                 i_D => i_rd, --  input
                 o_Q => o_rdOut);
 
-        REG_INST4 : Nbit_dffg
-        GENERIC MAP(N => 5) -- Generic of type integer for input/output data width. Default value is 32.
+        REG_INST4 : FIVEbit_dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
@@ -175,6 +184,14 @@ BEGIN
                 i_D => i_ALUop, -- Data bit input
                 o_Q => o_ALUop);
 
+        REG_REGDST : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_regDst, -- Data bit input
+                o_Q => o_RegDst);
+
         REG_Src : dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
@@ -190,6 +207,14 @@ BEGIN
                 i_WE => i_we, -- 
                 i_D => i_bne, -- Data bit input
                 o_Q => o_bne);
+
+        REG_beq : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_beq, -- Data bit input
+                o_Q => o_beq);
 
         REG_shiftDir : dffg
         PORT MAP(
