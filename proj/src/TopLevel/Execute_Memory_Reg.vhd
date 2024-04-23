@@ -19,6 +19,12 @@ ENTITY Execute_Memory_Reg IS
                 i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0);-- 5 bits (inst 20-16)
                 i_rd : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 15-11)
                 i_regDst : IN STD_LOGIC; -- Goes to Write Back
+                i_jump : IN STD_LOGIC; -- Goes to 
+                i_regWr : IN STD_LOGIC; -- 
+                i_halt : IN STD_LOGIC; -- 
+                o_halt : OUT STD_LOGIC; -- 
+                o_regWr : OUT STD_LOGIC; -- 
+                o_jump : OUT STD_LOGIC; -- Goes to 
                 o_RegDst : OUT STD_LOGIC; -- Goes to Write Back
                 o_rtOut : OUT STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 20-16) out
                 o_rdOut : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -115,6 +121,14 @@ BEGIN
                 i_D => i_DmemData, --  input
                 o_Q => o_DmemDataOut);
 
+        REG_REGWR : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_regWr, -- write back input
+                o_Q => o_regWr);
+
         REG_MEMWR : dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
@@ -146,5 +160,21 @@ BEGIN
                 i_WE => i_we, -- 
                 i_D => i_MemToReg, -- memory bit input
                 o_Q => o_MemToReg);
+
+        REG_JUMP : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_jump, -- Data bit input
+                o_Q => o_jump);
+
+        REG_HALT : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_halt, -- Data bit input
+                o_Q => o_halt);
 
 END structure;

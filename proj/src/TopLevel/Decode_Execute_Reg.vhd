@@ -34,6 +34,10 @@ ENTITY Decode_Execute_Reg IS
                 i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
                 i_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
                 i_regDst : IN STD_LOGIC; -- Goes to Write Back
+                i_regWr : IN STD_LOGIC; -- 
+                i_halt : IN STD_LOGIC; -- 
+                o_halt : OUT STD_LOGIC; -- 
+                o_regWr : OUT STD_LOGIC; -- 
                 o_RegDst : OUT STD_LOGIC; -- Goes to Write Back
                 o_PC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
                 o_inst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -184,6 +188,14 @@ BEGIN
                 i_D => i_ALUop, -- Data bit input
                 o_Q => o_ALUop);
 
+        REG_REGWR : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_regWr, -- Data bit input
+                o_Q => o_regWr);
+
         REG_REGDST : dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
@@ -303,5 +315,14 @@ BEGIN
                 i_WE => i_we, -- 
                 i_D => i_branch, -- Data bit input
                 o_Q => o_branch);
+
+
+        REG_HALT : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_halt, -- Data bit input
+                o_Q => o_halt);
 
 END structure;

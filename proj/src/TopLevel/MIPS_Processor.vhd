@@ -167,6 +167,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_clk : IN STD_LOGIC; -- clk bit
       i_rst : IN STD_LOGIC; -- reset bit
       i_we : IN STD_LOGIC; -- write enable
+      i_jump : IN STD_LOGIC; -- write enable
+      i_data2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       i_data : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bits of data for register
       o_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- output of write
   END COMPONENT;
@@ -220,6 +222,10 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       i_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       i_regDst : IN STD_LOGIC; -- Goes to Write Back
+      i_regWr : IN STD_LOGIC; -- 
+      i_halt : IN STD_LOGIC; -- 
+      o_halt : OUT STD_LOGIC; -- 
+      o_regWr : OUT STD_LOGIC; -- 
       o_RegDst : OUT STD_LOGIC; -- Goes to Write Back
       o_PC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       o_inst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -263,6 +269,12 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0);-- 5 bits (inst 20-16)
       i_rd : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 15-11)
       i_regDst : IN STD_LOGIC; -- Goes to Write Back
+      i_jump : IN STD_LOGIC; -- Goes to 
+      i_regWr : IN STD_LOGIC; -- 
+      i_halt : IN STD_LOGIC; -- 
+      o_halt : OUT STD_LOGIC; -- 
+      o_regWr : OUT STD_LOGIC; -- 
+      o_jump : OUT STD_LOGIC; -- Goes to 
       o_RegDst : OUT STD_LOGIC; -- Goes to Write Back
       o_rtOut : OUT STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 20-16) out
       o_rdOut : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -290,6 +302,12 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0);-- 5 bits (inst 20-16)
       i_rd : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 15-11)
       i_regDst : IN STD_LOGIC; -- Goes to Write Back
+      i_jump : IN STD_LOGIC; -- Goes to 
+      i_regWr : IN STD_LOGIC; -- 
+      i_halt : IN STD_LOGIC; -- 
+      o_halt : OUT STD_LOGIC; -- 
+      o_regWr : OUT STD_LOGIC; -- 
+      o_jump : OUT STD_LOGIC; -- Goes to 
       o_regDst : OUT STD_LOGIC; -- Goes to Write Back
       o_rtOut : OUT STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 20-16) out
       o_rdOut : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -370,6 +388,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_branch : STD_LOGIC; -- goes to fetch logic
   SIGNAL s_ctlExt : STD_LOGIC; -- 
   SIGNAL s_extendBy : STD_LOGIC; -- goes to extender
+  signal s_HaltControl : std_logic;
 
   -- Fetch Stage Signals
   SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -408,6 +427,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_Imm32Ex : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_InstEx : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_RegDstEx : STD_LOGIC;
+  SIGNAL s_regWrEx : STD_LOGIC;
+  SIGNAL s_haltEX : std_Logic;
 
   --EXECUTE/MEMORY REG SIGNALS
   SIGNAL s_jalMem : STD_LOGIC;
@@ -420,6 +441,10 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_rtMem : STD_LOGIC_VECTOR(4 DOWNTO 0);
   SIGNAL s_rdMem : STD_LOGIC_VECTOR(4 DOWNTO 0);
   SIGNAL s_RegDstMem : STD_LOGIC;
+  SIGNAL s_jumpMem : STD_LOGIC;
+  SIGNAL s_regWrMem : STD_LOGIC;
+  SIGNAL s_jumpAddrMem : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_haltMem : std_Logic;
 
   --MEMORY/WRITEBACK REG SIGNALS
   SIGNAL s_MemToRegWB : STD_LOGIC; -- goes to Execute from ID/EX register
@@ -431,6 +456,9 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_rtWB : STD_LOGIC_VECTOR(4 DOWNTO 0);
   SIGNAL s_rdWB : STD_LOGIC_VECTOR(4 DOWNTO 0);
   SIGNAL s_RegDstWB : STD_LOGIC;
+  SIGNAL s_jumpWB : STD_LOGIC;
+  SIGNAL s_regWrWB : STD_LOGIC;
+  SIGNAL s_jumpAddrWB : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   --ALU SIGNALS
   SIGNAL s_zero : STD_LOGIC;
@@ -496,6 +524,8 @@ BEGIN
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1', -- TODO (When should write the new PC address into register)
+    i_jump => s_jumpWB,
+    i_data2 => s_nextPCWB,
     i_data => s_PC4, -- Next PC Address
     o_out => s_nextInstAddr); -- Output from PC Register of Next PC Address
 
@@ -567,7 +597,7 @@ BEGIN
   PORT MAP(
     i_inst => s_InstDec,
     o_RegDst => s_RegDst,
-    o_RegWrite => s_RegWr,
+    o_RegWrite => s_RegWrite,
     o_memToReg => s_memToReg,
     o_memWrite => s_memWrite,
     o_ALUSrc => s_ALUSrc,
@@ -585,7 +615,7 @@ BEGIN
     o_branch => s_branch,
     o_jump => s_jump,
     o_lui => s_lui,
-    o_halt => s_Halt,
+    o_halt => s_HaltControl,
     o_ctlExt => s_ctlExt);
 
   D_EX : Decode_Execute_Reg
@@ -618,6 +648,10 @@ BEGIN
     i_PC => s_nextInstAddrDec, -- PC Address for Fetch Logic
     i_inst => s_InstDec,
     i_regDst => s_RegDst,
+    i_regWr => s_RegWrite,
+    i_halt => s_HaltControl,
+    o_halt => s_haltEx,
+    o_regWr => s_regWrEx,
     o_RegDst => s_RegDstEx,
     o_inst => s_InstEx,
     o_PC => s_nextInstAddrEx,
@@ -700,7 +734,7 @@ BEGIN
     o_overflow => s_Ovfl,
     o_zero => s_zero);
 
-  oALUOut <= s_result; -- ALU result signal that is used for other components
+    oALUOut <= s_result; -- ALU result signal that is used for other components
 
   EX_MEM : Execute_Memory_Reg
   PORT MAP(
@@ -717,6 +751,12 @@ BEGIN
     i_rt => s_InstDec(20 DOWNTO 16), -- 5 bits (inst 20-16)
     i_rd => s_InstDec(15 DOWNTO 11), -- 5 bits (inst 15-11)
     i_regDst => s_RegDstEx,
+    i_jump => s_jumpEx,
+    i_regWr => s_regWrEx,
+    i_halt => s_haltEx,
+    o_halt => s_haltMem,
+    o_regWr => s_regWrMem,
+    o_jump => s_jumpMem,
     o_RegDst => s_RegDstMem,
     o_rtOut => s_rtMem, -- 5 bits (inst 20-16) out
     o_rdOut => s_rdMem,
@@ -748,6 +788,12 @@ BEGIN
     i_rt => s_rtEX, -- 5 bits (inst 20-16)
     i_rd => s_rdEX, -- 5 bits (inst 15-11)
     i_regDst => s_RegDstMem,
+    i_jump => s_jumpMem,
+    i_regWr => s_regWrMem,
+    i_halt => s_haltMem,
+    o_halt => s_Halt,
+    o_regWr => s_RegWr,
+    o_jump => s_jumpWB,
     o_regDst => s_RegDstWB,
     o_rtOut => s_rtWB, -- 5 bits (inst 20-16) out
     o_rdOut => s_rdWB,
@@ -773,4 +819,5 @@ BEGIN
     i_D0 => s_ALUMEMMUX, -- ALU data from ALU
     i_D1 => s_raWB, -- Memory data from MEM
     o_O => s_RegWrData); -- Data output to Register Data Input
+
 END structure;
