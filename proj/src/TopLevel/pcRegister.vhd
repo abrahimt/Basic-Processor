@@ -41,6 +41,10 @@ ARCHITECTURE structure OF pcRegister IS
 
 BEGIN
 
+    o_out <= s_one when (i_jump = '0') else
+             s_two when (i_jump = '1') else
+             s_one;   
+
     REG : Nbit_reg_PC
     PORT MAP(
         i_CLK => i_clk, -- Clock bit input
@@ -56,9 +60,6 @@ BEGIN
         i_WE => i_we, -- Should be selecting 1 bit from decoder for each register; ex) 0000 1000 would be register $3
         i_D => i_data2, -- Data bit input
         o_Q => s_two);
-
-    o_out <= s_one when (i_jump = '0') else
-             s_two when (i_jump = '1') else
-             s_one;    
+ 
 
 END structure;

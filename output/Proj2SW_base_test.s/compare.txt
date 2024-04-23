@@ -1,19 +1,19 @@
 Oh no...
 
-Cycle: 25
-MARS instruction number: 15	Instruction: sll $5,$1,1
+Cycle: 23
+MARS instruction number: 13	Instruction: sll $5,$1,1
 Expected:	Register Write to Reg: 0x05 Val: 0x00000002
 Got     :	Register Write to Reg: 0x03 Val: 0x00000000
 Incorrect write
 
-Cycle: 26
-MARS instruction number: 16	Instruction: srl $6,$1,1
+Cycle: 24
+MARS instruction number: 14	Instruction: srl $6,$1,1
 Expected:	Register Write to Reg: 0x06 Val: 0x00000000
 Got     :	Register Write to Reg: 0x03 Val: 0x00000001
 Incorrect write
 
-Cycle: 30
-MARS instruction number: 17	Instruction: sra $7,$1,1
+Cycle: 28
+MARS instruction number: 15	Instruction: sra $7,$1,1
 Expected:	Register Write to Reg: 0x07 Val: 0x00000000
 Got     :	Register Write to Reg: 0x03 Val: 0x00000000
 Incorrect write

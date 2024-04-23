@@ -1,3 +1,1 @@
 proj/mips/part2/Proj2SW_base_test.s
-proj/mips/part2/Proj2SW_bubblesort.s
-proj/mips/part2/Proj2SW_cf_test.s
