@@ -36,8 +36,8 @@ ARCHITECTURE structure OF pcRegister IS
             o_Q : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- 32 bit output
     END COMPONENT;
 
-    SIGNAL s_one : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL s_two : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    signal s_one : std_logic_vector(31 downto 0);
+    signal s_two : std_logic_vector(31 downto 0);
 
 BEGIN
 
@@ -57,8 +57,8 @@ BEGIN
         i_D => i_data2, -- Data bit input
         o_Q => s_two);
 
-    o_out <= s_one WHEN (i_jump = '0') ELSE
-        s_two WHEN (i_jump = '1') ELSE
-        s_one;
+    o_out <= s_one when (i_jump = '0') else
+             s_two when (i_jump = '1') else
+             s_one;    
 
 END structure;
