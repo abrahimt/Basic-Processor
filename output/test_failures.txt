@@ -1,1 +1,0 @@
-proj/mips/part2/Proj2SW_base_test.s

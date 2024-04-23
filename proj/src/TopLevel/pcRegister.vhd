@@ -42,7 +42,7 @@ ARCHITECTURE structure OF pcRegister IS
 BEGIN
 
     o_out <= s_one when (i_jump = '0') else
-             s_two when (i_jump = '1') else
+             i_data2 when (i_jump = '1') else
              s_one;   
 
     REG : Nbit_reg_PC
