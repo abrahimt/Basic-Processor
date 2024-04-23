@@ -157,6 +157,8 @@ BEGIN
                 i_WE => i_we, -- 
                 i_D => i_jump, -- Data bit input
                 o_Q => o_jump);
+
+
         REG_HALT : dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
@@ -164,5 +166,7 @@ BEGIN
                 i_WE => i_we, -- 
                 i_D => i_halt, -- Data bit input
                 o_Q => o_halt);
+
+                
 
 END structure;

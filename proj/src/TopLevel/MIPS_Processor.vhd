@@ -388,7 +388,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_branch : STD_LOGIC; -- goes to fetch logic
   SIGNAL s_ctlExt : STD_LOGIC; -- 
   SIGNAL s_extendBy : STD_LOGIC; -- goes to extender
-  SIGNAL s_HaltControl : STD_LOGIC;
+  signal s_HaltControl : std_logic;
 
   -- Fetch Stage Signals
   SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -428,7 +428,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_InstEx : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_RegDstEx : STD_LOGIC;
   SIGNAL s_regWrEx : STD_LOGIC;
-  SIGNAL s_haltEX : STD_LOGIC;
+  SIGNAL s_haltEX : std_Logic;
 
   --EXECUTE/MEMORY REG SIGNALS
   SIGNAL s_jalMem : STD_LOGIC;
@@ -444,7 +444,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_jumpMem : STD_LOGIC;
   SIGNAL s_regWrMem : STD_LOGIC;
   SIGNAL s_jumpAddrMem : STD_LOGIC_VECTOR(31 DOWNTO 0);
-  SIGNAL s_haltMem : STD_LOGIC;
+  SIGNAL s_haltMem : std_Logic;
 
   --MEMORY/WRITEBACK REG SIGNALS
   SIGNAL s_MemToRegWB : STD_LOGIC; -- goes to Execute from ID/EX register
@@ -734,7 +734,7 @@ BEGIN
     o_overflow => s_Ovfl,
     o_zero => s_zero);
 
-  oALUOut <= s_result; -- ALU result signal that is used for other components
+    oALUOut <= s_result; -- ALU result signal that is used for other components
 
   EX_MEM : Execute_Memory_Reg
   PORT MAP(
