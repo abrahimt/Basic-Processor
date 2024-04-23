@@ -9,8 +9,6 @@ addi  $2,  $0,  2		# Place “2” in $2
 addi  $3,  $0,  3		# Place “3” in $3
 addiu $4, $0 , 4		#Place "4" in $4
 nop
-nop
-nop
 add	 $11, $1,  $2		# $11 = $1 + $2 #fetch add, wb addi 2
 nop						#dec add
 nop						#exec add
