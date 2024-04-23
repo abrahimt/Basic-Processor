@@ -1,21 +1,21 @@
 Oh no...
 
-Cycle: 28
-MARS instruction number: 25	Instruction: addi $29,$29,-8
-Expected:	Register Write to Reg: 0x1D Val: 0x10010FF8
-Got     :	Register Write to Reg: 0x1F Val: 0x00400054
+Cycle: 388
+MARS instruction number: 349	Instruction: addiu $2,$0,0
+Expected:	Register Write to Reg: 0x02 Val: 0x00000000
+Got     :	Register Write to Reg: 0x04 Val: 0xFFFFFFFF
 Incorrect write
 
-Cycle: 43
-MARS instruction number: 29	Instruction: sw $31,0($29)
-Expected:	Memory Write to Addr: 0x10010FF8 Val: 0x00400054
-Got     :	Register Write to Reg: 0x1D Val: 0x10010FF8
-Wrote to incorrect structure
+Cycle: 392
+MARS instruction number: 357	Instruction: lw $31,0($29)
+Expected:	Register Write to Reg: 0x1F Val: 0x004000E0
+Got     :	Register Write to Reg: 0x10 Val: 0xFFFFFFFF
+Incorrect write
 
-Cycle: 46
-MARS instruction number: 33	Instruction: sw $16,4($29)
-Expected:	Memory Write to Addr: 0x10010FFC Val: 0x00000000
-Got     :	Memory Write to Addr: 0x10010FF8 Val: 0x00400054
+Cycle: 396
+MARS instruction number: 361	Instruction: lw $16,4($29)
+Expected:	Register Write to Reg: 0x10 Val: 0x00000000
+Got     :	Register Write to Reg: 0x1F Val: 0x004000E0
 Incorrect write
 
 You have reached the maximum mismatches (3)

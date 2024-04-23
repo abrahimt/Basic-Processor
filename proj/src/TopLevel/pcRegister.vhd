@@ -19,6 +19,7 @@ ENTITY pcRegister IS
         i_rst : IN STD_LOGIC; -- reset bit
         i_we : IN STD_LOGIC; -- write enable
         i_jump : IN STD_LOGIC; -- write enable
+        i_branch : IN STD_LOGIC;
         i_data2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         i_data : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bits of data for register
         o_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- output of write
@@ -36,14 +37,14 @@ ARCHITECTURE structure OF pcRegister IS
             o_Q : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0)); -- 32 bit output
     END COMPONENT;
 
-    signal s_one : std_logic_vector(31 downto 0);
-    signal s_two : std_logic_vector(31 downto 0);
+    SIGNAL s_one : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL s_two : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 BEGIN
 
-    o_out <= s_one when (i_jump = '0') else
-             i_data2 when (i_jump = '1') else
-             s_one;   
+    o_out <= s_one WHEN (i_jump = '0' AND i_branch = '0') ELSE
+        i_data2 WHEN (i_jump = '1' OR i_branch = '1') ELSE
+        s_one;
 
     REG : Nbit_reg_PC
     PORT MAP(
@@ -60,6 +61,4 @@ BEGIN
         i_WE => i_we, -- Should be selecting 1 bit from decoder for each register; ex) 0000 1000 would be register $3
         i_D => i_data2, -- Data bit input
         o_Q => s_two);
- 
-
 END structure;

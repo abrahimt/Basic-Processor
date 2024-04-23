@@ -21,6 +21,8 @@ ENTITY Memory_WriteBack_Reg IS
                 i_jump : IN STD_LOGIC; -- Goes to 
                 i_regWr : IN STD_LOGIC; -- 
                 i_halt : IN STD_LOGIC; -- 
+                i_branch : IN STD_LOGIC; -- 
+                o_branch : OUT STD_LOGIC; -- 
                 o_halt : OUT STD_LOGIC; -- 
                 o_regWr : OUT STD_LOGIC; -- 
                 o_jump : OUT STD_LOGIC; -- Goes to 
@@ -157,8 +159,6 @@ BEGIN
                 i_WE => i_we, -- 
                 i_D => i_jump, -- Data bit input
                 o_Q => o_jump);
-
-
         REG_HALT : dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
@@ -167,6 +167,12 @@ BEGIN
                 i_D => i_halt, -- Data bit input
                 o_Q => o_halt);
 
-                
+        REG_BRANCH : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_branch, -- Data bit input
+                o_Q => o_branch);
 
 END structure;

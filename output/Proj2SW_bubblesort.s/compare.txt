@@ -12,11 +12,11 @@ Expected:	Register Write to Reg: 0x14 Val: 0x00000042
 Got     :	Register Write to Reg: 0x14 Val: 0x10010004
 Incorrect write
 
-Cycle: 32
-MARS instruction number: 32	Instruction: addi $9,$9,1
-Expected:	Register Write to Reg: 0x09 Val: 0x00000002
-Got     :	Memory Write to Addr: 0x10010004 Val: 0x10010000
-Wrote to incorrect structure
+Cycle: 42
+MARS instruction number: 33	Instruction: lw $19,0($11)
+Expected:	Register Write to Reg: 0x13 Val: 0x00000042
+Got     :	Register Write to Reg: 0x13 Val: 0x10010004
+Incorrect write
 
 You have reached the maximum mismatches (3)
 
