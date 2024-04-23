@@ -18,14 +18,14 @@ Register Write to Reg: 0x0B Val: 0x00000003
 Register Write to Reg: 0x0C Val: 0x00000000
 [inst #13] subu $13,$11,$3
 Register Write to Reg: 0x0D Val: 0x00000000
-[inst #14] j 4194436
+[inst #14] j 4194452
 [inst #15] sll $5,$1,1
 Register Write to Reg: 0x05 Val: 0x00000002
 [inst #16] srl $6,$1,1
 Register Write to Reg: 0x06 Val: 0x00000000
 [inst #17] sra $7,$1,1
 Register Write to Reg: 0x07 Val: 0x00000000
-[inst #18] j 4194364
+[inst #18] j 4194372
 [inst #19] slt $3,$4,$2
 Register Write to Reg: 0x03 Val: 0x00000000
 [inst #20] slti $3,$1,4
@@ -51,17 +51,19 @@ Register Write to Reg: 0x0E Val: 0x00000002
 Register Write to Reg: 0x0B Val: 0xFFFFFFFF
 [inst #34] ori $12,$1,2
 Register Write to Reg: 0x0C Val: 0x00000002
-[inst #35] j 4194456
+[inst #35] j 4194480
 [inst #36] lui $15,4097
 Register Write to Reg: 0x0F Val: 0x10010000
-[inst #37] jal 4194476
-Register Write to Reg: 0x1F Val: 0x004000A0
+[inst #37] jal 4194516
+Register Write to Reg: 0x1F Val: 0x004000B8
 [inst #38] addi $8,$0,8
 Register Write to Reg: 0x08 Val: 0x00000008
 [inst #39] addi $9,$0,9
 Register Write to Reg: 0x09 Val: 0x00000009
 [inst #40] jr $31
 [inst #41] nop 
-[inst #42] j 4194492
-[inst #43] halt 
+[inst #42] nop 
+[inst #43] nop 
+[inst #44] j 4194540
+[inst #45] halt 
 

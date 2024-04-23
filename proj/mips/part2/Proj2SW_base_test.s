@@ -19,7 +19,8 @@ sub 	 $12, $11, $3 		# $12 = $11 - $3	#wb add, fetch sub
 subu	$13, $11, $3 		#$13 = $11 - $3		
 j shift
 nop
-
+nop
+nop
 
 
 testlogic: 
@@ -41,6 +42,8 @@ testlogic:
 	ori $12, $1, 2
 	j more
 	nop
+	nop
+	nop
 
 shift: 
 	sll $5, $1, 1
@@ -48,12 +51,18 @@ shift:
 	sra $7, $1, 1
 	j testlogic
 	nop
+	nop
+	nop
 
 more: 
 	lui $15, 4097
 	jal testjal	#fetch jal
 	nop		#dec jal (make jump)
+	nop
+	nop
 	j exit
+	nop
+	nop
 	nop
 
 
@@ -63,7 +72,8 @@ testjal:
 	addi $9, $0, 9	#memjal
 	jr $31		#fetch jr, wb jal
 	nop		#dec jr (make jump)
-	
+	nop
+	nop
 
 exit: 
 
