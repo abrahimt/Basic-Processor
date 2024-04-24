@@ -820,7 +820,7 @@ BEGIN
 
   G_MUX_ALU_MEM : mux2t1_N
   PORT MAP(
-    i_S => s_memToReg, -- selection bit from Control
+    i_S => s_MemToRegWB, -- selection bit from Control
     i_D0 => s_ALUResultOutWB, -- ALU data from ALU
     i_D1 => s_DmemOutWB, -- Memory data from MEM
     o_O => s_ALUMEMMUX); -- Data output to Register Data Input
