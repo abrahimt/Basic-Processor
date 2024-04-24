@@ -181,11 +181,15 @@ ARCHITECTURE structure OF MIPS_Processor IS
     PORT (
       i_clk : IN STD_LOGIC; -- clk bit
       i_rst : IN STD_LOGIC; -- reset bit
+      i_flush : IN STD_LOGIC;
       i_we : IN STD_LOGIC; -- write enable
+      i_stall : IN STD_LOGIC;
       i_Inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bit instruction register
       i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bit PC data
       i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0);-- 5 bits (inst 20-16)
       i_rd : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 15-11)
+      i_PC4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      o_PC4 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       o_rtOut : OUT STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bits (inst 20-16) out
       o_rdOut : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
       o_PCOut : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- output of PC4
@@ -198,6 +202,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_clk : IN STD_LOGIC; -- clk bit
       i_rst : IN STD_LOGIC; -- reset bit
       i_we : IN STD_LOGIC; -- write enable
+      i_stall : IN STD_LOGIC;
       i_memWrite : IN STD_LOGIC; -- Goes to Dmem
       i_MemToReg : IN STD_LOGIC; -- Goes to Write Back		
       i_ALUOp : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- Goes to ALU
@@ -260,6 +265,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_clk : IN STD_LOGIC; -- clk bit
       i_rst : IN STD_LOGIC; -- reset bit
       i_we : IN STD_LOGIC; -- write enable
+      i_stall : IN STD_LOGIC;
       i_memWrite : IN STD_LOGIC; -- Goes to Dmem
       i_jal : IN STD_LOGIC; -- Goes to Write Back
       i_MemToReg : IN STD_LOGIC; -- Goes to Write Back
@@ -274,6 +280,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_regWr : IN STD_LOGIC; -- 
       i_halt : IN STD_LOGIC; -- 
       i_branch : IN STD_LOGIC; -- 
+      i_writeLocation : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      o_writeLocation : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
       o_branch : OUT STD_LOGIC; -- 
       o_halt : OUT STD_LOGIC; -- 
       o_regWr : OUT STD_LOGIC; -- 
@@ -296,6 +304,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_clk : IN STD_LOGIC; -- clk bit
       i_rst : IN STD_LOGIC; -- reset bit
       i_we : IN STD_LOGIC; -- write enable
+      i_stall : IN STD_LOGIC;
       i_jal : IN STD_LOGIC; -- jal for mux
       i_MemToReg : IN STD_LOGIC; -- Goes to Write Back
       i_Dmem : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bit Dmem Data 
@@ -309,6 +318,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_regWr : IN STD_LOGIC; -- 
       i_halt : IN STD_LOGIC; -- 
       i_branch : IN STD_LOGIC; -- 
+      i_writeLocation : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      o_writeLocation : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
       o_branch : OUT STD_LOGIC; -- 
       o_halt : OUT STD_LOGIC; -- 
       o_regWr : OUT STD_LOGIC; -- 
@@ -341,6 +352,37 @@ ARCHITECTURE structure OF MIPS_Processor IS
       in_C : IN STD_LOGIC;
       out_S : OUT STD_LOGIC_VECTOR(N - 1 DOWNTO 0);
       out_C : OUT STD_LOGIC);
+  END COMPONENT;
+
+  COMPONENT detectHazard IS
+    PORT (
+      i_rdEx : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_rdMem : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_rs : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      o_stall : OUT STD_LOGIC); -- 1 when not true 
+  END COMPONENT;
+
+  COMPONENT ForwardingUnit IS
+    GENERIC (N : INTEGER := 32); -- Generic of type integer for input/output data width. Default value is 32.
+    PORT (
+      i_regWrMem : IN STD_LOGIC; -- write back bit from write back
+      i_regWrWB : IN STD_LOGIC; -- write back bit from write back
+      i_memMux : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bit RD or Shamt from memory?
+      i_wbMux : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bit RD or Shamt from write back?
+      i_rs : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bit rs
+      i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0); -- 5 bit rt
+      o_mux1 : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- output mux one
+      o_mux2 : OUT STD_LOGIC_VECTOR(1 DOWNTO 0));-- output mux two
+  END COMPONENT;
+
+  COMPONENT PipelineShift IS
+    PORT (
+      i_clk : IN STD_LOGIC; -- Clock input
+      i_rst : IN STD_LOGIC; -- Reset input
+      i_PC4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC + 4 [31 - 0]
+      i_imm : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Branch Instruction Input [15-0]
+      o_Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Jump Address Output
   END COMPONENT;
 
   -- Required data memory signals
@@ -405,6 +447,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_rdDec : STD_LOGIC_VECTOR(4 DOWNTO 0);
   SIGNAL s_RegDstDec : STD_LOGIC;
   SIGNAL s_jalDec : STD_LOGIC;
+  signal s_PC4Dec : std_logic_vector(31 downto 0);
 
   --DECODE/EXECUTE REG SIGNALS
   SIGNAL s_ALUOpEx : STD_LOGIC_VECTOR(3 DOWNTO 0); -- goes to Execute from ID/EX register
@@ -451,6 +494,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_jumpAddrMem : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_haltMem : STD_LOGIC;
   SIGNAL s_branchMem : STD_LOGIC;
+  SIGNAL s_muxLocationMem : STD_LOGIC_VECTOR(4 DOWNTO 0);
 
   --MEMORY/WRITEBACK REG SIGNALS
   SIGNAL s_MemToRegWB : STD_LOGIC; -- goes to Execute from ID/EX register
@@ -466,6 +510,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_regWrWB : STD_LOGIC;
   SIGNAL s_jumpAddrWB : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_branchWB : STD_LOGIC;
+  SIGNAL s_muxLocationWB : STD_LOGIC_VECTOR(4 DOWNTO 0);
 
   --ALU SIGNALS
   SIGNAL s_zero : STD_LOGIC;
@@ -486,6 +531,15 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_RegDMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_ALUMEMMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_RegDstOrg : STD_LOGIC_VECTOR(4 DOWNTO 0);
+  SIGNAL s_muxLocation : STD_LOGIC_VECTOR(4 DOWNTO 0);
+  SIGNAL s_mux1Select : STD_LOGIC_VECTOR(1 DOWNTO 0);
+  SIGNAL s_mux2Select : STD_LOGIC_VECTOR(1 DOWNTO 0);
+  SIGNAL s_mux1Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_mux2Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  signal s_BranchJump : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+  --HAZARD SIGNALS
+  SIGNAL s_stall : STD_LOGIC;
 
 BEGIN
 
@@ -523,14 +577,18 @@ BEGIN
 
   -- Fetch Stage --
 
-  -- TODO HW
-  -- mux before PC Register
+  -- G_MUX_PCADD : mux2t1_N
+  -- PORT MAP(
+  --   i_S => , -- branch prediction --TODO 
+  --   i_D0 => s_PC4,
+  --   i_D1 => s_BranchJump, 
+  --   o_O => s_RegWrAddr); -- 
 
   PC_REG : pcRegister
   PORT MAP(
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
-    i_we => '1', -- TODO (When should write the new PC address into register)
+    i_we => '1',
     i_jump => s_jumpWB,
     i_branch => s_branchWB,
     i_data2 => s_nextPCWB,
@@ -552,21 +610,22 @@ BEGIN
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1', -- write enable
+    i_flush => '0', --TODO needs to come from control
+    i_stall => s_stall,
     i_Inst => s_Inst,
     i_PC => s_nextInstAddr,
+    i_PC4 => s_PC4,
     i_rt => s_rtWB, -- 5 bits (inst 20-16)
     i_rd => s_rdWB, -- 5 bits (inst 15-11)
     o_rtOut => s_rtDec, -- 5 bits (inst 20-16) out
     o_rdOut => s_rdDec,
+    o_PC4 => s_PC4Dec,
     o_PCOut => s_nextInstAddrDec,
     o_InstOut => s_InstDec); -- 32 bit instructMem
 
-  -- G_MUX_CONTROL : mux2t1
-  -- PORT MAP(
-  --   i_S => , -- TODO Comes from hazard detection
-  --   i_D0 => , -- TODO Comes from Control
-  --   i_D1 => '0', -- TODO should be 0 but needs to be correct size
-  --   o_O => s_controlMux);
+  -- DECODE STAGE
+  -- TODO
+  -- ADD rs and rt compare
 
   G_MUX_REGDST : mux2t1_5bit
   PORT MAP(
@@ -601,6 +660,15 @@ BEGIN
     i_S => s_extendBy,
     o_out => s_Imm32);
 
+  HAZARD : detectHazard
+  PORT MAP(
+    i_rdEx => s_rdEx,
+    i_rdMem => s_rdMem,
+    i_rt => s_InstDec(20 DOWNTO 16),
+    i_rs => s_InstDec(25 DOWNTO 21),
+    o_stall => s_stall);
+
+  --TODO ADD FLUSH SIGNAL
   G_CTL : control
   PORT MAP(
     i_inst => s_InstDec,
@@ -626,11 +694,20 @@ BEGIN
     o_halt => s_HaltControl,
     o_ctlExt => s_ctlExt);
 
+    SHIFT : PipelineShift
+    PORT MAP(
+      i_clk => iCLK, -- Clock input
+      i_rst => iRST, -- Reset input
+      i_PC4 => s_PC4Dec, -- PC + 4 [31 - 0]
+      i_imm => s_Imm32, -- Branch Instruction Input [15-0]
+      o_Q => s_BranchJump); -- Jump Address Output
+
   D_EX : Decode_Execute_Reg
   PORT MAP(
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
-    i_we => '1', -- write enable  --TODO
+    i_we => '1', -- write enable  
+    i_stall => s_stall,
     i_memWrite => s_memWrite, -- Goes to Dmem
     i_MemToReg => s_MemToReg, -- Goes to Write Back	
     i_ALUOp => s_ALUOp,
@@ -687,26 +764,31 @@ BEGIN
     o_shamt => s_shamtEx); -- 5 bits (inst 15-11) out
 
   -- EXCUTE STAGE
-
   -- TODO
-  -- 2:1 MUX for rd & shamt
-  -- install Forwarding Unit
+  -- REMOVE BEQ and BNE from ALU
 
-  --  MUX1 : mux3t1
-  --  port(
-  --    i_A => s_RSDataOutReg,  -- id/ex rs register data
-  --    i_B => s_RegWrData, -- register write back data
-  --    i_C => s_result,-- ex/mem reg alu result
-  --    i_select => , -- TODO from forwarding Unit
-  --    o_O => s_mux1Data); -- ALU A input
+  MUX : mux2t1_5bit
+  PORT MAP(
+    i_S => s_regDstEx, -- select bit
+    i_D0 => s_rtEx, -- rt 5 bits
+    i_D1 => s_rdEx, -- rd 5 bits
+    o_O => s_muxLocation); -- Location of instructions write
 
-  --  MUX2 : mux3t1
-  --  port(
-  --    i_A => s_RTDataOutReg,  -- id/ex rt register data
-  --    i_B => s_RegWrData,  -- register write back data
-  --    i_C => s_result,  -- ex/mem reg alu result
-  --    i_select => , -- TODO from forwarding Unit
-  --    o_O => s_mux2Data); -- ALU B input, also Dmem address
+  MUX1 : mux3t1
+  PORT MAP(
+    i_A => s_RSDataOut, -- id/ex rs register data
+    i_B => s_RegWrData, -- register write back data
+    i_C => s_resultMem, -- ex/mem reg alu result
+    i_select => s_mux1Select, -- 
+    o_O => s_mux1Data); -- ALU A input
+
+  MUX2 : mux3t1
+  PORT MAP(
+    i_A => s_RTDataOut, -- id/ex rt register data
+    i_B => s_RegWrData, -- register write back data
+    i_C => s_resultMem, -- ex/mem reg alu result
+    i_select => s_mux2Select, -- 
+    o_O => s_mux2Data); -- ALU B input, also Dmem address
 
   G_FETCHLOGIC : fetchLogic
   PORT MAP(
@@ -722,6 +804,17 @@ BEGIN
     i_rs => s_RSDataOut, -- RS register value
     o_ra => s_ra, -- Output for $ra Address   
     o_newPC => s_nextPC); -- Output for PC Address   todo
+
+  G_FORWARD : ForwardingUnit
+  PORT MAP(
+    i_regWrMem => s_regWrMem, -- write back bit from memory
+    i_regWrWB => s_RegWr, -- write back bit from write back
+    i_memMux => s_muxLocationMem, -- 5 bit RD or Shamt from memory?
+    i_wbMux => s_muxLocationWB, -- 5 bit RD or Shamt from write back?
+    i_rs => s_rsEX, -- 5 bit rs
+    i_rt => s_rtEX, -- 5 bit rt
+    o_mux1 => s_mux1Select, -- output mux one
+    o_mux2 => s_mux2Select);-- output mux two
 
   G_ALU : alu
   PORT MAP(
@@ -749,6 +842,7 @@ BEGIN
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1', -- write enable
+    i_stall => s_stall,
     i_memWrite => s_memWriteEx, -- write back input
     i_jal => s_jalEx, -- write back input
     i_MemToReg => s_MemToRegEx, -- write back input
@@ -763,6 +857,8 @@ BEGIN
     i_regWr => s_regWrEx,
     i_halt => s_haltEx,
     i_branch => s_branchEx, -- 
+    i_writeLocation => s_muxLocation, -- 
+    o_writeLocation => s_muxLocationMem, -- 
     o_branch => s_branchMem, -- 
     o_halt => s_haltMem,
     o_regWr => s_regWrMem,
@@ -789,6 +885,7 @@ BEGIN
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1', -- write enable
+    i_stall => s_stall,
     i_jal => s_jalMem, -- jal for mux
     i_MemToReg => s_MemToRegMem, -- Goes to Write Back
     i_Dmem => s_DMemOut, -- 32 bit Dmem Data input
@@ -801,7 +898,9 @@ BEGIN
     i_jump => s_jumpMem,
     i_regWr => s_regWrMem,
     i_halt => s_haltMem,
-    i_branch => s_branchMem, -- 
+    i_branch => s_branchMem, --
+    i_writeLocation => s_muxLocationMem, --
+    o_writeLocation => s_muxLocationWB, --  
     o_branch => s_branchWB, -- 
     o_halt => s_Halt,
     o_regWr => s_RegWr,

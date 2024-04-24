@@ -9,6 +9,7 @@ ENTITY Memory_WriteBack_Reg IS
                 i_clk : IN STD_LOGIC; -- clk bit
                 i_rst : IN STD_LOGIC; -- reset bit
                 i_we : IN STD_LOGIC; -- write enable
+                i_stall : IN STD_LOGIC;
                 i_jal : IN STD_LOGIC; -- jal for mux
                 i_MemToReg : IN STD_LOGIC; -- Goes to Write Back
                 i_Dmem : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bit Dmem Data 
@@ -22,6 +23,8 @@ ENTITY Memory_WriteBack_Reg IS
                 i_regWr : IN STD_LOGIC; -- 
                 i_halt : IN STD_LOGIC; -- 
                 i_branch : IN STD_LOGIC; -- 
+                i_writeLocation : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+                o_writeLocation : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
                 o_branch : OUT STD_LOGIC; -- 
                 o_halt : OUT STD_LOGIC; -- 
                 o_regWr : OUT STD_LOGIC; -- 
@@ -68,13 +71,37 @@ ARCHITECTURE structure OF Memory_WriteBack_Reg IS
                         i_D : IN STD_LOGIC; -- Data value input
                         o_Q : OUT STD_LOGIC); -- Data value output
         END COMPONENT;
+
+        COMPONENT andg2 IS
+                PORT (
+                        i_A : IN STD_LOGIC;
+                        i_B : IN STD_LOGIC;
+                        o_F : OUT STD_LOGIC);
+        END COMPONENT;
+
+        SIGNAL s_we : STD_LOGIC;
+
 BEGIN
+
+        G_AND : andg2
+        PORT MAP(
+                i_A => i_we,
+                i_B => i_stall,
+                o_F => s_we);
+
+        REG_LOC : FIVEbit_dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => s_we, -- 
+                i_D => i_writeLocation, --  input
+                o_Q => o_writeLocation);
 
         REG_INST1 : FIVEbit_dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_rt, --  input
                 o_Q => o_rtOut);
 
@@ -82,7 +109,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_rd, --  input
                 o_Q => o_rdOut);
 
@@ -90,7 +117,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_nextPC, -- ALU Result input
                 o_Q => o_nextPC);
 
@@ -98,7 +125,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_ra, -- Dmem Addr input
                 o_Q => o_ra);
 
@@ -107,7 +134,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_ALUResult, --  input
                 o_Q => o_ALUResultOut);
 
@@ -116,7 +143,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_Dmem, --  input
                 o_Q => o_DmemOut);
 
@@ -124,7 +151,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_regWr, -- Data bit input
                 o_Q => o_regWr);
 
@@ -132,7 +159,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_regDst, -- memory bit input
                 o_Q => o_regDst);
 
@@ -140,7 +167,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_jal, -- memory bit input
                 o_Q => o_jal);
 
@@ -148,7 +175,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_MemToReg, -- memory bit input
                 o_Q => o_MemToReg);
 
@@ -156,14 +183,14 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_jump, -- Data bit input
                 o_Q => o_jump);
         REG_HALT : dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_halt, -- Data bit input
                 o_Q => o_halt);
 
@@ -171,7 +198,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => i_we, -- 
+                i_WE => s_we, -- 
                 i_D => i_branch, -- Data bit input
                 o_Q => o_branch);
 
