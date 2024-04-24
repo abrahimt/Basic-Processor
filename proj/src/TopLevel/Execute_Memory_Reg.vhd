@@ -81,21 +81,14 @@ ARCHITECTURE structure OF Execute_Memory_Reg IS
                         o_F : OUT STD_LOGIC);
         END COMPONENT;
 
-        SIGNAL s_we : STD_LOGIC;
 
 BEGIN
-
-        G_AND : andg2
-        PORT MAP(
-                i_A => i_we,
-                i_B => NOT i_stall,
-                o_F => s_we);
 
         REG_LOC : FIVEbit_dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_writeLocation, --  input
                 o_Q => o_writeLocation);
 
@@ -103,7 +96,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_rt, --  input
                 o_Q => o_rtOut);
 
@@ -111,7 +104,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_rd, --  input
                 o_Q => o_rdOut);
 
@@ -119,7 +112,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_nextPC, -- ALU Result input
                 o_Q => o_nextPC);
 
@@ -127,7 +120,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_ra, -- Dmem Addr input
                 o_Q => o_ra);
 
@@ -136,7 +129,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_ALUResult, --  input
                 o_Q => o_ALUResultOut);
 
@@ -145,7 +138,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_DmemData, --  input
                 o_Q => o_DmemDataOut);
 
@@ -153,7 +146,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_regWr, -- write back input
                 o_Q => o_regWr);
 
@@ -161,7 +154,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_memWrite, -- write back input
                 o_Q => o_memWrite);
 
@@ -169,7 +162,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_regDst, -- write back input
                 o_Q => o_RegDst);
 
@@ -177,7 +170,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_jal, -- memory bit input
                 o_Q => o_jal);
 
@@ -185,7 +178,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_MemToReg, -- memory bit input
                 o_Q => o_MemToReg);
 
@@ -193,7 +186,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_jump, -- Data bit input
                 o_Q => o_jump);
 
@@ -201,7 +194,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_halt, -- Data bit input
                 o_Q => o_halt);
 
@@ -209,7 +202,7 @@ BEGIN
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input
                 i_RST => i_rst, -- Reset bit input
-                i_WE => s_we, -- 
+                i_WE => i_we, -- 
                 i_D => i_branch, -- Data bit input
                 o_Q => o_branch);
 
