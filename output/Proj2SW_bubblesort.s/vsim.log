@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2023.2_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 10:43:28 on Apr 24,2024
+# Start time: 11:40:35 on Apr 24,2024
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2023.2_2 linux_x86_64 Jun  9 2023
@@ -86,10 +86,10 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 2  Instance: /tb/MyMips/G_ALU/G_SLT
 # ** Note: Data structure takes 70499888 bytes of memory
-#          Process time 0.64 seconds
+#          Process time 0.67 seconds
 #          stop
 #    Time: 32260 ns  Iteration: 1  Instance: /tb
-# Break in Process P_DUMP_STATE at /home/abrahimt/CPR E 381/Project 1/cpr-e-381/internal/testpy/tb.vhd line 150
-# Stopped at /home/abrahimt/CPR E 381/Project 1/cpr-e-381/internal/testpy/tb.vhd line 150
-# End time: 10:43:29 on Apr 24,2024, Elapsed time: 0:00:01
+# Break in Process P_DUMP_STATE at /home/abrahimt/CPR E 381/Project/cpr-e-381/internal/testpy/tb.vhd line 150
+# Stopped at /home/abrahimt/CPR E 381/Project/cpr-e-381/internal/testpy/tb.vhd line 150
+# End time: 11:40:36 on Apr 24,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 4
