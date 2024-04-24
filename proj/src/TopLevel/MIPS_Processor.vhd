@@ -531,9 +531,9 @@ BEGIN
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1', -- TODO (When should write the new PC address into register)
-    i_jump => s_jumpWB,
-    i_branch => s_branchWB,
-    i_data2 => s_nextPCWB,
+    i_jump => s_jumpEx,
+    i_branch => s_branchEx,
+    i_data2 => s_nextPC,
     i_data => s_PC4, -- Next PC Address
     o_out => s_nextInstAddr); -- Output from PC Register of Next PC Address
 
