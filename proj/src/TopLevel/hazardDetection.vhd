@@ -21,6 +21,6 @@ BEGIN
         '1' WHEN (i_rdEx = i_rt) ELSE
         '1' WHEN (i_rdMem = i_rs) ELSE
         '1' WHEN (i_rdMem = i_rt) ELSE
-        '1';
+        '0';
 
 END structure;
