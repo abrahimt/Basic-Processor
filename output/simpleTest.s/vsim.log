@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2023.2_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 15:47:33 on Apr 24,2024
+# Start time: 18:16:37 on Apr 24,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
@@ -33,6 +33,9 @@ Reading pref.tcl
 # Loading work.mips_processor(structure)#1
 # Loading ieee.numeric_std(body)
 # Loading work.mem(rtl)#1
+# Loading work.org2(dataflow)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1_dataflow(dataflow)#1
 # Loading work.pcregister(structure)#1
 # Loading work.nbit_reg_pc(structural)#1
 # Loading work.dffg_pc(mixed)#1
@@ -40,12 +43,10 @@ Reading pref.tcl
 # Loading work.fulladder(structure)#1
 # Loading work.xorg2(dataflow)#1
 # Loading work.andg2(dataflow)#1
-# Loading work.org2(dataflow)#1
 # Loading work.fetch_decode_reg(structure)#1
 # Loading work.fivebit_dffg(mixed)#1
 # Loading work.nbit_dffg(mixed)#1
 # Loading work.mux2t1_5bit(structural)#1
-# Loading work.mux2t1_dataflow(dataflow)#1
 # Loading work.mipsregister(structural)#1
 # Loading work.decoder(decode)#1
 # Loading work.andg2n(structural)#1
@@ -60,12 +61,12 @@ Reading pref.tcl
 # Loading work.pipelineshift(structural)#1
 # Loading work.shift(behavioral)#1
 # Loading work.decode_execute_reg(structure)#1
-# Loading work.fourbit_dffg(mixed)#1
+# Loading work.nbit_dffg(mixed)#2
+# Loading work.nbit_dffg(mixed)#3
 # Loading work.mux3t1(structure)#1
 # Loading work.fetchlogic(structural)#1
 # Loading work.jump(structural)#1
 # Loading work.barrel_shifter(structural)#1
-# Loading work.mux2t1_n(structural)#1
 # Loading work.mux2t1(structural)#1
 # Loading work.invg(dataflow)#1
 # Loading work.barrel_shifter(structural)#2
@@ -93,5 +94,11 @@ Reading pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/IMem
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 2  Instance: /tb/MyMips/G_ALU/G_SLT
-# End time: 15:47:53 on Apr 24,2024, Elapsed time: 0:00:20
+# ** Note: Data structure takes 70849232 bytes of memory
+#          Process time 0.09 seconds
+#          stop
+#    Time: 220 ns  Iteration: 1  Instance: /tb
+# Break in Process P_DUMP_STATE at /home/abrahimt/CPR E 381/Project/cpr-e-381/internal/testpy/tb.vhd line 150
+# Stopped at /home/abrahimt/CPR E 381/Project/cpr-e-381/internal/testpy/tb.vhd line 150
+# End time: 18:16:41 on Apr 24,2024, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 5

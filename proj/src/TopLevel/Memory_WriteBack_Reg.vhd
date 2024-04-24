@@ -81,6 +81,8 @@ ARCHITECTURE structure OF Memory_WriteBack_Reg IS
 
 BEGIN
 
+        
+
         REG_LOC : FIVEbit_dffg
         PORT MAP(
                 i_CLK => i_clk, -- Clock bit input

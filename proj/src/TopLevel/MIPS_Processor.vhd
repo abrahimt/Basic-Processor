@@ -86,7 +86,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
       o_jump : OUT STD_LOGIC;
       o_lui : OUT STD_LOGIC;
       o_halt : OUT STD_LOGIC;
-      o_ctlExt : OUT STD_LOGIC);
+      o_ctlExt : OUT STD_LOGIC;
+      o_flush : OUT STD_LOGIC);
   END COMPONENT;
 
   COMPONENT alu IS
@@ -167,9 +168,6 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_clk : IN STD_LOGIC; -- clk bit
       i_rst : IN STD_LOGIC; -- reset bit
       i_we : IN STD_LOGIC; -- write enable
-      i_jump : IN STD_LOGIC; -- jump input
-      i_branch : IN STD_LOGIC; --branch input
-      i_data2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       i_data : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bits of data for register
       o_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- output of write
   END COMPONENT;
@@ -358,8 +356,10 @@ ARCHITECTURE structure OF MIPS_Processor IS
     PORT (
       i_rdEx : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       i_rdMem : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_rdWB : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       i_rs : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_branch : IN STD_LOGIC;
       o_stall : OUT STD_LOGIC); -- 1 when not true 
   END COMPONENT;
 
@@ -383,6 +383,14 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_PC4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC + 4 [31 - 0]
       i_imm : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Branch Instruction Input [15-0]
       o_Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Jump Address Output
+  END COMPONENT;
+
+  -- or that takes jump and branch and outputs select bit for the first mux
+  COMPONENT org2 IS
+    PORT (
+      i_A : IN STD_LOGIC;
+      i_B : IN STD_LOGIC;
+      o_F : OUT STD_LOGIC);
   END COMPONENT;
 
   -- Required data memory signals
@@ -436,6 +444,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_ctlExt : STD_LOGIC; -- 
   SIGNAL s_extendBy : STD_LOGIC; -- goes to extender
   SIGNAL s_HaltControl : STD_LOGIC;
+  SIGNAL s_flush : STD_LOGIC;
 
   -- Fetch Stage Signals
   SIGNAL s_PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -447,8 +456,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_rdDec : STD_LOGIC_VECTOR(4 DOWNTO 0);
   SIGNAL s_RegDstDec : STD_LOGIC;
   SIGNAL s_jalDec : STD_LOGIC;
-  signal s_PC4Dec : std_logic_vector(31 downto 0);
-
+  SIGNAL s_PC4Dec : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_branch_jump_or : STD_LOGIC; -- select bit for first mux
   --DECODE/EXECUTE REG SIGNALS
   SIGNAL s_ALUOpEx : STD_LOGIC_VECTOR(3 DOWNTO 0); -- goes to Execute from ID/EX register
   SIGNAL s_bneEx : STD_LOGIC; -- goes to Execute from ID/EX register
@@ -536,7 +545,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_mux2Select : STD_LOGIC_VECTOR(1 DOWNTO 0);
   SIGNAL s_mux1Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_mux2Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
-  signal s_BranchJump : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_BranchJump : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_mux_first : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   --HAZARD SIGNALS
   SIGNAL s_stall : STD_LOGIC;
@@ -576,23 +586,25 @@ BEGIN
   -- TODO: Implement the rest of your processor below this comment
 
   -- Fetch Stage --
+  G_BRANCH_JUMP_OR : org2
+  PORT MAP(
+    i_A => s_branch,
+    i_B => s_jump,
+    o_F => s_branch_jump_or);
 
-  -- G_MUX_PCADD : mux2t1_N
-  -- PORT MAP(
-  --   i_S => , -- branch prediction --TODO 
-  --   i_D0 => s_PC4,
-  --   i_D1 => s_BranchJump, 
-  --   o_O => s_RegWrAddr); -- 
+  G_MUX_FIRST : mux2t1_N
+  PORT MAP(
+    i_S => s_branch_jump_or, -- branch prediction 
+    i_D0 => s_PC4,
+    i_D1 => s_BranchJump,
+    o_O => s_mux_first);
 
   PC_REG : pcRegister
   PORT MAP(
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1',
-    i_jump => s_jumpWB,
-    i_branch => s_branchWB,
-    i_data2 => s_nextPCWB,
-    i_data => s_PC4, -- Next PC Address
+    i_data => s_mux_first, -- Next PC Address
     o_out => s_nextInstAddr); -- Output from PC Register of Next PC Address
 
   -- -- Default behavior: Increment PC by 4
@@ -610,7 +622,7 @@ BEGIN
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1', -- write enable
-    i_flush => '0', --TODO needs to come from control
+    i_flush => '0', --comes from control
     i_stall => s_stall,
     i_Inst => s_Inst,
     i_PC => s_nextInstAddr,
@@ -639,7 +651,7 @@ BEGIN
     i_S => s_jalWB, -- RegDst bit from Control
     i_D0 => s_RegDstOrg,
     i_D1 => "11111", --31
-    o_O => s_RegWrAddr); -- 
+    o_O => s_RegWrAddr);
 
   G_REG : MIPSregister
   GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
@@ -664,8 +676,10 @@ BEGIN
   PORT MAP(
     i_rdEx => s_rdEx,
     i_rdMem => s_rdMem,
+    i_rdWB => s_rdWB,
     i_rt => s_InstDec(20 DOWNTO 16),
     i_rs => s_InstDec(25 DOWNTO 21),
+    i_branch => s_branch,
     o_stall => s_stall);
 
   --TODO ADD FLUSH SIGNAL
@@ -692,15 +706,16 @@ BEGIN
     o_jump => s_jump,
     o_lui => s_lui,
     o_halt => s_HaltControl,
-    o_ctlExt => s_ctlExt);
+    o_ctlExt => s_ctlExt,
+    o_flush => s_flush);
 
-    SHIFT : PipelineShift
-    PORT MAP(
-      i_clk => iCLK, -- Clock input
-      i_rst => iRST, -- Reset input
-      i_PC4 => s_PC4Dec, -- PC + 4 [31 - 0]
-      i_imm => s_Imm32, -- Branch Instruction Input [15-0]
-      o_Q => s_BranchJump); -- Jump Address Output
+  SHIFT : PipelineShift
+  PORT MAP(
+    i_clk => iCLK, -- Clock input
+    i_rst => iRST, -- Reset input
+    i_PC4 => s_PC4Dec, -- PC + 4 [31 - 0]
+    i_imm => s_Imm32, -- Branch Instruction Input [15-0]
+    o_Q => s_BranchJump); -- Jump Address Output
 
   D_EX : Decode_Execute_Reg
   PORT MAP(
@@ -758,8 +773,8 @@ BEGIN
     o_RSDataOut => s_RSDataOut, -- 32 bit instruction register out
     o_RTDataOut => s_RTDataOut, -- 32 bit PC + 4 data out 
     o_ImmOut => s_Imm32Ex, -- 32 bit PC + 4 data out
-    o_rsOut => s_rsEX, -- 5 bits (inst 25-21) out
-    o_rtOut => s_rtEX, -- 5 bits (inst 20-16) out
+    o_rsOut => s_rsEx, -- 5 bits (inst 25-21) out
+    o_rtOut => s_rtEx, -- 5 bits (inst 20-16) out
     o_rdOut => s_rdEx,
     o_shamt => s_shamtEx); -- 5 bits (inst 15-11) out
 
@@ -811,8 +826,8 @@ BEGIN
     i_regWrWB => s_RegWr, -- write back bit from write back
     i_memMux => s_muxLocationMem, -- 5 bit RD or Shamt from memory?
     i_wbMux => s_muxLocationWB, -- 5 bit RD or Shamt from write back?
-    i_rs => s_rsEX, -- 5 bit rs
-    i_rt => s_rtEX, -- 5 bit rt
+    i_rs => s_rdEx, -- 5 bit rs
+    i_rt => s_rtEx, -- 5 bit rt
     o_mux1 => s_mux1Select, -- output mux one
     o_mux2 => s_mux2Select);-- output mux two
 
@@ -850,8 +865,8 @@ BEGIN
     i_DmemData => s_RTDataOut, -- 32 bit Dmem Address
     i_ra => s_ra,
     i_nextPC => s_nextPC,
-    i_rt => s_InstDec(20 DOWNTO 16), -- 5 bits (inst 20-16)
-    i_rd => s_InstDec(15 DOWNTO 11), -- 5 bits (inst 15-11)
+    i_rt => s_rtEx, -- 5 bits (inst 20-16)
+    i_rd => s_rdEx, -- 5 bits (inst 15-11)
     i_regDst => s_RegDstEx,
     i_jump => s_jumpEx,
     i_regWr => s_regWrEx,
@@ -892,8 +907,8 @@ BEGIN
     i_ALUResult => s_resultMem, -- input of ALU result
     i_ra => s_raMem,
     i_nextPC => s_nextPCMem,
-    i_rt => s_rtEX, -- 5 bits (inst 20-16)
-    i_rd => s_rdEX, -- 5 bits (inst 15-11)
+    i_rt => s_rtMem, -- 5 bits (inst 20-16)
+    i_rd => s_rdMem, -- 5 bits (inst 15-11)
     i_regDst => s_RegDstMem,
     i_jump => s_jumpMem,
     i_regWr => s_regWrMem,

@@ -62,7 +62,15 @@ ARCHITECTURE structure OF Fetch_Decode_Reg IS
             o_F : OUT STD_LOGIC);
     END COMPONENT;
 
+    COMPONENT org2 IS
+        PORT (
+            i_A : IN STD_LOGIC;
+            i_B : IN STD_LOGIC;
+            o_F : OUT STD_LOGIC);
+    END COMPONENT;
+
     SIGNAL s_we : STD_LOGIC;
+    SIGNAL s_stall_rst : STD_LOGIC;
     SIGNAL s_rtOut : STD_LOGIC_VECTOR(4 DOWNTO 0);
     SIGNAL s_rdOut : STD_LOGIC_VECTOR(4 DOWNTO 0);
     SIGNAL s_PC4 : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -70,6 +78,12 @@ ARCHITECTURE structure OF Fetch_Decode_Reg IS
     SIGNAL s_PCOut : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 BEGIN
+
+    G_OR : org2
+    PORT MAP(
+        i_A => i_rst,
+        i_B => i_stall,
+        o_F => s_stall_rst);
 
     G_AND : andg2
     PORT MAP(
@@ -80,56 +94,41 @@ BEGIN
     REG_INST1 : FIVEbit_dffg
     PORT MAP(
         i_CLK => i_clk, -- Clock bit input
-        i_RST => i_rst, -- Reset bit input
+        i_RST => s_stall_rst, -- Reset bit input
         i_WE => s_we, -- 
         i_D => i_rt, --  input
-        o_Q => s_rtOut);
+        o_Q => o_rtOut);
 
     REG_INST2 : FIVEbit_dffg
     PORT MAP(
         i_CLK => i_clk, -- Clock bit input
-        i_RST => i_rst, -- Reset bit input
+        i_RST => s_stall_rst, -- Reset bit input
         i_WE => s_we, -- 
         i_D => i_rd, --  input
-        o_Q => s_rdOut);
+        o_Q => o_rdOut);
 
     REG0 : Nbit_dffg
     PORT MAP(
         i_CLK => i_clk, -- Clock bit input
-        i_RST => i_rst, -- Reset bit input
+        i_RST => s_stall_rst, -- Reset bit input
         i_WE => s_we, -- 
         i_D => i_PC4, -- Data bit input
-        o_Q => s_PC4);
+        o_Q => o_PC4);
 
     REG1 : Nbit_dffg
     PORT MAP(
         i_CLK => i_clk, -- Clock bit input
-        i_RST => i_rst, -- Reset bit input
+        i_RST => s_stall_rst, -- Reset bit input
         i_WE => s_we, -- 
         i_D => i_Inst, -- Data bit input
-        o_Q => s_InstOut);
+        o_Q => o_InstOut);
 
     REG2 : Nbit_dffg
     PORT MAP(
         i_CLK => i_clk, -- Clock bit input
-        i_RST => i_rst, -- Reset bit input
+        i_RST => s_stall_rst, -- Reset bit input
         i_WE => s_we, -- 
         i_D => i_PC, -- Data bit input
-        o_Q => s_PCOut);
-
-    o_rtOut <= s_rtOut WHEN (i_flush = '0') ELSE
-        "00000";
-
-    o_rdOut <= s_rtOut WHEN (i_flush = '0') ELSE
-        "00000";
-
-    o_PC4 <= s_PC4 WHEN (i_flush = '0') ELSE
-        x"00000000";
-
-    o_InstOut <= s_InstOut WHEN (i_flush = '0') ELSE
-        x"00000000";
-
-    o_PCOut <= s_PCOut WHEN (i_flush = '0') ELSE
-        x"00000000";
+        o_Q => o_PCOut);
 
 END structure;

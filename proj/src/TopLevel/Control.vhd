@@ -34,7 +34,8 @@ ENTITY control IS
 		o_jump : OUT STD_LOGIC;
 		o_lui : OUT STD_LOGIC;
 		o_halt : OUT STD_LOGIC;
-		o_ctlExt : OUT STD_LOGIC);
+		o_ctlExt : OUT STD_LOGIC;
+		o_flush : OUT STD_LOGIC); -- determines whether fetch decode register gets flushed
 END control;
 
 ARCHITECTURE behavioral OF control IS
@@ -70,6 +71,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "100001" THEN --addu instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -92,6 +94,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "100100" THEN --and instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -114,6 +117,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "100111" THEN --nor instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -136,6 +140,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "100110" THEN --xor instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -158,6 +163,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "100101" THEN --or instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -180,6 +186,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "101010" THEN --slt instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -202,6 +209,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "000000" THEN --sll instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -224,6 +232,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "000010" THEN --srl instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -246,6 +255,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "000011" THEN --sra instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -268,6 +278,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "100010" THEN --sub instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -290,6 +301,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "100011" THEN --subu instruction
 				o_RegDst <= '1';
 				o_RegWrite <= '1';
@@ -312,6 +324,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_funct = "001000" THEN --jr instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
@@ -334,6 +347,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '1';
 			ELSE
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
@@ -356,6 +370,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			END IF;
 		ELSE --I and J type instructions
 			IF s_opcode = "001000" THEN --addi instruction
@@ -380,6 +395,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
+				o_flush <= '0';
 			ELSIF s_opcode = "001001" THEN --addiu instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
@@ -402,6 +418,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
+				o_flush <= '0';
 			ELSIF s_opcode = "001100" THEN --andi instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
@@ -424,6 +441,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_opcode = "001111" THEN --lui instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
@@ -446,6 +464,7 @@ BEGIN
 				o_lui <= '1';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_opcode = "100011" THEN --lw instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
@@ -468,6 +487,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
+				o_flush <= '0';
 			ELSIF s_opcode = "001110" THEN --xori instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
@@ -490,6 +510,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_opcode = "001101" THEN --ori instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
@@ -512,6 +533,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSIF s_opcode = "001010" THEN --slti instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
@@ -534,6 +556,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
+				o_flush <= '0';
 			ELSIF s_opcode = "101011" THEN --sw instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
@@ -556,6 +579,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '1';
+				o_flush <= '0';
 			ELSIF s_opcode = "000100" THEN --beq instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
@@ -578,6 +602,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '1';
 			ELSIF s_opcode = "000101" THEN --bne instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
@@ -600,6 +625,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '1';
 			ELSIF s_opcode = "000010" THEN --j instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
@@ -622,6 +648,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '1';
 			ELSIF s_opcode = "000011" THEN --jal instruction
 				o_RegDst <= '0';
 				o_RegWrite <= '1';
@@ -644,6 +671,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '1';
 			ELSIF s_opcode = "010100" THEN --halt instruction 
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
@@ -666,6 +694,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '1';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			ELSE
 				o_RegDst <= '0';
 				o_RegWrite <= '0';
@@ -688,6 +717,7 @@ BEGIN
 				o_lui <= '0';
 				o_halt <= '0';
 				o_ctlExt <= '0';
+				o_flush <= '0';
 			END IF;
 		END IF;
 
