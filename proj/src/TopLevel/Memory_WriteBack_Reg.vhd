@@ -86,7 +86,7 @@ BEGIN
         G_AND : andg2
         PORT MAP(
                 i_A => i_we,
-                i_B => i_stall,
+                i_B => NOT i_stall,
                 o_F => s_we);
 
         REG_LOC : FIVEbit_dffg

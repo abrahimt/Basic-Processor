@@ -73,7 +73,7 @@ ARCHITECTURE structure OF Execute_Memory_Reg IS
                         i_D : IN STD_LOGIC; -- Data value input
                         o_Q : OUT STD_LOGIC); -- Data value output
         END COMPONENT;
-        
+
         COMPONENT andg2 IS
                 PORT (
                         i_A : IN STD_LOGIC;
@@ -88,7 +88,7 @@ BEGIN
         G_AND : andg2
         PORT MAP(
                 i_A => i_we,
-                i_B => i_stall,
+                i_B => NOT i_stall,
                 o_F => s_we);
 
         REG_LOC : FIVEbit_dffg

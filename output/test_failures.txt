@@ -1,1 +1,1 @@
-proj/mips/part2/Proj2SW_bubblesort.s
+proj/mips/part2/simpleTest.s
