@@ -9,10 +9,16 @@ ENTITY detectHazard IS
         i_rdEx : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
         i_rdMem : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
         i_rdWB : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+        i_rtEx : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+        i_rtMem : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+        i_rtWB : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+        i_regDstEx : IN STD_LOGIC;  --rd is 1, rt is 0
+        i_regDstMem : IN STD_LOGIC;
+        i_regDstWB : IN STD_LOGIC;
         i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
         i_rs : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
         i_branch : IN STD_LOGIC;
-        o_stall : OUT STD_LOGIC); -- 1 when not true 
+        o_stall : OUT STD_LOGIC); --  
 END detectHazard;
 
 ARCHITECTURE structure OF detectHazard IS
@@ -28,13 +34,19 @@ ARCHITECTURE structure OF detectHazard IS
 
 BEGIN
 
-    s_stall <= '1' WHEN (i_rdEx = i_rs) ELSE
-        '1' WHEN (i_rdEx = i_rt) ELSE
-        '1' WHEN (i_rdMem = i_rs) ELSE
-        '1' WHEN (i_rdMem = i_rt) ELSE
-        '1' WHEN (i_rdWB = i_rt) ELSE
-        '1' WHEN (i_rdWB = i_rs) ELSE
-        '0';
+    s_stall <= '1' WHEN (i_rdEx = i_rs and i_regDstEx = '1') ELSE -- Reg Dst is rd
+        '1' WHEN (i_rdEx = i_rt and i_regDstEx = '1') ELSE
+        '1' WHEN (i_rdMem = i_rs and i_regDstEx = '1') ELSE
+        '1' WHEN (i_rdMem = i_rt and i_regDstEx = '1') ELSE
+--        '1' WHEN (i_rdWB = i_rt and i_regDstEx = '1') ELSE
+--        '1' WHEN (i_rdWB = i_rs and i_regDstEx = '1') ELSE
+        '1' WHEN (i_rtEx = i_rs and i_regDstEx = '0') ELSE  -- Reg Dst is rt 
+        '1' WHEN (i_rtEx = i_rt and i_regDstEx = '0') ELSE
+        '1' WHEN (i_rtMem = i_rs and i_regDstEx = '0') ELSE
+        '1' WHEN (i_rtMem = i_rt and i_regDstEx = '0') ELSE
+--        '1' WHEN (i_rtWB = i_rt and i_regDstEx = '0') ELSE
+--        '1' WHEN (i_rtWB = i_rs and i_regDstEx = '0') ELSE
+        '0'; -- Other Case
 
     G_AND : andg2
     PORT MAP(

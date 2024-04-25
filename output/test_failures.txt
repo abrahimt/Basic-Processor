@@ -1,1 +1,1 @@
-proj/mips/part2/simpleTest.s
+proj/mips/part2/Proj2HW_base_test.s
