@@ -168,6 +168,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_clk : IN STD_LOGIC; -- clk bit
       i_rst : IN STD_LOGIC; -- reset bit
       i_we : IN STD_LOGIC; -- write enable
+      i_stall : IN STD_LOGIC; -- write enable
       i_data : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- 32 bits of data for register
       o_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- output of write
   END COMPONENT;
@@ -362,11 +363,16 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_rtMem : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       i_rtWB : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       i_regDstEx : IN STD_LOGIC; --rd is 1, rt is 0
-      i_regDstMem : IN STD_LOGIC;
-      i_regDstWB : IN STD_LOGIC;
+      i_regDstMem : IN STD_LOGIC;  --rd is 1, rt is 0
+      i_regDstWB : IN STD_LOGIC;  --rd is 1, rt is 0
+      i_writeEnableEx : IN STD_LOGIC;
+      i_writeEnableMem : IN STD_LOGIC;
+      i_writeEnableWB : IN STD_LOGIC;
       i_rt : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       i_rs : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       i_branch : IN STD_LOGIC;
+      i_lw : in std_logic;
+      i_sw : in std_logic;
       o_stall : OUT STD_LOGIC); -- 1 when not true 
   END COMPONENT;
 
@@ -400,6 +406,13 @@ ARCHITECTURE structure OF MIPS_Processor IS
       o_F : OUT STD_LOGIC);
   END COMPONENT;
 
+  COMPONENT andg2 IS
+    PORT (
+      i_A : IN STD_LOGIC;
+      i_B : IN STD_LOGIC;
+      o_F : OUT STD_LOGIC);
+  END COMPONENT;
+
   COMPONENT jump IS
     PORT (
       i_CLK : IN STD_LOGIC; -- Clock input
@@ -409,6 +422,16 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- PC + 4 [31 - 28]
       i_Data : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Jump Instruction Input
       o_Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)); -- Jump Address Output
+  END COMPONENT;
+
+  COMPONENT branchALU IS
+    PORT (
+      i_A : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Input vector A
+      i_B : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- Input vector B
+      i_beq : IN STD_LOGIC; -- Equal comparison control signal
+      i_bne : IN STD_LOGIC; -- Not equal comparison control signal
+      o_zero : OUT STD_LOGIC -- Output branch flag
+    );
   END COMPONENT;
 
   -- Required data memory signals
@@ -439,6 +462,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_rt : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_rs : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_PC4 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_zero : STD_LOGIC;
 
   --CONTROL SIGNALS
   SIGNAL s_bne : STD_LOGIC; -- goes to ALU
@@ -476,6 +500,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_jalDec : STD_LOGIC;
   SIGNAL s_PC4Dec : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_branch_jump_or : STD_LOGIC; -- select bit for first mux
+
   --DECODE/EXECUTE REG SIGNALS
   SIGNAL s_ALUOpEx : STD_LOGIC_VECTOR(3 DOWNTO 0); -- goes to Execute from ID/EX register
   SIGNAL s_bneEx : STD_LOGIC; -- goes to Execute from ID/EX register
@@ -540,9 +565,9 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_muxLocationWB : STD_LOGIC_VECTOR(4 DOWNTO 0);
 
   --ALU SIGNALS
-  SIGNAL s_zero : STD_LOGIC;
   SIGNAL s_result : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_ALUBranch : STD_LOGIC;
+  SIGNAL s_notUsed : STD_LOGIC;
 
   --FetchLogic Signals
   SIGNAL s_ra : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -553,7 +578,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_branchAnd : STD_LOGIC;
 
   --JUMP SIGNALS
-  SIGNAL s_jumpAddr : std_logic_vector(31 downto 0);
+  SIGNAL s_jumpAddr : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   --MUX SIGNALS
   SIGNAL s_branchMUX : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -569,9 +594,12 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_BranchJump : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_mux_first : STD_LOGIC_VECTOR(31 DOWNTO 0);
   SIGNAL s_jumpBranchAddr : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_dataOptionRT : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL s_dataOptionRS : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
   --HAZARD SIGNALS
   SIGNAL s_stall : STD_LOGIC;
+  SIGNAL s_branchTaken : STD_LOGIC;
 
 BEGIN
 
@@ -610,7 +638,7 @@ BEGIN
   -- Fetch Stage --
   G_BRANCH_JUMP_OR : org2
   PORT MAP(
-    i_A => s_branch,
+    i_A => s_zero,
     i_B => s_jump,
     o_F => s_branch_jump_or);
 
@@ -626,6 +654,7 @@ BEGIN
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1',
+    i_stall => s_stall,
     i_data => s_mux_first, -- Next PC Address
     o_out => s_nextInstAddr); -- Output from PC Register of Next PC Address
 
@@ -638,13 +667,19 @@ BEGIN
     out_S => s_PC4, -- PC + 4
     out_C => carry1); -- carry out
 
+  G_AND_BRANCH : andg2
+  PORT MAP(
+    i_A => not s_stall,
+    i_B => s_zero,
+    o_F => s_branchTaken);
+
   IF_D : Fetch_Decode_Reg
   GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
   PORT MAP(
     i_clk => iCLK, -- clk bit
     i_rst => iRST, -- reset bit
     i_we => '1', -- write enable
-    i_branch => s_branchEx, --comes from dec_ex
+    i_branch => s_branchTaken, --comes from dec_ex
     i_jump => s_jump,
     i_stall => s_stall,
     i_Inst => s_Inst,
@@ -680,7 +715,7 @@ BEGIN
   GENERIC MAP(N => 32) -- Generic of type integer for input/output data width. Default value is 32.
   PORT MAP(
     i_SEL => s_RegWrAddr, -- Register selection bit
-    i_clk => iCLK, --
+    i_clk => NOT iCLK, --
     i_rst => iRST, -- 
     i_d => s_RegWrData, -- Data being written into register
     i_we => s_RegWr, -- Write Enable
@@ -688,6 +723,14 @@ BEGIN
     i_rt => s_InstDec(20 DOWNTO 16),
     o_OUT1 => s_rs, -- Read 1 out
     o_OUT2 => s_rt); -- Read 2 out
+
+  G_BRANCH : branchALU
+  PORT MAP(
+    i_A => s_rs,
+    i_B => s_rt,
+    i_bne => s_bne,
+    i_beq => s_beq,
+    o_zero => s_zero);
 
   EXTEND : Extender
   PORT MAP(
@@ -704,11 +747,16 @@ BEGIN
     i_rtMem => s_rtMem,
     i_rtWB => s_rtWB,
     i_regDstEx => s_RegDstEx, --rd is 1, rt is 0
-    i_regDstMem => s_RegDstMem,
-    i_regDstWB => s_RegDstWB,
+    i_regDstMem => s_RegDstMem, --rd is 1, rt is 0
+    i_regDstWB => s_RegDstWB, --rd is 1, rt is 0
+    i_writeEnableEx => s_regWrEx,
+    i_writeEnableMem => s_regWrMem,
+    i_writeEnableWB => s_RegWr,
     i_rt => s_InstDec(20 DOWNTO 16),
     i_rs => s_InstDec(25 DOWNTO 21),
     i_branch => s_branch,
+    i_lw => s_MemToRegEx,
+    i_sw => s_memWrite,
     o_stall => s_stall);
 
   --TODO ADD FLUSH SIGNAL
@@ -837,17 +885,17 @@ BEGIN
 
   MUX1 : mux3t1
   PORT MAP(
-    i_A => s_RSDataOut, -- id/ex rs register data
-    i_B => s_RegWrData, -- register write back data
-    i_C => s_resultMem, -- ex/mem reg alu result
+    i_A => s_RSDataOut, -- id/ex rs register data  00
+    i_B => s_RegWrData, -- register write back data  01
+    i_C => s_resultMem, -- ex/mem reg alu result  10
     i_select => s_mux1Select, -- 
     o_O => s_mux1Data); -- ALU A input
 
   MUX2 : mux3t1
   PORT MAP(
-    i_A => s_RTDataOut, -- id/ex rt register data
-    i_B => s_RegWrData, -- register write back data
-    i_C => s_resultMem, -- ex/mem reg alu result
+    i_A => s_RTDataOut, -- id/ex rt register data  00 
+    i_B => s_RegWrData, -- register write back data  01
+    i_C => s_resultMem, -- ex/mem reg alu result  10
     i_select => s_mux2Select, -- 
     o_O => s_mux2Data); -- ALU B input, also Dmem address
 
@@ -857,7 +905,7 @@ BEGIN
     i_PC => s_nextInstAddrEx, -- PC Address input from Decode Register
     i_clk => iCLK, -- clock bit
     i_rst => iRST, -- reset bit
-    i_zero => s_zero, -- zero bit from ALU
+    i_zero => s_notUsed, -- zero bit from ALU
     i_branch => s_branchEx, -- branch bit from control
     i_jump => s_jumpEx, -- jump bit from ALU
     i_jr => s_jrEx, -- jump return bit from ALU
@@ -872,15 +920,15 @@ BEGIN
     i_regWrWB => s_RegWr, -- write back bit from write back
     i_memMux => s_muxLocationMem, -- 5 bit RD or Shamt from memory?
     i_wbMux => s_muxLocationWB, -- 5 bit RD or Shamt from write back?
-    i_rs => s_rdEx, -- 5 bit rs
+    i_rs => s_rsEx, -- 5 bit rs
     i_rt => s_rtEx, -- 5 bit rt
     o_mux1 => s_mux1Select, -- output mux one
-    o_mux2 => s_mux2Select);-- output mux two
+    o_mux2 => s_mux2Select); -- output mux two
 
   G_ALU : alu
   PORT MAP(
-    i_RS => s_RSDataOut,
-    i_RT => s_RTDataOut,
+    i_RS => s_mux1Data,
+    i_RT => s_mux2Data,
     i_Imm => s_Imm32Ex, -- 32 bit immediate value from id/ex register
     i_ALUOp => s_ALUOpEx, -- control signal from id/ex register
     i_ALUSrc => s_ALUSrcEx, -- control signal from id/ex register
@@ -894,7 +942,7 @@ BEGIN
     i_shamt => s_shamtEx, -- shamt from id/ex register
     o_result => s_result, -- Intructions say to connect this here
     o_overflow => s_Ovfl,
-    o_zero => s_zero);
+    o_zero => s_notUsed);
 
   oALUOut <= s_result; -- ALU result signal that is used for other components
 

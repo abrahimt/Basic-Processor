@@ -2,8 +2,18 @@
 Register Write to Reg: 0x01 Val: 0x00000001
 [inst #2] addi $2,$0,2
 Register Write to Reg: 0x02 Val: 0x00000002
-[inst #3] j 4194324
-[inst #4] addi $3,$0,3
+[inst #3] beq $2,$1,2
+[inst #4] addi $4,$0,4
+Register Write to Reg: 0x04 Val: 0x00000004
+[inst #5] addi $5,$0,5
+Register Write to Reg: 0x05 Val: 0x00000005
+[inst #6] addi $3,$0,3
 Register Write to Reg: 0x03 Val: 0x00000003
-[inst #5] halt 
+[inst #7] addi $4,$3,4
+Register Write to Reg: 0x04 Val: 0x00000007
+[inst #8] addi $5,$4,5
+Register Write to Reg: 0x05 Val: 0x0000000C
+[inst #9] add $6,$4,$5
+Register Write to Reg: 0x06 Val: 0x00000013
+[inst #10] halt 
 

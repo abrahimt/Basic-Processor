@@ -21,15 +21,18 @@ ARCHITECTURE structure OF ForwardingUnit IS
 BEGIN
 
     o_mux1 <= "00" WHEN (i_rs /= i_memMux AND i_rs /= i_wbMux) ELSE -- rs in decode does not match rs in memory or write back
-        "01" WHEN (i_rs /= i_memMux AND i_rs = i_wbMux and i_regWrWB = '1') ELSE -- rs in decode matches write back but not memory
-        "10" WHEN (i_rs = i_memMux AND i_rs /= i_wbMux and i_regWrMem = '1') ELSE -- rs in decode matches memory and not write back
-        "10" WHEN (i_rs = i_memMux AND i_rs = i_wbMux and i_regWrWB = '1') ELSE -- rs in decode matches both memory and write back
+        "01" WHEN (i_rs /= i_memMux AND i_rs = i_wbMux AND i_regWrWB = '1') ELSE -- rs in decode matches write back but not memory
+        "10" WHEN (i_rs = i_memMux AND i_rs /= i_wbMux AND i_regWrMem = '1') ELSE -- rs in decode matches memory and not write back
+        "10" WHEN (i_rs = i_memMux AND i_rs = i_wbMux AND i_regWrMem = '1' AND i_regWrWB = '0') ELSE -- rt in decode matches memory and not write back
+        "10" WHEN (i_rs = i_memMux AND i_rs = i_wbMux AND i_regWrWB = '1') ELSE -- rs in decode matches both memory and write back
         "00";
 
     o_mux2 <= "00" WHEN (i_rt /= i_memMux AND i_rt /= i_wbMux) ELSE -- rt in decode does not match rt in memory or write back
-        "01" WHEN (i_rt /= i_memMux AND i_rt = i_wbMux and i_regWrWB = '1') ELSE -- rt in decode matches write back but not memory
-        "10" WHEN (i_rt = i_memMux AND i_rt /= i_wbMux and i_regWrMem = '1') ELSE -- rt in decode matches memory and not write back
-        "10" WHEN (i_rt = i_memMux AND i_rt = i_wbMux and i_regWrWB = '1') ELSE -- rt in decode matches both memory and write back
+        "01" WHEN (i_rt /= i_memMux AND i_rt = i_wbMux AND i_regWrWB = '1') ELSE -- rt in decode matches write back but not memory
+        "10" WHEN (i_rt = i_memMux AND i_rt /= i_wbMux AND i_regWrMem = '1') ELSE -- rt in decode matches memory and not write back
+        "10" WHEN (i_rt = i_memMux AND i_rt = i_wbMux AND i_regWrMem = '1' AND i_regWrWB = '0') ELSE -- rt in decode matches memory and not write back
+        "10" WHEN (i_rt = i_memMux AND i_rt = i_wbMux AND i_regWrWB = '1') ELSE -- rt in decode matches both memory and write back
         "00";
+        
 
 END structure;
