@@ -99220,6 +99220,7 @@ i_clk => Nbit_dffg:REG_nextPC.i_CLK
 i_clk => Nbit_dffg:REG_RA.i_CLK
 i_clk => Nbit_dffg:REG_ALURESULT.i_CLK
 i_clk => Nbit_dffg:REG_DMEMDATA.i_CLK
+i_clk => dffg:REG_OVERFLOW.i_CLK
 i_clk => dffg:REG_REGWR.i_CLK
 i_clk => dffg:REG_MEMWR.i_CLK
 i_clk => dffg:REG_RegDst.i_CLK
@@ -99235,6 +99236,7 @@ i_rst => Nbit_dffg:REG_nextPC.i_RST
 i_rst => Nbit_dffg:REG_RA.i_RST
 i_rst => Nbit_dffg:REG_ALURESULT.i_RST
 i_rst => Nbit_dffg:REG_DMEMDATA.i_RST
+i_rst => dffg:REG_OVERFLOW.i_RST
 i_rst => dffg:REG_REGWR.i_RST
 i_rst => dffg:REG_MEMWR.i_RST
 i_rst => dffg:REG_RegDst.i_RST
@@ -99250,6 +99252,7 @@ i_we => Nbit_dffg:REG_nextPC.i_WE
 i_we => Nbit_dffg:REG_RA.i_WE
 i_we => Nbit_dffg:REG_ALURESULT.i_WE
 i_we => Nbit_dffg:REG_DMEMDATA.i_WE
+i_we => dffg:REG_OVERFLOW.i_WE
 i_we => dffg:REG_REGWR.i_WE
 i_we => dffg:REG_MEMWR.i_WE
 i_we => dffg:REG_RegDst.i_WE
@@ -99410,6 +99413,8 @@ i_writeLocation[1] => Fivebit_dffg:REG_LOC.i_D[1]
 i_writeLocation[2] => Fivebit_dffg:REG_LOC.i_D[2]
 i_writeLocation[3] => Fivebit_dffg:REG_LOC.i_D[3]
 i_writeLocation[4] => Fivebit_dffg:REG_LOC.i_D[4]
+i_overFlow => dffg:REG_OVERFLOW.i_D
+o_overFlow <= dffg:REG_OVERFLOW.o_Q
 o_writeLocation[0] <= Fivebit_dffg:REG_LOC.o_Q[0]
 o_writeLocation[1] <= Fivebit_dffg:REG_LOC.o_Q[1]
 o_writeLocation[2] <= Fivebit_dffg:REG_LOC.o_Q[2]
@@ -100299,6 +100304,14 @@ o_Q[30] <= s_Q[30].DB_MAX_OUTPUT_PORT_TYPE
 o_Q[31] <= s_Q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
+|MIPS_Processor|Execute_Memory_Reg:EX_MEM|dffg:REG_OVERFLOW
+i_CLK => s_Q.CLK
+i_RST => s_Q.OUTPUTSELECT
+i_WE => s_D.OUTPUTSELECT
+i_D => s_D.DATAB
+o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |MIPS_Processor|Execute_Memory_Reg:EX_MEM|dffg:REG_REGWR
 i_CLK => s_Q.CLK
 i_RST => s_Q.OUTPUTSELECT
@@ -100371,6 +100384,7 @@ i_clk => Nbit_dffg:REG_nextPC.i_CLK
 i_clk => Nbit_dffg:REG_RA.i_CLK
 i_clk => Nbit_dffg:REG_ALURESULT.i_CLK
 i_clk => Nbit_dffg:REG_DMEM.i_CLK
+i_clk => dffg:REG_OVERFLOW.i_CLK
 i_clk => dffg:REG_REGWR.i_CLK
 i_clk => dffg:REG_JAL.i_CLK
 i_clk => dffg:REG_REGDST.i_CLK
@@ -100385,6 +100399,7 @@ i_rst => Nbit_dffg:REG_nextPC.i_RST
 i_rst => Nbit_dffg:REG_RA.i_RST
 i_rst => Nbit_dffg:REG_ALURESULT.i_RST
 i_rst => Nbit_dffg:REG_DMEM.i_RST
+i_rst => dffg:REG_OVERFLOW.i_RST
 i_rst => dffg:REG_REGWR.i_RST
 i_rst => dffg:REG_JAL.i_RST
 i_rst => dffg:REG_REGDST.i_RST
@@ -100399,6 +100414,7 @@ i_we => Nbit_dffg:REG_nextPC.i_WE
 i_we => Nbit_dffg:REG_RA.i_WE
 i_we => Nbit_dffg:REG_ALURESULT.i_WE
 i_we => Nbit_dffg:REG_DMEM.i_WE
+i_we => dffg:REG_OVERFLOW.i_WE
 i_we => dffg:REG_REGWR.i_WE
 i_we => dffg:REG_JAL.i_WE
 i_we => dffg:REG_REGDST.i_WE
@@ -100557,6 +100573,8 @@ i_writeLocation[1] => Fivebit_dffg:REG_LOC.i_D[1]
 i_writeLocation[2] => Fivebit_dffg:REG_LOC.i_D[2]
 i_writeLocation[3] => Fivebit_dffg:REG_LOC.i_D[3]
 i_writeLocation[4] => Fivebit_dffg:REG_LOC.i_D[4]
+i_overFlow => dffg:REG_OVERFLOW.i_D
+o_overFlow <= dffg:REG_OVERFLOW.o_Q
 o_writeLocation[0] <= Fivebit_dffg:REG_LOC.o_Q[0]
 o_writeLocation[1] <= Fivebit_dffg:REG_LOC.o_Q[1]
 o_writeLocation[2] <= Fivebit_dffg:REG_LOC.o_Q[2]
@@ -101443,6 +101461,14 @@ o_Q[28] <= s_Q[28].DB_MAX_OUTPUT_PORT_TYPE
 o_Q[29] <= s_Q[29].DB_MAX_OUTPUT_PORT_TYPE
 o_Q[30] <= s_Q[30].DB_MAX_OUTPUT_PORT_TYPE
 o_Q[31] <= s_Q[31].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MIPS_Processor|Memory_WriteBack_Reg:MEM_WB|dffg:REG_OVERFLOW
+i_CLK => s_Q.CLK
+i_RST => s_Q.OUTPUTSELECT
+i_WE => s_D.OUTPUTSELECT
+i_D => s_D.DATAB
+o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |MIPS_Processor|Memory_WriteBack_Reg:MEM_WB|dffg:REG_REGWR

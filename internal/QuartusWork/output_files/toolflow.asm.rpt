@@ -1,5 +1,5 @@
 Assembler report for toolflow
-Fri Apr 26 16:54:27 2024
+Sat Apr 27 11:45:56 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Apr 26 16:54:27 2024 ;
+; Assembler Status      ; Successful - Sat Apr 27 11:45:56 2024 ;
 ; Revision Name         ; toolflow                              ;
 ; Top-level Entity Name ; MIPS_Processor                        ;
 ; Family                ; Cyclone IV E                          ;
@@ -118,15 +118,15 @@ Info: Running Quartus Prime Assembler
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Fri Apr 26 16:54:17 2024
+    Info: Processing started: Sat Apr 27 11:45:47 2024
 Info: Command: quartus_asm --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 862 megabytes
-    Info: Processing ended: Fri Apr 26 16:54:27 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 861 megabytes
+    Info: Processing ended: Sat Apr 27 11:45:56 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:09
 
 

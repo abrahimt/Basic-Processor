@@ -1,5 +1,5 @@
 Flow report for toolflow
-Fri Apr 26 16:55:12 2024
+Sat Apr 27 11:46:41 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 26 16:54:27 2024           ;
+; Flow Status                        ; Successful - Sat Apr 27 11:45:56 2024           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Standard Edition ;
 ; Revision Name                      ; toolflow                                        ;
 ; Top-level Entity Name              ; MIPS_Processor                                  ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/26/2024 16:37:28 ;
+; Start date & time ; 04/27/2024 11:29:06 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; toolflow            ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 345050408771.171416744719592           ; --            ; --             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 345050414368.171423534615765           ; --            ; --             ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; MIPS_Processor ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; MIPS_Processor ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; MIPS_Processor ; Top        ;
@@ -91,11 +91,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:03:11     ; 1.0                     ; 1214 MB             ; 00:03:17                           ;
-; Fitter               ; 00:13:10     ; 1.1                     ; 2517 MB             ; 00:30:46                           ;
-; Assembler            ; 00:00:10     ; 1.0                     ; 862 MB              ; 00:00:09                           ;
-; Timing Analyzer      ; 00:00:44     ; 1.5                     ; 1809 MB             ; 00:00:57                           ;
-; Total                ; 00:17:15     ; --                      ; --                  ; 00:35:09                           ;
+; Analysis & Synthesis ; 00:03:15     ; 1.0                     ; 1216 MB             ; 00:03:17                           ;
+; Fitter               ; 00:12:58     ; 1.1                     ; 2491 MB             ; 00:30:23                           ;
+; Assembler            ; 00:00:09     ; 1.0                     ; 861 MB              ; 00:00:09                           ;
+; Timing Analyzer      ; 00:00:44     ; 1.5                     ; 1807 MB             ; 00:00:57                           ;
+; Total                ; 00:17:06     ; --                      ; --                  ; 00:34:46                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -104,10 +104,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+-----------------------------+---------+------------+----------------+
 ; Module Name          ; Machine Hostname            ; OS Name ; OS Version ; Processor type ;
 +----------------------+-----------------------------+---------+------------+----------------+
-; Analysis & Synthesis ; linuxvdi-18.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
-; Fitter               ; linuxvdi-18.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
-; Assembler            ; linuxvdi-18.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
-; Timing Analyzer      ; linuxvdi-18.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; linuxvdi-32.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; linuxvdi-32.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
+; Assembler            ; linuxvdi-32.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
+; Timing Analyzer      ; linuxvdi-32.ece.iastate.edu ; Red Hat ; Red Hat    ; x86_64         ;
 +----------------------+-----------------------------+---------+------------+----------------+
 
 

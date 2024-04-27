@@ -1,5 +1,5 @@
 Analysis & Synthesis report for toolflow
-Fri Apr 26 16:40:51 2024
+Sat Apr 27 11:32:33 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -143,63 +143,62 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 135. Port Connectivity Checks: "Execute_Memory_Reg:EX_MEM"
 136. Port Connectivity Checks: "alu:G_ALU|nBitAddSub:G_ADDSUB"
 137. Port Connectivity Checks: "alu:G_ALU|mux2t1_5bit:G_MUX_LUI"
-138. Port Connectivity Checks: "alu:G_ALU"
-139. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|mux2t1_N:G_MUX_JAL2"
-140. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|nBitAdder:INCREMENT_PC"
-141. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|branch:G_BRANCH|nBitAdder:G_ADD2"
-142. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|branch:G_BRANCH|Extender:G_EXTEND"
-143. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|branch:G_BRANCH|nBitAdder:G_ADD"
-144. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|nBitAdder:G_RA"
-145. Port Connectivity Checks: "Decode_Execute_Reg:D_EX"
-146. Port Connectivity Checks: "jump:JUMP2|nBitAdder:G_ADD2"
-147. Port Connectivity Checks: "jump:JUMP2|Barrel_Shifter:G_LEFT_SHIFT_PC"
-148. Port Connectivity Checks: "jump:JUMP2|Barrel_Shifter:G_RIGHT_SHIFT_PC"
-149. Port Connectivity Checks: "jump:JUMP2|nBitAdder:G_ADD"
-150. Port Connectivity Checks: "jump:JUMP2|Barrel_Shifter:G_RIGHT_SHIFT"
-151. Port Connectivity Checks: "jump:JUMP2|Barrel_Shifter:G_LEFT_SHIFT"
-152. Port Connectivity Checks: "PipelineShift:SHIFT|nBitAdder:G_ADD2"
-153. Port Connectivity Checks: "control:G_CTL"
-154. Port Connectivity Checks: "MIPSregister:G_REG|Nbit_reg:reg0"
-155. Port Connectivity Checks: "MIPSregister:G_REG|andg2N:and1"
-156. Port Connectivity Checks: "mux2t1_5bit:G_MUX_REGDST2"
-157. Port Connectivity Checks: "Fetch_Decode_Reg:IF_D"
-158. Port Connectivity Checks: "nBitAdder:INCREMENT_PC"
-159. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:31:REG"
-160. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:30:REG"
-161. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:29:REG"
-162. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:28:REG"
-163. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:27:REG"
-164. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:26:REG"
-165. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:25:REG"
-166. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:24:REG"
-167. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:23:REG"
-168. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:22:REG"
-169. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:21:REG"
-170. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:20:REG"
-171. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:19:REG"
-172. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:18:REG"
-173. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:17:REG"
-174. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:16:REG"
-175. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:15:REG"
-176. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:14:REG"
-177. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:13:REG"
-178. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:12:REG"
-179. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:11:REG"
-180. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:10:REG"
-181. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:9:REG"
-182. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:8:REG"
-183. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:7:REG"
-184. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:6:REG"
-185. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:5:REG"
-186. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:4:REG"
-187. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:3:REG"
-188. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:2:REG"
-189. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:1:REG"
-190. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:0:REG"
-191. Port Connectivity Checks: "pcRegister:PC_REG"
-192. Post-Synthesis Netlist Statistics for Top Partition
-193. Elapsed Time Per Partition
-194. Analysis & Synthesis Messages
+138. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|mux2t1_N:G_MUX_JAL2"
+139. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|nBitAdder:INCREMENT_PC"
+140. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|branch:G_BRANCH|nBitAdder:G_ADD2"
+141. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|branch:G_BRANCH|Extender:G_EXTEND"
+142. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|branch:G_BRANCH|nBitAdder:G_ADD"
+143. Port Connectivity Checks: "fetchLogic:G_FETCHLOGIC|nBitAdder:G_RA"
+144. Port Connectivity Checks: "Decode_Execute_Reg:D_EX"
+145. Port Connectivity Checks: "jump:JUMP2|nBitAdder:G_ADD2"
+146. Port Connectivity Checks: "jump:JUMP2|Barrel_Shifter:G_LEFT_SHIFT_PC"
+147. Port Connectivity Checks: "jump:JUMP2|Barrel_Shifter:G_RIGHT_SHIFT_PC"
+148. Port Connectivity Checks: "jump:JUMP2|nBitAdder:G_ADD"
+149. Port Connectivity Checks: "jump:JUMP2|Barrel_Shifter:G_RIGHT_SHIFT"
+150. Port Connectivity Checks: "jump:JUMP2|Barrel_Shifter:G_LEFT_SHIFT"
+151. Port Connectivity Checks: "PipelineShift:SHIFT|nBitAdder:G_ADD2"
+152. Port Connectivity Checks: "control:G_CTL"
+153. Port Connectivity Checks: "MIPSregister:G_REG|Nbit_reg:reg0"
+154. Port Connectivity Checks: "MIPSregister:G_REG|andg2N:and1"
+155. Port Connectivity Checks: "mux2t1_5bit:G_MUX_REGDST2"
+156. Port Connectivity Checks: "Fetch_Decode_Reg:IF_D"
+157. Port Connectivity Checks: "nBitAdder:INCREMENT_PC"
+158. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:31:REG"
+159. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:30:REG"
+160. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:29:REG"
+161. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:28:REG"
+162. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:27:REG"
+163. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:26:REG"
+164. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:25:REG"
+165. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:24:REG"
+166. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:23:REG"
+167. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:22:REG"
+168. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:21:REG"
+169. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:20:REG"
+170. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:19:REG"
+171. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:18:REG"
+172. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:17:REG"
+173. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:16:REG"
+174. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:15:REG"
+175. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:14:REG"
+176. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:13:REG"
+177. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:12:REG"
+178. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:11:REG"
+179. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:10:REG"
+180. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:9:REG"
+181. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:8:REG"
+182. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:7:REG"
+183. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:6:REG"
+184. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:5:REG"
+185. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:4:REG"
+186. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:3:REG"
+187. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:2:REG"
+188. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:1:REG"
+189. Port Connectivity Checks: "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:0:REG"
+190. Port Connectivity Checks: "pcRegister:PC_REG"
+191. Post-Synthesis Netlist Statistics for Top Partition
+192. Elapsed Time Per Partition
+193. Analysis & Synthesis Messages
 
 
 
@@ -226,7 +225,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Apr 26 16:40:49 2024           ;
+; Analysis & Synthesis Status        ; Successful - Sat Apr 27 11:32:31 2024           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Standard Edition ;
 ; Revision Name                      ; toolflow                                        ;
 ; Top-level Entity Name              ; MIPS_Processor                                  ;
@@ -3465,17 +3464,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Memory_WriteBack_Reg:MEM_WB"                                                            ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; i_we     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; o_branch ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; o_halt   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; o_jump   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; o_nextpc ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Memory_WriteBack_Reg:MEM_WB"                                                              ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; i_we       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_branch   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_halt     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_jump     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_nextpc   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -3504,15 +3504,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; i_d1[3..0] ; Input ; Info     ; Stuck at GND                ;
 ; i_d1[4]    ; Input ; Info     ; Stuck at VCC                ;
 +------------+-------+----------+-----------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "alu:G_ALU"                                                                                ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; o_overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -4086,7 +4077,7 @@ Info: Running Quartus Prime Analysis & Synthesis
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Fri Apr 26 16:37:27 2024
+    Info: Processing started: Sat Apr 27 11:29:05 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -4106,7 +4097,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/a
     Info (12022): Found design unit 1: Decode_Execute_Reg-structure File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd Line: 69
     Info (12023): Found entity 1: Decode_Execute_Reg File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd
-    Info (12022): Found design unit 1: Execute_Memory_Reg-structure File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd Line: 45
+    Info (12022): Found design unit 1: Execute_Memory_Reg-structure File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd Line: 47
     Info (12023): Found entity 1: Execute_Memory_Reg File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Extender.vhd
     Info (12022): Found design unit 1: Extender-behavior File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Extender.vhd Line: 21
@@ -4127,7 +4118,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/a
     Info (12022): Found design unit 1: MIPSregister-structural File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd Line: 20
     Info (12023): Found entity 1: MIPSregister File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd
-    Info (12022): Found design unit 1: Memory_WriteBack_Reg-structure File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd Line: 43
+    Info (12022): Found design unit 1: Memory_WriteBack_Reg-structure File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd Line: 45
     Info (12023): Found entity 1: Memory_WriteBack_Reg File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Memory_WriteBack_Reg.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd
     Info (12022): Found design unit 1: Nbit_dffg-mixed File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd Line: 15
@@ -4259,65 +4250,65 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/a
     Info (12022): Found design unit 1: xorg2-dataflow File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/xorg2.vhd Line: 31
     Info (12023): Found entity 1: xorg2 File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/xorg2.vhd Line: 23
 Info (12127): Elaborating entity "MIPS_Processor" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(454): object "s_Halt" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 454
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(457): object "s_Ovfl" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 457
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(471): object "s_j" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 471
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(486): object "s_ctlExt" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 486
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(489): object "s_flush" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 489
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(497): object "s_rtDec" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 497
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(498): object "s_rdDec" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 498
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(556): object "s_nextPCWB" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 556
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(561): object "s_jumpWB" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 561
-Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(564): object "s_branchWB" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 564
-Info (12128): Elaborating entity "mem" for hierarchy "mem:IMem" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 615
-Info (12128): Elaborating entity "org2" for hierarchy "org2:G_BRANCH_JUMP_OR" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 639
-Info (12128): Elaborating entity "mux2t1_N" for hierarchy "mux2t1_N:G_MUX_FIRST" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 645
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(458): object "s_Halt" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 458
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(461): object "s_Ovfl" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 461
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(475): object "s_j" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 475
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(490): object "s_ctlExt" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 490
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(493): object "s_flush" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 493
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(501): object "s_rtDec" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 501
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(502): object "s_rdDec" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 502
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(562): object "s_nextPCWB" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 562
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(567): object "s_jumpWB" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 567
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(570): object "s_branchWB" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 570
+Info (12128): Elaborating entity "mem" for hierarchy "mem:IMem" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 621
+Info (12128): Elaborating entity "org2" for hierarchy "org2:G_BRANCH_JUMP_OR" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 645
+Info (12128): Elaborating entity "mux2t1_N" for hierarchy "mux2t1_N:G_MUX_FIRST" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 651
 Info (12128): Elaborating entity "mux2t1_dataflow" for hierarchy "mux2t1_N:G_MUX_FIRST|mux2t1_dataflow:\G_NBit_MUX:0:MUXI" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/mux2t1_N.vhd Line: 43
-Info (12128): Elaborating entity "pcRegister" for hierarchy "pcRegister:PC_REG" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 652
+Info (12128): Elaborating entity "pcRegister" for hierarchy "pcRegister:PC_REG" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 658
 Info (12128): Elaborating entity "andg2" for hierarchy "pcRegister:PC_REG|andg2:G_AND1" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/pcRegister.vhd Line: 49
 Info (12128): Elaborating entity "Nbit_reg_PC" for hierarchy "pcRegister:PC_REG|Nbit_reg_PC:REG" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/pcRegister.vhd Line: 55
 Warning (10540): VHDL Signal Declaration warning at Nbit_reg_PC.vhd(28): used explicit default value for signal "s_R" because signal was never assigned a value File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd Line: 28
 Info (12128): Elaborating entity "dffg_PC" for hierarchy "pcRegister:PC_REG|Nbit_reg_PC:REG|dffg_PC:\G_NBit_Reg:0:REG" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Nbit_reg_PC.vhd Line: 34
 Warning (10492): VHDL Process Statement warning at dffg_PC.vhd(44): signal "i_RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd Line: 44
 Warning (10492): VHDL Process Statement warning at dffg_PC.vhd(45): signal "r_D" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/dffg_PC.vhd Line: 45
-Info (12128): Elaborating entity "nBitAdder" for hierarchy "nBitAdder:INCREMENT_PC" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 662
+Info (12128): Elaborating entity "nBitAdder" for hierarchy "nBitAdder:INCREMENT_PC" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 668
 Info (12128): Elaborating entity "fullAdder" for hierarchy "nBitAdder:INCREMENT_PC|fullAdder:ADDI" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/nBitAdder.vhd Line: 47
 Info (12128): Elaborating entity "xorg2" for hierarchy "nBitAdder:INCREMENT_PC|fullAdder:ADDI|xorg2:XOR1" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/fullAdder.vhd Line: 51
-Info (12128): Elaborating entity "Fetch_Decode_Reg" for hierarchy "Fetch_Decode_Reg:IF_D" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 676
+Info (12128): Elaborating entity "Fetch_Decode_Reg" for hierarchy "Fetch_Decode_Reg:IF_D" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 682
 Info (12128): Elaborating entity "Nbit_dffg" for hierarchy "Fetch_Decode_Reg:IF_D|Nbit_dffg:REG_INST1" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd Line: 93
 Warning (10492): VHDL Process Statement warning at Nbit_dffg.vhd(36): signal "i_RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd Line: 36
 Info (12128): Elaborating entity "Nbit_dffg" for hierarchy "Fetch_Decode_Reg:IF_D|Nbit_dffg:REG0" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Fetch_Decode_Reg.vhd Line: 111
 Warning (10492): VHDL Process Statement warning at Nbit_dffg.vhd(36): signal "i_RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd Line: 36
-Info (12128): Elaborating entity "mux2t1_5bit" for hierarchy "mux2t1_5bit:G_MUX_REGDST" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 700
-Info (12128): Elaborating entity "MIPSregister" for hierarchy "MIPSregister:G_REG" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 714
+Info (12128): Elaborating entity "mux2t1_5bit" for hierarchy "mux2t1_5bit:G_MUX_REGDST" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 706
+Info (12128): Elaborating entity "MIPSregister" for hierarchy "MIPSregister:G_REG" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 720
 Info (12128): Elaborating entity "decoder" for hierarchy "MIPSregister:G_REG|decoder:dec1" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd Line: 62
 Info (12128): Elaborating entity "andg2N" for hierarchy "MIPSregister:G_REG|andg2N:and1" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd Line: 66
 Info (12128): Elaborating entity "Nbit_reg" for hierarchy "MIPSregister:G_REG|Nbit_reg:reg0" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd Line: 76
 Info (12128): Elaborating entity "dffg" for hierarchy "MIPSregister:G_REG|Nbit_reg:reg0|dffg:\G_NBit_Reg:0:REG" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Nbit_reg.vhd Line: 31
 Warning (10492): VHDL Process Statement warning at dffg.vhd(35): signal "i_RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/dffg.vhd Line: 35
 Info (12128): Elaborating entity "my_32t1_mux" for hierarchy "MIPSregister:G_REG|my_32t1_mux:mux1" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPSregister.vhd Line: 96
-Info (12128): Elaborating entity "branchALU" for hierarchy "branchALU:G_BRANCH" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 727
-Info (12128): Elaborating entity "Extender" for hierarchy "Extender:EXTEND" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 735
-Info (12128): Elaborating entity "detectHazard" for hierarchy "detectHazard:HAZARD" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 741
-Info (12128): Elaborating entity "control" for hierarchy "control:G_CTL" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 763
-Info (12128): Elaborating entity "PipelineShift" for hierarchy "PipelineShift:SHIFT" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 789
+Info (12128): Elaborating entity "branchALU" for hierarchy "branchALU:G_BRANCH" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 733
+Info (12128): Elaborating entity "Extender" for hierarchy "Extender:EXTEND" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 741
+Info (12128): Elaborating entity "detectHazard" for hierarchy "detectHazard:HAZARD" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 747
+Info (12128): Elaborating entity "control" for hierarchy "control:G_CTL" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 769
+Info (12128): Elaborating entity "PipelineShift" for hierarchy "PipelineShift:SHIFT" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 795
 Warning (10036): Verilog HDL or VHDL warning at PipelineShift.vhd(43): object "carry1" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/PipelineShift.vhd Line: 43
 Info (12128): Elaborating entity "shift" for hierarchy "PipelineShift:SHIFT|shift:G_SHIFT" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/PipelineShift.vhd Line: 47
-Info (12128): Elaborating entity "jump" for hierarchy "jump:JUMP2" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 797
+Info (12128): Elaborating entity "jump" for hierarchy "jump:JUMP2" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 803
 Info (12128): Elaborating entity "Barrel_Shifter" for hierarchy "jump:JUMP2|Barrel_Shifter:G_LEFT_SHIFT" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/jump.vhd Line: 71
 Info (12128): Elaborating entity "mux2t1" for hierarchy "jump:JUMP2|Barrel_Shifter:G_LEFT_SHIFT|mux2t1:\G_MUX_1_SHIFT:0:MUXI" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Barrel_Shifter.vhd Line: 70
 Info (12128): Elaborating entity "invg" for hierarchy "jump:JUMP2|Barrel_Shifter:G_LEFT_SHIFT|mux2t1:\G_MUX_1_SHIFT:0:MUXI|invg:g_Not" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/mux2t1.vhd Line: 44
 Info (12128): Elaborating entity "mux2t1_N" for hierarchy "jump:JUMP2|mux2t1_N:G_MUX" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/jump.vhd Line: 119
-Info (12128): Elaborating entity "Decode_Execute_Reg" for hierarchy "Decode_Execute_Reg:D_EX" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 814
+Info (12128): Elaborating entity "Decode_Execute_Reg" for hierarchy "Decode_Execute_Reg:D_EX" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 820
 Info (12128): Elaborating entity "Nbit_dffg" for hierarchy "Decode_Execute_Reg:D_EX|Nbit_dffg:REG_Op" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Decode_Execute_Reg.vhd Line: 197
 Warning (10492): VHDL Process Statement warning at Nbit_dffg.vhd(36): signal "i_RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Nbit_dffg.vhd Line: 36
-Info (12128): Elaborating entity "mux3t1" for hierarchy "mux3t1:MUX1" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 886
-Info (12128): Elaborating entity "fetchLogic" for hierarchy "fetchLogic:G_FETCHLOGIC" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 902
+Info (12128): Elaborating entity "mux3t1" for hierarchy "mux3t1:MUX1" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 892
+Info (12128): Elaborating entity "fetchLogic" for hierarchy "fetchLogic:G_FETCHLOGIC" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 908
 Info (12128): Elaborating entity "branch" for hierarchy "fetchLogic:G_FETCHLOGIC|branch:G_BRANCH" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/fetchLogic.vhd Line: 140
 Warning (10036): Verilog HDL or VHDL warning at branch.vhd(59): object "carry1" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/branch.vhd Line: 59
 Warning (10036): Verilog HDL or VHDL warning at branch.vhd(60): object "carry2" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/branch.vhd Line: 60
-Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:G_FORWARD" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 917
-Info (12128): Elaborating entity "alu" for hierarchy "alu:G_ALU" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 928
+Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:G_FORWARD" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 923
+Info (12128): Elaborating entity "alu" for hierarchy "alu:G_ALU" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 934
 Warning (10036): Verilog HDL or VHDL warning at alu.vhd(145): object "s_addSubCarry" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/alu.vhd Line: 145
 Warning (10036): Verilog HDL or VHDL warning at alu.vhd(149): object "s_MSB" assigned a value but never read File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/alu.vhd Line: 149
 Warning (10540): VHDL Signal Declaration warning at alu.vhd(151): used explicit default value for signal "s_constShamt" because signal was never assigned a value File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/alu.vhd Line: 151
@@ -4330,10 +4321,10 @@ Info (12128): Elaborating entity "nBitAddSub" for hierarchy "alu:G_ALU|nBitAddSu
 Info (12128): Elaborating entity "onesComp" for hierarchy "alu:G_ALU|nBitAddSub:G_ADDSUB|onesComp:N_Bit_Inv" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd Line: 67
 Info (12128): Elaborating entity "nBitAdder" for hierarchy "alu:G_ALU|nBitAddSub:G_ADDSUB|nBitAdder:N_Bit_Adder" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/nBitAddSub.vhd Line: 82
 Info (12128): Elaborating entity "selectOperation" for hierarchy "alu:G_ALU|selectOperation:G_SELECT" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/alu.vhd Line: 241
-Info (12128): Elaborating entity "Execute_Memory_Reg" for hierarchy "Execute_Memory_Reg:EX_MEM" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 949
-Info (12128): Elaborating entity "Fivebit_dffg" for hierarchy "Execute_Memory_Reg:EX_MEM|Fivebit_dffg:REG_LOC" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd Line: 87
+Info (12128): Elaborating entity "Execute_Memory_Reg" for hierarchy "Execute_Memory_Reg:EX_MEM" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 955
+Info (12128): Elaborating entity "Fivebit_dffg" for hierarchy "Execute_Memory_Reg:EX_MEM|Fivebit_dffg:REG_LOC" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/Execute_Memory_Reg.vhd Line: 89
 Warning (10492): VHDL Process Statement warning at 5bit_dffg.vhd(37): signal "i_RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/5bit_dffg.vhd Line: 37
-Info (12128): Elaborating entity "Memory_WriteBack_Reg" for hierarchy "Memory_WriteBack_Reg:MEM_WB" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 992
+Info (12128): Elaborating entity "Memory_WriteBack_Reg" for hierarchy "Memory_WriteBack_Reg:MEM_WB" File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/MIPS_Processor.vhd Line: 1000
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "mem:DMem|ram" is uninferred due to asynchronous read logic File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/mem.vhd Line: 35
     Info (276007): RAM logic "mem:IMem|ram" is uninferred due to asynchronous read logic File: /home/abrahimt/CPR E 381/Project/cpr-e-381/proj/src/TopLevel/mem.vhd Line: 35
@@ -4372,9 +4363,9 @@ Info (21057): Implemented 115425 device resources after synthesis - the final re
     Info (21059): Implemented 32 output pins
     Info (21061): Implemented 115326 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 50 warnings
-    Info: Peak virtual memory: 1214 megabytes
-    Info: Processing ended: Fri Apr 26 16:40:51 2024
-    Info: Elapsed time: 00:03:24
-    Info: Total CPU time (on all processors): 00:03:29
+    Info: Peak virtual memory: 1216 megabytes
+    Info: Processing ended: Sat Apr 27 11:32:33 2024
+    Info: Elapsed time: 00:03:28
+    Info: Total CPU time (on all processors): 00:03:30
 
 
