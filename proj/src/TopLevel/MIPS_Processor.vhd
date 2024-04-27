@@ -281,6 +281,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_halt : IN STD_LOGIC; -- 
       i_branch : IN STD_LOGIC; -- 
       i_writeLocation : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_overFlow : IN STD_LOGIC;
+      o_overFlow : OUT STD_LOGIC;
       o_writeLocation : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
       o_branch : OUT STD_LOGIC; -- 
       o_halt : OUT STD_LOGIC; -- 
@@ -319,6 +321,8 @@ ARCHITECTURE structure OF MIPS_Processor IS
       i_halt : IN STD_LOGIC; -- 
       i_branch : IN STD_LOGIC; -- 
       i_writeLocation : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_overFlow : IN STD_LOGIC;
+      o_overFlow : OUT STD_LOGIC;
       o_writeLocation : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
       o_branch : OUT STD_LOGIC; -- 
       o_halt : OUT STD_LOGIC; -- 
@@ -529,6 +533,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_RegDstEx : STD_LOGIC;
   SIGNAL s_regWrEx : STD_LOGIC;
   SIGNAL s_haltEX : STD_LOGIC;
+  SIGNAL s_overflowEx : STD_LOGIC;
 
   --EXECUTE/MEMORY REG SIGNALS
   SIGNAL s_jalMem : STD_LOGIC;
@@ -547,6 +552,7 @@ ARCHITECTURE structure OF MIPS_Processor IS
   SIGNAL s_haltMem : STD_LOGIC;
   SIGNAL s_branchMem : STD_LOGIC;
   SIGNAL s_muxLocationMem : STD_LOGIC_VECTOR(4 DOWNTO 0);
+  signal s_overflowMem : std_logic;
 
   --MEMORY/WRITEBACK REG SIGNALS
   SIGNAL s_MemToRegWB : STD_LOGIC; -- goes to Execute from ID/EX register
@@ -941,7 +947,7 @@ BEGIN
     i_lui => s_luiEx, -- control signal from id/ex register
     i_shamt => s_shamtEx, -- shamt from id/ex register
     o_result => s_result, -- Intructions say to connect this here
-    o_overflow => s_Ovfl,
+    o_overflow => s_overflowEx,
     o_zero => s_notUsed);
 
   oALUOut <= s_result; -- ALU result signal that is used for other components
@@ -967,6 +973,8 @@ BEGIN
     i_halt => s_haltEx,
     i_branch => s_branchEx, -- 
     i_writeLocation => s_muxLocation, -- 
+    i_overFlow => s_overflowEx, -- 
+    o_overFlow => s_overflowMem, -- 
     o_writeLocation => s_muxLocationMem, -- 
     o_branch => s_branchMem, -- 
     o_halt => s_haltMem,
@@ -1009,6 +1017,8 @@ BEGIN
     i_halt => s_haltMem,
     i_branch => s_branchMem, --
     i_writeLocation => s_muxLocationMem, --
+    i_overFlow => s_overflowMem, --    
+    o_overFlow => s_Ovfl, --  
     o_writeLocation => s_muxLocationWB, --  
     o_branch => s_branchWB, -- 
     o_halt => s_Halt,

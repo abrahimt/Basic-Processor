@@ -25,6 +25,8 @@ ENTITY Execute_Memory_Reg IS
                 i_halt : IN STD_LOGIC; -- 
                 i_branch : IN STD_LOGIC;
                 i_writeLocation : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      i_overFlow : IN STD_LOGIC;
+      o_overFlow : OUT STD_LOGIC;
                 o_writeLocation : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
                 o_branch : OUT STD_LOGIC;
                 o_halt : OUT STD_LOGIC; -- 
@@ -141,6 +143,14 @@ BEGIN
                 i_WE => i_we, -- 
                 i_D => i_DmemData, --  input
                 o_Q => o_DmemDataOut);
+
+        REG_OVERFLOW : dffg
+        PORT MAP(
+                i_CLK => i_clk, -- Clock bit input
+                i_RST => i_rst, -- Reset bit input
+                i_WE => i_we, -- 
+                i_D => i_overFlow, -- write back input
+                o_Q => o_overFlow);
 
         REG_REGWR : dffg
         PORT MAP(
