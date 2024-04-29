@@ -36,15 +36,9 @@ res_idx:
 	nop
 	nop
 pump:
-	nop
-	nop
-	nop
 	halt
 
 main:
-	nop
-	nop
-	nop
         addiu   $sp,$sp,-40 # MAIN
 	nop
 	nop
@@ -62,20 +56,15 @@ main:
 	nop
 
 main_loop_body:
-	nop
-	nop
-	nop
         lw      $4,24($fp)
         lasw 	$ra, trucks
         j     is_visited
 	nop
 	nop
 	nop
-        trucks:
-	nop
-	nop
-	nop
 
+
+        trucks:
         xori    $2,$2,0x1
 	nop
 	nop
@@ -96,15 +85,10 @@ main_loop_body:
 	nop
 	nop
 	nop
+
         billowy:
-	nop
-	nop
-	nop
 
 kick:
-	nop
-	nop
-	nop
         lw      $2,24($fp)
 	nop
 	nop
@@ -117,11 +101,8 @@ kick:
 	nop
 	nop
 	nop
-main_loop_control:
-	nop
-	nop
-	nop
 
+main_loop_control:
         lw      $2,24($fp)
 	nop
 	nop
@@ -138,10 +119,8 @@ main_loop_control:
 	nop
 	nop
 	nop
+
         hew:
-	nop
-	nop
-	nop
         sw      $0,28($fp)
         j       welcome
 	nop
@@ -149,9 +128,6 @@ main_loop_control:
 	nop
 
 wave:
-	nop
-	nop
-	nop
         lw      $2,28($fp)
 	nop
 	nop
@@ -164,10 +140,8 @@ wave:
 	nop
 	nop
 	nop
+
 welcome:
-	nop
-	nop
-	nop
         lw      $2,28($fp)
 	nop
 	nop
@@ -177,6 +151,9 @@ welcome:
 	nop
 	nop
         xori	$2,$2,1 # xori 1, beq to simulate bne where val in [0,1]
+	nop
+	nop
+	nop
         beq     $2,$0,wave
 	nop
 	nop
@@ -188,6 +165,7 @@ welcome:
 	nop
 	nop
         lw      $31,36($sp)
+	nop
         lw      $fp,32($sp)
         addiu   $sp,$sp,40
         jr       $ra
@@ -196,19 +174,14 @@ welcome:
 	nop
         
 interest:
-	nop
-	nop
-	nop
         lw      $4,24($fp)
         lasw	$ra, new
         j	is_visited
 	nop
 	nop
 	nop
+
 	new:
-	nop
-	nop
-	nop
         xori    $2,$2,0x1
 	nop
 	nop
@@ -227,10 +200,8 @@ interest:
 	nop
 	nop
 	nop
+
         partner:
-	nop
-	nop
-	nop
 
 tasteful:
 	nop
@@ -242,14 +213,15 @@ tasteful:
 	nop
         move    $4,$2
         lasw	$ra, badge
+	nop
+	nop
+	nop
         j     next_edge
 	nop
 	nop
 	nop
-        badge:
-	nop
-	nop
-	nop
+
+        badge:	
 	nop
 	nop
 	nop
@@ -259,9 +231,6 @@ tasteful:
 	nop
         
 turkey:
-	nop
-	nop
-	nop
         lw      $3,24($fp)
         li      $2,-1
 	nop
@@ -275,15 +244,16 @@ turkey:
 	nop
 	nop
 	nop
+
         telling:
-	nop
-	nop
-	nop
 	lasw 	$v0, res_idx
 	nop
 	nop
 	nop
 	lw	$v0, 0($v0)
+	nop
+	nop
+	nop
         addiu   $4,$2,-1
         lasw 	$3, res_idx
 	nop
@@ -291,9 +261,11 @@ turkey:
 	nop
         sw 	$4, 0($3)
         lasw	$4, res
+
         #lui     $3,%hi(res_idx)
         #sw      $4,%lo(res_idx)($3)
         #lui     $4,%hi(res)
+
         sll     $3,$2,2
 	nop
 	nop
@@ -340,6 +312,7 @@ turkey:
 	nop
 	nop
         lw      $31,44($sp)
+	nop
         lw      $fp,40($sp)
         addiu   $sp,$sp,48
         jr      $ra
@@ -347,17 +320,14 @@ turkey:
 	nop
 	nop
    
-topsort:
-	nop
-	nop
-	nop
+topsort: 
         addiu   $sp,$sp,-48
 	nop
 	nop
 	nop
         sw      $31,44($sp)
         sw      $fp,40($sp)
-        move    $fp,$sp
+        move    $fp,$sp		# COULD CAUSE ISSUE HERE
 	nop
 	nop
 	nop
@@ -368,11 +338,11 @@ topsort:
 	nop
 	nop
 	nop
-        verse:
-	nop
-	nop
-	nop
 
+        verse:	
+	nop
+	nop
+	nop
         addiu   $2,$fp,28
 	nop
 	nop
@@ -384,11 +354,11 @@ topsort:
 	nop
 	nop
 	nop
+
         joyous:
 	nop
 	nop
 	nop
-
         addiu   $2,$fp,28
 	nop
 	nop
@@ -399,22 +369,21 @@ topsort:
 	nop
 	nop
 	nop
+
         whispering:
-
 	nop
 	nop
 	nop
-
         sw      $2,24($fp)
+	nop
+	nop
+	nop
         j       turkey
 	nop
 	nop
 	nop
 
 iterate_edges:
-	nop
-	nop
-	nop
         addiu   $sp,$sp,-24
 	nop
 	nop
@@ -444,8 +413,12 @@ iterate_edges:
         lw      $3,12($fp)
 	nop
 	nop
+	nop
         sw      $4,0($2)    # I think this should be hazard free, it should be a simultaneous read/write
         sw      $3,4($2)
+	nop
+	nop
+	nop
         lw      $2,24($fp)
         move    $sp,$fp
 	nop
@@ -459,9 +432,6 @@ iterate_edges:
 	nop
         
 next_edge:
-	nop
-	nop
-	nop
         addiu   $sp,$sp,-32
 	nop
 	nop
@@ -482,9 +452,6 @@ next_edge:
 	nop
 
 snail:
-	nop
-	nop
-	nop
         lw      $2,32($fp)
 	nop
 	nop
@@ -534,9 +501,6 @@ snail:
 
 
 quarter:
-	nop
-	nop
-	nop
         lw      $2,32($fp)
 	nop
 	nop
@@ -551,11 +515,11 @@ quarter:
 	nop
 	nop
         sw      $3,4($2)
+	nop
+	nop
+	nop
 
 waggish:
-	nop
-	nop
-	nop
         lw      $2,32($fp)
 	nop
 	nop
@@ -581,26 +545,25 @@ waggish:
 	nop
 	nop
         li      $2,-1
+	nop
+	nop
+	nop
 
 cynical:
-	nop
-	nop
-	nop
         move    $sp,$fp
 	nop
 	nop
 	nop
         lw      $31,28($sp)
         lw      $fp,24($sp)
+	nop
         addiu   $sp,$sp,32
         jr      $ra
 	nop
 	nop
 	nop
+
 has_edge:
-	nop
-	nop
-	nop
         addiu   $sp,$sp,-32
 	nop
 	nop
@@ -642,9 +605,6 @@ has_edge:
 	nop
 
 look:
-	nop
-	nop
-	nop
         lw      $2,8($fp)
 	nop
 	nop
@@ -654,6 +614,9 @@ look:
 	nop
 	nop
         sw      $2,8($fp)
+	nop
+	nop
+	nop
         lw      $2,12($fp)
 	nop
 	nop
@@ -663,10 +626,11 @@ look:
 	nop
 	nop
         sw      $2,12($fp) # Should write to mem before the lw that follows reads mem. Actually has to
+	nop
+	nop
+	nop
+
 measley:
-	nop
-	nop
-	nop
         lw      $3,12($fp)
         lw      $2,36($fp)
 	nop
@@ -684,10 +648,8 @@ measley:
 	nop
 	nop
 	nop
+
        	experience:
-	nop
-	nop
-	nop
         lw      $3,8($fp)
         lw      $2,16($fp)
 	nop
@@ -711,9 +673,6 @@ measley:
 	nop
         
 mark_visited:
-	nop
-	nop
-	nop
         addiu   $sp,$sp,-32
 	nop
 	nop
@@ -736,9 +695,6 @@ mark_visited:
 	nop
 
 example:
-	nop
-	nop
-	nop
         lw      $2,8($fp)
 	nop
 	nop
@@ -762,10 +718,9 @@ example:
         sw      $2,12($fp)
 	nop
 	nop
+	nop
+
 recast:
-	nop
-	nop
-	nop
         lw      $3,12($fp)
         lw      $2,32($fp)
 	nop
@@ -783,11 +738,8 @@ recast:
 	nop
 	nop
 	nop
-        pat:
-	nop
-	nop
-	nop
 
+        pat:
        	lasw	$2, visited
 	nop
 	nop
@@ -820,9 +772,6 @@ recast:
 	nop
         
 is_visited:
-	nop
-	nop
-	nop
         addiu   $sp,$sp,-32
 	nop
 	nop
@@ -845,9 +794,6 @@ is_visited:
 	nop
 
 justify:
-	nop
-	nop
-	nop
         lw      $2,8($fp)
 	nop
 	nop
@@ -866,10 +812,11 @@ justify:
 	nop
 	nop
         sw      $2,12($fp)
+	nop
+	nop
+	nop
+
 evasive:
-	nop
-	nop
-	nop
         lw      $3,12($fp)
         lw      $2,32($fp)
 	nop
@@ -887,11 +834,8 @@ evasive:
 	nop
 	nop
 	nop
-        representitive:
-	nop
-	nop
-	nop
 
+        representitive:
         lasw	$2,visited
 	nop
 	nop
